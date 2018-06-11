@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="employerCalcList"
+            type="com.example.jinsu.work2.viewmodel.MainViewModel"/>
+    </data>
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/employer_calc_list_layout"
+        android:fitsSystemWindows="true"
+        tools:openDrawer="start"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.Toolbar
+                        android:id="@+id/employer_calc_list_toolbar"
+                        android:layout_width="match_parent"
+                        android:padding="6dp"
+                        android:layout_height="15dp"
+                        android:visibility="gone"
+                        android:theme="@style/ThemeOverlay.AppCompat.Dark" />
+
+                </RelativeLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/white">
+                    <Button
+                        android:id="@+id/employer_calc_list_btn_drawer"
+                        android:onClick="@{employerCalcList::onBtnClick}"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_gravity="left|center"
+                        android:background="@drawable/menu"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="계산 저장함"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/employer_calc_list_btn_home"
+                        android:onClick="@{employerCalcList::onBtnClick}"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_gravity="end|center"
+                        android:background="@drawable/homeicon"
+                        />
+                </FrameLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="30dp">
+
+                    <TextView
+                        android:id="@+id/calc_save_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="17dp"
+                        android:text="@string/employer_calcluate_save"
+                        android:textSize="16sp"
+                        android:textColor="@color/maintext"/>
+
+                    <TextView
+                        android:id="@+id/employer_calc_list_txt_num"
+                        android:text="@{employerCalcList.calc_num}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@+id/calc_save_title"
+                        android:textSize="16sp"
+                        android:textColor="@color/colorPrimary"/>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/employer_calc_recycle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/employer_calc_list_txt_num"
+                        android:layout_marginTop="17dp">
+
+                    </android.support.v7.widget.RecyclerView>
+                </RelativeLayout>
+
+
+
+            </LinearLayout>
+
+
+
+        </ScrollView>
+        <include
+            android:id="@+id/employer_calc_list_drawer"
+            layout="@layout/navigation_drawer"/>
+
+    </android.support.v4.widget.DrawerLayout>
+</layout>

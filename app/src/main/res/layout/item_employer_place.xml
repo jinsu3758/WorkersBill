@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="297dp"
+    android:layout_height="143dp"
+    android:layout_marginTop="12dp"
+    android:layout_marginLeft="39dp"
+    android:layout_marginRight="39dp"
+    android:orientation="vertical"
+    android:id="@+id/employer_place_layout_place"
+    android:background="@drawable/round_corner">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="34dp"
+        android:text="회사명 받아온다"
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        android:id="@+id/employer_place_txt_name"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="34dp"
+        android:layout_marginRight="28dp"
+        android:text="회사 주소 받아온다"
+        android:textSize="13sp"
+        android:textColor="@color/black"
+        android:id="@+id/employer_place_txt_address"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="34dp"
+        android:layout_marginRight="28dp"
+        android:text="전화번호 받아온다"
+        android:textSize="13sp"
+        android:textColor="@color/black"
+        android:id="@+id/employer_place_txt_phone"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="34dp"
+        android:layout_marginRight="28dp"
+        android:text="대표 이름 받아온다"
+        android:textSize="13sp"
+        android:textColor="@color/black"
+        android:id="@+id/employer_place_txt_owner"/>
+
+</LinearLayout>

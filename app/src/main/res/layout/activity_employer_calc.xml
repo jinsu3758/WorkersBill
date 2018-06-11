@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="employerCalc"
+            type="com.example.jinsu.work2.viewmodel.MainViewModel"/>
+    </data>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!-- android:context=".employer_calculate" -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:background="@color/white">
+                <Button
+                    android:id="@+id/employer_calc_btn_back"
+                    android:onClick="@{employerCalc::onBtnClick}"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_gravity="left|center"
+                    android:background="@drawable/back_black"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="인건비 예측 시스템"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </FrameLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginTop="18dp"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/employer_calc_btn_load"
+                    android:onClick="@{employerCalc::onBtnClick}"
+                    android:layout_width="145dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/round_corner_green"
+                    android:text="기존 계산 불러오기"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="근무일수"
+                    android:textColor="@color/maintext"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/employer_calc_day"
+                    android:text="@={employerCalc.calc_day}"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/edittext_border"
+                    android:gravity="right|center_vertical"
+                    android:hint="일"
+                    android:inputType="number"
+                    android:paddingRight="16dp"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="근무일정"
+                        android:textColor="@color/maintext"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="@string/employer_calculate_sch"
+                        android:textSize="14sp"/>
+
+                </LinearLayout>
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.example.jinsu.work2.util.custom.WorkTimeView
+                        android:id="@+id/workTimeView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:readonly="true" />
+                </android.support.constraint.ConstraintLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="급여 계산 형태"
+                    android:layout_marginTop="12dp"
+                    android:textColor="@color/maintext"
+                    android:textSize="15sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/employer_calc_ch_hour"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:layout_weight="1"
+                        android:textColor="@color/subtext"
+                        android:onCheckedChanged="@{employerCalc.onCheckBoxChecked}"
+                        android:text="시급제" />
+
+                    <CheckBox
+                        android:id="@+id/employer_calc_ch_month"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:layout_weight="1"
+                        android:textColor="@color/subtext"
+                        android:onCheckedChanged="@{employerCalc.onCheckBoxChecked}"
+                        android:text="월급제" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="시급"
+                        android:layout_marginTop="12dp"
+                        android:textColor="@color/maintext"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginLeft="16dp"
+                        android:textSize="12sp"
+                        android:text="@string/employer_calculate_wage"/>
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/employer_calc_money"
+                    android:text="@={employerCalc.calc_money}"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/edittext_border"
+                    android:gravity="right|center_vertical"
+                    android:hint="원"
+                    android:inputType="number"
+                    android:paddingRight="16dp"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="시간당 휴게시간"
+                    android:textColor="@color/maintext"
+                    android:textSize="15sp" />
+
+                <Spinner
+                    android:id="@+id/spinner_calc_resttime"
+                    android:layout_marginTop="12dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </Spinner>
+
+                <Button
+                    android:id="@+id/employer_calc_btn_calc"
+                    android:onClick="@{employerCalc::onBtnClick}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="24dp"
+                    android:background="@color/colorPrimary"
+                    android:textColor="@color/background"
+                    android:textSize="17sp"
+                    android:text="계산해 보세요"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textColor="@color/maintext"
+                        android:text="법률에 따른 월 임금산정시간"
+                        />
+                    <TextView
+                        android:id="@+id/employer_calc_total_time"
+                        android:text="@{employerCalc.calc_total_time}"
+                        android:layout_width="64dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="36dp"
+                        android:background="@drawable/edittext_border_fill"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="시간"
+                        android:textColor="@color/maintext"
+                        android:layout_marginLeft="8dp"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="15dp"
+                    android:text="@string/employer_calculate_time"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="24dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="총 급여"
+                        android:textSize="14sp"
+                        android:textColor="@color/maintext"/>
+
+                    <TextView
+                        android:id="@+id/employer_calc_total_money"
+                        android:text="@{employerCalc.calc_total_money}"
+                        android:layout_width="170dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="40dp"
+                        android:background="@drawable/edittext_border_red"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginRight="20dp"
+                        android:text="원"
+                        android:textSize="14sp"
+                        android:textColor="@color/maintext"/>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="통상시급"
+                        android:textSize="14sp"
+                        android:textColor="@color/maintext"/>
+
+                    <TextView
+                        android:id="@+id/employer_calc_urgency"
+                        android:text="@{employerCalc.calc_urgency}"
+                        android:layout_width="170dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="40dp"
+                        android:background="@drawable/edittext_border"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginRight="20dp"
+                        android:text="원"
+                        android:textSize="14sp"
+                        android:textColor="@color/maintext"/>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="기본임금"
+                        android:textSize="14sp"
+                        android:textColor="@color/maintext"/>
+
+                    <TextView
+                        android:id="@+id/employer_calc_wage"
+                        android:text="@{employerCalc.calc_wage}"
+                        android:layout_width="170dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="40dp"
+                        android:background="@drawable/edittext_border"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginRight="20dp"
+                        android:text="원"
+                        android:textSize="14sp"
+                        android:textColor="@color/maintext"/>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="주휴수당"
+                        android:textSize="14sp"
+                        android:textColor="@color/maintext"/>
+
+                    <TextView
+                        android:id="@+id/employer_calc_week_wage"
+                        android:text="@{employerCalc.calc_week_wage}"
+                        android:layout_width="170dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="40dp"
+                        android:background="@drawable/edittext_border"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginRight="20dp"
+                        android:text="원"
+                        android:textSize="14sp"
+                        android:textColor="@color/maintext"/>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="연장수당"
+                        android:textSize="14sp"
+                        android:textColor="@color/maintext"/>
+
+                    <TextView
+                        android:id="@+id/employer_calc_plus_wage"
+                        android:text="@{employerCalc.calc_plus_wage}"
+                        android:layout_width="170dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="40dp"
+                        android:background="@drawable/edittext_border"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginRight="20dp"
+                        android:text="원"
+                        android:textSize="14sp"
+                        android:textColor="@color/maintext"/>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="30dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="야간수당"
+                        android:textSize="14sp"
+                        android:textColor="@color/maintext"/>
+
+                    <TextView
+                        android:id="@+id/employer_calc_night_wage"
+                        android:text="@{employerCalc.calc_night_wage}"
+                        android:layout_width="170dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="40dp"
+                        android:background="@drawable/edittext_border"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginRight="20dp"
+                        android:text="원"
+                        android:textSize="14sp"
+                        android:textColor="@color/maintext"/>
+
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="15dp"
+                    android:background="@drawable/edittext_border">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/maintext"
+                        android:textSize="15sp"
+                        android:text="@string/employer_calculate_notice1"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/maintext"
+                        android:textSize="15sp"
+                        android:text="@string/employer_calculate_notice2"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="급여를 줄이고 싶다면?"
+                    android:textSize="17sp"
+                    android:textColor="@color/maintext"
+                    android:layout_marginTop="27dp"
+                    android:layout_marginBottom="7dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="15dp"
+                    android:background="@drawable/edittext_border">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:textColor="@color/maintext"
+                        android:textSize="14sp"
+                        android:text="@string/employer_calculate_notice3"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/subtext"
+                        android:textSize="11sp"
+                        android:text="@string/employer_calculate_notice4"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:textColor="@color/maintext"
+                        android:textSize="14sp"
+                        android:text="@string/employer_calculate_notice5"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/subtext"
+                        android:textSize="11sp"
+                        android:text="@string/employer_calculate_notice6"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:textColor="@color/maintext"
+                        android:textSize="14sp"
+                        android:text="@string/employer_calculate_notice7"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/subtext"
+                        android:textSize="11sp"
+                        android:text="@string/employer_calculate_notice8"/>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="25dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/employer_calc_btn_save"
+                        android:onClick="@{employerCalc::onBtnClick}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginRight="6dp"
+                        android:layout_marginBottom="46dp"
+                        android:background="@color/colorPrimary"
+                        android:textColor="@color/background"
+                        android:textSize="17sp"
+                        android:text="저장 하기"/>
+
+                    <Button
+                        android:id="@+id/employer_calc_btn_write"
+                        android:onClick="@{employerCalc::onBtnClick}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginBottom="46dp"
+                        android:background="@color/colorPrimary"
+                        android:textColor="@color/background"
+                        android:textSize="17sp"
+                        android:text="바로 작성하기"/>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</layout>

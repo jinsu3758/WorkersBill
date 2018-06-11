@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="login"
+            type="com.example.jinsu.work2.viewmodel.MainViewModel"/>
+    </data>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="210dp"
+        android:layout_marginLeft="33dp"
+        android:text="로그인"
+        android:textSize="21sp"
+        android:textColor="#000000"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="33dp"
+        android:layout_marginRight="33dp">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:background="#48cfad"
+            android:gravity="center"
+            android:text="이메일 주소"
+            android:textSize="15sp"
+            android:textColor="@color/white"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="   예시.workers@naver.com"
+            android:textColorHint="#969696"
+            android:textSize="12sp"
+            android:background="@color/white"
+            android:text="@={login.login_edit_email}"
+            android:id="@+id/login_edit_email"/>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="184dp"
+        android:gravity="center"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        android:background="@drawable/round_button1"
+        android:onClick="@{login::onBtnClick}"
+        android:text="로그인하기"
+        android:id="@+id/login_btn_login"/>
+
+
+
+
+
+
+</LinearLayout>
+</layout>
