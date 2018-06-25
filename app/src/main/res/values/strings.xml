@@ -51,7 +51,7 @@
 
     <string name="employer_write_contract_4_name_er">(이하 ‘사업주’라함)과</string>
     <string name="employer_write_contract_4_name_ee">(이하 ‘근로자’라함)은 다음과 같이 계약을 체결한다.</string>
-    <string name="employer_write_contract_4_send">사업주는 근로계약을 체결함과 동시에 본 계약서를 사본하여 근로자의 교부요구와 관계없이 근로자에게 교부함 (근로기준법 제 17조 이행)</string>
+    <string name="employer_write_contract_write_fin">사업주는 근로계약을 체결함과 동시에 본 계약서를 사본하여 근로자의 교부요구와 관계없이 근로자에게 교부함 (근로기준법 제 17조 이행)</string>
     <string name="employer_write_contract_4_note">이 계약에 정함이 없는 사항은 근로기준법령에 의함</string>
     <string name="employer_write_contract_4_wagedate">휴일의 경우 전일 지급</string>
 

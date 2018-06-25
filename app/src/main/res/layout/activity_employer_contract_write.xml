@@ -172,15 +172,15 @@
 
                 <EditText
                     android:id="@+id/employer_contract_write_content"
-                    android:text="@={employerContractWrite.contract_write_content}"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginTop="8dp"
-                    android:paddingLeft="16dp"
                     android:background="@drawable/edittext_border"
                     android:ems="10"
+                    android:hint="예) SNS기획, 서빙, 계산원"
                     android:inputType="textPersonName"
-                    android:hint="예) SNS기획, 서빙, 계산원" />
+                    android:paddingLeft="16dp"
+                    android:text="@={employerContractWrite.contract_write_content}" />
 
                 <TextView
                     android:id="@+id/textView6"

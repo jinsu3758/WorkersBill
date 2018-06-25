@@ -91,6 +91,8 @@ public class MainViewModel extends ViewModel {
     public final ObservableField<String> contract_write_bonus = new ObservableField<>();
     public final ObservableField<String> contract_write_excess = new ObservableField<>();
 
+
+
     private String id;
     private User user;
     private String email;
@@ -241,6 +243,7 @@ public class MainViewModel extends ViewModel {
 
                     }
                 });
+
 
                 break;
             }
@@ -479,9 +482,107 @@ public class MainViewModel extends ViewModel {
                 }
                 break;
             }
+            case R.id.employer_contract_write_fin_ch_hour:
+            {
+                if(ischeckd)
+                {
+                }
+                else
+                {
+                }
+                break;
+            }
+            case R.id.employer_contract_write_fin_ch_month:
+            {
+                if(ischeckd)
+                {
+                }
+                else
+                {
+                }
+                break;
+            }
+            case R.id.employer_contract_write_fin_ch_pay_day:
+            {
+                if(ischeckd)
+                {
+                }
+                else
+                {
+                }
+                break;
+            }
+            case R.id.employer_contract_write_fin_ch_pay_month:
+            {
+                if(ischeckd)
+                {
+                }
+                else
+                {
+                }
+                break;
+            }
+            case R.id.employer_contract_write_fin_ch_pay_how1:
+            {
+                if(ischeckd)
+                {
+                }
+                else
+                {
+                }
+                break;
+            }
+            case R.id.employer_contract_write_fin_ch_pay_how2:
+            {
+                if(ischeckd)
+                {
+                }
+                else
+                {
+                }
+                break;
+            }
+            case R.id.employer_contract_write_fin_ch_insure1:
+            {
+                if(ischeckd)
+                {
+                }
+                else
+                {
+                }
+                break;
+            }
+            case R.id.employer_contract_write_fin_ch_insure2:
+            {
+                if(ischeckd)
+                {
+                }
+                else
+                {
+                }
+                break;
+            }
+            case R.id.employer_contract_write_fin_ch_insure3:
+            {
+                if(ischeckd)
+                {
+                }
+                else
+                {
+                }
+                break;
+            }
+            case R.id.employer_contract_write_fin_ch_insure4:
+            {
+                if(ischeckd)
+                {
+                }
+                else
+                {
+                }
+                break;
+            }
         }
-
-
     }
 
     public void getUsers(Context context)
@@ -546,6 +647,12 @@ public class MainViewModel extends ViewModel {
                 break;
             }
             case R.id.employer_create_place_btn_wifi:
+            {
+
+                callback.onBtnClick(view);
+                break;
+            }
+            case R.id.employer_fix_place_btn_create:
             {
 
                 callback.onBtnClick(view);
@@ -673,6 +780,7 @@ public class MainViewModel extends ViewModel {
 //    5인 이상 체크 함수
     public void onPlaceCheckd(RadioGroup radioGroup, int id)
     {
+
         if(id == R.id.employer_create_place_radio_one)
         {
             //5인 미만
