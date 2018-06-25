@@ -45,7 +45,7 @@ public class CalcSaveDialog extends Dialog {
     private void init()
     {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.dialog_calculation_title);
+        setContentView(R.layout.dialog_calc_save);
         btn_cancel = (Button)findViewById(R.id.dialog_calc_btn_cancel);
         btn_save = (Button)findViewById(R.id.dialog_calc_btn_save);
         btn_write = (Button)findViewById(R.id.dialog_calc_btn_write);

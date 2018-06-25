@@ -1,5 +1,6 @@
 package com.example.jinsu.work2.activity.employer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -24,10 +25,14 @@ public class EmployerContractWriteActivity extends AppCompatActivity implements 
         {
             case R.id.employer_contract_write_btn_back:
             {
+                super.onBackPressed();
+                finish();
                 break;
             }
             case R.id.employer_contract_write_btn_home:
             {
+                startActivity(new Intent(this,EmployerHomeActivity.class));
+                finish();
                 break;
             }
             case R.id.employer_contract_write_btn_save:

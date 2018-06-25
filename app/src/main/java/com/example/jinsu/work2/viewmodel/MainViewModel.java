@@ -326,7 +326,163 @@ public class MainViewModel extends ViewModel {
         user = mainRepository.initUser();
         user = mainRepository.getUser(id);
     }*/
+//    체크박스 함수
+    public void onCheckBoxChecked(View view, boolean ischeckd)
+    {
+        switch (view.getId())
+        {
+            case R.id.employer_create_place_check:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","체크x");
+                }
+                break;
+            }
+            case R.id.employer_create_place_switch:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","sw체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","sw체크x");
+                }
+                break;
+            }
+            case R.id.employer_calc_ch_hour:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","hour체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","hour체크x");
+                }
+                break;
+            }
+            case R.id.employer_calc_ch_month:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","mon체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","mon체크x");
+                }
+                break;
+            }
+            case R.id.employer_contract_write_ch_hour:
+            {
+                if(ischeckd)
+                {
+                }
+                else
+                {
+                }
+                break;
+            }
+            case R.id.employer_contract_write_ch_month:
+            {
+                if(ischeckd)
+                {
+                }
+                else
+                {
+                }
+                break;
+            }
+            case R.id.employer_contract_write_ch_pay_day:
+            {
+                if(ischeckd)
+                {
+                }
+                else
+                {
+                }
+                break;
+            }
+            case R.id.employer_contract_write_ch_pay_month:
+            {
+                if(ischeckd)
+                {
+                }
+                else
+                {
+                }
+                break;
+            }
+            case R.id.employer_contract_write_ch_pay_how1:
+            {
+                if(ischeckd)
+                {
+                }
+                else
+                {
+                }
+                break;
+            }
+            case R.id.employer_contract_write_ch_pay_how2:
+            {
+                if(ischeckd)
+                {
+                }
+                else
+                {
+                }
+                break;
+            }
+            case R.id.employer_contract_write_ch_insure1:
+            {
+                if(ischeckd)
+                {
+                }
+                else
+                {
+                }
+                break;
+            }
+            case R.id.employer_contract_write_ch_insure2:
+            {
+                if(ischeckd)
+                {
+                }
+                else
+                {
+                }
+                break;
+            }
+            case R.id.employer_contract_write_ch_insure3:
+            {
+                if(ischeckd)
+                {
+                }
+                else
+                {
+                }
+                break;
+            }
+            case R.id.employer_contract_write_ch_insure4:
+            {
+                if(ischeckd)
+                {
+                }
+                else
+                {
+                }
+                break;
+            }
+        }
 
+
+    }
 
     public void getUsers(Context context)
     {
@@ -527,55 +683,7 @@ public class MainViewModel extends ViewModel {
         }
     }
 
-//    와이파이, 주소 동일 체크함수
-    public void onCheckBoxChecked(View view, boolean ischeckd)
-    {
-        if(view.getId() == R.id.employer_create_place_check)
-        {
-            if(ischeckd)
-            {
-                Log.d("gogo","체크됨");
-            }
-            else
-            {
-                Log.d("gogo","체크x");
-            }
-        }
-        else if(view.getId() == R.id.employer_create_place_switch)
-        {
-            if(ischeckd)
-            {
-                Log.d("gogo","sw체크됨");
-            }
-            else
-            {
-                Log.d("gogo","sw체크x");
-            }
-        }
-        else if(view.getId() == R.id.employer_calc_ch_hour)
-        {
-            if(ischeckd)
-            {
-                Log.d("gogo","hour체크됨");
-            }
-            else
-            {
-                Log.d("gogo","hour체크x");
-            }
-        }
-        else
-        {
-            if(ischeckd)
-            {
-                Log.d("gogo","mon체크됨");
-            }
-            else
-            {
-                Log.d("gogo","mon체크x");
-            }
-        }
 
-    }
 
     /**
      *
@@ -592,6 +700,14 @@ public class MainViewModel extends ViewModel {
         int date = cal.get(Calendar.DATE);
         int hour = cal.get(Calendar.HOUR_OF_DAY);
         int min = cal.get(Calendar.MINUTE);
+
+        //데이터 삭제
+        /*realm.beginTransaction();
+        RealmResults<CalcContent> userList = realm.where(CalcContent.class).findAll();
+        userList.deleteAllFromRealm();
+        realm.commitTransaction();*/
+
+
 
         realm.beginTransaction();
         CalcContent calc = realm.createObject(CalcContent.class);
