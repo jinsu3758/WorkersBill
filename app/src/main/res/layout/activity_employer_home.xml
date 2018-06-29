@@ -24,7 +24,7 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:padding="6dp"
-                android:layout_height="?attr/actionBarSize"
+                android:layout_height="?android:attr/actionBarSize"
                 android:visibility="gone"
                 android:theme="@style/ThemeOverlay.AppCompat.Dark" />
 

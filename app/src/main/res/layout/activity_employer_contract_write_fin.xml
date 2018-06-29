@@ -316,8 +316,8 @@
                         android:text="매월" />
 
                     <EditText
-                        android:id="@+id/employer_contract_wirte_fin_ch_pay_month"
-                        android:text="@={employerContractWriteFin.contract_write_fin_ch_pay_month}"
+                        android:id="@+id/employer_contract_write_fin_edit_month"
+                        android:text="@={employerContractWriteFin.contract_write_fin_edit_month}"
                         android:layout_width="64dp"
                         android:layout_height="28dp"
                         android:background="@drawable/edittext_border"
@@ -333,7 +333,7 @@
                         android:onCheckedChanged="@{employerContractWriteFin.onCheckBoxChecked}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@id/employer_contract_wirte_fin_ch_pay_month"
+                        android:layout_toRightOf="@id/employer_contract_write_fin_edit_month"
                         android:layout_below="@+id/cont_text4"
                         android:layout_marginLeft="20dp"
                         android:layout_marginBottom="16dp"

@@ -1,6 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="employerHome"
+            type="com.example.jinsu.work2.viewmodel.MainViewModel"/>
+    </data>
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/employer_home_layout"
+        android:fitsSystemWindows="true"
+        tools:openDrawer="start"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:padding="6dp"
+                android:layout_height="?android:attr/actionBarSize"
+                android:visibility="gone"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark" />
+
+        </RelativeLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/contract_send_fin_toplayout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:background="@color/white">
+                <Button
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_gravity="left|center"
+                    android:background="@drawable/menu"
+                    android:id="@+id/menu"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="설정"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_gravity="end|center"
+                    android:background="@drawable/homeicon"
+                    android:id="@+id/home"/>
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="54dp"
+                android:layout_marginLeft="28dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/workplace"
+                    android:id="@+id/setup_imageview"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:text="사업장 정보"
+                    android:textSize="16sp"
+                    android:id="@+id/setup_profilname"/>
+            </LinearLayout>
+
+            <Button
+                android:layout_width="149dp"
+                android:layout_height="15dp"
+                android:layout_marginTop="150dp"
+                android:layout_marginLeft="28dp"
+                android:gravity="left"
+                android:background="@android:color/transparent"
+                android:textSize="13sp"
+                android:textColor="@color/black"
+                android:text="고객센터"
+                android:id="@+id/setup_cscenter"/>
+
+            <Button
+                android:layout_width="149dp"
+                android:layout_height="15dp"
+                android:layout_marginLeft="28dp"
+                android:layout_marginTop="25dp"
+                android:gravity="left"
+                android:background="@android:color/transparent"
+                android:textSize="13sp"
+                android:textColor="@color/black"
+                android:text="서비스 이용약관"
+                android:id="@+id/setup_policy" />
+
+            <Button
+                android:layout_width="149dp"
+                android:layout_height="15dp"
+                android:layout_marginLeft="28dp"
+                android:layout_marginTop="25dp"
+                android:gravity="left"
+                android:background="@android:color/transparent"
+                android:textSize="13sp"
+                android:textColor="@color/black"
+                android:text="개인정보 수집 및 이용"
+                android:id="@+id/setup_personinfo_notice"/>
+
+            <Button
+                android:layout_width="149dp"
+                android:layout_height="15dp"
+                android:layout_marginLeft="28dp"
+                android:layout_marginTop="25dp"
+                android:gravity="left"
+                android:background="@android:color/transparent"
+                android:textSize="13sp"
+                android:textColor="@color/black"
+                android:text="버전 정보"
+                android:id="@+id/setup_versioninfo"/>
+        </LinearLayout>
+
+
+
+        <include
+            android:id="@+id/employer_home_drawer"
+            layout="@layout/navigation_drawer"/>
+
+
+    </android.support.v4.widget.DrawerLayout>
+</layout>

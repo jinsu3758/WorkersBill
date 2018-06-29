@@ -20,7 +20,7 @@
             <android.support.v7.widget.Toolbar
                 android:id="@+id/webview_toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
+                android:layout_height="?android:attr/actionBarSize"
                 android:background="@color/toolbarColor"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true">
@@ -92,7 +92,7 @@
                     android:layout_marginBottom="4dp"
                     android:textSize="14sp"
                     android:hint="사업장 이름 (예. 주식회사 워커스빌)"
-                    android:text="@={employerfixplace.place_name}"/>
+                    android:text="@={employerfixplace.fix_place_name}"/>
 
                 <EditText
                     android:id="@+id/employer_fix_place_edit_num"
@@ -102,7 +102,7 @@
                     android:paddingLeft="16dp"
                     android:layout_marginBottom="4dp"
                     android:textSize="14sp"
-                    android:text="@={employerfixplace.place_num}"
+                    android:text="@={employerfixplace.fix_place_num}"
                     android:hint="사업장 등록번호 입력 '-'제외하고 10자리"/>
 
                 <EditText
@@ -113,7 +113,7 @@
                     android:paddingLeft="16dp"
                     android:layout_marginBottom="4dp"
                     android:textSize="14sp"
-                    android:text="@={employerfixplace.place_owner}"
+                    android:text="@={employerfixplace.fix_place_owner}"
                     android:hint="사업주 이름 (예. 홍길동)"/>
 
                 <EditText
@@ -124,7 +124,7 @@
                     android:paddingLeft="16dp"
                     android:layout_marginBottom="4dp"
                     android:textSize="14sp"
-                    android:text="@={employerfixplace.place_phone}"
+                    android:text="@={employerfixplace.fix_place_phone}"
                     android:hint="사업장 전화번호 '-'제외하고 입력"/>
 
                 <TextView
@@ -143,7 +143,7 @@
 
                     <EditText
                         android:id="@+id/employer_fix_place_edit_addr1"
-                        android:text="@={employerfixplace.place_addr_num}"
+                        android:text="@={employerfixplace.fix_place_addr_num}"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:background="@drawable/edittext_border"
@@ -163,7 +163,7 @@
 
                 <EditText
                     android:id="@+id/employer_fix_place_edit_addr2"
-                    android:text="@={employerfixplace.place_addr}"
+                    android:text="@={employerfixplace.fix_place_addr}"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:background="@drawable/edittext_border"
@@ -209,7 +209,7 @@
 
                     <EditText
                         android:id="@+id/employer_fix_place_edit_realaddr1"
-                        android:text="@={employerfixplace.place_realaddr_num}"
+                        android:text="@={employerfixplace.fix_place_realaddr_num}"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:background="@drawable/edittext_border"
@@ -230,7 +230,7 @@
 
                 <EditText
                     android:id="@+id/employer_fix_place_edit_realaddr2"
-                    android:text="@={employerfixplace.place_realaddr}"
+                    android:text="@={employerfixplace.fix_place_realaddr}"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:background="@drawable/edittext_border"
@@ -278,7 +278,7 @@
 
                     <EditText
                         android:id="@+id/employer_fix_place_edit_wifi"
-                        android:text="@={employerfixplace.place_wifi}"
+                        android:text="@={employerfixplace.fix_place_wifi}"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:background="@drawable/edittext_border"
@@ -311,8 +311,6 @@
                         android:background="@color/maincolor"
                         android:text="수정하기"
                         android:textSize="17dp" />
-
-
                 </LinearLayout>
 
             </LinearLayout>

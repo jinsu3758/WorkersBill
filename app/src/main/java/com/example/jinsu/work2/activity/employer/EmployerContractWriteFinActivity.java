@@ -35,7 +35,7 @@ public class EmployerContractWriteFinActivity extends AppCompatActivity implemen
                 break;
             }
             case R.id.employer_contract_write_fin_btn_send:
-            {
+            {//전송완료 화면 떠야한다
                 break;
             }
         }

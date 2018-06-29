@@ -398,6 +398,19 @@
                         android:layout_marginBottom="16dp"
                         android:text="매월" />
 
+                    <EditText
+                        android:id="@+id/employer_contract_write_edit_month"
+                        android:text="@={employerContractWrite.contract_write_edit_month}"
+                        android:layout_width="64dp"
+                        android:layout_height="28dp"
+                        android:background="@drawable/edittext_border"
+                        android:layout_toRightOf="@id/employer_contract_write_ch_pay_month"
+                        android:layout_below="@id/cont_text4"
+                        android:paddingRight="12dp"
+                        android:gravity="right|center_vertical"
+                        android:hint="일"
+                        android:textSize="14sp"/>
+
                     <CheckBox
                         android:id="@+id/employer_contract_write_ch_pay_day"
                         android:onCheckedChanged="@{employerContractWrite.onCheckBoxChecked}"
