@@ -10,6 +10,7 @@ import android.view.View;
 import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.databinding.ActivityEmployerCalcBinding;
 import com.example.jinsu.work2.dialog.CalcSaveDialog;
+import com.example.jinsu.work2.dialog.CalcWriteDialog;
 import com.example.jinsu.work2.util.CallonClick;
 import com.example.jinsu.work2.viewmodel.MainViewModel;
 import com.example.jinsu.work2.viewmodel.VIewModelFactory;
@@ -46,35 +47,65 @@ public class EmployerCalcActivity extends AppCompatActivity implements CallonCli
             }
             case R.id.employer_calc_btn_load:
             {
-                startActivity(new Intent(getBaseContext(),EmployerCalcListActivity.class));
+                startActivity(new Intent(this,EmployerCalcListActivity.class));
                 break;
             }
             case R.id.employer_calc_btn_calc:
             {
+
                 break;
             }
             case R.id.employer_calc_btn_save:
             {
                 CalcSaveDialog dialog = new CalcSaveDialog(this, new CalcSaveDialog.onBtnCallback() {
-                @Override
-                public void onSave(String name) {
-                    mainViewModel.onSaveCalc(name);
-                    startActivity(new Intent(getBaseContext(),EmployerCalcListActivity.class));
-                }
+                    @Override
+                    public void onSave(String name) {
+                        mainViewModel.onSaveCalc(name);
+                        startActivity(new Intent(getBaseContext(),EmployerCalcListActivity.class));
+                    }
 
-                @Override
-                public void onWrite() {
+                    @Override
+                    public void onWrite() {
 
-                }
-                 });
+                    }
+                });
                 dialog.show();
                 break;
             }
             case R.id.employer_calc_btn_write:
             {
+                CalcWriteDialog dialog = new CalcWriteDialog(this, new CalcWriteDialog.onBtnCallback() {
+                    @Override
+                    public void onSave() {
+                        onSaved();
+                    }
+
+                    @Override
+                    public void onContinue() {
+                        startActivity(new Intent(getBaseContext(),EmployerContractWriteActivity.class));
+                    }
+                });
+                dialog.show();
                 break;
             }
         }
+    }
+
+    private void onSaved()
+    {
+        CalcSaveDialog dialog = new CalcSaveDialog(this, new CalcSaveDialog.onBtnCallback() {
+            @Override
+            public void onSave(String name) {
+                mainViewModel.onSaveCalc(name);
+                startActivity(new Intent(getBaseContext(),EmployerCalcListActivity.class));
+            }
+
+            @Override
+            public void onWrite() {
+
+            }
+        });
+        dialog.show();
     }
 
     @Override

@@ -10,6 +10,7 @@ import android.view.View;
 
 import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.databinding.ActivityEmployerContractSelectBinding;
+import com.example.jinsu.work2.dialog.DataSelectDialog;
 import com.example.jinsu.work2.util.CallonClick;
 import com.example.jinsu.work2.viewmodel.MainViewModel;
 import com.example.jinsu.work2.viewmodel.VIewModelFactory;
@@ -59,8 +60,19 @@ public class EmployerContractSelectActivity extends AppCompatActivity implements
                 break;
             }
             case R.id.employer_contract_select_btn_load:
-            {
+            {Log.v("태그1","1111111111111111");
+                DataSelectDialog dialog = new DataSelectDialog(this, new DataSelectDialog.onBtnCallback() {
+                    @Override
+                    public void onCalc() {Log.v("태그3","333333");
+                        startActivity(new Intent(getApplicationContext(),EmployerCalcListActivity.class));
+                    }
 
+                    @Override
+                    public void onContract() {
+
+                    }
+                });
+                dialog.show();
                 break;
             }
             case R.id.employer_contract_select_btn_calc:
@@ -69,8 +81,8 @@ public class EmployerContractSelectActivity extends AppCompatActivity implements
                 break;
             }
             case R.id.employer_contract_select_btn_now:
-            {
-
+            {Log.v("태그", "666666666666");
+                startActivity(new Intent(this,EmployerContractWriteActivity.class));
                 break;
             }
         }

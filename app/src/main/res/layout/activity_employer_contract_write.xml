@@ -172,15 +172,15 @@
 
                 <EditText
                     android:id="@+id/employer_contract_write_content"
-                    android:text="@={employerContractWrite.contract_write_content}"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginTop="8dp"
-                    android:paddingLeft="16dp"
                     android:background="@drawable/edittext_border"
                     android:ems="10"
+                    android:hint="예) SNS기획, 서빙, 계산원"
                     android:inputType="textPersonName"
-                    android:hint="예) SNS기획, 서빙, 계산원" />
+                    android:paddingLeft="16dp"
+                    android:text="@={employerContractWrite.contract_write_content}" />
 
                 <TextView
                     android:id="@+id/textView6"
@@ -288,7 +288,8 @@
                     android:orientation="horizontal">
 
                     <CheckBox
-                        android:id="@+id/cb_paytype_Time"
+                        android:id="@+id/employer_contract_write_ch_hour"
+                        android:onCheckedChanged="@{employerContractWrite.onCheckBoxChecked}"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -296,7 +297,8 @@
                         android:text="시급제" />
 
                     <CheckBox
-                        android:id="@+id/cb_paytype_Month"
+                        android:id="@+id/employer_contract_write_ch_month"
+                        android:onCheckedChanged="@{employerContractWrite.onCheckBoxChecked}"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -388,15 +390,30 @@
                     android:orientation="horizontal">
 
                     <CheckBox
-                        android:id="@+id/cb_pay_month"
+                        android:id="@+id/employer_contract_write_ch_pay_month"
+                        android:onCheckedChanged="@{employerContractWrite.onCheckBoxChecked}"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginBottom="16dp"
                         android:text="매월" />
 
+                    <EditText
+                        android:id="@+id/employer_contract_write_edit_month"
+                        android:text="@={employerContractWrite.contract_write_edit_month}"
+                        android:layout_width="64dp"
+                        android:layout_height="28dp"
+                        android:background="@drawable/edittext_border"
+                        android:layout_toRightOf="@id/employer_contract_write_ch_pay_month"
+                        android:layout_below="@id/cont_text4"
+                        android:paddingRight="12dp"
+                        android:gravity="right|center_vertical"
+                        android:hint="일"
+                        android:textSize="14sp"/>
+
                     <CheckBox
-                        android:id="@+id/cb_pay_day"
+                        android:id="@+id/employer_contract_write_ch_pay_day"
+                        android:onCheckedChanged="@{employerContractWrite.onCheckBoxChecked}"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -421,7 +438,8 @@
                     android:orientation="horizontal">
 
                     <CheckBox
-                        android:id="@+id/cb_pay_how_1"
+                        android:id="@+id/employer_contract_write_ch_pay_how1"
+                        android:onCheckedChanged="@{employerContractWrite.onCheckBoxChecked}"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -429,7 +447,8 @@
                         android:text="직접 지급" />
 
                     <CheckBox
-                        android:id="@+id/cb_pay_how_2"
+                        android:id="@+id/employer_contract_write_ch_pay_how2"
+                        android:onCheckedChanged="@{employerContractWrite.onCheckBoxChecked}"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -454,7 +473,8 @@
                     android:orientation="horizontal">
 
                     <CheckBox
-                        android:id="@+id/cb_insurance1"
+                        android:id="@+id/employer_contract_write_ch_insure1"
+                        android:onCheckedChanged="@{employerContractWrite.onCheckBoxChecked}"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -462,7 +482,8 @@
                         android:text="고용보험" />
 
                     <CheckBox
-                        android:id="@+id/cb_insurance2"
+                        android:id="@+id/employer_contract_write_ch_insure2"
+                        android:onCheckedChanged="@{employerContractWrite.onCheckBoxChecked}"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -477,7 +498,8 @@
                     android:orientation="horizontal">
 
                     <CheckBox
-                        android:id="@+id/cb_insurance3"
+                        android:id="@+id/employer_contract_write_ch_insure3"
+                        android:onCheckedChanged="@{employerContractWrite.onCheckBoxChecked}"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -485,7 +507,8 @@
                         android:text="국민연금" />
 
                     <CheckBox
-                        android:id="@+id/cb_insurance4"
+                        android:id="@+id/employer_contract_write_ch_insure4"
+                        android:onCheckedChanged="@{employerContractWrite.onCheckBoxChecked}"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"

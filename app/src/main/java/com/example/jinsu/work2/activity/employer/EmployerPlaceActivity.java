@@ -35,6 +35,7 @@ public class EmployerPlaceActivity extends AppCompatActivity implements CallonCl
         super.onCreate(savedInstanceState);
         initActivity();
         initRecyclerView();
+
     }
 
     @Override

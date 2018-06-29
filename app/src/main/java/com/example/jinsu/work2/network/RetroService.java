@@ -1,5 +1,6 @@
 package com.example.jinsu.work2.network;
 
+import com.example.jinsu.work2.model.Test;
 import com.example.jinsu.work2.model.User;
 
 import java.util.ArrayList;
@@ -24,5 +25,7 @@ public interface RetroService {
     @POST("/users/{EMAIL}")
     Call<String> postUser(@Path("EMAIL") String id);
 
+    @GET("controller/findId/")
+    Call<Test> onLogin(@Query("id") String id);
 
 }
