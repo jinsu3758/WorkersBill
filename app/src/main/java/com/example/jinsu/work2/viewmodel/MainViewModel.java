@@ -64,6 +64,20 @@ public class MainViewModel extends ViewModel {
     public final ObservableField<String> place_wifi = new ObservableField<>();
     private EmployerPlace employerPlace;
 
+//    EmployerFixPlaceActivity
+    public final ObservableField<String> fix_place_name = new ObservableField<>();
+    public final ObservableField<String> fix_place_num = new ObservableField<>();
+    public final ObservableField<String> fix_place_owner = new ObservableField<>();
+    public final ObservableField<String> fix_place_phone = new ObservableField<>();
+    public final ObservableField<String> fix_place_addr_num = new ObservableField<>();
+    public final ObservableField<String> fix_place_addr = new ObservableField<>();
+    public final ObservableField<String> fix_place_realaddr_num = new ObservableField<>();
+    public final ObservableField<String> fix_place_realaddr = new ObservableField<>();
+    public final ObservableField<String> fix_place_wifi = new ObservableField<>();
+    //private EmployerPlace employerFixPlace;
+
+
+
 //    EmployerCalcActivity
     public final ObservableField<String> calc_day = new ObservableField<>();
     public final ObservableField<String> calc_money = new ObservableField<>();
@@ -90,6 +104,12 @@ public class MainViewModel extends ViewModel {
     public final ObservableField<String> contract_write_wage = new ObservableField<>();
     public final ObservableField<String> contract_write_bonus = new ObservableField<>();
     public final ObservableField<String> contract_write_excess = new ObservableField<>();
+    public final ObservableField<String> contract_write_edit_month = new ObservableField<>();
+
+//    EmployerContractWiteFinActivity
+public final ObservableField<String> contract_write_fin_edit_month = new ObservableField<>();
+
+
 
     private String id;
     private User user;
@@ -227,6 +247,58 @@ public class MainViewModel extends ViewModel {
                 });
             }
 
+            case "EmployerFixPlaceActivity":
+            {
+                fix_place_name.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+                    @Override
+                    public void onPropertyChanged(Observable sender, int propertyId) {
+
+                    }
+                });
+                fix_place_owner.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+                    @Override
+                    public void onPropertyChanged(Observable sender, int propertyId) {
+
+                    }
+                });
+                fix_place_addr.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+                    @Override
+                    public void onPropertyChanged(Observable sender, int propertyId) {
+
+                    }
+                });
+                fix_place_addr_num.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+                    @Override
+                    public void onPropertyChanged(Observable sender, int propertyId) {
+
+                    }
+                });
+                fix_place_phone.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+                    @Override
+                    public void onPropertyChanged(Observable sender, int propertyId) {
+
+                    }
+                });
+                fix_place_realaddr.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+                    @Override
+                    public void onPropertyChanged(Observable sender, int propertyId) {
+
+                    }
+                });
+                fix_place_realaddr_num.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+                    @Override
+                    public void onPropertyChanged(Observable sender, int propertyId) {
+
+                    }
+                });
+                fix_place_wifi.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+                    @Override
+                    public void onPropertyChanged(Observable sender, int propertyId) {
+
+                    }
+                });
+            }
+
             case "EmployerCalcActivity":
             {
                 calc_day.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
@@ -241,6 +313,7 @@ public class MainViewModel extends ViewModel {
 
                     }
                 });
+
 
                 break;
             }
@@ -312,9 +385,28 @@ public class MainViewModel extends ViewModel {
 
                     }
                 });
+                contract_write_edit_month.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+                    @Override
+                    public void onPropertyChanged(Observable sender, int propertyId) {
+
+                    }
+                });
 
                 break;
             }
+
+            case "EmployerContractWriteFinActivity":
+            {
+                contract_write_fin_edit_month.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+                    @Override
+                    public void onPropertyChanged(Observable sender, int propertyId) {
+
+                    }
+                });
+
+                break;
+            }
+
             default:
                 break;
         }
@@ -355,6 +447,32 @@ public class MainViewModel extends ViewModel {
                 }
                 break;
             }
+
+            case R.id.employer_fix_place_check:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","체크x");
+                }
+                break;
+            }
+            case R.id.employer_fix_place_switch:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","sw체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","sw체크x");
+                }
+                break;
+            }
+
             case R.id.employer_calc_ch_hour:
             {
                 if(ischeckd)
@@ -383,9 +501,11 @@ public class MainViewModel extends ViewModel {
             {
                 if(ischeckd)
                 {
+                    Log.d("gogo","hour체크됨");
                 }
                 else
                 {
+                    Log.d("gogo","hour체크x");
                 }
                 break;
             }
@@ -393,9 +513,11 @@ public class MainViewModel extends ViewModel {
             {
                 if(ischeckd)
                 {
+                    Log.d("gogo","month체크됨");
                 }
                 else
                 {
+                    Log.d("gogo","month체크x");
                 }
                 break;
             }
@@ -403,9 +525,11 @@ public class MainViewModel extends ViewModel {
             {
                 if(ischeckd)
                 {
+                    Log.d("gogo","pay_day체크됨");
                 }
                 else
                 {
+                    Log.d("gogo","pay_day체크x");
                 }
                 break;
             }
@@ -413,9 +537,11 @@ public class MainViewModel extends ViewModel {
             {
                 if(ischeckd)
                 {
+                    Log.d("gogo","pay_month체크됨");
                 }
                 else
                 {
+                    Log.d("gogo","pay_month체크x");
                 }
                 break;
             }
@@ -423,9 +549,11 @@ public class MainViewModel extends ViewModel {
             {
                 if(ischeckd)
                 {
+                    Log.d("gogo","pay_how1체크됨");
                 }
                 else
                 {
+                    Log.d("gogo","pay_how1체크x");
                 }
                 break;
             }
@@ -433,9 +561,11 @@ public class MainViewModel extends ViewModel {
             {
                 if(ischeckd)
                 {
+                    Log.d("gogo","pay_how2체크됨");
                 }
                 else
                 {
+                    Log.d("gogo","pay_how2체크x");
                 }
                 break;
             }
@@ -443,9 +573,11 @@ public class MainViewModel extends ViewModel {
             {
                 if(ischeckd)
                 {
+                    Log.d("gogo","insure1체크됨");
                 }
                 else
                 {
+                    Log.d("gogo","insure1체크x");
                 }
                 break;
             }
@@ -453,9 +585,11 @@ public class MainViewModel extends ViewModel {
             {
                 if(ischeckd)
                 {
+                    Log.d("gogo","insure2체크됨");
                 }
                 else
                 {
+                    Log.d("gogo","insure2체크x");
                 }
                 break;
             }
@@ -463,9 +597,11 @@ public class MainViewModel extends ViewModel {
             {
                 if(ischeckd)
                 {
+                    Log.d("gogo","insure3체크됨");
                 }
                 else
                 {
+                    Log.d("gogo","insure3체크x");
                 }
                 break;
             }
@@ -473,15 +609,136 @@ public class MainViewModel extends ViewModel {
             {
                 if(ischeckd)
                 {
+                    Log.d("gogo","insure4체크됨");
                 }
                 else
                 {
+                    Log.d("gogo","insure4체크x");
+                }
+                break;
+            }
+            //employer_contract_write_fin activity
+            case R.id.employer_contract_write_fin_ch_hour:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","houre체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","houre체크x");
+                }
+                break;
+            }
+            case R.id.employer_contract_write_fin_ch_month:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","month체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","month체크x");
+                }
+                break;
+            }
+            case R.id.employer_contract_write_fin_ch_pay_day:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","pay_day체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","pay_day체크x");
+                }
+                break;
+            }
+            case R.id.employer_contract_write_fin_ch_pay_month:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","pay_month체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","pay_month체크x");
+                }
+                break;
+            }
+            case R.id.employer_contract_write_fin_ch_pay_how1:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","how1체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","how1체크x");
+                }
+                break;
+            }
+            case R.id.employer_contract_write_fin_ch_pay_how2:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","how2체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","how2체크x");
+                }
+                break;
+            }
+            case R.id.employer_contract_write_fin_ch_insure1:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","insure1체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","insure1체크x");
+                }
+                break;
+            }
+            case R.id.employer_contract_write_fin_ch_insure2:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","insure2체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","insure2체크x");
+                }
+                break;
+            }
+            case R.id.employer_contract_write_fin_ch_insure3:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","insure3체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","insure3체크x");
+                }
+                break;
+            }
+            case R.id.employer_contract_write_fin_ch_insure4:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","insure4체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","insure4체크x");
                 }
                 break;
             }
         }
-
-
     }
 
     public void getUsers(Context context)
@@ -551,6 +808,28 @@ public class MainViewModel extends ViewModel {
                 callback.onBtnClick(view);
                 break;
             }
+            case R.id.employer_fix_place_btn_create:
+            {
+                employerPlace = new EmployerPlace(fix_place_name.get(),fix_place_addr.get(),fix_place_phone.get(),fix_place_owner.get());
+                EmployerRepository.getInstance().addEmployerPlace(employerPlace);
+                callback.onBtnClick(view);
+                break;
+            }
+
+            case R.id.employer_contract_write_btn_write:
+            {Log.v("태그", "55555555555555555555555");
+
+                callback.onBtnClick(view);
+                break;
+            }
+
+            case R.id.employer_contract_select_btn_load:
+            {Log.v("태그2","22222222222222");
+
+                callback.onBtnClick(view);
+                break;
+            }
+
             default:
             {
                 callback.onBtnClick(view);
@@ -673,7 +952,13 @@ public class MainViewModel extends ViewModel {
 //    5인 이상 체크 함수
     public void onPlaceCheckd(RadioGroup radioGroup, int id)
     {
+
         if(id == R.id.employer_create_place_radio_one)
+        {
+            //5인 미만
+        }
+
+        else if(id == R.id.employer_fix_place_radio_one)
         {
             //5인 미만
         }

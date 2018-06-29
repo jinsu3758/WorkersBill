@@ -434,7 +434,7 @@
                 android:layout_below="@id/cont_text7"
                 android:layout_marginBottom="24dp"
                 android:textSize="14sp"
-                android:text="@string/employer_write_contract_4_send"/>
+                android:text="@string/employer_write_contract_write_fin"/>
 
             <TextView
                 android:id="@+id/cont_text8"

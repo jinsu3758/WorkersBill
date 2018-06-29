@@ -2,7 +2,7 @@
 <layout>
     <data>
         <variable
-            name="employercreateplace"
+            name="employerfixplace"
             type="com.example.jinsu.work2.viewmodel.MainViewModel"/>
     </data>
 
@@ -21,7 +21,7 @@
                 android:id="@+id/webview_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?android:attr/actionBarSize"
-                android:background="@color/maincolor"
+                android:background="@color/toolbarColor"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true">
 
@@ -30,15 +30,16 @@
                     android:layout_height="18dp"
                     android:layout_marginLeft="23dp"
                     android:layout_marginRight="16dp"
-                    android:background="@drawable/whiteback"
-                    android:onClick="@{employercreateplace::onBtnClick}"
-                    android:id="@+id/employer_create_place_btn_back"/>
+                    android:background="@drawable/backicon"
+                    android:onClick="@{employerfixplace::onBtnClick}"
+                    android:id="@+id/employer_fix_place_btn_back"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="사업장 생성"
-                    android:textColor="#ffffff"
+                    android:layout_gravity="center"
+                    android:text="사업장 정보 수정"
+                    android:textColor="@color/black"
                     android:textSize="18sp"/>
             </android.support.v7.widget.Toolbar>
 
@@ -60,11 +61,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:onCheckedChanged="@{employercreateplace.onPlaceCheckd}"
+                    android:onCheckedChanged="@{employerfixplace.onPlaceCheckd}"
                     android:layout_marginBottom="26dp">
 
                     <RadioButton
-                        android:id="@+id/employer_create_place_radio_one"
+                        android:id="@+id/employer_fix_place_radio_one"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -72,7 +73,7 @@
                         android:text="5인 미만 사업장"
                         />
                     <RadioButton
-                        android:id="@+id/employer_create_place_radio_two"
+                        android:id="@+id/employer_fix_place_radio_two"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -83,7 +84,7 @@
                 </RadioGroup>
 
                 <EditText
-                    android:id="@+id/employer_create_place_edit_name"
+                    android:id="@+id/employer_fix_place_edit_name"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:background="@drawable/border_green_fill_trans"
@@ -91,39 +92,39 @@
                     android:layout_marginBottom="4dp"
                     android:textSize="14sp"
                     android:hint="사업장 이름 (예. 주식회사 워커스빌)"
-                    android:text="@={employercreateplace.place_name}"/>
+                    android:text="@={employerfixplace.fix_place_name}"/>
 
                 <EditText
-                    android:id="@+id/employer_create_place_edit_num"
+                    android:id="@+id/employer_fix_place_edit_num"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:background="@drawable/edittext_border"
                     android:paddingLeft="16dp"
                     android:layout_marginBottom="4dp"
                     android:textSize="14sp"
-                    android:text="@={employercreateplace.place_num}"
+                    android:text="@={employerfixplace.fix_place_num}"
                     android:hint="사업장 등록번호 입력 '-'제외하고 10자리"/>
 
                 <EditText
-                    android:id="@+id/employer_create_place_edit_owner"
+                    android:id="@+id/employer_fix_place_edit_owner"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:background="@drawable/edittext_border"
                     android:paddingLeft="16dp"
                     android:layout_marginBottom="4dp"
                     android:textSize="14sp"
-                    android:text="@={employercreateplace.place_owner}"
+                    android:text="@={employerfixplace.fix_place_owner}"
                     android:hint="사업주 이름 (예. 홍길동)"/>
 
                 <EditText
-                    android:id="@+id/employer_create_place_edit_phone"
+                    android:id="@+id/employer_fix_place_edit_phone"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:background="@drawable/edittext_border"
                     android:paddingLeft="16dp"
                     android:layout_marginBottom="4dp"
                     android:textSize="14sp"
-                    android:text="@={employercreateplace.place_phone}"
+                    android:text="@={employerfixplace.fix_place_phone}"
                     android:hint="사업장 전화번호 '-'제외하고 입력"/>
 
                 <TextView
@@ -141,8 +142,8 @@
                     android:layout_marginBottom="4dp">
 
                     <EditText
-                        android:id="@+id/employer_create_place_edit_addr1"
-                        android:text="@={employercreateplace.place_addr_num}"
+                        android:id="@+id/employer_fix_place_edit_addr1"
+                        android:text="@={employerfixplace.fix_place_addr_num}"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:background="@drawable/edittext_border"
@@ -151,18 +152,18 @@
                         android:hint="우편번호 찾기"/>
 
                     <Button
-                        android:id="@+id/employer_create_place_btn_addr"
+                        android:id="@+id/employer_fix_place_btn_addr"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:background="@drawable/img_find"
                         android:layout_gravity="right|center_vertical"
-                        android:onClick="@{employercreateplace::onBtnClick}"
+                        android:onClick="@{employerfixplace::onBtnClick}"
                         android:layout_marginRight="10dp"/>
                 </FrameLayout>
 
                 <EditText
-                    android:id="@+id/employer_create_place_edit_addr2"
-                    android:text="@={employercreateplace.place_addr}"
+                    android:id="@+id/employer_fix_place_edit_addr2"
+                    android:text="@={employerfixplace.fix_place_addr}"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:background="@drawable/edittext_border"
@@ -187,7 +188,7 @@
                         android:text="사업장 실제 주소"/>
 
                     <CheckBox
-                        android:id="@+id/employer_create_place_check"
+                        android:id="@+id/employer_fix_place_check"
                         android:layout_width="wrap_content"
                         android:layout_height="18dp"
                         android:layout_toRightOf="@+id/real_add"
@@ -195,7 +196,7 @@
                         android:text="위 주소와 동일"
                         android:textSize="13sp"
                         android:textColor="@color/subtext"
-                        android:onCheckedChanged="@{employercreateplace.onCheckBoxChecked}"
+                        android:onCheckedChanged="@{employerfixplace.onCheckBoxChecked}"
                         />
 
 
@@ -207,8 +208,8 @@
                     android:layout_marginBottom="4dp">
 
                     <EditText
-                        android:id="@+id/employer_create_place_edit_realaddr1"
-                        android:text="@={employercreateplace.place_realaddr_num}"
+                        android:id="@+id/employer_fix_place_edit_realaddr1"
+                        android:text="@={employerfixplace.fix_place_realaddr_num}"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:background="@drawable/edittext_border"
@@ -217,8 +218,8 @@
                         android:hint="우편번호 찾기"/>
 
                     <Button
-                        android:id="@+id/employer_create_place_btn_addr2"
-                        android:onClick="@{employercreateplace::onBtnClick}"
+                        android:id="@+id/employer_fix_place_btn_addr2"
+                        android:onClick="@{employerfixplace::onBtnClick}"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:background="@drawable/img_find"
@@ -228,8 +229,8 @@
                 </FrameLayout>
 
                 <EditText
-                    android:id="@+id/employer_create_place_edit_realaddr2"
-                    android:text="@={employercreateplace.place_realaddr}"
+                    android:id="@+id/employer_fix_place_edit_realaddr2"
+                    android:text="@={employerfixplace.fix_place_realaddr}"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:background="@drawable/edittext_border"
@@ -260,12 +261,12 @@
                         android:textColor="@color/subtext"
                         android:text="출, 퇴근용 와이파이 사용"/>
                     <Switch
-                        android:id="@+id/employer_create_place_switch"
+                        android:id="@+id/employer_fix_place_switch"
                         android:layout_width="wrap_content"
                         android:layout_height="14dp"
                         android:layout_marginRight="5dp"
                         android:checked="true"
-                        android:onCheckedChanged="@{employercreateplace.onCheckBoxChecked}"
+                        android:onCheckedChanged="@{employerfixplace.onCheckBoxChecked}"
                         />
 
                 </LinearLayout>
@@ -276,8 +277,8 @@
                     android:layout_marginBottom="20dp">
 
                     <EditText
-                        android:id="@+id/employer_create_place_edit_wifi"
-                        android:text="@={employercreateplace.place_wifi}"
+                        android:id="@+id/employer_fix_place_edit_wifi"
+                        android:text="@={employerfixplace.fix_place_wifi}"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:background="@drawable/edittext_border"
@@ -286,8 +287,8 @@
                         android:hint="ip 주소"/>
 
                     <Button
-                        android:id="@+id/employer_create_place_btn_wifi"
-                        android:onClick="@{employercreateplace::onBtnClick}"
+                        android:id="@+id/employer_fix_place_btn_wifi"
+                        android:onClick="@{employerfixplace::onBtnClick}"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@drawable/round_corner_button_green"
@@ -298,22 +299,18 @@
 
                 </FrameLayout>
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_marginRight="20dp"
-                    >
+                    android:layout_width="match_parent"
+                    android:layout_height="39dp"
+                    android:layout_gravity="right">
                     <Button
-                        android:id="@+id/employer_create_place_btn_create"
-                        android:onClick="@{employercreateplace::onBtnClick}"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/employer_fix_place_btn_create"
+                        android:onClick="@{employerfixplace::onBtnClick}"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center"
-                        android:background="@android:color/transparent"
-                        android:text="생성하기  〉"
+                        android:background="@color/maincolor"
+                        android:text="수정하기"
                         android:textSize="17dp" />
-
-
                 </LinearLayout>
 
             </LinearLayout>

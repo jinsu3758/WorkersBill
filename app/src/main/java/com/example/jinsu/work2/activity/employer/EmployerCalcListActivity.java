@@ -8,6 +8,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
 import android.view.View;
 
 import com.example.jinsu.work2.R;
@@ -75,6 +76,7 @@ public class EmployerCalcListActivity extends AppCompatActivity implements Callo
         }
         else if(view.getId() == R.id.employer_calc_list_btn_home)
         {
+            Log.v("태그9","999999999");
             startActivity(new Intent(this,EmployerHomeActivity.class));
             finish();
         }
