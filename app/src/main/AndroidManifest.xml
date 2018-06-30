@@ -45,7 +45,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.employer.EmployerCreatePlaceActivity" />
-        <activity android:name=".activity.employer.EmployerFixPlaceActivity" />
+        <activity android:name=".activity.employer.EmployerFixPlaceActivity">
+
+        </activity>
         <activity android:name=".activity.employer.EmployerHomeActivity" />
         <activity android:name=".activity.employer.EmployerCalcActivity" />
         <activity android:name=".activity.employer.EmployerContractSelectActivity" />

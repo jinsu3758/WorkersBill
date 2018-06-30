@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="9dp"
+    android:paddingLeft="50dp">
+    
+    <ImageView
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:src="@drawable/profile"
+        android:id="@+id/boss_contract_cabinet_image"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="18dp"
+        android:text="김아무개"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:id="@+id/boss_contract_cabinet_name"/>
+</LinearLayout>
