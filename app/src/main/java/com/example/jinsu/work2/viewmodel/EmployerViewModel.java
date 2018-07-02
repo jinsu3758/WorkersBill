@@ -635,127 +635,7 @@ public class EmployerViewModel extends ViewModel {
                 }
                 break;
             }
-            //employer_contract_write_fin activity
-            case R.id.employer_contract_write_fin_ch_hour:
-            {
-                if(ischeckd)
-                {
-                    Log.d("gogo","houre체크됨");
-                }
-                else
-                {
-                    Log.d("gogo","houre체크x");
-                }
-                break;
-            }
-            case R.id.employer_contract_write_fin_ch_month:
-            {
-                if(ischeckd)
-                {
-                    Log.d("gogo","month체크됨");
-                }
-                else
-                {
-                    Log.d("gogo","month체크x");
-                }
-                break;
-            }
-            case R.id.employer_contract_write_fin_ch_pay_day:
-            {
-                if(ischeckd)
-                {
-                    Log.d("gogo","pay_day체크됨");
-                }
-                else
-                {
-                    Log.d("gogo","pay_day체크x");
-                }
-                break;
-            }
-            case R.id.employer_contract_write_fin_ch_pay_month:
-            {
-                if(ischeckd)
-                {
-                    Log.d("gogo","pay_month체크됨");
-                }
-                else
-                {
-                    Log.d("gogo","pay_month체크x");
-                }
-                break;
-            }
-            case R.id.employer_contract_write_fin_ch_pay_how1:
-            {
-                if(ischeckd)
-                {
-                    Log.d("gogo","how1체크됨");
-                }
-                else
-                {
-                    Log.d("gogo","how1체크x");
-                }
-                break;
-            }
-            case R.id.employer_contract_write_fin_ch_pay_how2:
-            {
-                if(ischeckd)
-                {
-                    Log.d("gogo","how2체크됨");
-                }
-                else
-                {
-                    Log.d("gogo","how2체크x");
-                }
-                break;
-            }
-            case R.id.employer_contract_write_fin_ch_insure1:
-            {
-                if(ischeckd)
-                {
-                    Log.d("gogo","insure1체크됨");
-                }
-                else
-                {
-                    Log.d("gogo","insure1체크x");
-                }
-                break;
-            }
-            case R.id.employer_contract_write_fin_ch_insure2:
-            {
-                if(ischeckd)
-                {
-                    Log.d("gogo","insure2체크됨");
-                }
-                else
-                {
-                    Log.d("gogo","insure2체크x");
-                }
-                break;
-            }
-            case R.id.employer_contract_write_fin_ch_insure3:
-            {
-                if(ischeckd)
-                {
-                    Log.d("gogo","insure3체크됨");
-                }
-                else
-                {
-                    Log.d("gogo","insure3체크x");
-                }
-                break;
-            }
-            case R.id.employer_contract_write_fin_ch_insure4:
-            {
-                if(ischeckd)
-                {
-                    Log.d("gogo","insure4체크됨");
-                }
-                else
-                {
-                    Log.d("gogo","insure4체크x");
-                }
-                break;
-            }
+
         }
     }
 
@@ -828,8 +708,6 @@ public class EmployerViewModel extends ViewModel {
             }
             case R.id.employer_fix_place_btn_create:
             {
-                employerPlace = new EmployerPlace(fix_place_name.get(),fix_place_addr.get(),fix_place_phone.get(),fix_place_owner.get());
-                EmployerRepository.getInstance().addEmployerPlace(employerPlace);
                 callback.onBtnClick(view);
                 break;
             }

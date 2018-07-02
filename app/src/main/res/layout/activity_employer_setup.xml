@@ -5,8 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
-            name="employerHome"
-            type="com.example.jinsu.work2.viewmodel.EmployerViewModel"/>
+            name="employerSetup"
+            type="com.example.jinsu.work2.viewmodel.MainViewModel"/>
     </data>
 
     <android.support.v4.widget.DrawerLayout
@@ -49,7 +49,8 @@
                     android:layout_marginLeft="25dp"
                     android:layout_gravity="left|center"
                     android:background="@drawable/menu"
-                    android:id="@+id/menu"/>
+                    android:id="@+id/employer_setup_btn_drawer"
+                    android:onClick="@{employerSetup::onBtnClick}"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -66,7 +67,8 @@
                     android:layout_marginRight="25dp"
                     android:layout_gravity="end|center"
                     android:background="@drawable/homeicon"
-                    android:id="@+id/home"/>
+                    android:id="@+id/employer_setup_btn_home"
+                    android:onClick="@{employerSetup::onBtnClick}"/>
 
             </FrameLayout>
 
@@ -88,7 +90,8 @@
                     android:background="@android:color/transparent"
                     android:text="사업장 정보"
                     android:textSize="16sp"
-                    android:id="@+id/setup_profilname"/>
+                    android:id="@+id/employer_setup_btn_workplace_info"
+                    android:onClick="@{employerSetup::onBtnClick}" />
             </LinearLayout>
 
             <Button
@@ -101,7 +104,8 @@
                 android:textSize="13sp"
                 android:textColor="@color/black"
                 android:text="고객센터"
-                android:id="@+id/setup_cscenter"/>
+                android:id="@+id/employer_setup_btn_cscenter"
+                android:onClick="@{employerSetup::onBtnClick}"/>
 
             <Button
                 android:layout_width="149dp"
@@ -113,7 +117,8 @@
                 android:textSize="13sp"
                 android:textColor="@color/black"
                 android:text="서비스 이용약관"
-                android:id="@+id/setup_policy" />
+                android:id="@+id/employer_setup_btn_policy"
+                android:onClick="@{employerSetup::onBtnClick}"/>
 
             <Button
                 android:layout_width="149dp"
@@ -125,7 +130,8 @@
                 android:textSize="13sp"
                 android:textColor="@color/black"
                 android:text="개인정보 수집 및 이용"
-                android:id="@+id/setup_personinfo_notice"/>
+                android:id="@+id/employer_setup_btn_notice"
+                android:onClick="@{employerSetup::onBtnClick}"/>
 
             <Button
                 android:layout_width="149dp"
@@ -137,7 +143,8 @@
                 android:textSize="13sp"
                 android:textColor="@color/black"
                 android:text="버전 정보"
-                android:id="@+id/setup_versioninfo"/>
+                android:id="@+id/employer_setup_btn_version_info"
+                android:onClick="@{employerSetup::onBtnClick}"/>
         </LinearLayout>
 
 

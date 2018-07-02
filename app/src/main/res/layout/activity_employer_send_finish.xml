@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="employerSendFinish"
+            type="com.example.jinsu.work2.viewmodel.MainViewModel"/>
+    </data>
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/employer_home_layout"
+        android:fitsSystemWindows="true"
+        tools:openDrawer="start"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:padding="6dp"
+                android:layout_height="?android:attr/actionBarSize"
+                android:visibility="gone"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark" />
+
+        </RelativeLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/contract_send_fin_toplayout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:background="@color/white">
+                <Button
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_gravity="left|center"
+                    android:background="@drawable/menu"
+                    android:id="@+id/employer_send_finish_btn_drawer"
+                    android:onClick="@{employerSendFinish::onBtnClick}"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="계약서 작성하기"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_gravity="end|center"
+                    android:background="@drawable/homeicon"
+                    android:id="@+id/employer_send_finish_btn_home"
+                    android:onClick="@{employerSendFinish::onBtnClick}"/>
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:adjustViewBounds="true"
+                    android:layout_gravity="center"
+                    android:src="@drawable/img_mail" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:text="@string/employer_send_1"
+                    android:textColor="@color/maintext"
+                    android:textSize="17sp"
+                    android:layout_gravity="center"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:text="@string/employer_send_2"
+                    android:textColor="@color/subtext"
+                    android:textSize="12sp"
+                    android:layout_gravity="center"/>
+
+                <Button
+                    android:layout_width="22dp"
+                    android:layout_height="20dp"
+                    android:adjustViewBounds="true"
+                    android:layout_marginTop="75dp"
+                    android:background="@drawable/img_home"
+                    android:layout_gravity="center"
+                    android:id="@+id/employer_send_finish_btn_home2"
+                    android:onClick="@{employerSendFinish::onBtnClick}"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/go_home"
+                    android:textSize="15sp"
+                    android:layout_gravity="center"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+        <include
+            android:id="@+id/employer_home_drawer"
+            layout="@layout/navigation_drawer"/>
+
+
+    </android.support.v4.widget.DrawerLayout>
+</layout>

@@ -123,6 +123,54 @@
         >
 
         <ImageView
+            android:layout_width="17dp"
+            android:layout_height="23dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/contract_icon" />
+
+        <Button
+            android:id="@+id/contract_cabinet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="계약서 보관함"
+            android:textColor="#222222"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="39dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/calculate_icon" />
+
+        <Button
+            android:id="@+id/calc_cabinet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="계산 저장함"
+            android:textColor="#222222"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="39dp"
+        android:orientation="horizontal">
+
+        <ImageView
             android:layout_width="23dp"
             android:layout_height="23dp"
             android:layout_gravity="center"
