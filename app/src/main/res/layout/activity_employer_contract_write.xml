@@ -405,7 +405,7 @@
                         android:layout_height="28dp"
                         android:background="@drawable/edittext_border"
                         android:layout_toRightOf="@id/employer_contract_write_ch_pay_month"
-                        android:layout_below="@id/cont_text4"
+                        android:layout_below="@id/textView13"
                         android:paddingRight="12dp"
                         android:gravity="right|center_vertical"
                         android:hint="일"

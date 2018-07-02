@@ -87,4 +87,12 @@
     <string name="friday">금</string>
     <string name="saturday">토</string>
     <string name="sunday">일</string>
+
+    <string name="additional_wage_notice">연장근무, 휴일근무, 야간근무(\n오루 10시 ~ 오전 6시) 했을 때\n
+        사업주는 통상임금의 1.5배를 가산\n하여 지급해야 합니다.\n(1.5배 이상 가산하여 지급해도 무방)</string>
+    <string name="additional_wage_notice_low">* 근로기준법 제 56조 (연장,야간 및 휴일근로)\n연장근로와 야간근로(오후 10시부터 오전 6시까지\n
+사이의 근로) 또는 휴일근로에 대하여는 통상임금의\n100분의 50이상을 가산하여 지급해야 한다.</string>
+    <string name="monthly_pay">1개월 단위로 산정하여 지급하는\n임금제도</string>
+    <string name="hourly_pay">임금이 시간단위로 결정되는 임금\n형태로 1시간 단위의 임금에\n실노동시간을 곱하여 임금을 계산\n,지급하는 형태이다.</string>
+
 </resources>
