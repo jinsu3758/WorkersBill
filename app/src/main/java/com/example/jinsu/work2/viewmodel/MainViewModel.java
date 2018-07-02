@@ -810,8 +810,6 @@ public final ObservableField<String> contract_write_fin_edit_month = new Observa
             }
             case R.id.employer_fix_place_btn_create:
             {
-                employerPlace = new EmployerPlace(fix_place_name.get(),fix_place_addr.get(),fix_place_phone.get(),fix_place_owner.get());
-                EmployerRepository.getInstance().addEmployerPlace(employerPlace);
                 callback.onBtnClick(view);
                 break;
             }

@@ -38,20 +38,29 @@
         <activity
             android:name=".activity.employer.EmployerPlaceActivity"
             android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity android:name=".activity.employer.EmployerCreatePlaceActivity" />
+        <activity android:name=".activity.employer.EmployerFixPlaceActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.employer.EmployerCreatePlaceActivity" />
-        <activity android:name=".activity.employer.EmployerFixPlaceActivity" />
         <activity android:name=".activity.employer.EmployerHomeActivity" />
         <activity android:name=".activity.employer.EmployerCalcActivity" />
-        <activity android:name=".activity.employer.EmployerContractSelectActivity" />
-        <activity android:name=".activity.employer.EmployerCalcListActivity" />
+        <activity android:name=".activity.employer.EmployerContractSelectActivity" >
+
+        </activity>
+        <activity android:name=".activity.employer.EmployerCalcListActivity" >
+        </activity>
         <activity android:name=".activity.employer.EmployerContractWriteActivity"></activity>
-        <activity android:name=".activity.employer.EmployerContractWriteFinActivity"></activity>
+        <activity android:name=".activity.employer.EmployerSetupActivity">        </activity>
+        <activity android:name=".activity.employer.EmployerSendFinishActivity">
+
+        </activity>
+
     </application>
 
 </manifest>
