@@ -9,12 +9,12 @@ import android.view.View;
 import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.databinding.ActivityEmployerCreatePlaceBinding;
 import com.example.jinsu.work2.util.CallonClick;
-import com.example.jinsu.work2.viewmodel.MainViewModel;
+import com.example.jinsu.work2.viewmodel.EmployerViewModel;
 import com.example.jinsu.work2.viewmodel.VIewModelFactory;
 
 public class EmployerCreatePlaceActivity extends AppCompatActivity implements CallonClick {
     private ActivityEmployerCreatePlaceBinding binding;
-    private MainViewModel mainViewModel;
+    private EmployerViewModel employerViewModel;
     private VIewModelFactory vIewModelFactory;
 
     @Override
@@ -27,8 +27,8 @@ public class EmployerCreatePlaceActivity extends AppCompatActivity implements Ca
     {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_employer_create_place);
         vIewModelFactory = new VIewModelFactory(this);
-        mainViewModel = ViewModelProviders.of(this,vIewModelFactory).get(MainViewModel.class);
-        binding.setEmployercreateplace(mainViewModel);
+        employerViewModel = ViewModelProviders.of(this,vIewModelFactory).get(EmployerViewModel.class);
+        binding.setEmployercreateplace(employerViewModel);
     }
 
 
@@ -53,6 +53,7 @@ public class EmployerCreatePlaceActivity extends AppCompatActivity implements Ca
             }
             case R.id.employer_create_place_btn_wifi:
             {
+                employerViewModel.getWifi();
                 break;
             }
             case R.id.employer_create_place_btn_create:

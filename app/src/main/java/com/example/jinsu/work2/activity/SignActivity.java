@@ -10,13 +10,13 @@ import android.view.View;
 import com.example.jinsu.work2.util.CallonClick;
 import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.databinding.ActivitySignBinding;
-import com.example.jinsu.work2.viewmodel.MainViewModel;
+import com.example.jinsu.work2.viewmodel.EmployerViewModel;
 import com.example.jinsu.work2.viewmodel.VIewModelFactory;
 
 public class SignActivity extends AppCompatActivity implements CallonClick {
 
     private ActivitySignBinding binding;
-    private MainViewModel mainViewModel;
+    private EmployerViewModel employerViewModel;
     private VIewModelFactory factory;
 
     @Override
@@ -29,8 +29,8 @@ public class SignActivity extends AppCompatActivity implements CallonClick {
     {
         binding = DataBindingUtil.setContentView(this,R.layout.activity_sign);
         factory = new VIewModelFactory(this);
-        mainViewModel = ViewModelProviders.of(this,factory).get(MainViewModel.class);
-        binding.setSign(mainViewModel);
+        employerViewModel = ViewModelProviders.of(this,factory).get(EmployerViewModel.class);
+        binding.setSign(employerViewModel);
     }
 
     @Override
@@ -41,7 +41,7 @@ public class SignActivity extends AppCompatActivity implements CallonClick {
         {
             binding.layoutDrawView.buildDrawingCache();
             Bitmap bitmap = binding.layoutDrawView.getDrawingCache();
-            mainViewModel.savdSign(this,bitmap);
+            employerViewModel.savdSign(this,bitmap);
         }
         //서명 지우기
         else

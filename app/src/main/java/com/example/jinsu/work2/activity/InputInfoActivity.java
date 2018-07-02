@@ -10,13 +10,13 @@ import android.view.View;
 import com.example.jinsu.work2.util.CallonClick;
 import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.databinding.ActivityInputinfoBinding;
-import com.example.jinsu.work2.viewmodel.MainViewModel;
+import com.example.jinsu.work2.viewmodel.EmployerViewModel;
 import com.example.jinsu.work2.viewmodel.VIewModelFactory;
 
 public class InputInfoActivity extends AppCompatActivity implements CallonClick {
 
     private ActivityInputinfoBinding binding;
-    private MainViewModel mainViewModel;
+    private EmployerViewModel employerViewModel;
     private VIewModelFactory vIewModelFactory;
 
     @Override
@@ -29,8 +29,8 @@ public class InputInfoActivity extends AppCompatActivity implements CallonClick 
     {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_inputinfo);
         vIewModelFactory = new VIewModelFactory(this);
-        mainViewModel = ViewModelProviders.of(this,vIewModelFactory).get(MainViewModel.class);
-        binding.setInputInfo(mainViewModel);
+        employerViewModel = ViewModelProviders.of(this,vIewModelFactory).get(EmployerViewModel.class);
+        binding.setInputInfo(employerViewModel);
 
     }
 

@@ -16,9 +16,9 @@ public class VIewModelFactory implements ViewModelProvider.Factory {
 
     @Override
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
-        if(modelClass.isAssignableFrom(MainViewModel.class))
+        if(modelClass.isAssignableFrom(EmployerViewModel.class))
         {
-            return (T) new MainViewModel(onClick);
+            return (T) new EmployerViewModel(onClick);
         }
 
         throw new IllegalArgumentException("Unknown viemodel class");

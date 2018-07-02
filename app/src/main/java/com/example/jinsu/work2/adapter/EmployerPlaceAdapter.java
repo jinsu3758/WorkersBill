@@ -69,7 +69,7 @@ public class EmployerPlaceAdapter extends RecyclerView.Adapter<EmployerPlaceAdap
     }
 
 
-    public  class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView name;
         public TextView address;
         public TextView phone;

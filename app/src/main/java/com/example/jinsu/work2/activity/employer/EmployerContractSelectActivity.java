@@ -12,13 +12,13 @@ import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.databinding.ActivityEmployerContractSelectBinding;
 import com.example.jinsu.work2.dialog.DataSelectDialog;
 import com.example.jinsu.work2.util.CallonClick;
-import com.example.jinsu.work2.viewmodel.MainViewModel;
+import com.example.jinsu.work2.viewmodel.EmployerViewModel;
 import com.example.jinsu.work2.viewmodel.VIewModelFactory;
 
 public class EmployerContractSelectActivity extends AppCompatActivity implements CallonClick {
 
     private ActivityEmployerContractSelectBinding binding;
-    private MainViewModel mainViewModel;
+    private EmployerViewModel employerViewModel;
     private VIewModelFactory vIewModelFactory;
 
     @Override
@@ -35,8 +35,8 @@ public class EmployerContractSelectActivity extends AppCompatActivity implements
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_employer_contract_select);
         vIewModelFactory = new VIewModelFactory(this);
-        mainViewModel = ViewModelProviders.of(this,vIewModelFactory).get(MainViewModel.class);
-        binding.setEmployerContractSelect(mainViewModel);
+        employerViewModel = ViewModelProviders.of(this,vIewModelFactory).get(EmployerViewModel.class);
+        binding.setEmployerContractSelect(employerViewModel);
 
 
     }

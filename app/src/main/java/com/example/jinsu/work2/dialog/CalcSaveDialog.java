@@ -9,13 +9,13 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.jinsu.work2.R;
-import com.example.jinsu.work2.viewmodel.MainViewModel;
+import com.example.jinsu.work2.viewmodel.EmployerViewModel;
 import com.example.jinsu.work2.viewmodel.VIewModelFactory;
 
 public class CalcSaveDialog extends Dialog {
 
 
-    private MainViewModel mainViewModel;
+    private EmployerViewModel employerViewModel;
     private VIewModelFactory vIewModelFactory;
     private EditText name;
     private Button btn_cancel;

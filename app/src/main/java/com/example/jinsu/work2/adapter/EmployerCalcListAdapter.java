@@ -56,7 +56,7 @@ public class EmployerCalcListAdapter extends RecyclerView.Adapter<EmployerCalcLi
     }
 
 
-    public  class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView name;
         public TextView date;
         public LinearLayout layout;

@@ -3,7 +3,7 @@
     <data>
         <variable
             name="contractWorker"
-            type="com.example.jinsu.work2.viewmodel.MainViewModel"/>
+            type="com.example.jinsu.work2.viewmodel.EmployerViewModel"/>
     </data>
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -29,8 +29,9 @@
                 android:layout_marginLeft="7dp"
                 android:textSize="16sp"
                 android:textColor="@color/colorAccent"
-                android:text="4"
-                android:id="@+id/boss_contract_cabinet_num"/>
+                android:id="@+id/employer_contract_worker_txt_sum"
+                android:text="@{contractWorker.worker_sum}"
+                />
         </LinearLayout>
 
         <TextView
@@ -40,6 +41,14 @@
             android:layout_marginRight="23dp"
             android:layout_marginTop="9dp"
             android:background="@color/gray2"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/employer_contract_worker_recycle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="22dp">
+
+        </android.support.v7.widget.RecyclerView>
 
     </LinearLayout>
 </layout>

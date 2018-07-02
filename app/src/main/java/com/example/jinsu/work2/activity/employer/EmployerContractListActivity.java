@@ -15,14 +15,16 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.databinding.ActivityEmployerContractListBinding;
+import com.example.jinsu.work2.fragment.employer.EmployerContractTempFragment;
+import com.example.jinsu.work2.fragment.employer.EmployerContractWorkerFragment;
 import com.example.jinsu.work2.util.CallonClick;
-import com.example.jinsu.work2.viewmodel.MainViewModel;
+import com.example.jinsu.work2.viewmodel.EmployerViewModel;
 import com.example.jinsu.work2.viewmodel.VIewModelFactory;
 
 public class EmployerContractListActivity extends AppCompatActivity implements CallonClick {
 
-    ActivityEmployerContractListBinding binding;
-    private MainViewModel mainViewModel;
+    private ActivityEmployerContractListBinding binding;
+    private EmployerViewModel employerViewModel;
     private VIewModelFactory vIewModelFactory;
     private RequestManager glide;
     private FragmentTransaction transaction;
@@ -37,10 +39,14 @@ public class EmployerContractListActivity extends AppCompatActivity implements C
     {
         glide = Glide.with(this);
         transaction = getSupportFragmentManager().beginTransaction();
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_employer_contract_list);
         vIewModelFactory = new VIewModelFactory(this);
-        mainViewModel = ViewModelProviders.of(this,vIewModelFactory).get(MainViewModel.class);
-        binding.setEmployerContractList(mainViewModel);
+        employerViewModel = ViewModelProviders.of(this,vIewModelFactory).get(EmployerViewModel.class);
+        binding.setEmployerContractList(employerViewModel);
+
+        transaction.replace(R.id.employer_contract_list_fragment,new EmployerContractWorkerFragment());
+        transaction.commit();
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,binding.employerContractListLayout,
                 binding.toolbar , 0, 0);
@@ -53,8 +59,7 @@ public class EmployerContractListActivity extends AppCompatActivity implements C
         {
             case R.id.employer_contract_list_btn_drawer:
             {
-                super.onBackPressed();
-                finish();
+                binding.employerContractListLayout.openDrawer(GravityCompat.START);
                 break;
             }
             case R.id.employer_contract_list_btn_home:
@@ -65,18 +70,24 @@ public class EmployerContractListActivity extends AppCompatActivity implements C
             }
             case R.id.employer_contract_list_tab1:
             {
-                binding.employerContractListTabTxt1.setBackgroundColor(ContextCompat.getColor(this,R.color.colorPrimary));
-                binding.employerContractListTabTxt2.setBackgroundColor(ContextCompat.getColor(this,R.color.gray));
+                transaction = getSupportFragmentManager().beginTransaction();
+                binding.employerContractListTabTxt1.setTextColor(ContextCompat.getColor(this,R.color.colorPrimary));
+                binding.employerContractListTabTxt2.setTextColor(ContextCompat.getColor(this,R.color.gray));
                 glide.load(R.drawable.round_imgeview_cabinet1).into(binding.employerContractListTabCircle1);
                 glide.load(R.drawable.round_imgeview_cabinet2).into(binding.employerContractListTabCircle2);
+                transaction.replace(R.id.employer_contract_list_fragment,new EmployerContractWorkerFragment());
+                transaction.commit();
                 break;
             }
             case R.id.employer_contract_list_tab2:
             {
-                binding.employerContractListTabTxt2.setBackgroundColor(ContextCompat.getColor(this,R.color.colorPrimary));
-                binding.employerContractListTabTxt1.setBackgroundColor(ContextCompat.getColor(this,R.color.gray));
+                transaction = getSupportFragmentManager().beginTransaction();
+                binding.employerContractListTabTxt2.setTextColor(ContextCompat.getColor(this,R.color.colorPrimary));
+                binding.employerContractListTabTxt1.setTextColor(ContextCompat.getColor(this,R.color.gray));
                 glide.load(R.drawable.round_imgeview_cabinet2).into(binding.employerContractListTabCircle1);
                 glide.load(R.drawable.round_imgeview_cabinet1).into(binding.employerContractListTabCircle2);
+                transaction.replace(R.id.employer_contract_list_fragment,new EmployerContractTempFragment());
+                transaction.commit();
                 break;
             }
         }

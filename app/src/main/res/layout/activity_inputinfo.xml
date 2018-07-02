@@ -4,7 +4,7 @@
     <data>
         <variable
             name="inputInfo"
-            type="com.example.jinsu.work2.viewmodel.MainViewModel"/>
+            type="com.example.jinsu.work2.viewmodel.EmployerViewModel"/>
     </data>
 
     <LinearLayout

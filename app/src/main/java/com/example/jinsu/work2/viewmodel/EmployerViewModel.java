@@ -17,23 +17,29 @@ import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.activity.CertActivity;
 import com.example.jinsu.work2.activity.SelectActivity;
 import com.example.jinsu.work2.model.CalcContent;
+import com.example.jinsu.work2.model.Contract;
 import com.example.jinsu.work2.model.EmployerPlace;
 import com.example.jinsu.work2.model.User;
+import com.example.jinsu.work2.model.Worker;
+import com.example.jinsu.work2.network.contract.ContractSource;
 import com.example.jinsu.work2.network.user.UserSource;
+import com.example.jinsu.work2.network.worker.WorkerSource;
 import com.example.jinsu.work2.repositories.EmployerRepository;
 import com.example.jinsu.work2.repositories.MainRepository;
 import com.example.jinsu.work2.thread.SignThread;
 import com.example.jinsu.work2.util.CallonClick;
 import com.example.jinsu.work2.util.Dlog;
+import com.example.jinsu.work2.util.ParsingIp;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.concurrent.ExecutionException;
 
 import javax.inject.Inject;
 
 import io.realm.Realm;
 
-public class MainViewModel extends ViewModel {
+public class EmployerViewModel extends ViewModel {
     public final ObservableField<String> sign_txt = new ObservableField<>();
 //    JoinActivity
     public final ObservableField<String> join_edit_email = new ObservableField<>();
@@ -107,8 +113,20 @@ public class MainViewModel extends ViewModel {
     public final ObservableField<String> contract_write_edit_month = new ObservableField<>();
 
 //    EmployerContractWiteFinActivity
-public final ObservableField<String> contract_write_fin_edit_month = new ObservableField<>();
+    public final ObservableField<String> contract_write_fin_edit_month = new ObservableField<>();
 
+//    EmployerContractWorkerFragment
+    public final ObservableField<String> worker_sum = new ObservableField<>();
+
+//    EmployerContractTempFragment
+    public final ObservableField<String> contract_temp_sum1 = new ObservableField<>();
+    public final ObservableField<String> contract_temp_sum2 = new ObservableField<>();
+
+
+//    EmployerManageActivity
+    public final ObservableField<String> employer_manage_list_sum = new ObservableField<>();
+    public final ObservableField<String> employer_manage_req_sum = new ObservableField<>();
+    public final ObservableField<String> employer_manage_cur_sum = new ObservableField<>();
 
 
     private String id;
@@ -127,14 +145,14 @@ public final ObservableField<String> contract_write_fin_edit_month = new Observa
 
 
     @Inject
-    public MainViewModel(MainRepository mainRepository, CallonClick click)
+    public EmployerViewModel(MainRepository mainRepository, CallonClick click)
     {
         this.callback = click;
         this.mainRepository = mainRepository;
         this.employerRepository = EmployerRepository.getInstance();
     }
 
-    public MainViewModel(CallonClick onClick)
+    public EmployerViewModel(CallonClick onClick)
     {
         mainRepository = new MainRepository();
         handler = new Handler() ;
@@ -932,6 +950,10 @@ public final ObservableField<String> contract_write_fin_edit_month = new Observa
         //return true;
     }
 
+    /**
+     * CertActivity
+     * 이메일 인증 activity
+     */
 
 
     /**
@@ -966,6 +988,23 @@ public final ObservableField<String> contract_write_fin_edit_month = new Observa
         {
             //5인 이상
         }
+    }
+
+    public String getWifi()
+    {
+        String parse_ip = "";
+        ParsingIp parse = new ParsingIp();
+
+        parse.execute();
+        try {
+            parse_ip = parse.get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        place_wifi.set(parse_ip);
+        return parse_ip;
     }
 
 
@@ -1014,5 +1053,118 @@ public final ObservableField<String> contract_write_fin_edit_month = new Observa
     {
         calc_num.set(num+ "");
     }
+
+    /**
+     *
+     * EmployerContractWorkerFragment
+     * 계약서 보관함의 근로자 계약서 fragment
+     *
+     */
+
+    public void getContractWorkers(ContractWorkerCallback callback)
+    {
+        EmployerRepository.getInstance().getContractWorker(new ContractSource.LoadContractWorkerCallback() {
+            @Override
+            public void onContractWorkerLoad(ArrayList<Contract> list) {
+                if(list != null)
+                {
+                    worker_sum.set(String.valueOf(list.size()));
+                    callback.get(list);
+                }
+            }
+        });
+
+    }
+
+    public interface ContractWorkerCallback
+    {
+        void get(ArrayList<Contract> contracts);
+    }
+
+    /**
+     *
+     * EmployerContractTempFragment
+     * 계약서 보관함의 미완성 계약서 fragment
+     *
+     */
+
+    public void getContractTemp(ContractTempCallback callback)
+    {
+        EmployerRepository.getInstance().getContractTemp(new ContractSource.LoadContractTempCallback() {
+            @Override
+            public void onContractTempLoad(ArrayList<Contract> list) {
+                if(list != null)
+                {
+                    contract_temp_sum1.set(String.valueOf(list.size()));
+                    callback.get(list);
+                }
+            }
+        });
+
+    }
+
+    public interface ContractTempCallback
+    {
+        void get(ArrayList<Contract> contracts);
+    }
+
+    public void onSaveContractTemp(String name)
+    {
+        //데이터 삭제
+       /* realm.beginTransaction();
+        RealmResults<Contract> userList = realm.where(Contract.class).findAll();
+        userList.deleteAllFromRealm();
+        realm.commitTransaction();*/
+
+        realm.beginTransaction();
+        Contract contract = realm.createObject(Contract.class);
+        contract.setName("와우");
+        contract.setDate("2017-07-07");
+        realm.commitTransaction();
+
+    }
+
+    public void setContractTempSum(int num)
+    {
+        contract_temp_sum2.set(String.valueOf(num));
+    }
+
+
+
+    /**
+     *
+     * EmployerManageActivity
+     * 근로자 관리 Activity
+     *
+     */
+
+    public interface WorkerCallback
+    {
+        void get(ArrayList<Worker> workers);
+    }
+
+    public void getReqWorker(WorkerCallback callback)
+    {
+        EmployerRepository.getInstance().getReqWorker(new WorkerSource.LoadReqWorkerCallback() {
+            @Override
+            public void onReqWorkerLoad(ArrayList<Worker> list) {
+                employer_manage_list_sum.set(String.valueOf(list.size()));
+                employer_manage_req_sum.set(String.valueOf(list.size()));
+                callback.get(list);
+            }
+        });
+    }
+
+    public void getCurWorker(WorkerCallback callback)
+    {
+        EmployerRepository.getInstance().getCurWorker(new WorkerSource.LoadCurWorkerCallback() {
+            @Override
+            public void onCurWorkerLoad(ArrayList<Worker> list) {
+                employer_manage_cur_sum.set(String.valueOf(list.size()));
+                callback.get(list);
+            }
+        });
+    }
+
 
 }

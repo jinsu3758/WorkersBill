@@ -1,6 +1,5 @@
 package com.example.jinsu.work2.adapter;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -16,11 +15,9 @@ import java.util.List;
 
 public class EmployerContractAdapter extends RecyclerView.Adapter<EmployerContractAdapter.ViewHolder> {
     private List<Contract> list;
-    private Context context;
     private EmployerContractAdapter.onClickCallback callback;
 
-    public EmployerContractAdapter(Context context, List<Contract> list, EmployerContractAdapter.onClickCallback callback) {
-        this.context = context;
+    public EmployerContractAdapter(List<Contract> list, EmployerContractAdapter.onClickCallback callback) {
         this.list = list;
         this.callback = callback;
     }
@@ -56,7 +53,7 @@ public class EmployerContractAdapter extends RecyclerView.Adapter<EmployerContra
     }
 
 
-    public  class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView name;
         public TextView date;
         public LinearLayout layout;

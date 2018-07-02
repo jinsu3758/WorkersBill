@@ -15,7 +15,7 @@
     <string name="calc_data">계산</string>
     <string name="contract_data">계약서</string>
     <string name="calculation_popup_notice">바로 작성하기는 계산 내용이\n따로 저장되지 않습니다.</string>
-
+    <string name="getout">사업장에서\n내보내기</string>
 
     <string name="employer_home_calc">근로자 고용, 계약서 작성 전 합리적으로 근로자를 운용할 수 있도록 인건비 예측 계산을 해볼 수 있습니다.</string>
     <string name="employer_home_write">작성된 전자근로계약서 파일은 이메일로 송부되어 보관,배포가 가능하며, 계약서 보관함에서도 확인이 가능합니다.</string>
