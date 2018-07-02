@@ -106,9 +106,19 @@ public class MainViewModel extends ViewModel {
     public final ObservableField<String> contract_write_excess = new ObservableField<>();
     public final ObservableField<String> contract_write_edit_month = new ObservableField<>();
 
-//    EmployerContractWiteFinActivity
+//    EmployerContractWriteFinActivity
 public final ObservableField<String> contract_write_fin_edit_month = new ObservableField<>();
 
+//     WorkerHomeActivity
+public final ObservableField<String> company_name = new ObservableField<>();
+public final ObservableField<String> goto_office_time = new ObservableField<>();
+public final ObservableField<String> leave_office_time = new ObservableField<>();
+
+//     WorkerSelectWorkplaceActivity
+public final ObservableField<String> select_workplace_edittext = new ObservableField<>();
+
+//      WorkerContractSendFinActivity
+public final ObservableField<String> contract_send_fin_email = new ObservableField<>();
 
 
     private String id;
@@ -313,8 +323,6 @@ public final ObservableField<String> contract_write_fin_edit_month = new Observa
 
                     }
                 });
-
-
                 break;
             }
             case "EmployerContractWriteActivity":
@@ -406,6 +414,17 @@ public final ObservableField<String> contract_write_fin_edit_month = new Observa
 
                 break;
             }
+
+            case "WorkerSelectWorkplaceActivity":
+            {
+                select_workplace_edittext.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+                    @Override
+                    public void onPropertyChanged(Observable sender, int propertyId) {
+
+                    }
+                });
+            }
+
 
             default:
                 break;
@@ -817,15 +836,15 @@ public final ObservableField<String> contract_write_fin_edit_month = new Observa
             }
 
             case R.id.employer_contract_write_btn_write:
-            {Log.v("태그", "55555555555555555555555");
-
+            {
+                Log.v("태그", "55555555555555555555555");
                 callback.onBtnClick(view);
                 break;
             }
 
             case R.id.employer_contract_select_btn_load:
-            {Log.v("태그2","22222222222222");
-
+            {
+                Log.v("태그2","22222222222222");
                 callback.onBtnClick(view);
                 break;
             }

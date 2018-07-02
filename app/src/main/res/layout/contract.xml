@@ -7,7 +7,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="32dp"
         android:orientation="vertical">
 
         <TableLayout
@@ -175,35 +174,51 @@
             android:layout_marginTop="28dp"
             android:layout_marginBottom="10dp"/>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="2dp"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
 
             <CheckBox
                 android:id="@+id/cb_paytype_Time"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginBottom="16dp"
                 android:textSize="14sp"
                 android:textColor="@color/subtext"
-                android:text="시급제"
-                android:drawableRight="@drawable/img_info_s"/>
+                android:text="시급제"/>
+
+            <ImageButton
+                android:id="@+id/cb_paytype_Time_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/cb_paytype_Time"
+                android:background="@color/background"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="6dp"
+                android:src="@drawable/img_info_s"/>
 
             <CheckBox
                 android:id="@+id/cb_paytype_Month"
-                android:layout_width="0dp"
+                android:layout_toRightOf="@+id/cb_paytype_Time_info"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginBottom="16dp"
+                android:layout_centerVertical="true"
                 android:textSize="14sp"
                 android:textColor="@color/subtext"
-                android:text="월급제 또는 연봉제"
-                android:drawableRight="@drawable/img_info_s" />
+                android:layout_marginLeft="50dp"
+                android:text="월급제 또는 연봉제" />
 
-        </LinearLayout>
+            <ImageButton
+                android:id="@+id/cb_paytype_Month_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/cb_paytype_Month"
+                android:background="@color/background"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="6dp"
+                android:src="@drawable/img_info_s"/>
+
+        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -434,7 +449,7 @@
                 android:layout_below="@id/cont_text7"
                 android:layout_marginBottom="24dp"
                 android:textSize="14sp"
-                android:text="@string/employer_write_contract_write_fin"/>
+                android:text="@string/employer_write_contract_4_send"/>
 
             <TextView
                 android:id="@+id/cont_text8"

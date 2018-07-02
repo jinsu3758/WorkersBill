@@ -16,6 +16,9 @@
     <string name="contract_data">계약서</string>
     <string name="calculation_popup_notice">바로 작성하기는 계산 내용이\n따로 저장되지 않습니다.</string>
 
+    <string name="contract_send_fin_notice">* 메일에 가면 전자 근로계약서 파일이 송부되었습니다.\n 출력을 원하시면 메일에 첨부된 근로계약서 파일을\n다운받으신 후 출력해서 보관해 주십시오.</string>
+    <string name="worker_select_workplace_join">합류하기</string>
+
 
     <string name="employer_home_calc">근로자 고용, 계약서 작성 전 합리적으로 근로자를 운용할 수 있도록 인건비 예측 계산을 해볼 수 있습니다.</string>
     <string name="employer_home_write">작성된 전자근로계약서 파일은 이메일로 송부되어 보관,배포가 가능하며, 계약서 보관함에서도 확인이 가능합니다.</string>
@@ -52,6 +55,7 @@
     <string name="employer_write_contract_4_name_er">(이하 ‘사업주’라함)과</string>
     <string name="employer_write_contract_4_name_ee">(이하 ‘근로자’라함)은 다음과 같이 계약을 체결한다.</string>
     <string name="employer_write_contract_write_fin">사업주는 근로계약을 체결함과 동시에 본 계약서를 사본하여 근로자의 교부요구와 관계없이 근로자에게 교부함 (근로기준법 제 17조 이행)</string>
+    <string name="employer_write_contract_4_send">사업주는 근로계약을 체결함과 동시에 본 계약서를 사본하여 근로자의 교부요구와 관계없이 근로자에게 교부함 (근로기준법 제 17조 이행)</string>
     <string name="employer_write_contract_4_note">이 계약에 정함이 없는 사항은 근로기준법령에 의함</string>
     <string name="employer_write_contract_4_wagedate">휴일의 경우 전일 지급</string>
 
