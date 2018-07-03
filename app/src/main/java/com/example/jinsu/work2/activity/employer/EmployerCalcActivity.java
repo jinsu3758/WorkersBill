@@ -12,13 +12,13 @@ import com.example.jinsu.work2.databinding.ActivityEmployerCalcBinding;
 import com.example.jinsu.work2.dialog.CalcSaveDialog;
 import com.example.jinsu.work2.dialog.CalcWriteDialog;
 import com.example.jinsu.work2.util.CallonClick;
-import com.example.jinsu.work2.viewmodel.EmployerViewModel;
+import com.example.jinsu.work2.viewmodel.MainViewModel;
 import com.example.jinsu.work2.viewmodel.VIewModelFactory;
 
 public class EmployerCalcActivity extends AppCompatActivity implements CallonClick{
 
     ActivityEmployerCalcBinding binding;
-    private EmployerViewModel employerViewModel;
+    private MainViewModel mainViewModel;
     private VIewModelFactory vIewModelFactory;
 
     @Override
@@ -31,8 +31,8 @@ public class EmployerCalcActivity extends AppCompatActivity implements CallonCli
     {
         binding = DataBindingUtil.setContentView(this,R.layout.activity_employer_calc);
         vIewModelFactory = new VIewModelFactory(this);
-        employerViewModel = ViewModelProviders.of(this,vIewModelFactory).get(EmployerViewModel.class);
-        binding.setEmployerCalc(employerViewModel);
+        mainViewModel = ViewModelProviders.of(this,vIewModelFactory).get(MainViewModel.class);
+        binding.setEmployerCalc(mainViewModel);
     }
 
     @Override
@@ -60,7 +60,7 @@ public class EmployerCalcActivity extends AppCompatActivity implements CallonCli
                 CalcSaveDialog dialog = new CalcSaveDialog(this, new CalcSaveDialog.onBtnCallback() {
                     @Override
                     public void onSave(String name) {
-                        employerViewModel.onSaveCalc(name);
+                        mainViewModel.onSaveCalc(name);
                         startActivity(new Intent(getBaseContext(),EmployerCalcListActivity.class));
                     }
 
@@ -96,7 +96,7 @@ public class EmployerCalcActivity extends AppCompatActivity implements CallonCli
         CalcSaveDialog dialog = new CalcSaveDialog(this, new CalcSaveDialog.onBtnCallback() {
             @Override
             public void onSave(String name) {
-                employerViewModel.onSaveCalc(name);
+                mainViewModel.onSaveCalc(name);
                 startActivity(new Intent(getBaseContext(),EmployerCalcListActivity.class));
             }
 

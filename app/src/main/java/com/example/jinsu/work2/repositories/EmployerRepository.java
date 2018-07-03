@@ -1,29 +1,24 @@
 package com.example.jinsu.work2.repositories;
 
-import android.content.Context;
-
 import com.example.jinsu.work2.model.Contract;
 import com.example.jinsu.work2.model.EmployerPlace;
-import com.example.jinsu.work2.model.User;
 import com.example.jinsu.work2.model.Worker;
 import com.example.jinsu.work2.network.EmployerPlaceSource;
 import com.example.jinsu.work2.network.RestClient;
 import com.example.jinsu.work2.network.RetroService;
 import com.example.jinsu.work2.network.contract.ContractDataSource;
 import com.example.jinsu.work2.network.contract.ContractSource;
-import com.example.jinsu.work2.network.user.UserDataSource;
-import com.example.jinsu.work2.network.user.UserSource;
 import com.example.jinsu.work2.network.worker.WorkerDataSource;
 import com.example.jinsu.work2.network.worker.WorkerSource;
 
 import java.util.ArrayList;
 
-public class EmployerRepository implements UserSource, ContractSource, WorkerSource {
+public class EmployerRepository implements ContractSource, WorkerSource {
     private static EmployerRepository employerRepository;
 
     private RetroService retroService;
     private RestClient<RetroService> restClient;
-    private UserDataSource userDataSource;
+
     ArrayList<EmployerPlace> employerPlaces;
 
     private ContractDataSource contractDataSource;
@@ -38,11 +33,8 @@ public class EmployerRepository implements UserSource, ContractSource, WorkerSou
         return employerRepository;
     }
 
-
-
     private EmployerRepository()
     {
-        userDataSource = new UserDataSource();
         contractDataSource = new ContractDataSource();
         workerDataSource = new WorkerDataSource();
         employerPlaces = new ArrayList<>();
@@ -58,23 +50,7 @@ public class EmployerRepository implements UserSource, ContractSource, WorkerSou
 
 
 
-    @Override
-    public void getUsers(Context context, LoadDataCallback callback) {
-        userDataSource.getUsers(context, new LoadDataCallback() {
-            @Override
-            public void onUserLoad(ArrayList<User> list) {
-                if(callback !=null)
-                {
-                    callback.onUserLoad(list);
-                }
-            }
-        });
-    }
 
-    public void postUser(String email)
-    {
-        userDataSource.onUser(email);
-    }
 
     public RetroService getRetroService() {
         return retroService;

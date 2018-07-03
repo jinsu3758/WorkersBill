@@ -16,7 +16,7 @@ import com.example.jinsu.work2.adapter.EmployerContractAdapter;
 import com.example.jinsu.work2.databinding.FragmentContractTempBinding;
 import com.example.jinsu.work2.model.Contract;
 import com.example.jinsu.work2.util.CallonClick;
-import com.example.jinsu.work2.viewmodel.EmployerViewModel;
+import com.example.jinsu.work2.viewmodel.MainViewModel;
 import com.example.jinsu.work2.viewmodel.VIewModelFactory;
 
 import java.util.ArrayList;
@@ -28,7 +28,7 @@ import io.realm.RealmList;
 public class EmployerContractTempFragment extends Fragment implements CallonClick {
 
 
-    private EmployerViewModel employerViewModel;
+    private MainViewModel mainViewModel;
     private VIewModelFactory vIewModelFactory;
     private FragmentContractTempBinding binding;
 
@@ -52,8 +52,8 @@ public class EmployerContractTempFragment extends Fragment implements CallonClic
         super.onActivityCreated(savedInstanceState);
         binding = DataBindingUtil.getBinding(getView());
         vIewModelFactory = new VIewModelFactory(this);
-        employerViewModel = ViewModelProviders.of(this,vIewModelFactory).get(EmployerViewModel.class);
-        binding.setContractTemp(employerViewModel);
+        mainViewModel = ViewModelProviders.of(this,vIewModelFactory).get(MainViewModel.class);
+        binding.setContractTemp(mainViewModel);
         initRecyclerView();
     }
 
@@ -78,7 +78,7 @@ public class EmployerContractTempFragment extends Fragment implements CallonClic
     {
         unreceived_list = new ArrayList<>();
         temp_list = new RealmList<>();
-        employerViewModel.onSaveContractTemp("오");
+        mainViewModel.onSaveContractTemp("오");
 
         unreceived_adapter = new EmployerContractAdapter(unreceived_list, new EmployerContractAdapter.onClickCallback() {
             @Override
@@ -118,9 +118,9 @@ public class EmployerContractTempFragment extends Fragment implements CallonClic
             Log.d("employer_temp","비어 있음");
         }
         temp_adapter.notifyDataSetChanged();
-        employerViewModel.setContractTempSum(temp_list.size());
+        mainViewModel.setContractTempSum(temp_list.size());
 
-        employerViewModel.getContractTemp(new EmployerViewModel.ContractTempCallback() {
+        mainViewModel.getContractTemp(new MainViewModel.ContractTempCallback() {
             @Override
             public void get(ArrayList<Contract> contracts) {
                 unreceived_list.addAll(contracts);

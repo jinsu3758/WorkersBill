@@ -13,14 +13,14 @@ import android.view.View;
 import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.databinding.ActivityEmployerHomeBinding;
 import com.example.jinsu.work2.util.CallonClick;
-import com.example.jinsu.work2.viewmodel.EmployerViewModel;
+import com.example.jinsu.work2.viewmodel.MainViewModel;
 import com.example.jinsu.work2.viewmodel.VIewModelFactory;
 
 public class EmployerHomeActivity extends AppCompatActivity implements CallonClick {
 
 
     ActivityEmployerHomeBinding binding;
-    private EmployerViewModel employerViewModel;
+    private MainViewModel mainViewModel;
     private VIewModelFactory vIewModelFactory;
 
     @Override
@@ -38,8 +38,8 @@ public class EmployerHomeActivity extends AppCompatActivity implements CallonCli
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_employer_home);
         vIewModelFactory = new VIewModelFactory(this);
-        employerViewModel = ViewModelProviders.of(this,vIewModelFactory).get(EmployerViewModel.class);
-        binding.setEmployerHome(employerViewModel);
+        mainViewModel = ViewModelProviders.of(this,vIewModelFactory).get(MainViewModel.class);
+        binding.setEmployerHome(mainViewModel);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,binding.employerHomeLayout ,binding.toolbar , 0, 0);
         toggle.syncState();

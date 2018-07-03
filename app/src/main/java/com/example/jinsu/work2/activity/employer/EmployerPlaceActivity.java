@@ -16,7 +16,7 @@ import com.example.jinsu.work2.model.EmployerPlace;
 import com.example.jinsu.work2.network.EmployerPlaceSource;
 import com.example.jinsu.work2.repositories.EmployerRepository;
 import com.example.jinsu.work2.util.CallonClick;
-import com.example.jinsu.work2.viewmodel.EmployerViewModel;
+import com.example.jinsu.work2.viewmodel.MainViewModel;
 import com.example.jinsu.work2.viewmodel.VIewModelFactory;
 
 import java.util.ArrayList;
@@ -24,7 +24,7 @@ import java.util.ArrayList;
 public class EmployerPlaceActivity extends AppCompatActivity implements CallonClick {
 
     private ActivityEmployerPlaceBinding binding;
-    private EmployerViewModel employerViewModel;
+    private MainViewModel mainViewModel;
     private VIewModelFactory vIewModelFactory;
     private EmployerPlaceAdapter adapter;
     private ArrayList<EmployerPlace> list;
@@ -49,8 +49,8 @@ public class EmployerPlaceActivity extends AppCompatActivity implements CallonCl
     {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_employer_place);
         vIewModelFactory = new VIewModelFactory(this);
-        employerViewModel = ViewModelProviders.of(this,vIewModelFactory).get(EmployerViewModel.class);
-        binding.setEmployerplace(employerViewModel);
+        mainViewModel = ViewModelProviders.of(this,vIewModelFactory).get(MainViewModel.class);
+        binding.setEmployerplace(mainViewModel);
     }
 
     private void initRecyclerView()

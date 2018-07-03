@@ -199,7 +199,7 @@
                     android:id="@+id/contract_ch_paytype_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onCheckedChanged="@{contract.onCheckBoxChecked}"
+                    android:onCheckedChanged="@{contract::onCheckBoxChecked}"
                     android:text="시급제"
                     android:textColor="@color/subtext"
                     android:textSize="14sp" />
@@ -222,7 +222,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="50dp"
                     android:layout_toRightOf="@+id/contract_btn_ch_paytype_time_info"
-                    android:onCheckedChanged="@{contract.onCheckBoxChecked}"
+                    android:onCheckedChanged="@{contract::onCheckBoxChecked}"
                     android:text="월급제 또는 연봉제"
                     android:textColor="@color/subtext"
                     android:textSize="14sp" />
@@ -279,7 +279,7 @@
                     android:layout_below="@+id/contract_text_wage"
                     android:layout_marginTop="-5dp"
                     android:layout_toRightOf="@+id/contract_text_bonus"
-                    android:onCheckedChanged="@{contract.onCheckBoxChecked}"
+                    android:onCheckedChanged="@{contract::onCheckBoxChecked}"
                     android:scaleX="0.8"
                     android:scaleY="0.8"
                     android:text="없음"
@@ -292,7 +292,7 @@
                     android:layout_below="@+id/contract_text_wage"
                     android:layout_marginTop="-5dp"
                     android:layout_toRightOf="@+id/contract_bonus_ch_no"
-                    android:onCheckedChanged="@{contract.onCheckBoxChecked}"
+                    android:onCheckedChanged="@{contract::onCheckBoxChecked}"
                     android:scaleX="0.8"
                     android:scaleY="0.8"
                     android:text="있음"
@@ -346,7 +346,7 @@
 
                     <CheckBox
                         android:id="@+id/contract_ch_pay_when_month"
-                        android:onCheckedChanged="@{contract.onCheckBoxChecked}"
+                        android:onCheckedChanged="@{contract::onCheckBoxChecked}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="16dp"
@@ -367,7 +367,7 @@
 
                     <CheckBox
                         android:id="@+id/contract_ch_pay_when_day"
-                        android:onCheckedChanged="@{contract.onCheckBoxChecked}"
+                        android:onCheckedChanged="@{contract::onCheckBoxChecked}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="16dp"
@@ -400,7 +400,7 @@
 
                     <CheckBox
                         android:id="@+id/contract_ch_pay_how1"
-                        android:onCheckedChanged="@{contract.onCheckBoxChecked}"
+                        android:onCheckedChanged="@{contract::onCheckBoxChecked}"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -409,7 +409,7 @@
 
                     <CheckBox
                         android:id="@+id/contract_ch_pay_how2"
-                        android:onCheckedChanged="@{contract.onCheckBoxChecked}"
+                        android:onCheckedChanged="@{contract::onCheckBoxChecked}"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_toRightOf="@id/contract_ch_pay_how1"
@@ -444,7 +444,7 @@
 
                             <CheckBox
                                 android:id="@+id/contract_insure_1"
-                                android:onCheckedChanged="@{contract.onCheckBoxChecked}"
+                                android:onCheckedChanged="@{contract::onCheckBoxChecked}"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
@@ -453,7 +453,7 @@
 
                             <CheckBox
                                 android:id="@+id/contract_insure_2"
-                                android:onCheckedChanged="@{contract.onCheckBoxChecked}"
+                                android:onCheckedChanged="@{contract::onCheckBoxChecked}"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_toRightOf="@id/contract_insure_1"

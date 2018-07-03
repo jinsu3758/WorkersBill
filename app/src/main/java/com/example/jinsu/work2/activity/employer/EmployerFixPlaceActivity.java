@@ -9,12 +9,12 @@ import android.view.View;
 import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.databinding.ActivityEmployerFixPlaceBinding;
 import com.example.jinsu.work2.util.CallonClick;
-import com.example.jinsu.work2.viewmodel.EmployerViewModel;
+import com.example.jinsu.work2.viewmodel.MainViewModel;
 import com.example.jinsu.work2.viewmodel.VIewModelFactory;
 
 public class EmployerFixPlaceActivity extends AppCompatActivity implements CallonClick {
     private ActivityEmployerFixPlaceBinding binding;
-    private EmployerViewModel employerViewModel;
+    private MainViewModel mainViewModel;
     private VIewModelFactory vIewModelFactory;
 
     @Override
@@ -27,8 +27,8 @@ public class EmployerFixPlaceActivity extends AppCompatActivity implements Callo
     {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_employer_fix_place);
         vIewModelFactory = new VIewModelFactory(this);
-        employerViewModel = ViewModelProviders.of(this,vIewModelFactory).get(EmployerViewModel.class);
-        binding.setEmployerfixplace(employerViewModel);
+        mainViewModel = ViewModelProviders.of(this,vIewModelFactory).get(MainViewModel.class);
+        binding.setEmployerfixplace(mainViewModel);
     }
 
 

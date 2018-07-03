@@ -17,13 +17,13 @@ import com.example.jinsu.work2.adapter.EmployerContractWorkerAdapter;
 import com.example.jinsu.work2.databinding.FragmentContractWorkerBinding;
 import com.example.jinsu.work2.model.Contract;
 import com.example.jinsu.work2.util.CallonClick;
-import com.example.jinsu.work2.viewmodel.EmployerViewModel;
+import com.example.jinsu.work2.viewmodel.MainViewModel;
 import com.example.jinsu.work2.viewmodel.VIewModelFactory;
 
 import java.util.ArrayList;
 
 public class EmployerContractWorkerFragment extends Fragment implements CallonClick {
-    private EmployerViewModel employerViewModel;
+    private MainViewModel mainViewModel;
     private VIewModelFactory vIewModelFactory;
     private FragmentContractWorkerBinding binding;
     private RequestManager requestManager;
@@ -45,8 +45,8 @@ public class EmployerContractWorkerFragment extends Fragment implements CallonCl
         requestManager = Glide.with(this);
         binding = DataBindingUtil.getBinding(getView());
         vIewModelFactory = new VIewModelFactory(this);
-        employerViewModel = ViewModelProviders.of(this,vIewModelFactory).get(EmployerViewModel.class);
-        binding.setContractWorker(employerViewModel);
+        mainViewModel = ViewModelProviders.of(this,vIewModelFactory).get(MainViewModel.class);
+        binding.setContractWorker(mainViewModel);
         initRecyclerView();
     }
 
@@ -84,7 +84,7 @@ public class EmployerContractWorkerFragment extends Fragment implements CallonCl
 
     private void setList()
     {
-        employerViewModel.getContractWorkers(new EmployerViewModel.ContractWorkerCallback() {
+        mainViewModel.getContractWorkers(new MainViewModel.ContractWorkerCallback() {
             @Override
             public void get(ArrayList<Contract> contracts) {
                 list.addAll(contracts);

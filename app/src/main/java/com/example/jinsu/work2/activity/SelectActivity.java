@@ -9,13 +9,13 @@ import android.view.View;
 import com.example.jinsu.work2.util.CallonClick;
 import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.databinding.ActivitySelectBinding;
-import com.example.jinsu.work2.viewmodel.EmployerViewModel;
+import com.example.jinsu.work2.viewmodel.MainViewModel;
 import com.example.jinsu.work2.viewmodel.VIewModelFactory;
 
 public class SelectActivity extends AppCompatActivity implements CallonClick {
 
     private ActivitySelectBinding binding;
-    private EmployerViewModel employerViewModel;
+    private MainViewModel mainViewModel;
     private VIewModelFactory vIewModelFactory;
 
     @Override
@@ -28,8 +28,8 @@ public class SelectActivity extends AppCompatActivity implements CallonClick {
     {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_select);
         vIewModelFactory = new VIewModelFactory(this);
-        employerViewModel = ViewModelProviders.of(this,vIewModelFactory).get(EmployerViewModel.class);
-        binding.setSelect(employerViewModel);
+        mainViewModel = ViewModelProviders.of(this,vIewModelFactory).get(MainViewModel.class);
+        binding.setSelect(mainViewModel);
     }
 
     @Override

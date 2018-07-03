@@ -17,7 +17,7 @@ import com.example.jinsu.work2.adapter.EmployerReqWorkerAdapter;
 import com.example.jinsu.work2.databinding.ActivityEmployerManageBinding;
 import com.example.jinsu.work2.model.Worker;
 import com.example.jinsu.work2.util.CallonClick;
-import com.example.jinsu.work2.viewmodel.EmployerViewModel;
+import com.example.jinsu.work2.viewmodel.MainViewModel;
 import com.example.jinsu.work2.viewmodel.VIewModelFactory;
 
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ import java.util.ArrayList;
 public class EmployerManageActivity extends AppCompatActivity implements CallonClick{
 
     private ActivityEmployerManageBinding binding;
-    private EmployerViewModel employerViewModel;
+    private MainViewModel mainViewModel;
     private VIewModelFactory vIewModelFactory;
     private RequestManager requestManager;
 
@@ -55,8 +55,8 @@ public class EmployerManageActivity extends AppCompatActivity implements CallonC
     {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_employer_manage);
         vIewModelFactory = new VIewModelFactory(this);
-        employerViewModel = ViewModelProviders.of(this,vIewModelFactory).get(EmployerViewModel.class);
-        binding.setEmployerManage(employerViewModel);
+        mainViewModel = ViewModelProviders.of(this,vIewModelFactory).get(MainViewModel.class);
+        binding.setEmployerManage(mainViewModel);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, binding.employerManageLayout ,
                 binding.toolbar , 0, 0);
@@ -95,7 +95,7 @@ public class EmployerManageActivity extends AppCompatActivity implements CallonC
 
     private void setList()
     {
-        employerViewModel.getReqWorker(new EmployerViewModel.WorkerCallback() {
+        mainViewModel.getReqWorker(new MainViewModel.WorkerCallback() {
             @Override
             public void get(ArrayList<Worker> workers) {
                 req_worker.addAll(workers);
@@ -103,7 +103,7 @@ public class EmployerManageActivity extends AppCompatActivity implements CallonC
             }
         });
 
-        employerViewModel.getCurWorker(new EmployerViewModel.WorkerCallback() {
+        mainViewModel.getCurWorker(new MainViewModel.WorkerCallback() {
             @Override
             public void get(ArrayList<Worker> workers) {
                 cur_worker.addAll(workers);

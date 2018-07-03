@@ -6,7 +6,7 @@
     <data>
         <variable
             name="main"
-            type="com.example.jinsu.work2.viewmodel.EmployerViewModel"/>
+            type="com.example.jinsu.work2.viewmodel.MainViewModel"/>
     </data>
 
     <LinearLayout

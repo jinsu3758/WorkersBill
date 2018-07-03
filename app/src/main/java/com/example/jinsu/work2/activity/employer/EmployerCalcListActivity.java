@@ -16,7 +16,7 @@ import com.example.jinsu.work2.adapter.EmployerCalcListAdapter;
 import com.example.jinsu.work2.databinding.ActivityEmployerCalcListBinding;
 import com.example.jinsu.work2.model.CalcContent;
 import com.example.jinsu.work2.util.CallonClick;
-import com.example.jinsu.work2.viewmodel.EmployerViewModel;
+import com.example.jinsu.work2.viewmodel.MainViewModel;
 import com.example.jinsu.work2.viewmodel.VIewModelFactory;
 
 import java.util.List;
@@ -28,7 +28,7 @@ public class EmployerCalcListActivity extends AppCompatActivity implements Callo
 
 
     private ActivityEmployerCalcListBinding binding;
-    private EmployerViewModel employerViewModel;
+    private MainViewModel mainViewModel;
     private VIewModelFactory vIewModelFactory;
     private EmployerCalcListAdapter adapter;
     private List<CalcContent> list;
@@ -45,8 +45,8 @@ public class EmployerCalcListActivity extends AppCompatActivity implements Callo
     {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_employer_calc_list);
         vIewModelFactory = new VIewModelFactory(this);
-        employerViewModel = ViewModelProviders.of(this,vIewModelFactory).get(EmployerViewModel.class);
-        binding.setEmployerCalcList(employerViewModel);
+        mainViewModel = ViewModelProviders.of(this,vIewModelFactory).get(MainViewModel.class);
+        binding.setEmployerCalcList(mainViewModel);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, binding.employerCalcListLayout ,binding.employerCalcListToolbar , 0, 0);
         toggle.syncState();
@@ -56,7 +56,7 @@ public class EmployerCalcListActivity extends AppCompatActivity implements Callo
     private void initRecyclerview()
     {
         list = Realm.getDefaultInstance().where(CalcContent.class).findAll();
-        employerViewModel.setNum(list.size());
+        mainViewModel.setNum(list.size());
         adapter = new EmployerCalcListAdapter(this, list, new EmployerCalcListAdapter.onClickCallback() {
             @Override
             public void onClick(int position) {

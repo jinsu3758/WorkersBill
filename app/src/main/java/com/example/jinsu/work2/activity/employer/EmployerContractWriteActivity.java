@@ -9,13 +9,13 @@ import android.view.View;
 import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.databinding.ActivityEmployerContractWriteBinding;
 import com.example.jinsu.work2.util.CallonClick;
-import com.example.jinsu.work2.viewmodel.EmployerViewModel;
+import com.example.jinsu.work2.viewmodel.MainViewModel;
 import com.example.jinsu.work2.viewmodel.VIewModelFactory;
 
 public class EmployerContractWriteActivity extends AppCompatActivity implements CallonClick {
 
     private ActivityEmployerContractWriteBinding binding;
-    private EmployerViewModel employerViewModel;
+    private MainViewModel mainViewModel;
     private VIewModelFactory vIewModelFactory;
 
 

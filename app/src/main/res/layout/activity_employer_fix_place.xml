@@ -3,7 +3,7 @@
     <data>
         <variable
             name="employerfixplace"
-            type="com.example.jinsu.work2.viewmodel.EmployerViewModel"/>
+            type="com.example.jinsu.work2.viewmodel.MainViewModel"/>
     </data>
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -266,7 +266,7 @@
                         android:layout_height="14dp"
                         android:layout_marginRight="5dp"
                         android:checked="true"
-                        android:onCheckedChanged="@{employerfixplace.onCheckBoxChecked}"
+                        android:onCheckedChanged="@{employerfixplace::onCheckBoxChecked}"
                         />
 
                 </LinearLayout>

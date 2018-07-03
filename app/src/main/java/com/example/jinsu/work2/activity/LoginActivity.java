@@ -11,12 +11,12 @@ import com.example.jinsu.work2.activity.employer.EmployerPlaceActivity;
 import com.example.jinsu.work2.util.CallonClick;
 import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.databinding.ActivityLoginBinding;
-import com.example.jinsu.work2.viewmodel.EmployerViewModel;
+import com.example.jinsu.work2.viewmodel.MainViewModel;
 import com.example.jinsu.work2.viewmodel.VIewModelFactory;
 
 public class LoginActivity extends AppCompatActivity implements CallonClick {
     private ActivityLoginBinding binding;
-    private EmployerViewModel employerViewModel;
+    private MainViewModel mainViewModel;
     private VIewModelFactory vIewModelFactory;
 
     @Override
@@ -29,8 +29,8 @@ public class LoginActivity extends AppCompatActivity implements CallonClick {
     {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
         vIewModelFactory = new VIewModelFactory(this);
-        employerViewModel = ViewModelProviders.of(this,vIewModelFactory).get(EmployerViewModel.class);
-        binding.setLogin(employerViewModel);
+        mainViewModel = ViewModelProviders.of(this,vIewModelFactory).get(MainViewModel.class);
+        binding.setLogin(mainViewModel);
 
     }
 
@@ -38,7 +38,7 @@ public class LoginActivity extends AppCompatActivity implements CallonClick {
     public void onBtnClick(View view) {
         startActivity(new Intent(this, EmployerPlaceActivity.class));
         finish();
-//        employerViewModel.onLogin();
+//        mainViewModel.onLogin();
     }
 
     @Override

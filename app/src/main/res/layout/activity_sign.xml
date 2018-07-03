@@ -3,7 +3,7 @@
     <data>
         <variable
             name="sign"
-            type="com.example.jinsu.work2.viewmodel.EmployerViewModel"/>
+            type="com.example.jinsu.work2.viewmodel.MainViewModel"/>
     </data>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"

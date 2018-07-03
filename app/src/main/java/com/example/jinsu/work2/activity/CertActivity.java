@@ -10,13 +10,13 @@ import android.view.View;
 import com.example.jinsu.work2.util.CallonClick;
 import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.databinding.ActivityCertBinding;
-import com.example.jinsu.work2.viewmodel.EmployerViewModel;
+import com.example.jinsu.work2.viewmodel.MainViewModel;
 import com.example.jinsu.work2.viewmodel.VIewModelFactory;
 
 public class CertActivity extends AppCompatActivity implements CallonClick{
 
     private ActivityCertBinding binding;
-    private EmployerViewModel employerViewModel;
+    private MainViewModel mainViewModel;
     private VIewModelFactory vIewModelFactory;
 
 
@@ -31,8 +31,8 @@ public class CertActivity extends AppCompatActivity implements CallonClick{
     {
         binding = DataBindingUtil.setContentView(this,R.layout.activity_cert);
         vIewModelFactory = new VIewModelFactory(this);
-        employerViewModel = ViewModelProviders.of(this,vIewModelFactory).get(EmployerViewModel.class);
-        binding.setCert(employerViewModel);
+        mainViewModel = ViewModelProviders.of(this,vIewModelFactory).get(MainViewModel.class);
+        binding.setCert(mainViewModel);
         //비밀번호 EditText의 Focus설정
         /*binding.editOne.setNextFocusDownId(R.id.edit_two);
         binding.editTwo.setNextFocusDownId(R.id.edit_three);

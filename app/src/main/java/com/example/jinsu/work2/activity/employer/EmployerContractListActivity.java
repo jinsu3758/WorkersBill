@@ -18,13 +18,13 @@ import com.example.jinsu.work2.databinding.ActivityEmployerContractListBinding;
 import com.example.jinsu.work2.fragment.employer.EmployerContractTempFragment;
 import com.example.jinsu.work2.fragment.employer.EmployerContractWorkerFragment;
 import com.example.jinsu.work2.util.CallonClick;
-import com.example.jinsu.work2.viewmodel.EmployerViewModel;
+import com.example.jinsu.work2.viewmodel.MainViewModel;
 import com.example.jinsu.work2.viewmodel.VIewModelFactory;
 
 public class EmployerContractListActivity extends AppCompatActivity implements CallonClick {
 
     private ActivityEmployerContractListBinding binding;
-    private EmployerViewModel employerViewModel;
+    private MainViewModel mainViewModel;
     private VIewModelFactory vIewModelFactory;
     private RequestManager glide;
     private FragmentTransaction transaction;
@@ -42,8 +42,8 @@ public class EmployerContractListActivity extends AppCompatActivity implements C
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_employer_contract_list);
         vIewModelFactory = new VIewModelFactory(this);
-        employerViewModel = ViewModelProviders.of(this,vIewModelFactory).get(EmployerViewModel.class);
-        binding.setEmployerContractList(employerViewModel);
+        mainViewModel = ViewModelProviders.of(this,vIewModelFactory).get(MainViewModel.class);
+        binding.setEmployerContractList(mainViewModel);
 
         transaction.replace(R.id.employer_contract_list_fragment,new EmployerContractWorkerFragment());
         transaction.commit();
