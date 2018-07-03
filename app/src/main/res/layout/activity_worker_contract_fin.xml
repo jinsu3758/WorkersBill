@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+    <data>
+        <variable
+            name="workerContractFin"
+            type="com.example.jinsu.work2.viewmodel.MainViewModel"/>
+    </data>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/white"
+            android:layout_alignParentLeft="true">
+
+            <Button
+                android:id="@+id/worker_contract_fin_btn_back"
+                android:onClick="@{workerContractFin::onBtnClick}"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginLeft="25dp"
+                android:layout_gravity="left|center"
+                android:background="@drawable/backicon"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="근로계약서"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/worker_contract_fin_btn_home"
+                android:onClick="@{workerContractFin::onBtnClick}"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginRight="25dp"
+                android:layout_gravity="end|center"
+                android:background="@drawable/homeicon"/>
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="32dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="45dp"
+                android:layout_gravity="center"
+                android:text="근로계약서"
+                android:textSize="17sp"
+                android:textColor="@color/maintext" />
+
+            <include
+                android:id="@+id/worker_comp_contract_contract"
+                layout="@layout/contract"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <include
+                android:id="@+id/worker_comp_contract_info_employer"
+                layout="@layout/info_employer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <include
+                android:id="@+id/worker_comp_contract_info_worker"
+                layout="@layout/info_worker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</ScrollView>
+</layout>

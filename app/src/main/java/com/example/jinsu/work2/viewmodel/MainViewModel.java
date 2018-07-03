@@ -120,6 +120,22 @@ public final ObservableField<String> select_workplace_edittext = new ObservableF
 //      WorkerContractSendFinActivity
 public final ObservableField<String> contract_send_fin_email = new ObservableField<>();
 
+//      contract
+public final ObservableField<String> employerName = new ObservableField<>();    //0-1
+public final ObservableField<String> workerName = new ObservableField<>();      //0-2
+public final ObservableField<String> startDate = new ObservableField<>();       //1-1
+public final ObservableField<String> endDate = new ObservableField<>();         //1-2
+public final ObservableField<String> workPlace = new ObservableField<>();       //2
+public final ObservableField<String> workThing = new ObservableField<>();       //3
+public final ObservableField<String> workDay = new ObservableField<>();         //4
+public final ObservableField<String> workFreeDay = new ObservableField<>();     //6
+
+public final ObservableField<String> wage = new ObservableField<>();
+public final ObservableField<String> excess = new ObservableField<>();
+public final ObservableField<String> pay_when_month_date = new ObservableField<>();
+
+
+
 
     private String id;
     private User user;
@@ -418,6 +434,16 @@ public final ObservableField<String> contract_send_fin_email = new ObservableFie
             case "WorkerSelectWorkplaceActivity":
             {
                 select_workplace_edittext.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+                    @Override
+                    public void onPropertyChanged(Observable sender, int propertyId) {
+
+                    }
+                });
+            }
+
+            case "ContractActivity":
+            {
+                pay_when_month_date.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
                     @Override
                     public void onPropertyChanged(Observable sender, int propertyId) {
 
@@ -757,6 +783,153 @@ public final ObservableField<String> contract_send_fin_email = new ObservableFie
                 }
                 break;
             }
+
+            //contract
+            case R.id.contract_ch_paytype_time:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","paytype_time체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","paytype_time체크x");
+                }
+                break;
+            }
+            case R.id.contract_ch_paytype_month:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","paytype_month체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","paytype_month체크x");
+                }
+                break;
+            }
+            case R.id.contract_bonus_ch_no:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","bonus_ch_no체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","bonus_ch_no체크x");
+                }
+                break;
+            }
+            case R.id.contract_bonus_ch_yes:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","ch_yes체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","ch_yes체크x");
+                }
+                break;
+            }
+            case R.id.contract_ch_pay_when_month:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","pay_when_month체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","pay_when_month체크x");
+                }
+                break;
+            }
+            case R.id.contract_pay_when_month_date:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","pay_when_month_date체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","pay_when_month_date체크x");
+                }
+                break;
+            }
+            case R.id.contract_ch_pay_how1:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","pay_how1체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","pay_how1체크x");
+                }
+                break;
+            }
+            case R.id.contract_ch_pay_how2:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","pay_how2체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","pay_how2체크x");
+                }
+                break;
+            }
+            case R.id.contract_insure_1:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","insure_1체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","insure_1체크x");
+                }
+                break;
+            }
+            case R.id.contract_insure_2:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","insure_2체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","insure_2체크x");
+                }
+                break;
+            }
+            case R.id.contract_insure_3:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","insure_3체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","insure_3체크x");
+                }
+                break;
+            }
+            case R.id.contract_insure_4:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","insure_4체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","insure_4체크x");
+                }
+                break;
+            }
+
         }
     }
 
