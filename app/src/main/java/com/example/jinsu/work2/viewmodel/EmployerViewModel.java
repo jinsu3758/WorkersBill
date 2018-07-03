@@ -17,29 +17,23 @@ import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.activity.CertActivity;
 import com.example.jinsu.work2.activity.SelectActivity;
 import com.example.jinsu.work2.model.CalcContent;
-import com.example.jinsu.work2.model.Contract;
 import com.example.jinsu.work2.model.EmployerPlace;
 import com.example.jinsu.work2.model.User;
-import com.example.jinsu.work2.model.Worker;
-import com.example.jinsu.work2.network.contract.ContractSource;
 import com.example.jinsu.work2.network.user.UserSource;
-import com.example.jinsu.work2.network.worker.WorkerSource;
 import com.example.jinsu.work2.repositories.EmployerRepository;
 import com.example.jinsu.work2.repositories.MainRepository;
 import com.example.jinsu.work2.thread.SignThread;
 import com.example.jinsu.work2.util.CallonClick;
 import com.example.jinsu.work2.util.Dlog;
-import com.example.jinsu.work2.util.ParsingIp;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.concurrent.ExecutionException;
 
 import javax.inject.Inject;
 
 import io.realm.Realm;
 
-public class EmployerViewModel extends ViewModel {
+public class MainViewModel extends ViewModel {
     public final ObservableField<String> sign_txt = new ObservableField<>();
 //    JoinActivity
     public final ObservableField<String> join_edit_email = new ObservableField<>();
@@ -112,21 +106,35 @@ public class EmployerViewModel extends ViewModel {
     public final ObservableField<String> contract_write_excess = new ObservableField<>();
     public final ObservableField<String> contract_write_edit_month = new ObservableField<>();
 
-//    EmployerContractWiteFinActivity
-    public final ObservableField<String> contract_write_fin_edit_month = new ObservableField<>();
+//    EmployerContractWriteFinActivity
+public final ObservableField<String> contract_write_fin_edit_month = new ObservableField<>();
 
-//    EmployerContractWorkerFragment
-    public final ObservableField<String> worker_sum = new ObservableField<>();
+//     WorkerHomeActivity
+public final ObservableField<String> company_name = new ObservableField<>();
+public final ObservableField<String> goto_office_time = new ObservableField<>();
+public final ObservableField<String> leave_office_time = new ObservableField<>();
 
-//    EmployerContractTempFragment
-    public final ObservableField<String> contract_temp_sum1 = new ObservableField<>();
-    public final ObservableField<String> contract_temp_sum2 = new ObservableField<>();
+//     WorkerSelectWorkplaceActivity
+public final ObservableField<String> select_workplace_edittext = new ObservableField<>();
+
+//      WorkerContractSendFinActivity
+public final ObservableField<String> contract_send_fin_email = new ObservableField<>();
+
+//      contract
+public final ObservableField<String> employerName = new ObservableField<>();    //0-1
+public final ObservableField<String> workerName = new ObservableField<>();      //0-2
+public final ObservableField<String> startDate = new ObservableField<>();       //1-1
+public final ObservableField<String> endDate = new ObservableField<>();         //1-2
+public final ObservableField<String> workPlace = new ObservableField<>();       //2
+public final ObservableField<String> workThing = new ObservableField<>();       //3
+public final ObservableField<String> workDay = new ObservableField<>();         //4
+public final ObservableField<String> workFreeDay = new ObservableField<>();     //6
+
+public final ObservableField<String> wage = new ObservableField<>();
+public final ObservableField<String> excess = new ObservableField<>();
+public final ObservableField<String> pay_when_month_date = new ObservableField<>();
 
 
-//    EmployerManageActivity
-    public final ObservableField<String> employer_manage_list_sum = new ObservableField<>();
-    public final ObservableField<String> employer_manage_req_sum = new ObservableField<>();
-    public final ObservableField<String> employer_manage_cur_sum = new ObservableField<>();
 
 
     private String id;
@@ -145,14 +153,14 @@ public class EmployerViewModel extends ViewModel {
 
 
     @Inject
-    public EmployerViewModel(MainRepository mainRepository, CallonClick click)
+    public MainViewModel(MainRepository mainRepository, CallonClick click)
     {
         this.callback = click;
         this.mainRepository = mainRepository;
         this.employerRepository = EmployerRepository.getInstance();
     }
 
-    public EmployerViewModel(CallonClick onClick)
+    public MainViewModel(CallonClick onClick)
     {
         mainRepository = new MainRepository();
         handler = new Handler() ;
@@ -331,8 +339,6 @@ public class EmployerViewModel extends ViewModel {
 
                     }
                 });
-
-
                 break;
             }
             case "EmployerContractWriteActivity":
@@ -424,6 +430,27 @@ public class EmployerViewModel extends ViewModel {
 
                 break;
             }
+
+            case "WorkerSelectWorkplaceActivity":
+            {
+                select_workplace_edittext.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+                    @Override
+                    public void onPropertyChanged(Observable sender, int propertyId) {
+
+                    }
+                });
+            }
+
+            case "ContractActivity":
+            {
+                pay_when_month_date.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+                    @Override
+                    public void onPropertyChanged(Observable sender, int propertyId) {
+
+                    }
+                });
+            }
+
 
             default:
                 break;
@@ -635,6 +662,273 @@ public class EmployerViewModel extends ViewModel {
                 }
                 break;
             }
+            //employer_contract_write_fin activity
+            case R.id.employer_contract_write_fin_ch_hour:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","houre체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","houre체크x");
+                }
+                break;
+            }
+            case R.id.employer_contract_write_fin_ch_month:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","month체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","month체크x");
+                }
+                break;
+            }
+            case R.id.employer_contract_write_fin_ch_pay_day:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","pay_day체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","pay_day체크x");
+                }
+                break;
+            }
+            case R.id.employer_contract_write_fin_ch_pay_month:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","pay_month체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","pay_month체크x");
+                }
+                break;
+            }
+            case R.id.employer_contract_write_fin_ch_pay_how1:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","how1체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","how1체크x");
+                }
+                break;
+            }
+            case R.id.employer_contract_write_fin_ch_pay_how2:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","how2체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","how2체크x");
+                }
+                break;
+            }
+            case R.id.employer_contract_write_fin_ch_insure1:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","insure1체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","insure1체크x");
+                }
+                break;
+            }
+            case R.id.employer_contract_write_fin_ch_insure2:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","insure2체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","insure2체크x");
+                }
+                break;
+            }
+            case R.id.employer_contract_write_fin_ch_insure3:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","insure3체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","insure3체크x");
+                }
+                break;
+            }
+            case R.id.employer_contract_write_fin_ch_insure4:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","insure4체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","insure4체크x");
+                }
+                break;
+            }
+
+            //contract
+            case R.id.contract_ch_paytype_time:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","paytype_time체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","paytype_time체크x");
+                }
+                break;
+            }
+            case R.id.contract_ch_paytype_month:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","paytype_month체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","paytype_month체크x");
+                }
+                break;
+            }
+            case R.id.contract_bonus_ch_no:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","bonus_ch_no체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","bonus_ch_no체크x");
+                }
+                break;
+            }
+            case R.id.contract_bonus_ch_yes:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","ch_yes체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","ch_yes체크x");
+                }
+                break;
+            }
+            case R.id.contract_ch_pay_when_month:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","pay_when_month체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","pay_when_month체크x");
+                }
+                break;
+            }
+            case R.id.contract_pay_when_month_date:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","pay_when_month_date체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","pay_when_month_date체크x");
+                }
+                break;
+            }
+            case R.id.contract_ch_pay_how1:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","pay_how1체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","pay_how1체크x");
+                }
+                break;
+            }
+            case R.id.contract_ch_pay_how2:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","pay_how2체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","pay_how2체크x");
+                }
+                break;
+            }
+            case R.id.contract_insure_1:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","insure_1체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","insure_1체크x");
+                }
+                break;
+            }
+            case R.id.contract_insure_2:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","insure_2체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","insure_2체크x");
+                }
+                break;
+            }
+            case R.id.contract_insure_3:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","insure_3체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","insure_3체크x");
+                }
+                break;
+            }
+            case R.id.contract_insure_4:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","insure_4체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","insure_4체크x");
+                }
+                break;
+            }
 
         }
     }
@@ -708,20 +1002,22 @@ public class EmployerViewModel extends ViewModel {
             }
             case R.id.employer_fix_place_btn_create:
             {
+                employerPlace = new EmployerPlace(fix_place_name.get(),fix_place_addr.get(),fix_place_phone.get(),fix_place_owner.get());
+                EmployerRepository.getInstance().addEmployerPlace(employerPlace);
                 callback.onBtnClick(view);
                 break;
             }
 
             case R.id.employer_contract_write_btn_write:
-            {Log.v("태그", "55555555555555555555555");
-
+            {
+                Log.v("태그", "55555555555555555555555");
                 callback.onBtnClick(view);
                 break;
             }
 
             case R.id.employer_contract_select_btn_load:
-            {Log.v("태그2","22222222222222");
-
+            {
+                Log.v("태그2","22222222222222");
                 callback.onBtnClick(view);
                 break;
             }
@@ -828,10 +1124,6 @@ public class EmployerViewModel extends ViewModel {
         //return true;
     }
 
-    /**
-     * CertActivity
-     * 이메일 인증 activity
-     */
 
 
     /**
@@ -866,23 +1158,6 @@ public class EmployerViewModel extends ViewModel {
         {
             //5인 이상
         }
-    }
-
-    public String getWifi()
-    {
-        String parse_ip = "";
-        ParsingIp parse = new ParsingIp();
-
-        parse.execute();
-        try {
-            parse_ip = parse.get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
-        place_wifi.set(parse_ip);
-        return parse_ip;
     }
 
 
@@ -931,118 +1206,5 @@ public class EmployerViewModel extends ViewModel {
     {
         calc_num.set(num+ "");
     }
-
-    /**
-     *
-     * EmployerContractWorkerFragment
-     * 계약서 보관함의 근로자 계약서 fragment
-     *
-     */
-
-    public void getContractWorkers(ContractWorkerCallback callback)
-    {
-        EmployerRepository.getInstance().getContractWorker(new ContractSource.LoadContractWorkerCallback() {
-            @Override
-            public void onContractWorkerLoad(ArrayList<Contract> list) {
-                if(list != null)
-                {
-                    worker_sum.set(String.valueOf(list.size()));
-                    callback.get(list);
-                }
-            }
-        });
-
-    }
-
-    public interface ContractWorkerCallback
-    {
-        void get(ArrayList<Contract> contracts);
-    }
-
-    /**
-     *
-     * EmployerContractTempFragment
-     * 계약서 보관함의 미완성 계약서 fragment
-     *
-     */
-
-    public void getContractTemp(ContractTempCallback callback)
-    {
-        EmployerRepository.getInstance().getContractTemp(new ContractSource.LoadContractTempCallback() {
-            @Override
-            public void onContractTempLoad(ArrayList<Contract> list) {
-                if(list != null)
-                {
-                    contract_temp_sum1.set(String.valueOf(list.size()));
-                    callback.get(list);
-                }
-            }
-        });
-
-    }
-
-    public interface ContractTempCallback
-    {
-        void get(ArrayList<Contract> contracts);
-    }
-
-    public void onSaveContractTemp(String name)
-    {
-        //데이터 삭제
-       /* realm.beginTransaction();
-        RealmResults<Contract> userList = realm.where(Contract.class).findAll();
-        userList.deleteAllFromRealm();
-        realm.commitTransaction();*/
-
-        realm.beginTransaction();
-        Contract contract = realm.createObject(Contract.class);
-        contract.setName("와우");
-        contract.setDate("2017-07-07");
-        realm.commitTransaction();
-
-    }
-
-    public void setContractTempSum(int num)
-    {
-        contract_temp_sum2.set(String.valueOf(num));
-    }
-
-
-
-    /**
-     *
-     * EmployerManageActivity
-     * 근로자 관리 Activity
-     *
-     */
-
-    public interface WorkerCallback
-    {
-        void get(ArrayList<Worker> workers);
-    }
-
-    public void getReqWorker(WorkerCallback callback)
-    {
-        EmployerRepository.getInstance().getReqWorker(new WorkerSource.LoadReqWorkerCallback() {
-            @Override
-            public void onReqWorkerLoad(ArrayList<Worker> list) {
-                employer_manage_list_sum.set(String.valueOf(list.size()));
-                employer_manage_req_sum.set(String.valueOf(list.size()));
-                callback.get(list);
-            }
-        });
-    }
-
-    public void getCurWorker(WorkerCallback callback)
-    {
-        EmployerRepository.getInstance().getCurWorker(new WorkerSource.LoadCurWorkerCallback() {
-            @Override
-            public void onCurWorkerLoad(ArrayList<Worker> list) {
-                employer_manage_cur_sum.set(String.valueOf(list.size()));
-                callback.get(list);
-            }
-        });
-    }
-
 
 }
