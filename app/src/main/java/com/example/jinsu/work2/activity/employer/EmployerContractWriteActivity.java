@@ -43,6 +43,7 @@ public class EmployerContractWriteActivity extends AppCompatActivity implements 
             }
             case R.id.employer_contract_write_btn_home:
             {
+                startActivity(new Intent(this,EmployerHomeActivity.class));
                 break;
             }
             case R.id.employer_contract_write_btn_save:

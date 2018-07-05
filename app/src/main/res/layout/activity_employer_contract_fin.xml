@@ -5,7 +5,7 @@
     <data>
 
         <variable
-            name="workerContractFin"
+            name="employerContractFin"
             type="com.example.jinsu.work2.viewmodel.MainViewModel" />
     </data>
 
@@ -29,13 +29,13 @@
                 android:background="@color/white">
 
                 <Button
-                    android:id="@+id/worker_contract_fin_btn_back"
+                    android:id="@+id/employer_contract_fin_btn_back"
                     android:layout_width="22dp"
                     android:layout_height="22dp"
                     android:layout_gravity="left|center"
                     android:layout_marginLeft="25dp"
                     android:background="@drawable/backicon"
-                    android:onClick="@{workerContractFin::onBtnClick}" />
+                    android:onClick="@{employerContractFin::onBtnClick}" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -47,13 +47,13 @@
                     android:textStyle="bold" />
 
                 <Button
-                    android:id="@+id/worker_contract_fin_btn_home"
+                    android:id="@+id/employer_contract_fin_btn_home"
                     android:layout_width="22dp"
                     android:layout_height="22dp"
                     android:layout_gravity="end|center"
                     android:layout_marginRight="25dp"
                     android:background="@drawable/homeicon"
-                    android:onClick="@{workerContractFin::onBtnClick}" />
+                    android:onClick="@{employerContractFin::onBtnClick}" />
             </FrameLayout>
 
             <LinearLayout
@@ -91,7 +91,7 @@
                                 android:id="@+id/contract_employer_name"
                                 android:layout_width="74dp"
                                 android:layout_height="wrap_content"
-                                android:text="@{workerContractFin.contract_fin_employerName}"
+                                android:text="@{employerContractFin.employer_contract_fin_employerName}"
                                 android:textColor="@color/maintext"
                                 android:textSize="15sp" />
 
@@ -109,7 +109,7 @@
                                 android:id="@+id/contract_worker_name"
                                 android:layout_width="74dp"
                                 android:layout_height="wrap_content"
-                                android:text="@{workerContractFin.contract_fin_workerName}"
+                                android:text="@{employerContractFin.employer_contract_fin_workerName}"
                                 android:textColor="@color/maintext"
                                 android:textSize="15sp" />
 
@@ -137,7 +137,7 @@
                             android:id="@+id/contract_start_date"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@{workerContractFin.contract_fin_startDate}" />
+                            android:text="@{employerContractFin.employer_contract_fin_startDate}" />
 
                         <TextView
                             android:id="@+id/contract_to_date"
@@ -153,7 +153,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_toRightOf="@id/contract_to_date"
-                            android:text="@{workerContractFin.contract_fin_endDate}" />
+                            android:text="@{employerContractFin.employer_contract_fin_endDate}" />
                     </RelativeLayout>
 
                     <TextView
@@ -169,7 +169,7 @@
                         android:id="@+id/contract_work_place"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@{workerContractFin.contract_fin_workPlace}" />
+                        android:text="@{employerContractFin.employer_contract_fin_workPlace}" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -184,7 +184,7 @@
                         android:id="@+id/contract_work_thing"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@{workerContractFin.contract_fin_workThing}" />
+                        android:text="@{employerContractFin.employer_contract_fin_workThing}" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -199,7 +199,7 @@
                         android:id="@+id/contract_work_day"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@{workerContractFin.contract_fin_workDay}" />
+                        android:text="@{employerContractFin.employer_contract_fin_workDay}" />
 
 
                     <TextView
@@ -229,7 +229,7 @@
                             android:id="@+id/contract_work_free_day"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@{workerContractFin.contract_fin_workFreeDay}" />
+                            android:text="@{employerContractFin.employer_contract_fin_workFreeDay}" />
 
                         <TextView
                             android:id="@+id/day"
@@ -256,10 +256,10 @@
                         android:layout_marginBottom="16dp">
 
                         <CheckBox
-                            android:id="@+id/contract_fin_ch_paytype_time"
+                            android:id="@+id/employer_contract_fin_ch_paytype_time"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:onCheckedChanged="@{workerContractFin::onCheckBoxChecked}"
+                            android:onCheckedChanged="@{employerContractFin::onCheckBoxChecked}"
                             android:text="시급제"
                             android:textColor="@color/subtext"
                             android:textSize="14sp" />
@@ -270,19 +270,19 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="6dp"
-                            android:layout_toRightOf="@+id/contract_fin_ch_paytype_time"
+                            android:layout_toRightOf="@+id/employer_contract_fin_ch_paytype_time"
                             android:background="@color/background"
-                            android:onClick="@{workerContractFin::onBtnClick}"
+                            android:onClick="@{employerContractFin::onBtnClick}"
                             android:src="@drawable/img_info_s" />
 
                         <CheckBox
-                            android:id="@+id/contract_fin_ch_paytype_month"
+                            android:id="@+id/employer_contract_fin_ch_paytype_month"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="50dp"
                             android:layout_toRightOf="@+id/contract_btn_ch_paytype_time_info"
-                            android:onCheckedChanged="@{workerContractFin::onCheckBoxChecked}"
+                            android:onCheckedChanged="@{employerContractFin::onCheckBoxChecked}"
                             android:text="월급제 또는 연봉제"
                             android:textColor="@color/subtext"
                             android:textSize="14sp" />
@@ -293,9 +293,9 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="6dp"
-                            android:layout_toRightOf="@+id/contract_fin_ch_paytype_month"
+                            android:layout_toRightOf="@+id/employer_contract_fin_ch_paytype_month"
                             android:background="@color/background"
-                            android:onClick="@{workerContractFin::onBtnClick}"
+                            android:onClick="@{employerContractFin::onBtnClick}"
                             android:src="@drawable/img_info_s" />
 
                     </RelativeLayout>
@@ -319,7 +319,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_toRightOf="@+id/contract_text_wage"
-                            android:text="@{workerContractFin.contract_fin_wage}" />
+                            android:text="@{employerContractFin.employer_contract_fin_wage}" />
 
                         <TextView
                             android:id="@+id/contract_text_bonus"
@@ -333,26 +333,26 @@
                             android:textSize="15sp" />
 
                         <CheckBox
-                            android:id="@+id/contract_fin_bonus_ch_no"
+                            android:id="@+id/employer_contract_fin_bonus_ch_no"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/contract_text_wage"
                             android:layout_marginTop="-5dp"
                             android:layout_toRightOf="@+id/contract_text_bonus"
-                            android:onCheckedChanged="@{workerContractFin::onCheckBoxChecked}"
+                            android:onCheckedChanged="@{employerContractFin::onCheckBoxChecked}"
                             android:scaleX="0.8"
                             android:scaleY="0.8"
                             android:text="없음"
                             android:textColor="@color/lightgray" />
 
                         <CheckBox
-                            android:id="@+id/contract_fin_bonus_ch_yes"
+                            android:id="@+id/employer_contract_fin_bonus_ch_yes"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/contract_text_wage"
                             android:layout_marginTop="-5dp"
-                            android:layout_toRightOf="@+id/contract_fin_bonus_ch_no"
-                            android:onCheckedChanged="@{workerContractFin::onCheckBoxChecked}"
+                            android:layout_toRightOf="@+id/employer_contract_fin_bonus_ch_no"
+                            android:onCheckedChanged="@{employerContractFin::onCheckBoxChecked}"
                             android:scaleX="0.8"
                             android:scaleY="0.8"
                             android:text="있음"
@@ -375,7 +375,7 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/contract_text_bonus"
                             android:layout_toRightOf="@+id/contract_text_excess"
-                            android:text="@{workerContractFin.contract_fin_excess}" />
+                            android:text="@{employerContractFin.employer_contract_fin_excess}" />
 
                         <TextView
                             android:id="@+id/contract_text_pay_when"
@@ -405,34 +405,34 @@
 
 
                             <CheckBox
-                                android:id="@+id/contract_fin_ch_pay_when_month"
+                                android:id="@+id/employer_contract_fin_ch_pay_when_month"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="16dp"
                                 android:layout_marginRight="20dp"
-                                android:onCheckedChanged="@{workerContractFin::onCheckBoxChecked}"
+                                android:onCheckedChanged="@{employerContractFin::onCheckBoxChecked}"
                                 android:text="매월"
                                 android:textColor="@color/subtext" />
 
                             <EditText
-                                android:id="@+id/contract_fin_pay_when_month_date"
+                                android:id="@+id/employer_contract_fin_pay_when_month_date"
                                 android:layout_width="64dp"
                                 android:layout_height="28dp"
                                 android:background="@drawable/edittext_border"
                                 android:gravity="right|center_vertical"
                                 android:hint="일"
                                 android:paddingRight="12dp"
-                                android:text="@={workerContractFin.contract_fin_pay_when_month_date}"
+                                android:text="@={employerContractFin.employer_contract_fin_pay_when_month_date}"
                                 android:textSize="14sp" />
 
                             <CheckBox
-                                android:id="@+id/contract_fin_ch_pay_when_day"
+                                android:id="@+id/employer_contract_fin_ch_pay_when_day"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="16dp"
                                 android:layout_marginLeft="20dp"
                                 android:layout_toRightOf="@id/contract_pay_when_month_date"
-                                android:onCheckedChanged="@{workerContractFin::onCheckBoxChecked}"
+                                android:onCheckedChanged="@{employerContractFin::onCheckBoxChecked}"
                                 android:text="매일"
                                 android:textColor="@color/subtext" />
 
@@ -458,21 +458,21 @@
                             android:orientation="horizontal">
 
                             <CheckBox
-                                android:id="@+id/contract_fin_ch_pay_how1"
+                                android:id="@+id/employer_contract_fin_ch_pay_how1"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:onCheckedChanged="@{workerContractFin::onCheckBoxChecked}"
+                                android:onCheckedChanged="@{employerContractFin::onCheckBoxChecked}"
                                 android:text="직접 지급"
                                 android:textColor="@color/subtext" />
 
                             <CheckBox
-                                android:id="@+id/contract_fin_ch_pay_how2"
+                                android:id="@+id/employer_contract_fin_ch_pay_how2"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_toRightOf="@id/contract_fin_ch_pay_how1"
+                                android:layout_toRightOf="@id/employer_contract_fin_ch_pay_how1"
                                 android:layout_weight="1"
-                                android:onCheckedChanged="@{workerContractFin::onCheckBoxChecked}"
+                                android:onCheckedChanged="@{employerContractFin::onCheckBoxChecked}"
                                 android:text="예금통장에 입금"
                                 android:textColor="@color/subtext" />
 
@@ -502,21 +502,21 @@
                                 <TableRow>
 
                                     <CheckBox
-                                        android:id="@+id/contract_fin_insure_1"
+                                        android:id="@+id/employer_contract_fin_insure_1"
                                         android:layout_width="0dp"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
-                                        android:onCheckedChanged="@{workerContractFin::onCheckBoxChecked}"
+                                        android:onCheckedChanged="@{employerContractFin::onCheckBoxChecked}"
                                         android:text="고용보험"
                                         android:textColor="@color/subtext" />
 
                                     <CheckBox
-                                        android:id="@+id/contract_fin_insure_2"
+                                        android:id="@+id/employer_contract_fin_insure_2"
                                         android:layout_width="0dp"
                                         android:layout_height="wrap_content"
-                                        android:layout_toRightOf="@id/contract_fin_insure_1"
+                                        android:layout_toRightOf="@id/employer_contract_fin_insure_1"
                                         android:layout_weight="1"
-                                        android:onCheckedChanged="@{workerContractFin::onCheckBoxChecked}"
+                                        android:onCheckedChanged="@{employerContractFin::onCheckBoxChecked}"
                                         android:text="산재보험"
                                         android:textColor="@color/subtext" />
                                 </TableRow>
@@ -524,21 +524,21 @@
                                 <TableRow>
 
                                     <CheckBox
-                                        android:id="@+id/contract_fin_insure_3"
+                                        android:id="@+id/employer_contract_fin_insure_3"
                                         android:layout_width="0dp"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
-                                        android:onCheckedChanged="@{workerContractFin.onCheckBoxChecked}"
+                                        android:onCheckedChanged="@{employerContractFin.onCheckBoxChecked}"
                                         android:text="국민연금"
                                         android:textColor="@color/subtext" />
 
                                     <CheckBox
-                                        android:id="@+id/contract_fin_insure_4"
+                                        android:id="@+id/employer_contract_fin_insure_4"
                                         android:layout_width="0dp"
                                         android:layout_height="wrap_content"
-                                        android:layout_toRightOf="@id/contract_fin_insure_1"
+                                        android:layout_toRightOf="@id/employer_contract_fin_insure_1"
                                         android:layout_weight="1"
-                                        android:onCheckedChanged="@{workerContractFin.onCheckBoxChecked}"
+                                        android:onCheckedChanged="@{employerContractFin.onCheckBoxChecked}"
                                         android:text="건강보험"
                                         android:textColor="@color/subtext" />
                                 </TableRow>
@@ -605,7 +605,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="20dp"
                         android:hint="몇월 몇일"
-                        android:text="@{workerContractFin.contract_fin_final_date}"
+                        android:text="@{employerContractFin.employer_contract_fin_final_date}"
                         android:textColor="@color/maintext"
                         android:textSize="14sp" />
 
@@ -645,7 +645,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="워커스빌"
-                                android:text="@{workerContractFin.contract_fin_final_place}"
+                                android:text="@{employerContractFin.employer_contract_fin_final_place}"
                                 android:textColor="@color/maintext"
                                 android:textSize="14sp" />
                         </TableRow>
@@ -667,7 +667,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="010-1234-5678"
-                                android:text="@{workerContractFin.contract_fin_final_employer_phone}"
+                                android:text="@{employerContractFin.employer_contract_fin_final_employer_phone}"
                                 android:textColor="@color/maintext"
                                 android:textSize="14sp" />
                         </TableRow>
@@ -689,7 +689,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="서울역 3번출구 우와ㅏㅏ와아아아아앙워아아아ㅏ어아"
-                                android:text="@{workerContractFin.contract_fin_final_employer_address}"
+                                android:text="@{employerContractFin.employer_contract_fin_final_employer_address}"
                                 android:textColor="@color/maintext"
                                 android:textSize="14sp" />
                         </TableRow>
@@ -710,7 +710,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="하성호 대펴님"
-                                android:text="@{workerContractFin.contract_fin_final_employer_name}"
+                                android:text="@{employerContractFin.employer_contract_fin_final_employer_name}"
                                 android:textColor="@color/maintext"
                                 android:textSize="14sp" />
                         </TableRow>
@@ -766,7 +766,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="010-1234-5678"
-                                android:text="@{workerContractFin.contract_fin_final_worker_phone}"
+                                android:text="@{employerContractFin.employer_contract_fin_final_worker_phone}"
                                 android:textColor="@color/maintext"
                                 android:textSize="14sp" />
                         </TableRow>
@@ -788,7 +788,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="서울역 3번출구 우와ㅏㅏ와아아아아앙워아아아ㅏ어아"
-                                android:text="@{workerContractFin.contract_fin_final_worker_address}"
+                                android:text="@{employerContractFin.employer_contract_fin_final_worker_address}"
                                 android:textColor="@color/maintext"
                                 android:textSize="14sp" />
                         </TableRow>
@@ -809,7 +809,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="근로근로"
-                                android:text="@{workerContractFin.contract_fin_final_worker_name}"
+                                android:text="@{employerContractFin.employer_contract_fin_final_worker_name}"
                                 android:textColor="@color/maintext"
                                 android:textSize="14sp" />
                         </TableRow>

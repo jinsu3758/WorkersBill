@@ -17,13 +17,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activity.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:theme="@style/AppTheme.NoActionBar" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".activity.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -48,26 +43,36 @@
 
         </activity>
         <activity android:name=".activity.employer.EmployerCreatePlaceActivity" />
-        <activity android:name=".activity.employer.EmployerFixPlaceActivity">
+        <activity android:name=".activity.employer.EmployerFixPlaceActivity"/>
 
-        </activity>
         <activity android:name=".activity.employer.EmployerHomeActivity" />
         <activity android:name=".activity.employer.EmployerCalcActivity" />
         <activity android:name=".activity.employer.EmployerContractSelectActivity" />
         <activity android:name=".activity.employer.EmployerCalcListActivity" />
-        <activity android:name=".activity.employer.EmployerContractWriteActivity"></activity>
-        <activity android:name=".activity.employer.EmployerContractListActivity">
-        </activity>
-        <activity android:name=".activity.employer.EmployerManageActivity">
+        <activity android:name=".activity.employer.EmployerContractWriteActivity"/>
 
-        </activity>
+        <activity android:name=".activity.employer.EmployerContractListActivity"/>
+        <activity android:name=".activity.employer.EmployerManageActivity"/>
         <activity android:name=".activity.employer.EmployerSendFinishActivity"/>
         <activity android:name=".activity.employer.EmployerSetupActivity"/>
-        <activity android:name=".activity.worker.WorkerContractFinActivity"/>
-        <activity android:name=".activity.worker.WorkerContractRequestActivity"/>
+
+        <activity android:name=".activity.employer.EmployerContractFinActivity"/>
+        <activity android:name=".activity.employer.EmployerContractSendActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.employer.EmployerPredictPaymentActivity"/>
+
+
         <activity android:name=".activity.worker.WorkerContractSendFinActivity"/>
         <activity android:name=".activity.worker.WorkerHomeActivity"/>
         <activity android:name=".activity.worker.WorkerSelectWorkplaceActivity"/>
+        <activity android:name=".activity.worker.WorkerContractFinActivity"/>
+        <activity android:name=".activity.worker.WorkerContractRequestActivity"/>
+        <activity android:name=".activity.worker.WorkerJoinWorkplaceActivity"/>
 
     </application>
 
