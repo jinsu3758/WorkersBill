@@ -43,6 +43,13 @@ public class CertActivity extends AppCompatActivity implements CallonClick{
     //다음 단계 버튼
     @Override
     public void onBtnClick(View view) {
+        switch (view.getId())
+        {
+            case R.id.cert_btn_again:
+            {
+                break;
+            }
+        }
         //startActivity(new Intent(this,SignActivity.class));
         startActivity(new Intent(this,InputInfoActivity.class));
     }

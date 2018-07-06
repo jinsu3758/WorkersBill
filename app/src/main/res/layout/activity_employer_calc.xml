@@ -213,7 +213,7 @@
                     android:textSize="17sp"
                     android:text="계산해 보세요"/>
 
-                <LinearLayout
+                <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -230,16 +230,18 @@
                         android:text="@{employerCalc.calc_total_time}"
                         android:layout_width="64dp"
                         android:layout_height="25dp"
-                        android:layout_marginLeft="36dp"
+                        android:layout_marginRight="40dp"
+                        android:layout_gravity="right"
                         android:background="@drawable/edittext_border_fill"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="시간"
+                        android:layout_gravity="right|center_vertical"
                         android:textColor="@color/maintext"
-                        android:layout_marginLeft="8dp"/>
+                        android:layout_marginRight="8dp"/>
 
-                </LinearLayout>
+                </FrameLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -572,10 +574,10 @@
                         android:textSize="17sp"
                         android:text="바로 작성하기"/>
 
-
                 </LinearLayout>
 
             </LinearLayout>
+
         </LinearLayout>
 
     </ScrollView>

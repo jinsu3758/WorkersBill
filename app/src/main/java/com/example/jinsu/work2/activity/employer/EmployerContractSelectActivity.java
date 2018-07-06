@@ -60,10 +60,10 @@ public class EmployerContractSelectActivity extends AppCompatActivity implements
                 break;
             }
             case R.id.employer_contract_select_btn_load:
-            {Log.v("태그1","1111111111111111");
+            {
                 DataSelectDialog dialog = new DataSelectDialog(this, new DataSelectDialog.onBtnCallback() {
                     @Override
-                    public void onCalc() {Log.v("태그3","333333");
+                    public void onCalc() {
                         startActivity(new Intent(getApplicationContext(),EmployerCalcListActivity.class));
                     }
 
@@ -81,7 +81,7 @@ public class EmployerContractSelectActivity extends AppCompatActivity implements
                 break;
             }
             case R.id.employer_contract_select_btn_now:
-            {Log.v("태그", "666666666666");
+            {
                 startActivity(new Intent(this,EmployerContractWriteActivity.class));
                 break;
             }

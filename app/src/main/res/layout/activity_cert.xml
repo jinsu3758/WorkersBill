@@ -106,6 +106,7 @@
                 android:drawableLeft="@drawable/try_again"
                 android:textSize="14sp"
                 android:textColor="#666666"
+                android:id="@+id/cert_btn_again"
                 android:onClick="@{cert::onBtnClick}"
                 android:background="@android:color/transparent"
                 android:text="다시 보내기 "/>
@@ -118,7 +119,7 @@
                 android:paddingRight="33dp">
 
                 <Button
-                    android:id="@+id/sign_next_btn"
+                    android:id="@+id/cert_btn_next"
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:layout_gravity="center"

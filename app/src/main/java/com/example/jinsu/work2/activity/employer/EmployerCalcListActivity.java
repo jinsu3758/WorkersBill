@@ -30,7 +30,7 @@ public class EmployerCalcListActivity extends AppCompatActivity implements Callo
     private ActivityEmployerCalcListBinding binding;
     private MainViewModel mainViewModel;
     private VIewModelFactory vIewModelFactory;
-    EmployerCalcListAdapter adapter;
+    private EmployerCalcListAdapter adapter;
     private List<CalcContent> list;
 
     @Override

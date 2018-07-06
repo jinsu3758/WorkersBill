@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="workerContractSendFin"
+            type="com.example.jinsu.work2.viewmodel.MainViewModel" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/white">
+
+            <Button
+                android:id="@+id/worker_contract_send_fin_btn_menu"
+                android:onClick="@{workerContractSendFin::onBtnClick"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="left|center"
+                android:layout_marginLeft="25dp"
+                android:background="@drawable/menu" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="근로계약서"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/worker_contract_send_fin_btn_home"
+                android:onClick="@{workerContractSendFin::onBtnClick"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="end|center"
+                android:layout_marginRight="25dp"
+                android:background="@drawable/homeicon" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/contract_send_fin_centerlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="160dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="46dp"
+                android:layout_height="29dp"
+                android:background="@drawable/emailicon" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/contract_send_fin_text1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/worker_contract_send_fin_email"
+                android:text="@{workerContractSendFin.contract_send_fin_email}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="메일로"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/contract_send_fin_text2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:text="전자 근로계약서가 송부되었습니다."
+            android:textColor="@color/black"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/contract_send_fin_notice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:gravity="center"
+            android:text="@string/contract_send_fin_notice"
+            android:textColor="#646464"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/contract_send_fin_btn_home"
+            android:onClick="@{workerContractSendFin::onBtnClick}"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="70dp"
+            android:background="@drawable/homeicon" />
+
+        <TextView
+            android:id="@+id/texthome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:gravity="center"
+            android:text="홈으로 가기"
+            android:textColor="#646464"
+            android:textSize="15sp" />
+
+        <android.support.v4.widget.DrawerLayout
+            android:id="@+id/drawer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_below="@+id/texthome">
+
+        </android.support.v4.widget.DrawerLayout>
+
+    </LinearLayout>
+</layout>

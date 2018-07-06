@@ -6,6 +6,7 @@ public class Contract extends RealmObject {
     String name;
     String date;
 
+
     public String getName() {
         return name;
     }

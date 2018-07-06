@@ -61,7 +61,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:onCheckedChanged="@{employerfixplace.onPlaceCheckd}"
+                    android:onCheckedChanged="@{employerfixplace::onPlaceCheckd}"
                     android:layout_marginBottom="26dp">
 
                     <RadioButton
@@ -196,7 +196,7 @@
                         android:text="위 주소와 동일"
                         android:textSize="13sp"
                         android:textColor="@color/subtext"
-                        android:onCheckedChanged="@{employerfixplace.onCheckBoxChecked}"
+                        android:onCheckedChanged="@{employerfixplace::onCheckBoxChecked}"
                         />
 
 
@@ -266,7 +266,7 @@
                         android:layout_height="14dp"
                         android:layout_marginRight="5dp"
                         android:checked="true"
-                        android:onCheckedChanged="@{employerfixplace.onCheckBoxChecked}"
+                        android:onCheckedChanged="@{employerfixplace::onCheckBoxChecked}"
                         />
 
                 </LinearLayout>

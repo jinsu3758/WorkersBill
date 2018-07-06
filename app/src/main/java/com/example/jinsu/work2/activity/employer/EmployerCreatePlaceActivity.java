@@ -53,6 +53,7 @@ public class EmployerCreatePlaceActivity extends AppCompatActivity implements Ca
             }
             case R.id.employer_create_place_btn_wifi:
             {
+                mainViewModel.getWifi();
                 break;
             }
             case R.id.employer_create_place_btn_create:

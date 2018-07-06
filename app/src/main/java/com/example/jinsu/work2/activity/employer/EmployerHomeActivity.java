@@ -51,7 +51,7 @@ public class EmployerHomeActivity extends AppCompatActivity implements CallonCli
     public void onBtnClick(View view) {
         if(view.getId() == R.id.employer_home_btn_admin)
         {
-
+            startActivity(new Intent(this,EmployerManageActivity.class));
         }
         else if(view.getId() == R.id.employer_home_contract)
         {

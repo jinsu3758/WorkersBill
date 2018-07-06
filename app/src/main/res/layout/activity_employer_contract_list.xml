@@ -1,160 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
             name="employerContractList"
             type="com.example.jinsu.work2.viewmodel.MainViewModel"/>
     </data>
- <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/employer_contract_list_layout"
+        android:fitsSystemWindows="true"
+        tools:openDrawer="start"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
-        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:background="@color/white">
-
-            <Button
-                android:id="@+id/employer_contract_list_drawer"
-                android:onClick="@{employerContractList::onBtnClick}"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_marginLeft="25dp"
-                android:layout_gravity="center|left"
-                android:background="@drawable/menu"
-                />
-
-            <TextView
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="계약서 보관함"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:padding="6dp"
+                android:layout_height="?android:attr/actionBarSize"
+                android:visibility="gone"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark" />
 
-            <Button
-                android:id="@+id/employer_contract_list_home"
-                android:onClick="@{employerContractList::onBtnClick}"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:layout_marginRight="25dp"
-                android:layout_gravity="end|center"
-                android:background="@drawable/homeicon"
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/contract_cabinet_toplayout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:background="@color/white">
+
+                <Button
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_gravity="center|left"
+                    android:background="@drawable/menu"
+                    android:id="@+id/employer_contract_list_btn_drawer"
+                    android:onClick="@{employerContractList::onBtnClick}"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="계약서 보관함"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_gravity="end|center"
+                    android:background="@drawable/homeicon"
+                    android:id="@+id/employer_contract_list_btn_home"
+                    android:onClick="@{employerContractList::onBtnClick}"
+                    />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="76dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/employer_contract_list_tab1"
+                    android:onClick="@{employerContractList::onBtnClick}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:background="@color/white">
+
+                    <TextView
+                        android:id="@+id/employer_contract_list_tab_txt1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="근로계약서"
+                        android:textSize="16sp"
+                        android:textColor="@color/colorAccent"/>
+
+                    <ImageView
+                        android:id="@+id/employer_contract_list_tab_circle1"
+                        android:layout_width="5dp"
+                        android:layout_height="5dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/round_imgeview_cabinet1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/employer_contract_list_tab2"
+                    android:onClick="@{employerContractList::onBtnClick}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:background="@color/white">
+
+                    <TextView
+                        android:id="@+id/employer_contract_list_tab_txt2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="미완성 계약서"
+                        android:textSize="16sp"
+                        android:textColor="@color/gray"/>
+
+                    <ImageView
+                        android:id="@+id/employer_contract_list_tab_circle2"
+                        android:layout_width="5dp"
+                        android:layout_height="5dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/round_imgeview_cabinet2"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:background="@color/gray2"
                 />
-        </FrameLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="76dp"
-            android:orientation="horizontal"
-            android:background="@color/white">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical"
-                android:layout_weight="1">
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="25dp"
-                    android:layout_gravity="center"
-                    android:background="@android:color/transparent"
-                    android:textSize="16sp"
-                    android:textColor="@color/colorAccent"
-                    android:gravity="center"
-                    android:text="근로계약서"
-                    android:id="@+id/boss_contract_cabinet"/>
-                <TextView
-                    android:layout_width="5dp"
-                    android:layout_height="5dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_gravity="center"
-                    android:background="@color/colorAccent"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical"
-                android:layout_weight="1">
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="25dp"
-                    android:layout_gravity="center"
-                    android:background="@android:color/transparent"
-                    android:textSize="16sp"
-                    android:textColor="@color/gray2"
-                    android:gravity="center"
-                    android:text="미완성 계약서"
-                    android:id="@+id/boss_contract_cabinet_unfinished"/>
-
-                <TextView
-                    android:layout_width="5dp"
-                    android:layout_height="5dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_gravity="center"
-                    android:background="@color/gray2"/>
-            </LinearLayout>
-
+            <FrameLayout
+                android:id="@+id/employer_contract_list_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </FrameLayout>
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_gravity="center"
-            android:background="@color/gray2"/>
+        <include
+            android:id="@+id/employer_contract_list_drawer"
+            layout="@layout/navigation_drawer"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="23dp"
-            android:paddingLeft="31dp"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                android:text="근로자"/>
+    </android.support.v4.widget.DrawerLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="7dp"
-                android:textSize="16sp"
-                android:textColor="@color/colorAccent"
-                android:text="4"
-                android:id="@+id/boss_contract_cabinet_num"/>
-        </LinearLayout>
-
-        <VIew
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="23dp"
-            android:layout_marginRight="23dp"
-            android:layout_marginTop="9dp"
-            android:background="@color/gray2"/>
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/contract_cabinet_listView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="50dp">
-        </android.support.v7.widget.RecyclerView>
-
-
-    </LinearLayout>
- </ScrollView>
 </layout>
