@@ -39,7 +39,7 @@
             android:textSize="15sp"
             android:textColor="@color/black"
             android:text="취소하기"
-            android:id="@+id/ask_join_popup_cancelbutton"/>
+            android:id="@+id/dialog_ask_join_btn_cancel"/>
 
         <Button
             android:layout_width="89dp"
@@ -48,7 +48,7 @@
             android:textSize="15sp"
             android:textColor="@color/black"
             android:text="합류하기"
-            android:id="@+id/ask_join_popup_joinbutton"/>
+            android:id="@+id/dialog_ask_join_btn_join"/>
 
     </LinearLayout>
 </LinearLayout>

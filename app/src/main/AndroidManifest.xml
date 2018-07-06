@@ -57,18 +57,18 @@
         <activity android:name=".activity.employer.EmployerSetupActivity"/>
 
         <activity android:name=".activity.employer.EmployerContractFinActivity"/>
-        <activity android:name=".activity.employer.EmployerContractSendActivity">
+        <activity android:name=".activity.employer.EmployerContractSendActivity"/>
+        <activity android:name=".activity.employer.EmployerPredictPaymentActivity"/>
+
+
+        <activity android:name=".activity.worker.WorkerContractSendFinActivity"/>
+        <activity android:name=".activity.worker.WorkerHomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.employer.EmployerPredictPaymentActivity"/>
-
-
-        <activity android:name=".activity.worker.WorkerContractSendFinActivity"/>
-        <activity android:name=".activity.worker.WorkerHomeActivity"/>
         <activity android:name=".activity.worker.WorkerSelectWorkplaceActivity"/>
         <activity android:name=".activity.worker.WorkerContractFinActivity"/>
         <activity android:name=".activity.worker.WorkerContractRequestActivity"/>

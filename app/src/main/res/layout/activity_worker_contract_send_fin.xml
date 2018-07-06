@@ -21,15 +21,6 @@
             android:layout_alignParentTop="true"
             android:background="@color/white">
 
-            <Button
-                android:id="@+id/worker_contract_send_fin_btn_menu"
-                android:onClick="@{workerContractSendFin::onBtnClick"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:layout_gravity="left|center"
-                android:layout_marginLeft="25dp"
-                android:background="@drawable/menu" />
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -41,7 +32,7 @@
 
             <Button
                 android:id="@+id/worker_contract_send_fin_btn_home"
-                android:onClick="@{workerContractSendFin::onBtnClick"
+                android:onClick="@{workerContractSendFin::onBtnClick}"
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:layout_gravity="end|center"

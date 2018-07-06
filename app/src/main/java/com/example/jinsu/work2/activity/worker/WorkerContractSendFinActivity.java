@@ -13,7 +13,6 @@ import com.example.jinsu.work2.util.CallonClick;
 import com.example.jinsu.work2.viewmodel.MainViewModel;
 import com.example.jinsu.work2.viewmodel.VIewModelFactory;
 
-import static com.example.jinsu.work2.R.id.worker_contract_send_fin_btn_menu;
 import static com.example.jinsu.work2.R.id.worker_home_btn_cont_request_alarm;
 
 public class WorkerContractSendFinActivity extends AppCompatActivity implements CallonClick {
@@ -39,11 +38,6 @@ public class WorkerContractSendFinActivity extends AppCompatActivity implements 
     @Override
     public void onBtnClick(View view) {
         switch (view.getId()){
-            case R.id.worker_contract_send_fin_btn_menu:{
-                super.onBackPressed();
-                finish();
-                break;
-            }
             case R.id.worker_contract_send_fin_btn_home:{
                 startActivity(new Intent(this,WorkerHomeActivity.class));
                 break;

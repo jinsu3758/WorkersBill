@@ -25,6 +25,6 @@
         android:textSize="15sp"
         android:textColor="@color/black"
         android:text="확인"
-        android:id="@+id/okbutton"/>
+        android:id="@+id/dialog_before_join_btn_ok"/>
 
 </LinearLayout>

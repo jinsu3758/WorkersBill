@@ -20,15 +20,6 @@
             android:minHeight="?attr/actionBarSize"
             android:background="@color/colorPrimary">
 
-            <Button
-                android:id="@+id/worker_home_btn_menu"
-                android:onClick="@{workerHome::onBtnClick}"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_marginLeft="25dp"
-                android:layout_gravity="center|left"
-                android:background="@drawable/menuwhite"/>
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

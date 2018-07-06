@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="workerContractContainer"
+            type="com.example.jinsu.work2.viewmodel.MainViewModel"/>
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fafafa"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/worker_contract_container_toplayout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/white"
+            android:layout_alignParentLeft="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="계약서 보관함"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/worker_contract_container_btn_home"
+                android:onClick="@{workerContractContainer::onBtnClick}"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginRight="25dp"
+                android:layout_gravity="end|center"
+                android:background="@drawable/homeicon"/>
+
+        </FrameLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="42dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/worker_contract_container_listView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/worker_contract_container_toplayout">
+
+            </android.support.v7.widget.RecyclerView>
+        </ScrollView>
+    </LinearLayout>
+
+</layout>
