@@ -27,6 +27,7 @@ public class EmployerHomeActivity extends AppCompatActivity implements CallonCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initActivity();
+        initListener();
     }
 
 
@@ -34,21 +35,44 @@ public class EmployerHomeActivity extends AppCompatActivity implements CallonCli
     {
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");
-        Log.d("emloyer_home", "name : "+name);
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_employer_home);
         vIewModelFactory = new VIewModelFactory(this);
         mainViewModel = ViewModelProviders.of(this,vIewModelFactory).get(MainViewModel.class);
         binding.setEmployerHome(mainViewModel);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,binding.employerHomeLayout ,binding.toolbar , 0, 0);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,binding.employerHomeLayout
+                ,binding.toolbar , 0, 0);
+        binding.employerHomeLayout.addDrawerListener(toggle);
         toggle.syncState();
+
         binding.employerHomeTxtName.setText(name);
 
     }
 
+    private void initListener()
+    {
+        binding.employerHomeDrawer.naviBtnContract.setOnClickListener(v ->
+        {
+            startActivity(new Intent(this,EmployerContractListActivity.class));
+            binding.employerHomeLayout.closeDrawer(GravityCompat.START);
+        });
+        binding.employerHomeDrawer.naviBtnCalc.setOnClickListener(v ->
+        {
+            startActivity(new Intent(this,EmployerCalcListActivity.class));
+            binding.employerHomeLayout.closeDrawer(GravityCompat.START);
+        });
+        binding.employerHomeDrawer.naviBtnSetting.setOnClickListener(v ->
+        {
+            startActivity(new Intent(this,EmployerSetupActivity.class));
+            binding.employerHomeLayout.closeDrawer(GravityCompat.START);
+        });
+    }
+
+
     @Override
     public void onBtnClick(View view) {
+        Log.d("employer_home",view.getId() + "");
         if(view.getId() == R.id.employer_home_btn_admin)
         {
             startActivity(new Intent(this,EmployerManageActivity.class));

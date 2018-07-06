@@ -35,8 +35,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.concurrent.ExecutionException;
 
-import javax.inject.Inject;
-
 import io.realm.Realm;
 
 public class MainViewModel extends ViewModel {
@@ -159,27 +157,15 @@ public class MainViewModel extends ViewModel {
     private String email;
 
     private CallonClick callback ;
-    private MainRepository mainRepository;
     private android.os.Handler handler;
-    private EmployerRepository employerRepository;
     private Realm realm;
 
 
     // private UserDao userDao;
 
 
-
-    @Inject
-    public MainViewModel(MainRepository mainRepository, CallonClick click)
-    {
-        this.callback = click;
-        this.mainRepository = mainRepository;
-        this.employerRepository = EmployerRepository.getInstance();
-    }
-
     public MainViewModel(CallonClick onClick)
     {
-        mainRepository = new MainRepository();
         handler = new Handler() ;
         this.callback = onClick;
         realm = Realm.getDefaultInstance();
@@ -830,7 +816,7 @@ public class MainViewModel extends ViewModel {
 
     public void getUsers(Context context)
     {
-        employerRepository.getUsers(context, new UserSource.LoadDataCallback() {
+        MainRepository.getInstance().getUsers(context, new UserSource.LoadDataCallback() {
             @Override
             public void onUserLoad(ArrayList<User> list) {
                 if(list != null)
@@ -841,24 +827,6 @@ public class MainViewModel extends ViewModel {
         });
     }
 
-    /*public User getUser() {
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                user = mainRepository.getUser();
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        sign_txt.set(user.getLogin());
-                    }
-                });
-            }
-
-        });
-        thread.start();
-
-            return user;
-    }*/
 
     /**
      * LoginActivity
@@ -870,7 +838,8 @@ public class MainViewModel extends ViewModel {
      */
     public void onLogin()
     {
-
+        if(login_edit_email != null)
+        MainRepository.getInstance().saveUser(login_edit_email.get(), "1234");
     }
 
 
@@ -886,7 +855,7 @@ public class MainViewModel extends ViewModel {
             case R.id.employer_create_place_btn_create:
             {
                 employerPlace = new EmployerPlace(place_name.get(),place_addr.get(),place_phone.get(),place_owner.get());
-                EmployerRepository.getInstance().addEmployerPlace(employerPlace);
+//                EmployerRepository.getInstance().addEmployerPlace(employerPlace);
                 callback.onBtnClick(view);
                 break;
             }
@@ -899,7 +868,7 @@ public class MainViewModel extends ViewModel {
             case R.id.employer_fix_place_btn_create:
             {
                 employerPlace = new EmployerPlace(fix_place_name.get(),fix_place_addr.get(),fix_place_phone.get(),fix_place_owner.get());
-                EmployerRepository.getInstance().addEmployerPlace(employerPlace);
+//                EmployerRepository.getInstance().addEmployerPlace(employerPlace);
                 callback.onBtnClick(view);
                 break;
             }

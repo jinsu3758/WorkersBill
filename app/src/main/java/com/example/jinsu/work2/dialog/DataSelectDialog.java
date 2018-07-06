@@ -37,7 +37,7 @@ public class DataSelectDialog extends Dialog {
     private void init()
     {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.dialog_calc_write);
+        setContentView(R.layout.dialog_data_select);
         btn_calc = (Button)findViewById(R.id.dialog_select_btn_calc);
         btn_contract = (Button)findViewById(R.id.dialog_select_btn_contract);
 

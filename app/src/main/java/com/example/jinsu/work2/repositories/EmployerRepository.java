@@ -1,35 +1,26 @@
 package com.example.jinsu.work2.repositories;
 
 import com.example.jinsu.work2.model.Contract;
-import com.example.jinsu.work2.model.EmployerPlace;
+import com.example.jinsu.work2.model.Place;
 import com.example.jinsu.work2.model.Worker;
-import com.example.jinsu.work2.network.EmployerPlaceSource;
-import com.example.jinsu.work2.network.RestClient;
-import com.example.jinsu.work2.network.RetroService;
 import com.example.jinsu.work2.network.contract.ContractDataSource;
 import com.example.jinsu.work2.network.contract.ContractSource;
+import com.example.jinsu.work2.network.place.PlaceDataSource;
+import com.example.jinsu.work2.network.place.PlaceSource;
 import com.example.jinsu.work2.network.worker.WorkerDataSource;
 import com.example.jinsu.work2.network.worker.WorkerSource;
 
 import java.util.ArrayList;
 
-public class EmployerRepository implements ContractSource, WorkerSource {
-    private static EmployerRepository employerRepository;
+public class EmployerRepository implements ContractSource, WorkerSource, PlaceSource {
+    private static EmployerRepository employerRepository = new EmployerRepository();
 
-    private RetroService retroService;
-    private RestClient<RetroService> restClient;
-
-    ArrayList<EmployerPlace> employerPlaces;
-
+    private PlaceDataSource placeDataSource;
     private ContractDataSource contractDataSource;
     private WorkerDataSource workerDataSource;
 
     public static EmployerRepository getInstance()
     {
-        if(employerRepository == null)
-        {
-            employerRepository = new EmployerRepository();
-        }
         return employerRepository;
     }
 
@@ -37,36 +28,9 @@ public class EmployerRepository implements ContractSource, WorkerSource {
     {
         contractDataSource = new ContractDataSource();
         workerDataSource = new WorkerDataSource();
-        employerPlaces = new ArrayList<>();
-        employerPlaces.add(new EmployerPlace("워커스빌","er","er","eq"));
+
     }
 
-    //서버와 연결
-    public void Connect()
-    {
-        restClient = new RestClient<>();
-        retroService = restClient.getClient(RetroService.class);
-    }
-
-
-
-
-
-    public RetroService getRetroService() {
-        return retroService;
-    }
-
-
-    public void getEmployerPlace(EmployerPlaceSource employerPlaceDataSource)
-    {
-        employerPlaceDataSource.getPlace(employerPlaces);
-    }
-
-    public void addEmployerPlace(EmployerPlace place)
-    {
-        employerPlaces.add(place);
-        return;
-    }
 
 
 
@@ -118,6 +82,19 @@ public class EmployerRepository implements ContractSource, WorkerSource {
                 if(callback != null)
                 {
                     callback.onCurWorkerLoad(list);
+                }
+            }
+        });
+    }
+
+    @Override
+    public void getPlace(LoadPlaceCallback callback) {
+        placeDataSource.getPlace(new LoadPlaceCallback() {
+            @Override
+            public void onPlaceLoad(ArrayList<Place> list) {
+                if(callback != null)
+                {
+                    callback.onPlaceLoad(list);
                 }
             }
         });

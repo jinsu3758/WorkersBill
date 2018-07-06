@@ -10,7 +10,7 @@
     </data>
 
     <android.support.v4.widget.DrawerLayout
-        android:id="@+id/employer_home_layout"
+        android:id="@+id/employer_setup_layout"
         android:fitsSystemWindows="true"
         tools:openDrawer="start"
         android:layout_width="match_parent"
@@ -94,9 +94,9 @@
                     android:onClick="@{employerSetup::onBtnClick}" />
             </LinearLayout>
 
-            <Button
-                android:layout_width="149dp"
-                android:layout_height="15dp"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="150dp"
                 android:layout_marginLeft="28dp"
                 android:gravity="left"
@@ -107,9 +107,9 @@
                 android:id="@+id/employer_setup_btn_cscenter"
                 android:onClick="@{employerSetup::onBtnClick}"/>
 
-            <Button
-                android:layout_width="149dp"
-                android:layout_height="15dp"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="28dp"
                 android:layout_marginTop="25dp"
                 android:gravity="left"
@@ -120,9 +120,9 @@
                 android:id="@+id/employer_setup_btn_policy"
                 android:onClick="@{employerSetup::onBtnClick}"/>
 
-            <Button
-                android:layout_width="149dp"
-                android:layout_height="15dp"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="28dp"
                 android:layout_marginTop="25dp"
                 android:gravity="left"
@@ -133,9 +133,9 @@
                 android:id="@+id/employer_setup_btn_notice"
                 android:onClick="@{employerSetup::onBtnClick}"/>
 
-            <Button
-                android:layout_width="149dp"
-                android:layout_height="15dp"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="28dp"
                 android:layout_marginTop="25dp"
                 android:gravity="left"
@@ -149,9 +149,9 @@
 
 
 
-        <include
-            android:id="@+id/employer_home_drawer"
-            layout="@layout/navigation_drawer"/>
+        <!--<include
+            android:id="@+id/employer_setup_drawer"
+            layout="@layout/navigation_drawer"/>-->
 
 
     </android.support.v4.widget.DrawerLayout>

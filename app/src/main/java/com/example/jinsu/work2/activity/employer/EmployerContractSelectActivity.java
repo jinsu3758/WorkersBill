@@ -69,7 +69,7 @@ public class EmployerContractSelectActivity extends AppCompatActivity implements
 
                     @Override
                     public void onContract() {
-
+                        startActivity(new Intent(getApplicationContext(),EmployerContractListActivity.class));
                     }
                 });
                 dialog.show();

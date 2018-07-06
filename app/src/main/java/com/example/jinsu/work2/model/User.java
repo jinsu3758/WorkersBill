@@ -1,28 +1,24 @@
 package com.example.jinsu.work2.model;
 
 public class User {
+    private String email;
+    private String token;
+    private String userId;
 
-    private String login;
-    private String html_url;
-
-    public User(String login, String html_url) {
-        this.login = login;
-        this.html_url = html_url;
+    public User(String email, String token) {
+        this.email = email;
+        this.token = token;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public String getEmail() {
+        return email;
     }
 
-    public void setHtml_url(String html_url) {
-        this.html_url = html_url;
+    public String getToken() {
+        return token;
     }
 
-    public String getLogin() {
-        return login;
-    }
-
-    public String getHtml_url() {
-        return html_url;
+    public void setToken(String token) {
+        this.token = token;
     }
 }

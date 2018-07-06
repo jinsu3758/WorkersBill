@@ -51,7 +51,9 @@
         <activity android:name=".activity.employer.EmployerFixPlaceActivity">
 
         </activity>
-        <activity android:name=".activity.employer.EmployerHomeActivity" />
+        <activity android:name=".activity.employer.EmployerHomeActivity"
+            android:launchMode="singleTask"/>
+
         <activity android:name=".activity.employer.EmployerCalcActivity" />
         <activity android:name=".activity.employer.EmployerContractSelectActivity" />
         <activity android:name=".activity.employer.EmployerCalcListActivity" />

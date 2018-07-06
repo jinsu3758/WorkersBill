@@ -10,16 +10,16 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.jinsu.work2.R;
-import com.example.jinsu.work2.model.EmployerPlace;
+import com.example.jinsu.work2.model.Place;
 
 import java.util.ArrayList;
 
 public class EmployerPlaceAdapter extends RecyclerView.Adapter<EmployerPlaceAdapter.ViewHolder> {
-    private ArrayList<EmployerPlace> list;
+    private ArrayList<Place> list;
     private Context context;
     private onClickCallback callback;
 
-    public EmployerPlaceAdapter(Context context, ArrayList<EmployerPlace> list, onClickCallback callback) {
+    public EmployerPlaceAdapter(Context context, ArrayList<Place> list, onClickCallback callback) {
         this.context = context;
         this.list = list;
         this.callback = callback;

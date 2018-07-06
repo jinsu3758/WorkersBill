@@ -19,7 +19,7 @@ import com.example.jinsu.work2.viewmodel.VIewModelFactory;
 public class EmployerSetupActivity extends AppCompatActivity implements CallonClick {
 
 
-    ActivityEmployerSetupBinding binding;
+    private ActivityEmployerSetupBinding binding;
     private MainViewModel mainViewModel;
     private VIewModelFactory vIewModelFactory;
 
@@ -41,7 +41,7 @@ public class EmployerSetupActivity extends AppCompatActivity implements CallonCl
         mainViewModel = ViewModelProviders.of(this,vIewModelFactory).get(MainViewModel.class);
         binding.setEmployerSetup(mainViewModel);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,binding.employerHomeLayout ,binding.toolbar , 0, 0);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,binding.employerSetupLayout ,binding.toolbar , 0, 0);
         toggle.syncState();
         //binding.employerSetupTxtName.setText(name);
 
@@ -51,7 +51,7 @@ public class EmployerSetupActivity extends AppCompatActivity implements CallonCl
     public void onBtnClick(View view) {
         if(view.getId() == R.id.employer_setup_btn_drawer)
         {
-            binding.employerHomeLayout.openDrawer(GravityCompat.START);
+            binding.employerSetupLayout.openDrawer(GravityCompat.START);
         }
         else if(view.getId() == R.id.employer_setup_btn_home)
         {
@@ -86,8 +86,8 @@ public class EmployerSetupActivity extends AppCompatActivity implements CallonCl
 
     @Override
     public void onBackPressed() {
-        if (binding.employerHomeLayout.isDrawerOpen(GravityCompat.START)) {
-            binding.employerHomeLayout.closeDrawer(GravityCompat.START);
+        if (binding.employerSetupLayout.isDrawerOpen(GravityCompat.START)) {
+            binding.employerSetupLayout.closeDrawer(GravityCompat.START);
         }else {
             super.onBackPressed();
         }

@@ -13,7 +13,8 @@ import java.util.ArrayList;
 여러 data source를 중재하는 역할*/
 //
 
-public class MainRepository implements UserSource {
+public class MainRepository implements UserSource
+{
     private static MainRepository mainRepository = new MainRepository();
     private UserDataSource userDataSource;
 
@@ -25,7 +26,6 @@ public class MainRepository implements UserSource {
     private MainRepository()
     {
         userDataSource = new UserDataSource();
-
     }
 
     @Override
@@ -44,5 +44,10 @@ public class MainRepository implements UserSource {
     public void postUser(String email)
     {
         userDataSource.onUser(email);
+    }
+
+    public void saveUser(String id, String authCode)
+    {
+        userDataSource.saveUser(id, authCode);
     }
 }

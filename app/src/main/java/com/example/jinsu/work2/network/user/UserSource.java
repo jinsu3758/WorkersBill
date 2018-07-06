@@ -11,4 +11,5 @@ public interface UserSource {
         void onUserLoad(ArrayList<User> list);
     }
     void getUsers(Context context,LoadDataCallback callback);
+
 }

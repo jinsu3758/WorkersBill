@@ -12,9 +12,7 @@ import android.view.View;
 import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.adapter.EmployerPlaceAdapter;
 import com.example.jinsu.work2.databinding.ActivityEmployerPlaceBinding;
-import com.example.jinsu.work2.model.EmployerPlace;
-import com.example.jinsu.work2.network.EmployerPlaceSource;
-import com.example.jinsu.work2.repositories.EmployerRepository;
+import com.example.jinsu.work2.model.Place;
 import com.example.jinsu.work2.util.CallonClick;
 import com.example.jinsu.work2.viewmodel.MainViewModel;
 import com.example.jinsu.work2.viewmodel.VIewModelFactory;
@@ -27,7 +25,7 @@ public class EmployerPlaceActivity extends AppCompatActivity implements CallonCl
     private MainViewModel mainViewModel;
     private VIewModelFactory vIewModelFactory;
     private EmployerPlaceAdapter adapter;
-    private ArrayList<EmployerPlace> list;
+    private ArrayList<Place> list;
 
 
     @Override
@@ -74,14 +72,8 @@ public class EmployerPlaceActivity extends AppCompatActivity implements CallonCl
     private void setList()
     {
         list.clear();
-        EmployerRepository.getInstance().getEmployerPlace(new EmployerPlaceSource() {
-            @Override
-            public void getPlace(ArrayList<EmployerPlace> lists) {
-                list.addAll(lists);
-                adapter.notifyDataSetChanged();
-
-            }
-        });
+        list.add(new Place("e","e","e","e"));
+        adapter.notifyDataSetChanged();
 
     }
 

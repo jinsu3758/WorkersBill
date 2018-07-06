@@ -5,8 +5,6 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 
-import com.example.jinsu.work2.repositories.EmployerRepository;
-
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
@@ -18,7 +16,7 @@ public class BaseApplication extends Application {
     public void onCreate()
     {
         super.onCreate();
-        EmployerRepository.getInstance().Connect();
+        Constants.preferences = getSharedPreferences(Constants.PREF_KEY,MODE_PRIVATE);
         Realm.init(this);
         RealmConfiguration realmConfig = new RealmConfiguration.Builder()
                 .schemaVersion(1)
