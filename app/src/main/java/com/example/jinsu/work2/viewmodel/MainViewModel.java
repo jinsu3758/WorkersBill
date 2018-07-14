@@ -35,6 +35,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.concurrent.ExecutionException;
 
+import javax.inject.Inject;
+
 import io.realm.Realm;
 
 public class MainViewModel extends ViewModel {
@@ -134,9 +136,117 @@ public class MainViewModel extends ViewModel {
     public final ObservableField<String> workDay = new ObservableField<>();         //4
     public final ObservableField<String> workFreeDay = new ObservableField<>();     //6
 
-    public final ObservableField<String> wage = new ObservableField<>();
-    public final ObservableField<String> excess = new ObservableField<>();
-    public final ObservableField<String> pay_when_month_date = new ObservableField<>();
+    public final ObservableField<String> wage = new ObservableField<>();            //7-1
+    public final ObservableField<String> excess = new ObservableField<>();          //7-2
+    public final ObservableField<String> pay_when_month_date = new ObservableField<>(); //7-3
+
+
+
+    //      WorkerContractFin
+    public final ObservableField<String> contract_fin_employerName = new ObservableField<>();    //0-1
+    public final ObservableField<String> contract_fin_workerName = new ObservableField<>();      //0-2
+    public final ObservableField<String> contract_fin_startDate = new ObservableField<>();       //1-1
+    public final ObservableField<String> contract_fin_endDate = new ObservableField<>();         //1-2
+    public final ObservableField<String> contract_fin_workPlace = new ObservableField<>();       //2
+    public final ObservableField<String> contract_fin_workThing = new ObservableField<>();       //3
+    public final ObservableField<String> contract_fin_workDay = new ObservableField<>();         //4
+    public final ObservableField<String> contract_fin_workFreeDay = new ObservableField<>();     //6
+
+    public final ObservableField<String> contract_fin_wage = new ObservableField<>();
+    public final ObservableField<String> contract_fin_excess = new ObservableField<>();
+    public final ObservableField<String> contract_fin_pay_when_month_date = new ObservableField<>();
+
+    public final ObservableField<String> contract_fin_final_date = new ObservableField<>();
+    public final ObservableField<String> contract_fin_final_place = new ObservableField<>();
+    public final ObservableField<String> contract_fin_final_employer_phone = new ObservableField<>();
+    public final ObservableField<String> contract_fin_final_employer_address = new ObservableField<>();
+    public final ObservableField<String> contract_fin_final_employer_name = new ObservableField<>();
+    public final ObservableField<String> contract_fin_final_worker_phone = new ObservableField<>();
+    public final ObservableField<String> contract_fin_final_worker_address = new ObservableField<>();
+    public final ObservableField<String> contract_fin_final_worker_name = new ObservableField<>();
+
+
+    //      WorkerContractRequest
+    public final ObservableField<String> contract_request_employerName = new ObservableField<>();    //0-1
+    public final ObservableField<String> contract_request_workerName = new ObservableField<>();      //0-2
+    public final ObservableField<String> contract_request_startDate = new ObservableField<>();       //1-1
+    public final ObservableField<String> contract_request_endDate = new ObservableField<>();         //1-2
+    public final ObservableField<String> contract_request_workPlace = new ObservableField<>();       //2
+    public final ObservableField<String> contract_request_workThing = new ObservableField<>();       //3
+    public final ObservableField<String> contract_request_workDay = new ObservableField<>();         //4
+    public final ObservableField<String> contract_request_workFreeDay = new ObservableField<>();     //6
+
+    public final ObservableField<String> contract_request_wage = new ObservableField<>();
+    public final ObservableField<String> contract_request_excess = new ObservableField<>();
+    public final ObservableField<String> contract_request_pay_when_month_date = new ObservableField<>();
+
+    public final ObservableField<String> contract_request_final_date = new ObservableField<>();
+    public final ObservableField<String> contract_request_final_place = new ObservableField<>();
+    public final ObservableField<String> contract_request_final_employer_phone = new ObservableField<>();
+    public final ObservableField<String> contract_request_final_employer_address = new ObservableField<>();
+    public final ObservableField<String> contract_request_final_employer_name = new ObservableField<>();
+    public final ObservableField<String> contract_request_final_worker_phone = new ObservableField<>();
+    public final ObservableField<String> contract_request_final_worker_address = new ObservableField<>();
+    public final ObservableField<String> contract_request_final_worker_name = new ObservableField<>();
+
+
+    //      WorkerContractSend
+    public final ObservableField<String> contract_send_employerName = new ObservableField<>();    //0-1
+    public final ObservableField<String> contract_send_workerName = new ObservableField<>();      //0-2
+    public final ObservableField<String> contract_send_startDate = new ObservableField<>();       //1-1
+    public final ObservableField<String> contract_send_endDate = new ObservableField<>();         //1-2
+    public final ObservableField<String> contract_send_workPlace = new ObservableField<>();       //2
+    public final ObservableField<String> contract_send_workThing = new ObservableField<>();       //3
+    public final ObservableField<String> contract_send_workDay = new ObservableField<>();         //4
+    public final ObservableField<String> contract_send_workFreeDay = new ObservableField<>();     //6
+
+    public final ObservableField<String> contract_send_wage = new ObservableField<>();
+    public final ObservableField<String> contract_send_excess = new ObservableField<>();
+    public final ObservableField<String> contract_send_pay_when_month_date = new ObservableField<>();
+
+    public final ObservableField<String> contract_send_final_date = new ObservableField<>();
+    public final ObservableField<String> contract_send_final_place = new ObservableField<>();
+    public final ObservableField<String> contract_send_final_employer_phone = new ObservableField<>();
+    public final ObservableField<String> contract_send_final_employer_address = new ObservableField<>();
+    public final ObservableField<String> contract_send_final_employer_name = new ObservableField<>();
+
+
+
+    //      employer_ContractFin
+    public final ObservableField<String> employer_contract_fin_employerName = new ObservableField<>();    //0-1
+    public final ObservableField<String> employer_contract_fin_workerName = new ObservableField<>();      //0-2
+    public final ObservableField<String> employer_contract_fin_startDate = new ObservableField<>();       //1-1
+    public final ObservableField<String> employer_contract_fin_endDate = new ObservableField<>();         //1-2
+    public final ObservableField<String> employer_contract_fin_workPlace = new ObservableField<>();       //2
+    public final ObservableField<String> employer_contract_fin_workThing = new ObservableField<>();       //3
+    public final ObservableField<String> employer_contract_fin_workDay = new ObservableField<>();         //4
+    public final ObservableField<String> employer_contract_fin_workFreeDay = new ObservableField<>();     //6
+
+    public final ObservableField<String> employer_contract_fin_wage = new ObservableField<>();
+    public final ObservableField<String> employer_contract_fin_excess = new ObservableField<>();
+    public final ObservableField<String> employer_contract_fin_pay_when_month_date = new ObservableField<>();
+
+    public final ObservableField<String> employer_contract_fin_final_date = new ObservableField<>();
+    public final ObservableField<String> employer_contract_fin_final_place = new ObservableField<>();
+    public final ObservableField<String> employer_contract_fin_final_employer_phone = new ObservableField<>();
+    public final ObservableField<String> employer_contract_fin_final_employer_address = new ObservableField<>();
+    public final ObservableField<String> employer_contract_fin_final_employer_name = new ObservableField<>();
+    public final ObservableField<String> employer_contract_fin_final_worker_phone = new ObservableField<>();
+    public final ObservableField<String> employer_contract_fin_final_worker_address = new ObservableField<>();
+    public final ObservableField<String> employer_contract_fin_final_worker_name = new ObservableField<>();
+
+
+    //      employer_predict_payment
+    public final ObservableField<String> predict_payment_name = new ObservableField<>();
+    public final ObservableField<String> predict_payment_day = new ObservableField<>();
+    public final ObservableField<String> predict_payment_pay_total = new ObservableField<>();
+    public final ObservableField<String> predict_payment_pay_wage = new ObservableField<>();
+    public final ObservableField<String> predict_payment_pay_base = new ObservableField<>();
+    public final ObservableField<String> predict_payment_pay_free = new ObservableField<>();
+    public final ObservableField<String> predict_payment_pay_extend = new ObservableField<>();
+    public final ObservableField<String> predict_payment_pay_night = new ObservableField<>();
+
+
 
     //    EmployerContractWorkerFragment
     public final ObservableField<String> worker_sum = new ObservableField<>();
@@ -444,9 +554,19 @@ public class MainViewModel extends ViewModel {
                 });
             }
 
-            case "ContractActivity":
+            case "WorkerContractFinActivity":
             {
-                pay_when_month_date.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+                contract_fin_pay_when_month_date.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+                    @Override
+                    public void onPropertyChanged(Observable sender, int propertyId) {
+
+                    }
+                });
+            }
+
+            case "WorkerContractRequestActivity":
+            {
+                contract_request_pay_when_month_date.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
                     @Override
                     public void onPropertyChanged(Observable sender, int propertyId) {
 
@@ -810,10 +930,610 @@ public class MainViewModel extends ViewModel {
                 }
                 break;
             }
+            ////////////////////////////////////////////으아아ㅏ///////////////////////////////////////////
+
+                //worker fin
+            case R.id.contract_fin_ch_paytype_time:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","paytype_time체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","paytype_time체크x");
+                }
+                break;
+            }
+            case R.id.contract_fin_ch_paytype_month:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","paytype_month체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","paytype_month체크x");
+                }
+                break;
+            }
+            case R.id.contract_fin_bonus_ch_no:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","bonus_ch_no체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","bonus_ch_no체크x");
+                }
+                break;
+            }
+            case R.id.contract_fin_bonus_ch_yes:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","ch_yes체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","ch_yes체크x");
+                }
+                break;
+            }
+            case R.id.contract_fin_ch_pay_when_month:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","pay_when_month체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","pay_when_month체크x");
+                }
+                break;
+            }
+            case R.id.contract_fin_ch_pay_when_day:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","pay_when_month_date체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","pay_when_month_date체크x");
+                }
+                break;
+            }
+            case R.id.contract_fin_ch_pay_how1:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","pay_how1체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","pay_how1체크x");
+                }
+                break;
+            }
+            case R.id.contract_fin_ch_pay_how2:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","pay_how2체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","pay_how2체크x");
+                }
+                break;
+            }
+            case R.id.contract_fin_insure_1:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","insure_1체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","insure_1체크x");
+                }
+                break;
+            }
+            case R.id.contract_fin_insure_2:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","insure_2체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","insure_2체크x");
+                }
+                break;
+            }
+            case R.id.contract_fin_insure_3:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","insure_3체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","insure_3체크x");
+                }
+                break;
+            }
+            case R.id.contract_fin_insure_4:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","insure_4체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","insure_4체크x");
+                }
+                break;
+            }
+
+            //worker request
+            case R.id.contract_request_ch_paytype_time:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","paytype_time체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","paytype_time체크x");
+                }
+                break;
+            }
+            case R.id.contract_request_ch_paytype_month:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","paytype_month체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","paytype_month체크x");
+                }
+                break;
+            }
+            case R.id.contract_request_bonus_ch_no:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","bonus_ch_no체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","bonus_ch_no체크x");
+                }
+                break;
+            }
+            case R.id.contract_request_bonus_ch_yes:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","ch_yes체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","ch_yes체크x");
+                }
+                break;
+            }
+            case R.id.contract_request_ch_pay_when_month:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","pay_when_month체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","pay_when_month체크x");
+                }
+                break;
+            }
+            case R.id.contract_request_ch_pay_when_day:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","pay_when_month_date체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","pay_when_month_date체크x");
+                }
+                break;
+            }
+            case R.id.contract_request_ch_pay_how1:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","pay_how1체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","pay_how1체크x");
+                }
+                break;
+            }
+            case R.id.contract_request_ch_pay_how2:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","pay_how2체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","pay_how2체크x");
+                }
+                break;
+            }
+            case R.id.contract_request_insure_1:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","insure_1체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","insure_1체크x");
+                }
+                break;
+            }
+            case R.id.contract_request_insure_2:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","insure_2체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","insure_2체크x");
+                }
+                break;
+            }
+            case R.id.contract_request_insure_3:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","insure_3체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","insure_3체크x");
+                }
+                break;
+            }
+            case R.id.contract_request_insure_4:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","insure_4체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","insure_4체크x");
+                }
+                break;
+            }
+
+
+            //employer send
+            case R.id.contract_send_ch_paytype_time:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","paytype_time체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","paytype_time체크x");
+                }
+                break;
+            }
+            case R.id.contract_send_ch_paytype_month:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","paytype_month체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","paytype_month체크x");
+                }
+                break;
+            }
+            case R.id.contract_send_bonus_ch_no:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","bonus_ch_no체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","bonus_ch_no체크x");
+                }
+                break;
+            }
+            case R.id.contract_send_bonus_ch_yes:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","ch_yes체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","ch_yes체크x");
+                }
+                break;
+            }
+            case R.id.contract_send_ch_pay_when_month:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","pay_when_month체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","pay_when_month체크x");
+                }
+                break;
+            }
+            case R.id.contract_send_ch_pay_when_day:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","pay_when_month_date체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","pay_when_month_date체크x");
+                }
+                break;
+            }
+            case R.id.contract_send_ch_pay_how1:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","pay_how1체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","pay_how1체크x");
+                }
+                break;
+            }
+            case R.id.contract_send_ch_pay_how2:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","pay_how2체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","pay_how2체크x");
+                }
+                break;
+            }
+            case R.id.contract_send_insure_1:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","insure_1체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","insure_1체크x");
+                }
+                break;
+            }
+            case R.id.contract_send_insure_2:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","insure_2체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","insure_2체크x");
+                }
+                break;
+            }
+            case R.id.contract_send_insure_3:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","insure_3체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","insure_3체크x");
+                }
+                break;
+            }
+            case R.id.contract_send_insure_4:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","insure_4체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","insure_4체크x");
+                }
+                break;
+            }
+
+
+            //employer fin
+            case R.id.employer_contract_fin_ch_paytype_time:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","paytype_time체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","paytype_time체크x");
+                }
+                break;
+            }
+            case R.id.employer_contract_fin_ch_paytype_month:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","paytype_month체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","paytype_month체크x");
+                }
+                break;
+            }
+            case R.id.employer_contract_fin_bonus_ch_no:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","bonus_ch_no체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","bonus_ch_no체크x");
+                }
+                break;
+            }
+            case R.id.employer_contract_fin_bonus_ch_yes:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","ch_yes체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","ch_yes체크x");
+                }
+                break;
+            }
+            case R.id.employer_contract_fin_ch_pay_when_month:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","pay_when_month체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","pay_when_month체크x");
+                }
+                break;
+            }
+            case R.id.employer_contract_fin_ch_pay_when_day:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","pay_when_month_date체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","pay_when_month_date체크x");
+                }
+                break;
+            }
+            case R.id.employer_contract_fin_ch_pay_how1:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","pay_how1체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","pay_how1체크x");
+                }
+                break;
+            }
+            case R.id.employer_contract_fin_ch_pay_how2:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","pay_how2체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","pay_how2체크x");
+                }
+                break;
+            }
+            case R.id.employer_contract_fin_insure_1:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","insure_1체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","insure_1체크x");
+                }
+                break;
+            }
+            case R.id.employer_contract_fin_insure_2:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","insure_2체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","insure_2체크x");
+                }
+                break;
+            }
+            case R.id.employer_contract_fin_insure_3:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","insure_3체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","insure_3체크x");
+                }
+                break;
+            }
+            case R.id.employer_contract_fin_insure_4:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","insure_4체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","insure_4체크x");
+                }
+                break;
+            }
+            case R.id.employer_predict_payment_pay_send_together:
+            {
+                if(ischeckd)
+                {
+                    Log.d("gogo","send_together체크됨");
+                }
+                else
+                {
+                    Log.d("gogo","send_together체크x");
+                }
+                break;
+            }
+
 
         }
     }
-
+/*
     public void getUsers(Context context)
     {
         MainRepository.getInstance().getUsers(context, new UserSource.LoadDataCallback() {
@@ -827,6 +1547,24 @@ public class MainViewModel extends ViewModel {
         });
     }
 
+    /*public User getUser() {
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                user = mainRepository.getUser();
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        sign_txt.set(user.getLogin());
+                    }
+                });
+            }
+
+        });
+        thread.start();
+
+            return user;
+    }*/
 
     /**
      * LoginActivity

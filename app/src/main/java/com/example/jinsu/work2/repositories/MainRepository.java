@@ -23,7 +23,7 @@ public class MainRepository implements UserSource
         return mainRepository;
     }
 
-    private MainRepository()
+    public MainRepository()
     {
         userDataSource = new UserDataSource();
     }

@@ -51,9 +51,7 @@
         <activity android:name=".activity.employer.EmployerFixPlaceActivity">
 
         </activity>
-        <activity android:name=".activity.employer.EmployerHomeActivity"
-            android:launchMode="singleTask"/>
-
+        <activity android:name=".activity.employer.EmployerHomeActivity" />
         <activity android:name=".activity.employer.EmployerCalcActivity" />
         <activity android:name=".activity.employer.EmployerContractSelectActivity" />
         <activity android:name=".activity.employer.EmployerCalcListActivity" />
@@ -70,7 +68,9 @@
         <activity android:name=".activity.worker.WorkerContractSendFinActivity"/>
         <activity android:name=".activity.worker.WorkerHomeActivity"/>
         <activity android:name=".activity.worker.WorkerSelectWorkplaceActivity"/>
-
+        <activity android:name=".activity.worker.WorkerContractFinActivity"/>
+        <activity android:name=".activity.worker.WorkerContractRequestActivity"/>
+        <activity android:name=".activity.worker.WorkerJoinWorkplaceActivity"/>
     </application>
 
 </manifest>

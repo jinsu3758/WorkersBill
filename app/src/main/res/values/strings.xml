@@ -18,6 +18,8 @@
 
     <string name="contract_send_fin_notice">* 메일에 가면 전자 근로계약서 파일이 송부되었습니다.\n 출력을 원하시면 메일에 첨부된 근로계약서 파일을\n다운받으신 후 출력해서 보관해 주십시오.</string>
     <string name="worker_select_workplace_join">합류하기</string>
+    <string name="before_join_pop_notice">사업장에 아직 합류되지\n않아 출퇴근 기록을 할 수 없습니다.\n근로계약서 작성이 완료되면\n사업장에 합류됩니다.</string>
+
 
 
     <string name="employer_home_calc">근로자 고용, 계약서 작성 전 합리적으로 근로자를 운용할 수 있도록 인건비 예측 계산을 해볼 수 있습니다.</string>
@@ -59,7 +61,8 @@
     <string name="employer_write_contract_4_note">이 계약에 정함이 없는 사항은 근로기준법령에 의함</string>
     <string name="employer_write_contract_4_wagedate">휴일의 경우 전일 지급</string>
 
-    <string name="employer_pre_paystub_title">‘홍연주’근로자의 예상 월급여 명세서</string>
+    <string name="employer_pre_paystub_title_start">‘</string>
+    <string name="employer_pre_paystub_title_end">’근로자의 예상 월급여 명세서</string>
     <string name="employer_pre_paystub_send">예상 월급여 명세서 같이 전송하기</string>
 
     <string name="employer_send_1">근로자에게 정상적으로\n전자 근로계약서가 전송되었습니다.</string>

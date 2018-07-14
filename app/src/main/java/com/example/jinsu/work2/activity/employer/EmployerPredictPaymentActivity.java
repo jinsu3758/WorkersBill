@@ -1,4 +1,4 @@
-package com.example.jinsu.work2.activity.worker;
+package com.example.jinsu.work2.activity.employer;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
@@ -8,16 +8,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.example.jinsu.work2.R;
-import com.example.jinsu.work2.databinding.ActivityWorkerContractSendFinBinding;
+import com.example.jinsu.work2.activity.worker.WorkerSelectWorkplaceActivity;
+import com.example.jinsu.work2.databinding.ActivityEmployerPredictPaymentBinding;
 import com.example.jinsu.work2.util.CallonClick;
 import com.example.jinsu.work2.viewmodel.MainViewModel;
 import com.example.jinsu.work2.viewmodel.VIewModelFactory;
 
-import static com.example.jinsu.work2.R.id.worker_home_btn_cont_request_alarm;
+public class EmployerPredictPaymentActivity extends AppCompatActivity implements CallonClick {
 
-public class WorkerContractSendFinActivity extends AppCompatActivity implements CallonClick {
-
-    private ActivityWorkerContractSendFinBinding binding;
+    private ActivityEmployerPredictPaymentBinding binding;
     private MainViewModel mainViewModel;
     private VIewModelFactory vIewModelFactory;
 
@@ -29,24 +28,27 @@ public class WorkerContractSendFinActivity extends AppCompatActivity implements 
 
     private void initActivity()
     {
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_worker_contract_send_fin);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_employer_predict_payment);
         vIewModelFactory = new VIewModelFactory(this);
         mainViewModel = ViewModelProviders.of(this,vIewModelFactory).get(MainViewModel.class);
-        binding.setWorkerContractSendFin(mainViewModel);
+        binding.setEmployerPredictPayment(mainViewModel);
     }
-
     @Override
     public void onBtnClick(View view) {
-        switch (view.getId()){
-            case R.id.worker_contract_send_fin_btn_home:{
-                startActivity(new Intent(this,WorkerHomeActivity.class));
+        switch (view.getId()) {
+            case R.id.employer_predict_payment_btn_back: {
+                super.onBackPressed();
+                finish();
                 break;
             }
-            case R.id.contract_send_fin_btn_home:{
-                startActivity(new Intent(this,WorkerHomeActivity.class));
+            case R.id.employer_predict_payment_btn_home: {
+                startActivity(new Intent(this, EmployerHomeActivity.class));
                 break;
             }
-
+            case R.id.employer_predict_payment_pay_send: {
+                startActivity(new Intent(this, EmployerSendFinishActivity.class));
+                break;
+            }
         }
 
     }

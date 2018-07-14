@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+
+        <variable
+            name="employerPredictPayment"
+            type="com.example.jinsu.work2.viewmodel.MainViewModel" />
+    </data>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:background="@color/white"
+                android:layout_alignParentLeft="true">
+
+                <Button
+                    android:id="@+id/employer_predict_payment_btn_back"
+                    android:onClick="@{employerPredictPayment::onBtnClick}"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_gravity="left|center"
+                    android:background="@drawable/backicon"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="계약서 작성하기"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/employer_predict_payment_btn_home"
+                    android:onClick="@{employerPredictPayment::onBtnClick}"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_gravity="end|center"
+                    android:background="@drawable/homeicon"/>
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="32dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="42dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/employer_pre_paystub_title_start"
+                        android:textSize="18dp"
+                        android:textColor="@color/maintext"/>
+
+                    <TextView
+                        android:id="@+id/employer_predict_payment_name"
+                        android:text="@={employerPredictPayment.predict_payment_name}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18dp"
+                        android:textColor="@color/maintext"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/employer_pre_paystub_title_end"
+                        android:textSize="18dp"
+                        android:textColor="@color/maintext"/>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textColor="@color/maintext"
+                        android:text="법률에 따른 월 임금산정시간"
+                        />
+                    <EditText
+                        android:id="@+id/employer_predict_payment_day"
+                        android:text="@={employerPredictPayment.predict_payment_day}"
+                        android:layout_width="64dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="36dp"
+                        android:background="@drawable/edittext_border_fill"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="시간"
+                        android:textColor="@color/maintext"
+                        android:layout_marginLeft="8dp"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="15dp"
+                    android:text="@string/employer_calculate_time"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="24dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="총 급여"
+                        android:textSize="14sp"
+                        android:textColor="@color/maintext"/>
+
+                    <EditText
+                        android:id="@+id/employer_predict_payment_pay_total"
+                        android:text="@={employerPredictPayment.predict_payment_pay_total}"
+                        android:layout_width="170dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="40dp"
+                        android:background="@drawable/edittext_border_red"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginRight="20dp"
+                        android:text="원"
+                        android:textSize="14sp"
+                        android:textColor="@color/maintext"/>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="통상시급"
+                        android:textSize="14sp"
+                        android:textColor="@color/maintext"/>
+
+                    <EditText
+                        android:id="@+id/employer_predict_payment_pay_wage"
+                        android:text="@={employerPredictPayment.predict_payment_pay_wage}"
+                        android:layout_width="170dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="40dp"
+                        android:background="@drawable/edittext_border"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginRight="20dp"
+                        android:text="원"
+                        android:textSize="14sp"
+                        android:textColor="@color/maintext"/>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="기본임금"
+                        android:textSize="14sp"
+                        android:textColor="@color/maintext"/>
+
+                    <EditText
+                        android:id="@+id/employer_predict_payment_pay_base"
+                        android:text="@={employerPredictPayment.predict_payment_pay_base}"
+                        android:layout_width="170dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="40dp"
+                        android:background="@drawable/edittext_border"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginRight="20dp"
+                        android:text="원"
+                        android:textSize="14sp"
+                        android:textColor="@color/maintext"/>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="주휴수당"
+                        android:textSize="14sp"
+                        android:textColor="@color/maintext"/>
+
+                    <EditText
+                        android:id="@+id/employer_predict_payment_pay_free"
+                        android:text="@={employerPredictPayment.predict_payment_pay_free}"
+                        android:layout_width="170dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="40dp"
+                        android:background="@drawable/edittext_border"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginRight="20dp"
+                        android:text="원"
+                        android:textSize="14sp"
+                        android:textColor="@color/maintext"/>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="연장수당"
+                        android:textSize="14sp"
+                        android:textColor="@color/maintext"/>
+
+                    <EditText
+                        android:id="@+id/employer_predict_payment_pay_extend"
+                        android:text="@={employerPredictPayment.predict_payment_pay_extend}"
+                        android:layout_width="170dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="40dp"
+                        android:background="@drawable/edittext_border"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginRight="20dp"
+                        android:text="원"
+                        android:textSize="14sp"
+                        android:textColor="@color/maintext"/>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="30dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="야간수당"
+                        android:textSize="14sp"
+                        android:textColor="@color/maintext"/>
+
+                    <EditText
+                        android:id="@+id/employer_predict_payment_pay_night"
+                        android:text="@={employerPredictPayment.predict_payment_pay_night}"
+                        android:layout_width="170dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="40dp"
+                        android:background="@drawable/edittext_border"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginRight="20dp"
+                        android:text="원"
+                        android:textSize="14sp"
+                        android:textColor="@color/maintext"/>
+
+                </FrameLayout>
+
+                <Button
+                    android:id="@+id/employer_predict_payment_pay_send"
+                    android:onClick="@{employerPredictPayment::onBtnClick}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@color/colorPrimary"
+                    android:textColor="@color/background"
+                    android:textSize="17sp"
+                    android:text="근로자에게 전송하기"/>
+
+                <CheckBox
+                    android:id="@+id/employer_predict_payment_pay_send_together"
+                    android:onCheckedChanged="@{employerPredictPayment.onCheckBoxChecked}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="18dp"
+                    android:layout_gravity="center"
+                    android:text="@string/employer_pre_paystub_send"
+                    android:textSize="14sp"
+                    android:textColor="@color/subtext"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+
+</layout>
