@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/employer_calc_list"
+    android:layout_width="300dp"
+    android:layout_height="40dp"
+    android:layout_marginBottom="15dp"
+    android:paddingLeft="15dp"
+    android:background="@drawable/border">
+
+    <TextView
+        android:id="@+id/employer_calc_list_txt_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:textSize="15sp"
+        android:textColor="@color/gray"
+        android:text="오전 알바생"
+        />
+
+    <TextView
+        android:id="@+id/employer_calc_list_txt_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="12dp"
+        android:textSize="12sp"
+        android:textColor="@color/gray"
+        android:text="02월 03일 14:00"
+        />
+</LinearLayout>

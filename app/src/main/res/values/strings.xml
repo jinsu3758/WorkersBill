@@ -1,0 +1,109 @@
+<resources>
+    <string name="app_name">WORKER&apos;S BILL</string>
+    <string name="ask_join_popup">&apos;엘오에프&apos;\n사업장에 합류하시겠습니까?</string>
+    <string name="authentication_code_notice">메일에 온 인증코드를 입력해주세요.</string>
+    <string name="digital_signature_notice">* 전자 근로계약서를 작성할 때 사용됩니다.</string>
+    <string name="who_are_you">당신은 누구십니까?</string>
+    <string name="next_button">다음 단계  〉</string>
+    <string name="select_workplace_input_workplace">사업장명을 입력하세요</string>
+    <string name="signup_notice">* 정확하지 않은 이메일 입력시 근로계약서 전송이 잘못될 수 있습니다.</string>
+    <string name="email_hint"> 예시.workers@naver.com</string>
+    <string name="code_send_notice">인증코드가 전송되었습니다. 이메일 확인 후에 작성해주세요.</string>
+    <string name="action_settings">Settings</string>
+    <string name="signin">회원가입</string>
+    <string name="select">어떤 데이터를 불러오겠습니까?</string>
+    <string name="calc_data">계산</string>
+    <string name="contract_data">계약서</string>
+    <string name="calculation_popup_notice">바로 작성하기는 계산 내용이\n따로 저장되지 않습니다.</string>
+
+    <string name="contract_send_fin_notice">* 메일에 가면 전자 근로계약서 파일이 송부되었습니다.\n 출력을 원하시면 메일에 첨부된 근로계약서 파일을\n다운받으신 후 출력해서 보관해 주십시오.</string>
+    <string name="worker_select_workplace_join">합류하기</string>
+    <string name="before_join_pop_notice">사업장에 아직 합류되지\n않아 출퇴근 기록을 할 수 없습니다.\n근로계약서 작성이 완료되면\n사업장에 합류됩니다.</string>
+    <string name="select_im">어디서 가져오시겠습니까?.</string>
+
+    <string name="camera">카메라</string>
+    <string name="album">앨범</string>
+
+
+    <string name="employer_home_calc">근로자 고용, 계약서 작성 전 합리적으로 근로자를 운용할 수 있도록 인건비 예측 계산을 해볼 수 있습니다.</string>
+    <string name="employer_home_write">작성된 전자근로계약서 파일은 이메일로 송부되어 보관,배포가 가능하며, 계약서 보관함에서도 확인이 가능합니다.</string>
+    <string name="employer_home_manage">근로자와 전자 근로계약서 작성이 완료되면 근로자는 사업장에 자동합류됩니다.</string>
+
+    <string name="employer_wifi_enroll">현재 와이파이는\n 입니다.\n출퇴근 와이파이로 등록하시겠습니까?</string>
+    <string name="employer_wifi_enroll_fail">출퇴근용 와이파이를 등록하려면 와이파이에 연결되어 있어야 합니다. 사업장의 와이파이를 연결 후, 다시 시도해주십시오.</string>
+
+    <string name="employer_notice_date">4월 2일</string>
+    <string name="employer_notice_time">09:00</string>
+    <string name="employer_notice_content">합류했소</string>
+
+    <string name="employer_calculate_sch">* 근무요일 및 근무시간을 선택</string>
+    <string name="employer_calculate_wage">* 2018 법정 최저 시급 : 7530원</string>
+    <string name="employer_calculate_time">(실근로 00시간 + 주휴 00시간) x\n(365 / 12 / 7 = 4.34주) = 00시간</string>
+    <string name="employer_calculate_notice1">· 기초 시급은 최저임금법 위반이 아닙니다. </string>
+    <string name="employer_calculate_notice2">· 휴일수당 사업장별로 상이하기 때문에\n\t고려되지 않았습니다.</string>
+    <string name="employer_calculate_notice3">·기초 시급 낮추기</string>
+    <string name="employer_calculate_notice4">2018년 법정 최저 시급은 7530원입니다.</string>
+    <string name="employer_calculate_notice5">· 휴게시간 조정하기</string>
+    <string name="employer_calculate_notice6">시간당 0 ~ 10분 내외로 휴게시간을 조정해보세요.</string>
+    <string name="employer_calculate_notice7">· 근로시간 줄이기</string>
+    <string name="employer_calculate_notice8">일주일 기준 근로시간이 15시간 이상이면 주휴수당이 발생합니다.
+        근로시간을 줄이고 14시간 이하 근로자 추가고용을 고려해보시기 바랍니다.</string>
+
+    <string name="employer_write_contract_1_select">계약서 작성방법을 선택해 주세요.</string>
+    <string name="employer_write_contract_1_save">저장된 데이터 불러오기</string>
+    <string name="employer_write_contract_1_savesub">계산, 임시저장, 완료된 계약서 등을 불러와서\n계약서를 작성할 수 있습니다.</string>
+    <string name="employer_write_contract_1_calc">인건비 예측 계산 후 작성</string>
+    <string name="employer_write_contract_1_calcsub">인건비를 예측할 수 있는 계산을 해본 후에\n계약서를 작성할 수 있습니다.</string>
+    <string name="employer_write_contract_1_write">그냥 계약서 작성</string>
+    <string name="employer_write_contract_1_writesub">계약서를 작성할 준비가 되었다면 바로 계약서를\n작성해보세요.</string>
+
+    <string name="employer_write_contract_4_name_er">(이하 ‘사업주’라함)과</string>
+    <string name="employer_write_contract_4_name_ee">(이하 ‘근로자’라함)은 다음과 같이 계약을 체결한다.</string>
+    <string name="employer_write_contract_write_fin">사업주는 근로계약을 체결함과 동시에 본 계약서를 사본하여 근로자의 교부요구와 관계없이 근로자에게 교부함 (근로기준법 제 17조 이행)</string>
+    <string name="employer_write_contract_4_send">사업주는 근로계약을 체결함과 동시에 본 계약서를 사본하여 근로자의 교부요구와 관계없이 근로자에게 교부함 (근로기준법 제 17조 이행)</string>
+    <string name="employer_write_contract_4_note">이 계약에 정함이 없는 사항은 근로기준법령에 의함</string>
+    <string name="employer_write_contract_4_wagedate">휴일의 경우 전일 지급</string>
+
+    <string name="employer_pre_paystub_title_start">‘</string>
+    <string name="employer_pre_paystub_title_end">’근로자의 예상 월급여 명세서</string>
+    <string name="employer_pre_paystub_send">예상 월급여 명세서 같이 전송하기</string>
+
+    <string name="employer_send_1">근로자에게 정상적으로\n전자 근로계약서가 전송되었습니다.</string>
+    <string name="employer_send_2">* 근로자가 계약서에 전자서명과 지문을 통해 인식한 후에 근로자와 사업주에게 전자 근로계약서가 정상 교부됩니다. </string>
+    <string name="go_home">홈으로 가기</string>
+
+    <string name="employer_setup_profile">프로필</string>
+    <string name="employer_setup_info">사업장 정보</string>
+    <string name="employer_setup_center">고객센터</string>
+    <string name="employer_setup_policy">서비스 이용약관</string>
+    <string name="employer_setup_personal">개인정보 수집 및 이용</string>
+    <string name="employer_setup_ver_info">버전 정보</string>
+
+    <string name="employer_calcluate_save">계산 저장내역</string>
+
+    <string name="worktime">근무시간</string>
+    <string name="hour">시간</string>
+    <string name="lunchtime">식사시간</string>
+    <string name="placeholder_begin_time">시작 시간</string>
+    <string name="placeholder_end_time">종료 시간</string>
+
+    <string name="resttime">휴게시간</string>
+    <string name="placeholder_resttime">시간당 0분</string>
+    <string name="add_lunch_time">+ 식사시간 추가</string>
+    <string name="monday">월</string>
+    <string name="tueseday">화</string>
+    <string name="wednesday">수</string>
+    <string name="thursday">목</string>
+    <string name="friday">금</string>
+    <string name="saturday">토</string>
+    <string name="sunday">일</string>
+
+    <string name="additional_wage_notice">연장근무, 휴일근무, 야간근무(\n오루 10시 ~ 오전 6시) 했을 때\n
+        사업주는 통상임금의 1.5배를 가산\n하여 지급해야 합니다.\n(1.5배 이상 가산하여 지급해도 무방)</string>
+    <string name="additional_wage_notice_low">* 근로기준법 제 56조 (연장,야간 및 휴일근로)\n연장근로와 야간근로(오후 10시부터 오전 6시까지\n
+사이의 근로) 또는 휴일근로에 대하여는 통상임금의\n100분의 50이상을 가산하여 지급해야 한다.</string>
+
+    <string name="monthly_pay">1개월 단위로 산정하여 지급하는\n임금제도</string>
+    <string name="getout">사업장에서\n내보내기</string>
+    <string name="hourly_pay">임금이 시간단위로 결정되는 임금\n형태로 1시간 단위의 임금에\n실노동시간을 곱하여 임금을 계산\n,지급하는 형태이다.</string>
+</resources>

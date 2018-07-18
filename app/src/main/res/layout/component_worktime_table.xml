@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/chkWeek"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="6dp"
+            android:buttonTint="@color/colorPrimary"
+            android:fontFamily="@font/kopubdotumpm"
+            android:text="week"
+            android:textColor="@color/subtext" />
+
+        <LinearLayout
+            android:id="@+id/layoutWorkHour"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtWorkHour"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="00" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/hour" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutRestTime"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="18dp"
+            android:text="@string/resttime" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl">
+
+            <EditText
+                android:id="@+id/editRestTimePerHour"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:background="@drawable/border_gray"
+                android:ems="10"
+                android:gravity="left|center_vertical"
+                android:hint="@string/placeholder_resttime"
+                android:inputType="time"
+                android:numeric="integer"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="10dp"
+                app:srcCompat="@drawable/triangle_30" />
+        </FrameLayout>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2" />
+
+    </LinearLayout>
+
+    <com.example.jinsu.work2.util.custom.WorkTimePicker
+        android:id="@+id/timeWork"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="@string/worktime">
+
+    </com.example.jinsu.work2.util.custom.WorkTimePicker>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rcLunchTimes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <FrameLayout
+        android:id="@+id/btnAddLunch"
+        android:layout_width="92dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="83dp"
+        android:layout_weight="1"
+        android:background="@drawable/round_corner_button_gray"
+        android:paddingBottom="3dp"
+        android:paddingTop="3dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/add_lunch_time"
+            android:textSize="12sp" />
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="contract"
+            type="com.example.jinsu.work2.viewmodel.MainViewModel" />
+    </data>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:shrinkColumns="1">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/contract_employer_name"
+                        android:layout_width="74dp"
+                        android:layout_height="wrap_content"
+                        android:text="@{contract.employerName}"
+                        android:textColor="@color/maintext"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/employer_write_contract_4_name_er" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/contract_worker_name"
+                        android:layout_width="74dp"
+                        android:layout_height="wrap_content"
+                        android:text="@{contract.workerName}"
+                        android:textColor="@color/maintext"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/employer_write_contract_4_name_ee" />
+                </TableRow>
+            </TableLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="28dp"
+                android:text="1. 근로계약 기간"
+                android:textColor="@color/maintext"
+                android:textSize="15sp" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/contract_start_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{contract.startDate}" />
+
+                <TextView
+                    android:id="@+id/contract_to_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_toRightOf="@+id/contract_start_date"
+                    android:text="-" />
+
+                <TextView
+                    android:id="@+id/contract_end_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/contract_to_date"
+                    android:text="@{contract.endDate}" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="28dp"
+                android:text="2. 근무장소"
+                android:textColor="@color/maintext"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/contract_work_place"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{contract.workPlace}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="28dp"
+                android:text="3. 업무의 내용"
+                android:textColor="@color/maintext"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/contract_work_thing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{contract.workThing}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="28dp"
+                android:text="4. 근무일수"
+                android:textColor="@color/maintext"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/contract_work_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{contract.workDay}" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="28dp"
+                android:text="5. 근무일정"
+                android:textColor="@color/maintext"
+                android:textSize="15sp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="28dp"
+                android:text="6. 주휴일"
+                android:textColor="@color/maintext"
+                android:textSize="15sp" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/contract_work_free_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{contract.workFreeDay}" />
+
+                <TextView
+                    android:id="@+id/day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:layout_toRightOf="@+id/contract_work_free_day"
+                    android:text="요일"
+                    android:textColor="@color/lightgray" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="28dp"
+                android:text="7. 임금"
+                android:textColor="@color/maintext"
+                android:textSize="15sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+
+                <CheckBox
+                    android:id="@+id/contract_ch_paytype_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onCheckedChanged="@{contract::onCheckBoxChecked}"
+                    android:text="시급제"
+                    android:textColor="@color/subtext"
+                    android:textSize="14sp" />
+
+                <ImageButton
+                    android:id="@+id/contract_btn_ch_paytype_time_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="6dp"
+                    android:layout_toRightOf="@+id/contract_ch_paytype_time"
+                    android:background="@color/background"
+                    android:onClick="@{contract::onBtnClick}"
+                    android:src="@drawable/img_info_s" />
+
+                <CheckBox
+                    android:id="@+id/contract_ch_paytype_month"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="50dp"
+                    android:layout_toRightOf="@+id/contract_btn_ch_paytype_time_info"
+                    android:onCheckedChanged="@{contract::onCheckBoxChecked}"
+                    android:text="월급제 또는 연봉제"
+                    android:textColor="@color/subtext"
+                    android:textSize="14sp" />
+
+                <ImageButton
+                    android:id="@+id/contract_btn_ch_paytype_month_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="6dp"
+                    android:layout_toRightOf="@+id/contract_ch_paytype_month"
+                    android:background="@color/background"
+                    android:onClick="@{contract::onBtnClick}"
+                    android:src="@drawable/img_info_s" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/contract_text_wage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginRight="30dp"
+                    android:text="- 시급"
+                    android:textColor="@color/maintext"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/contract_wage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/contract_text_wage"
+                    android:text="@{contract.wage}" />
+
+                <TextView
+                    android:id="@+id/contract_text_bonus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/contract_text_wage"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginRight="20dp"
+                    android:text="- 상여금"
+                    android:textColor="@color/maintext"
+                    android:textSize="15sp" />
+
+                <CheckBox
+                    android:id="@+id/contract_bonus_ch_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/contract_text_wage"
+                    android:layout_marginTop="-5dp"
+                    android:layout_toRightOf="@+id/contract_text_bonus"
+                    android:onCheckedChanged="@{contract::onCheckBoxChecked}"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:text="없음"
+                    android:textColor="@color/lightgray" />
+
+                <CheckBox
+                    android:id="@+id/contract_bonus_ch_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/contract_text_wage"
+                    android:layout_marginTop="-5dp"
+                    android:layout_toRightOf="@+id/contract_bonus_ch_no"
+                    android:onCheckedChanged="@{contract::onCheckBoxChecked}"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:text="있음"
+                    android:textColor="@color/lightgray" />
+
+                <TextView
+                    android:id="@+id/contract_text_excess"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/contract_text_bonus"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginRight="30dp"
+                    android:text="- 초과근로 가산임금률"
+                    android:textColor="@color/maintext"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/contract_excess"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/contract_text_bonus"
+                    android:layout_toRightOf="@+id/contract_text_excess"
+                    android:text="@{contract.excess}" />
+
+                <TextView
+                    android:id="@+id/contract_text_pay_when"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/contract_text_excess"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginRight="30dp"
+                    android:text="- 임금 지급일"
+                    android:textColor="@color/maintext"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/contract_text_pay_when_sub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/contract_text_excess"
+                    android:layout_toRightOf="@+id/contract_text_pay_when"
+                    android:text="@string/employer_write_contract_4_wagedate" />
+
+                <LinearLayout
+                    android:id="@+id/cont_pay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/contract_text_pay_when"
+                    android:orientation="horizontal">
+
+
+                    <CheckBox
+                        android:id="@+id/contract_ch_pay_when_month"
+                        android:onCheckedChanged="@{contract::onCheckBoxChecked}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginRight="20dp"
+                        android:text="매월"
+                        android:textColor="@color/subtext" />
+
+                    <EditText
+                        android:id="@+id/contract_pay_when_month_date"
+                        android:text="@={contract.pay_when_month_date}"
+                        android:layout_width="64dp"
+                        android:layout_height="28dp"
+                        android:background="@drawable/edittext_border"
+                        android:gravity="right|center_vertical"
+                        android:hint="일"
+                        android:paddingRight="12dp"
+                        android:textSize="14sp" />
+
+                    <CheckBox
+                        android:id="@+id/contract_ch_pay_when_day"
+                        android:onCheckedChanged="@{contract::onCheckBoxChecked}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_toRightOf="@id/contract_pay_when_month_date"
+                        android:text="매일"
+                        android:textColor="@color/subtext" />
+
+                </LinearLayout>
+
+
+
+                <TextView
+                    android:id="@+id/contract_text_pay_how"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/cont_pay"
+                    android:layout_marginBottom="14dp"
+                    android:text="- 임금 지급 방법"
+                    android:textColor="@color/maintext"
+                    android:textSize="15sp" />
+
+                <LinearLayout
+                    android:id="@+id/cont_how"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/contract_text_pay_how"
+                    android:layout_marginBottom="24dp"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/contract_ch_pay_how1"
+                        android:onCheckedChanged="@{contract::onCheckBoxChecked}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="직접 지급"
+                        android:textColor="@color/subtext" />
+
+                    <CheckBox
+                        android:id="@+id/contract_ch_pay_how2"
+                        android:onCheckedChanged="@{contract::onCheckBoxChecked}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/contract_ch_pay_how1"
+                        android:layout_weight="1"
+                        android:text="예금통장에 입금"
+                        android:textColor="@color/subtext" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/cont_insur"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/cont_how"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/contract_insure"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="14dp"
+                        android:text="8. 사회보험 적용여부 (해당란에 체크)"
+                        android:textColor="@color/maintext"
+                        android:textSize="15sp" />
+
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="24dp">
+
+                        <TableRow>
+
+                            <CheckBox
+                                android:id="@+id/contract_insure_1"
+                                android:onCheckedChanged="@{contract::onCheckBoxChecked}"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="고용보험"
+                                android:textColor="@color/subtext" />
+
+                            <CheckBox
+                                android:id="@+id/contract_insure_2"
+                                android:onCheckedChanged="@{contract::onCheckBoxChecked}"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@id/contract_insure_1"
+                                android:layout_weight="1"
+                                android:text="산재보험"
+                                android:textColor="@color/subtext" />
+                        </TableRow>
+
+                        <TableRow>
+
+                            <CheckBox
+                                android:id="@+id/contract_insure_3"
+                                android:onCheckedChanged="@{contract.onCheckBoxChecked}"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="국민연금"
+                                android:textColor="@color/subtext" />
+
+                            <CheckBox
+                                android:id="@+id/contract_insure_4"
+                                android:onCheckedChanged="@{contract.onCheckBoxChecked}"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@id/contract_insure_1"
+                                android:layout_weight="1"
+                                android:text="건강보험"
+                                android:textColor="@color/subtext" />
+                        </TableRow>
+                    </TableLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/cont_insur"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:id="@+id/contract_text_share"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="14dp"
+                        android:text="9. 근로계약서 교부"
+                        android:textColor="@color/maintext"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/contract_text_share_sub"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="24dp"
+                        android:text="@string/employer_write_contract_4_send"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/cont_text8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="14dp"
+                        android:text="10. 기타"
+                        android:textColor="@color/maintext"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/cont_text8_sub"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/employer_write_contract_4_note"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+</layout>

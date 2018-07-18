@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="employerHome"
+            type="com.example.jinsu.work2.viewmodel.MainViewModel"/>
+    </data>
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/employer_home_layout"
+        android:fitsSystemWindows="true"
+        tools:openDrawer="start"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:padding="6dp"
+                android:layout_height="?android:attr/actionBarSize"
+                android:background="@android:color/transparent"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:background="@color/colorPrimary"
+                >
+                <Button
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_gravity="left|center"
+                    android:background="@drawable/menuwhite"
+                    android:id="@+id/employer_home_btn_drawer"
+                    android:onClick="@{employerHome::onBtnClick}"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/app_name"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center"
+                    android:layout_marginRight="25dp">
+                    <Button
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginRight="19dp"
+                        android:layout_gravity="right"
+                        android:background="@drawable/whiteicon"
+                        android:id="@+id/worker_management_change"/>
+
+                    <Button
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_gravity="end|center"
+                        android:background="@drawable/notification_white"
+                        android:id="@+id/worker_management_homebutton"/>
+                </LinearLayout>
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/employer_home_txt_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/maintext"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="안녕하세요"
+                    android:textColor="@color/maintext"
+                    android:textSize="20sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/maintext" />
+
+                <LinearLayout
+                    android:id="@+id/employer_home_contract"
+                    android:onClick="@{employerHome::onBtnClick}"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/border_green"
+                    android:orientation="horizontal"
+                    android:paddingBottom="40dp"
+                    android:paddingLeft="28dp"
+                    android:paddingRight="28dp"
+                    android:paddingTop="40dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="3">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="근로계약서 작성하기"
+                            android:textColor="@color/maintext"
+                            android:textSize="17sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="12dp"
+                            android:textSize="12sp"
+                            android:text="@string/employer_home_write"
+                            android:textColor="@color/subtext" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="58sp"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/img_write"
+                        android:layout_weight="0"/>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/employer_home_calc"
+                    android:onClick="@{employerHome::onBtnClick}"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/border_green"
+                    android:orientation="horizontal"
+                    android:paddingBottom="40dp"
+                    android:paddingLeft="28dp"
+                    android:paddingRight="28dp"
+                    android:paddingTop="40dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="3">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="예상 인건비 작성하기"
+                            android:textColor="@color/maintext"
+                            android:textSize="17sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="12dp"
+                            android:textSize="12sp"
+                            android:text="@string/employer_home_calc"
+                            android:textColor="@color/subtext" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="58sp"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/img_calculate"
+                        android:layout_weight="0"/>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/employer_home_btn_admin"
+                    android:onClick="@{employerHome::onBtnClick}"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_gravity="center"
+                    android:paddingLeft="40dp"
+                    android:drawablePadding="-40dp"
+                    android:drawableLeft="@drawable/img_manage_s"
+                    android:background="@drawable/round_corner2"
+                    android:text="근로자 관리"
+                    android:textSize="15sp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <include
+            android:id="@+id/employer_home_drawer"
+            layout="@layout/navigation_drawer"/>
+
+
+    </android.support.v4.widget.DrawerLayout>
+</layout>

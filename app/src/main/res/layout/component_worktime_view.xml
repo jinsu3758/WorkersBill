@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.example.jinsu.work2.util.custom.WorkTimeTable
+        android:id="@+id/mondayWorkTable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:readonly="false"
+        app:week="@string/monday" />
+
+    <com.example.jinsu.work2.util.custom.WorkTimeTable
+        android:id="@+id/tuesedayWorkTable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:readonly="false"
+        app:week="@string/tueseday" />
+
+    <com.example.jinsu.work2.util.custom.WorkTimeTable
+        android:id="@+id/wedneWorkTableWorkTable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:readonly="false"
+        app:week="@string/wednesday" />
+
+    <com.example.jinsu.work2.util.custom.WorkTimeTable
+        android:id="@+id/thursdayWorkTable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:readonly="false"
+        app:week="@string/thursday" />
+
+    <com.example.jinsu.work2.util.custom.WorkTimeTable
+        android:id="@+id/fridayWorkTable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:readonly="false"
+        app:week="@string/friday" />
+
+    <com.example.jinsu.work2.util.custom.WorkTimeTable
+        android:id="@+id/saturdayWorkTable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:readonly="false"
+        app:week="@string/saturday" />
+
+    <com.example.jinsu.work2.util.custom.WorkTimeTable
+        android:id="@+id/sundayWorkTable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:readonly="false"
+        app:week="@string/sunday" />
+</LinearLayout>

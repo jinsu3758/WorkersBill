@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="314dp"
+    android:layout_height="336dp"
+    android:paddingRight="20dp"
+    android:paddingLeft="36dp"
+    android:paddingTop="20dp"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+
+    <Button
+        android:id="@+id/dialog_additional_wage_btn_close"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_gravity="right"
+        android:background="@drawable/close"
+        android:textSize="15sp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:textColor="@color/colorAccent"
+        android:text="초과근로 가산임금률이란?" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        android:text="@string/additional_wage_notice"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="12sp"
+        android:textColor="#000000"
+        android:text="@string/additional_wage_notice_low"/>
+
+
+</LinearLayout>

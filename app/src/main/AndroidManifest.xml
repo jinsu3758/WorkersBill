@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.jinsu.work2">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <application
+        android:name=".common.BaseApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".activity.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.JoinActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.CertActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.InputInfoActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.SignActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.SelectActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.employer.EmployerPlaceActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity android:name=".activity.employer.EmployerCreatePlaceActivity" />
+        <activity android:name=".activity.employer.EmployerFixPlaceActivity">
+
+        </activity>
+        <activity android:name=".activity.employer.EmployerHomeActivity" />
+        <activity android:name=".activity.employer.EmployerCalcActivity" />
+        <activity android:name=".activity.employer.EmployerContractSelectActivity" />
+        <activity android:name=".activity.employer.EmployerCalcListActivity" />
+        <activity android:name=".activity.employer.EmployerContractWriteActivity"></activity>
+        <activity android:name=".activity.employer.EmployerContractListActivity">
+        </activity>
+        <activity android:name=".activity.employer.EmployerManageActivity">
+
+        </activity>
+        <activity android:name=".activity.employer.EmployerSendFinishActivity"/>
+        <activity android:name=".activity.employer.EmployerSetupActivity"/>
+        <activity android:name=".activity.worker.WorkerContractFinActivity"/>
+        <activity android:name=".activity.worker.WorkerContractRequestActivity"/>
+        <activity android:name=".activity.worker.WorkerContractSendFinActivity"/>
+        <activity android:name=".activity.worker.WorkerHomeActivity"/>
+        <activity android:name=".activity.worker.WorkerSelectWorkplaceActivity"/>
+        <activity android:name=".activity.worker.WorkerContractFinActivity"/>
+        <activity android:name=".activity.worker.WorkerContractRequestActivity"/>
+        <activity android:name=".activity.worker.WorkerJoinWorkplaceActivity"/>
+    </application>
+
+</manifest>

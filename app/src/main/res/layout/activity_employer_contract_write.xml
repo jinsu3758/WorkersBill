@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="employerContractWrite"
+            type="com.example.jinsu.work2.viewmodel.MainViewModel"/>
+    </data>
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+             android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:background="@color/white">
+                <Button
+                    android:id="@+id/employer_contract_write_btn_back"
+                    android:onClick="@{employerContractWrite::onBtnClick}"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_gravity="left|center"
+                    android:background="@drawable/backicon"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="계약서 작성하기"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_gravity="end|center"
+                    android:background="@drawable/homeicon"
+                    android:id="@+id/employer_contract_write_btn_home"
+                    android:onClick="@{employerContractWrite::onBtnClick}"/>
+            </FrameLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="32dp"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="250dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center_horizontal"
+                        android:text="2. 작성 완료"
+                        android:textSize="11sp"
+                        android:gravity="center_vertical|right"
+                        android:paddingRight="32dp"
+                        android:background="@drawable/round_corner_green"/>
+
+                    <TextView
+                        android:layout_width="125dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginRight="62.5dp"
+                        android:text="1. 계약서 작성"
+                        android:textColor="@color/background"
+                        android:textSize="11sp"
+                        android:gravity="center"
+                        android:background="@drawable/round_corner_green_fill"/>
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:layout_gravity="center"
+                    android:text="근로자 근로계약서"
+                    android:textSize="17sp"
+                    android:textColor="@color/maintext"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="사업주 이름"
+                    android:textSize="15sp"
+                    android:textColor="@color/maintext" />
+
+                <EditText
+                    android:id="@+id/employer_contract_write_owner"
+                    android:text="@={employerContractWrite.contract_write_owner}"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="8dp"
+                    android:paddingLeft="16dp"
+                    android:background="@drawable/edittext_border"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:hint="이름" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="근로자 이름"
+                    android:textSize="15sp"
+                    android:textColor="@color/maintext" />
+
+                <EditText
+                    android:id="@+id/employer_contract_write_worker"
+                    android:text="@={employerContractWrite.contract_write_worker}"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="8dp"
+                    android:paddingLeft="16dp"
+                    android:background="@drawable/edittext_border"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:hint="이름" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="근무장소"
+                    android:textSize="15sp"
+                    android:textColor="@color/maintext" />
+
+                <EditText
+                    android:id="@+id/employer_contract_write_place"
+                    android:text="@={employerContractWrite.contract_write_place}"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="8dp"
+                    android:paddingLeft="16dp"
+                    android:background="@drawable/edittext_border"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:hint="장소" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="업무의 내용"
+                    android:textSize="15sp"
+                    android:textColor="@color/maintext" />
+
+                <EditText
+                    android:id="@+id/employer_contract_write_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/edittext_border"
+                    android:ems="10"
+                    android:hint="예) SNS기획, 서빙, 계산원"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="16dp"
+                    android:text="@={employerContractWrite.contract_write_content}" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="근무기간"
+                    android:textSize="15sp"
+                    android:textColor="@color/maintext" />
+
+                <EditText
+                    android:id="@+id/employer_contract_write_term1"
+                    android:text="@={employerContractWrite.contract_write_term1}"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="8dp"
+                    android:paddingLeft="16dp"
+                    android:background="@drawable/edittext_border"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:hint="0000년 00월 00일 부터" />
+
+                <EditText
+                    android:id="@+id/employer_contract_write_term2"
+                    android:text="@={employerContractWrite.contract_write_term2}"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="8dp"
+                    android:paddingLeft="16dp"
+                    android:background="@drawable/edittext_border"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:hint="0000년 00월 00일 까지" />
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="근무일수"
+                    android:textSize="15sp"
+                    android:textColor="@color/maintext" />
+
+                <EditText
+                    android:id="@+id/employer_contract_write_day"
+                    android:text="@={employerContractWrite.contract_write_day}"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="8dp"
+                    android:paddingRight="16dp"
+                    android:background="@drawable/edittext_border"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:gravity="right|center_vertical"
+                    android:hint="일"
+                    />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="근무일정"
+                    android:textSize="15sp"
+                    android:textColor="@color/maintext" />
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.example.jinsu.work2.util.custom.WorkTimeView
+                        android:id="@+id/contract_workTimeView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:readonly="true" />
+                </android.support.constraint.ConstraintLayout>
+
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="주휴일"
+                    android:textSize="15sp"
+                    android:textColor="@color/maintext" />
+
+                <EditText
+                    android:id="@+id/employer_contract_write_holiday"
+                    android:text="@={employerContractWrite.contract_write_holiday}"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/edittext_border"
+                    android:ems="10"
+                    android:gravity="right|center_vertical"
+                    android:hint="요일"
+                    android:inputType="textPersonName"
+                    android:paddingRight="16dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/employer_contract_write_ch_hour"
+                        android:onCheckedChanged="@{employerContractWrite.onCheckBoxChecked}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginBottom="16dp"
+                        android:text="시급제" />
+
+                    <CheckBox
+                        android:id="@+id/employer_contract_write_ch_month"
+                        android:onCheckedChanged="@{employerContractWrite.onCheckBoxChecked}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginBottom="16dp"
+                        android:text="월급제" />
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="시급"
+                    android:textSize="15sp"
+                    android:textColor="@color/maintext" />
+
+                <EditText
+                    android:id="@+id/employer_contract_write_wage"
+                    android:text="@={employerContractWrite.contract_write_wage}"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="8dp"
+                    android:paddingRight="16dp"
+                    android:background="@drawable/edittext_border"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:gravity="right|center_vertical"
+                    android:hint="원" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="상여금"
+                    android:textSize="15sp"
+                    android:textColor="@color/maintext" />
+
+                <EditText
+                    android:id="@+id/employer_contract_write_bonus"
+                    android:text="@={employerContractWrite.contract_write_bonus}"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="8dp"
+                    android:paddingRight="16dp"
+                    android:background="@drawable/edittext_border"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:gravity="right|center_vertical"
+                    android:hint="원" />
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="초과근로 가산임금률"
+                    android:textSize="15sp"
+                    android:textColor="@color/maintext" />
+
+                <EditText
+                    android:id="@+id/employer_contract_write_excess"
+                    android:text="@={employerContractWrite.contract_write_excess}"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="8dp"
+                    android:paddingRight="16dp"
+                    android:background="@drawable/edittext_border"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:gravity="right|center_vertical"
+                    android:hint="%" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="임금 지급일"
+                    android:textSize="15sp"
+                    android:textColor="@color/maintext" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/employer_contract_write_ch_pay_month"
+                        android:onCheckedChanged="@{employerContractWrite.onCheckBoxChecked}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginBottom="16dp"
+                        android:text="매월" />
+
+                    <EditText
+                        android:id="@+id/employer_contract_write_edit_month"
+                        android:text="@={employerContractWrite.contract_write_edit_month}"
+                        android:layout_width="64dp"
+                        android:layout_height="28dp"
+                        android:background="@drawable/edittext_border"
+                        android:layout_toRightOf="@id/employer_contract_write_ch_pay_month"
+                        android:layout_below="@id/textView13"
+                        android:paddingRight="12dp"
+                        android:gravity="right|center_vertical"
+                        android:hint="일"
+                        android:textSize="14sp"/>
+
+                    <CheckBox
+                        android:id="@+id/employer_contract_write_ch_pay_day"
+                        android:onCheckedChanged="@{employerContractWrite.onCheckBoxChecked}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginBottom="16dp"
+                        android:text="매일" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="임금 지급 방법"
+                    android:textSize="15sp"
+                    android:textColor="@color/maintext" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/employer_contract_write_ch_pay_how1"
+                        android:onCheckedChanged="@{employerContractWrite.onCheckBoxChecked}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginBottom="16dp"
+                        android:text="직접 지급" />
+
+                    <CheckBox
+                        android:id="@+id/employer_contract_write_ch_pay_how2"
+                        android:onCheckedChanged="@{employerContractWrite.onCheckBoxChecked}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginBottom="16dp"
+                        android:text="예금통장에 입금" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="사회보험 적용여부(해당란에 체크)"
+                    android:textSize="15sp"
+                    android:textColor="@color/maintext" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/employer_contract_write_ch_insure1"
+                        android:onCheckedChanged="@{employerContractWrite.onCheckBoxChecked}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginBottom="4dp"
+                        android:text="고용보험" />
+
+                    <CheckBox
+                        android:id="@+id/employer_contract_write_ch_insure2"
+                        android:onCheckedChanged="@{employerContractWrite.onCheckBoxChecked}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginBottom="4dp"
+                        android:text="산재보험" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/employer_contract_write_ch_insure3"
+                        android:onCheckedChanged="@{employerContractWrite.onCheckBoxChecked}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginBottom="16dp"
+                        android:text="국민연금" />
+
+                    <CheckBox
+                        android:id="@+id/employer_contract_write_ch_insure4"
+                        android:onCheckedChanged="@{employerContractWrite.onCheckBoxChecked}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginBottom="16dp"
+                        android:text="건강보험" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/employer_contract_write_btn_save"
+                        android:onClick="@{employerContractWrite::onBtnClick}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginRight="2dp"
+                        android:layout_marginBottom="46dp"
+                        android:background="@drawable/edittext_border"
+                        android:text="임시 저장 하기"/>
+
+                    <Button
+                        android:id="@+id/employer_contract_write_btn_write"
+                        android:onClick="@{employerContractWrite::onBtnClick}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginBottom="46dp"
+                        android:background="@color/colorPrimary"
+                        android:textColor="@color/background"
+                        android:text="계약서 작성하기"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+</layout>

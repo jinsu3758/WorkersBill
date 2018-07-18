@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="employercreateplace"
+            type="com.example.jinsu.work2.viewmodel.MainViewModel"/>
+    </data>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/webview_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                android:background="@color/maincolor"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true">
+
+                <Button
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="23dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@drawable/whiteback"
+                    android:onClick="@{employercreateplace::onBtnClick}"
+                    android:id="@+id/employer_create_place_btn_back"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="사업장 생성"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp"/>
+            </android.support.v7.widget.Toolbar>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="32dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@color/maintext"
+                    android:text="사업장 정보"
+                    android:layout_marginBottom="26dp"/>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:onCheckedChanged="@{employercreateplace.onPlaceCheckd}"
+                    android:layout_marginBottom="26dp">
+
+                    <RadioButton
+                        android:id="@+id/employer_create_place_radio_one"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/subtext"
+                        android:text="5인 미만 사업장"
+                        />
+                    <RadioButton
+                        android:id="@+id/employer_create_place_radio_two"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/subtext"
+                        android:text="5인 이상 사업장"
+                        />
+
+                </RadioGroup>
+
+                <EditText
+                    android:id="@+id/employer_create_place_edit_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/border_green_fill_trans"
+                    android:paddingLeft="16dp"
+                    android:layout_marginBottom="4dp"
+                    android:textSize="14sp"
+                    android:hint="사업장 이름 (예. 주식회사 워커스빌)"
+                    android:text="@={employercreateplace.place_name}"/>
+
+                <EditText
+                    android:id="@+id/employer_create_place_edit_num"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/edittext_border"
+                    android:paddingLeft="16dp"
+                    android:layout_marginBottom="4dp"
+                    android:textSize="14sp"
+                    android:text="@={employercreateplace.place_num}"
+                    android:hint="사업장 등록번호 입력 '-'제외하고 10자리"/>
+
+                <EditText
+                    android:id="@+id/employer_create_place_edit_owner"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/edittext_border"
+                    android:paddingLeft="16dp"
+                    android:layout_marginBottom="4dp"
+                    android:textSize="14sp"
+                    android:text="@={employercreateplace.place_owner}"
+                    android:hint="사업주 이름 (예. 홍길동)"/>
+
+                <EditText
+                    android:id="@+id/employer_create_place_edit_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/edittext_border"
+                    android:paddingLeft="16dp"
+                    android:layout_marginBottom="4dp"
+                    android:textSize="14sp"
+                    android:text="@={employercreateplace.place_phone}"
+                    android:hint="사업장 전화번호 '-'제외하고 입력"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@color/maintext"
+                    android:text="사업장 주소"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="8dp"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="4dp">
+
+                    <EditText
+                        android:id="@+id/employer_create_place_edit_addr1"
+                        android:text="@={employercreateplace.place_addr_num}"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@drawable/edittext_border"
+                        android:paddingLeft="16dp"
+                        android:textSize="14sp"
+                        android:hint="우편번호 찾기"/>
+
+                    <Button
+                        android:id="@+id/employer_create_place_btn_addr"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/img_find"
+                        android:layout_gravity="right|center_vertical"
+                        android:onClick="@{employercreateplace::onBtnClick}"
+                        android:layout_marginRight="10dp"/>
+                </FrameLayout>
+
+                <EditText
+                    android:id="@+id/employer_create_place_edit_addr2"
+                    android:text="@={employercreateplace.place_addr}"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/edittext_border"
+                    android:paddingLeft="16dp"
+                    android:layout_marginBottom="4dp"
+                    android:textSize="14sp"
+                    android:hint="상세주소"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:id="@+id/real_add"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:layout_marginRight="3dp"
+                        android:textColor="@color/maintext"
+                        android:text="사업장 실제 주소"/>
+
+                    <CheckBox
+                        android:id="@+id/employer_create_place_check"
+                        android:layout_width="wrap_content"
+                        android:layout_height="18dp"
+                        android:layout_toRightOf="@+id/real_add"
+                        android:layout_gravity="center"
+                        android:text="위 주소와 동일"
+                        android:textSize="13sp"
+                        android:textColor="@color/subtext"
+                        android:onCheckedChanged="@{employercreateplace.onCheckBoxChecked}"
+                        />
+
+
+                </RelativeLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="4dp">
+
+                    <EditText
+                        android:id="@+id/employer_create_place_edit_realaddr1"
+                        android:text="@={employercreateplace.place_realaddr_num}"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@drawable/edittext_border"
+                        android:paddingLeft="16dp"
+                        android:textSize="14sp"
+                        android:hint="우편번호 찾기"/>
+
+                    <Button
+                        android:id="@+id/employer_create_place_btn_addr2"
+                        android:onClick="@{employercreateplace::onBtnClick}"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/img_find"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginRight="10dp"/>
+
+                </FrameLayout>
+
+                <EditText
+                    android:id="@+id/employer_create_place_edit_realaddr2"
+                    android:text="@={employercreateplace.place_realaddr}"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/edittext_border"
+                    android:paddingLeft="16dp"
+                    android:layout_marginBottom="4dp"
+                    android:textSize="14sp"
+                    android:hint="상세주소"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:textSize="15sp"
+                    android:textColor="@color/maintext"
+                    android:text="와이파이"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="8dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_weight="1"
+                        android:textSize="14sp"
+                        android:textColor="@color/subtext"
+                        android:text="출, 퇴근용 와이파이 사용"/>
+                    <Switch
+                        android:id="@+id/employer_create_place_switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="14dp"
+                        android:layout_marginRight="5dp"
+                        android:checked="true"
+                        android:onCheckedChanged="@{employercreateplace.onCheckBoxChecked}"
+                        />
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp">
+
+                    <EditText
+                        android:id="@+id/employer_create_place_edit_wifi"
+                        android:text="@={employercreateplace.place_wifi}"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@drawable/edittext_border"
+                        android:paddingLeft="16dp"
+                        android:textSize="14sp"
+                        android:hint="ip 주소"/>
+
+                    <Button
+                        android:id="@+id/employer_create_place_btn_wifi"
+                        android:onClick="@{employercreateplace::onBtnClick}"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/round_corner_button_green"
+                        android:text="등록"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginRight="3dp"
+                        android:textColor="@color/background"/>
+
+                </FrameLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="20dp"
+                    >
+                    <Button
+                        android:id="@+id/employer_create_place_btn_create"
+                        android:onClick="@{employercreateplace::onBtnClick}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@android:color/transparent"
+                        android:text="생성하기  〉"
+                        android:textSize="17dp" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+</layout>

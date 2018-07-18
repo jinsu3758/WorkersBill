@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="workerHome"
+            type="com.example.jinsu.work2.viewmodel.MainViewModel"/>
+    </data>
+
+    <LinearLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/worker_home_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="18sp"/>
+
+            <Button
+                android:id="@+id/worker_home_btn_change"
+                android:onClick="@{workerHome::onBtnClick}"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginRight="25dp"
+                android:layout_gravity="right|center"
+                android:background="@drawable/whiteicon"/>
+        </android.support.v7.widget.Toolbar>
+
+
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/worker_home_company_name"
+                android:text="@{workerHome.company_name}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="33dp"
+                android:layout_marginLeft="30dp"
+                android:textSize="17sp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="317dp"
+                android:layout_height="3dp"
+                android:layout_marginTop="65dp"
+                android:layout_gravity="center_horizontal"
+                android:background="#979797"/>
+
+            <LinearLayout
+                android:layout_width="306dp"
+                android:layout_height="169dp"
+                android:orientation="vertical"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="77dp"
+                android:background="@drawable/border">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="27dp"
+                    android:gravity="center"
+                    android:textSize="17sp"
+                    android:textColor="@color/black"
+                    tools:text="출퇴근 기록"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="99dp"
+                        android:layout_height="66dp"
+                        android:layout_marginLeft="39dp"
+                        android:layout_marginTop="30dp"
+                        android:background="@color/colorAccent"
+                        android:orientation="vertical">
+                        <Button
+                            android:id="@+id/worker_home_btn_goto_office"
+                            android:onClick="@{workerHome::onBtnClick}"
+                            android:layout_width="wrap_content"
+                            android:layout_height="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_gravity="center"
+                            android:background="@android:color/transparent"
+                            android:text="출근하기"
+                            android:textSize="14sp"
+                            android:textColor="@color/white"/>
+                        <TextView
+                            android:id="@+id/worker_home_goto_office_time"
+                            android:text="@{workerHome.goto_office_time}"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:layout_gravity="center_horizontal"
+                            android:textColor="@color/white"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="99dp"
+                        android:layout_height="66dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="30dp"
+                        android:orientation="vertical"
+                        android:background="@drawable/border">
+
+                        <Button
+                            android:id="@+id/worker_home_btn_leave_office"
+                            android:onClick="@{workerHome::onBtnClick}"
+                            android:layout_width="wrap_content"
+                            android:layout_height="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_gravity="center"
+                            android:background="@android:color/transparent"
+                            android:text="퇴근하기"
+                            android:textSize="14sp"
+                            android:textColor="@color/gray"/>
+                        <TextView
+                            android:id="@+id/worker_home_leave_office_time"
+                            android:text="@{workerHome.leave_office_time}"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:layout_gravity="center_horizontal"
+                            android:textColor="@color/gray"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="306dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="260dp"
+                android:padding="3dp"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:background="@drawable/border">
+
+                <Button
+                    android:id="@+id/worker_home_btn_cont_request_alarm"
+                    android:onClick="@{workerHome::onBtnClick}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="25dp"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="left|center"
+                    android:background="@android:color/transparent"
+                    android:textSize="17sp"
+                    android:textColor="@color/black"
+                    android:text="승인 요청 계약서"/>
+
+                <TextView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="9dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textSize="9sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:background="@drawable/roundt_textview"/>
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="right|center"
+                    android:background="@drawable/nexticon"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="306dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="321dp"
+                android:padding="3dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/border">
+
+                <Button
+                    android:id="@+id/worker_home_btn_cont_container"
+                    android:onClick="@{workerHome::onBtnClick}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="25dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@android:color/transparent"
+                    android:gravity="left|center"
+                    android:textSize="17sp"
+                    android:textColor="@color/black"
+                    android:text="계약서 보관함"/>
+
+                <ImageView
+
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="right|center"
+                    android:background="@drawable/nexticon"/>
+
+            </LinearLayout>
+        </FrameLayout>
+
+        <android.support.v4.widget.DrawerLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:id="@+id/drawer">
+
+
+        </android.support.v4.widget.DrawerLayout>
+
+
+    </LinearLayout>
+</layout>

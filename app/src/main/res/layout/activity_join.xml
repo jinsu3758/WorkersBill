@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="join"
+            type="com.example.jinsu.work2.viewmodel.MainViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="210dp"
+            android:layout_marginLeft="33dp"
+            android:text="@string/signin"
+            android:textSize="21sp"
+            android:textColor="#000000"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="33dp"
+            android:layout_marginRight="33dp">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:background="#48cfad"
+                android:gravity="center"
+                android:text="이메일 주소"
+                android:textSize="15sp"
+                android:textColor="#ffffff"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:paddingLeft="10dp"
+                android:hint="@string/email_hint"
+                android:textColorHint="#969696"
+                android:textSize="12sp"
+                android:background="#ffffff"
+                android:text="@={join.join_edit_email}"
+                android:id="@+id/join_edit_email"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+            android:layout_marginRight="33dp"
+            android:layout_marginLeft="33dp"
+            android:textSize="12sp"
+            android:textColor="#000000"
+            android:text="@string/signup_notice"
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="41dp"
+            android:layout_marginTop="150dp"
+            android:layout_gravity="right">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:text="@string/next_button"
+                android:textSize="17sp"
+                android:onClick="@{join::onBtnClick}"
+                android:id="@+id/join_btn_next"/>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+</layout>

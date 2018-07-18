@@ -1,0 +1,5 @@
+<resources>
+    <declare-styleable name="WorkTimeTable">
+        <attr name="week" format="string" />
+    </declare-styleable>
+</resources>

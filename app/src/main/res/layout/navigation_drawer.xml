@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:id="@+id/navigation_drawer"
+        android:layout_width="286dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/white"
+        android:paddingTop="49dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="38dp">
+
+            <ImageView
+                android:id="@+id/imgView"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="left"
+                android:adjustViewBounds="true"
+                android:background="@drawable/profile"
+                android:maxHeight="100dp"
+                android:maxWidth="100dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:textColor="#222222"
+                    android:text="배주현"
+                    android:id="@+id/drawer_name"/>
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="#222222"
+                    android:text="근로자"
+                    android:id="@+id/drawer_state"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="235dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginLeft="26dp"
+            android:background="@color/gray"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="52dp"
+            android:layout_marginTop="39dp"
+            android:orientation="horizontal"
+
+            >
+
+            <ImageView
+                android:layout_width="17dp"
+                android:layout_height="23dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/contract_icon" />
+
+            <Button
+                android:id="@+id/navi_btn_contract"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="계약서 보관함"
+                android:textColor="#222222"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="52dp"
+            android:layout_marginTop="39dp"
+            android:orientation="horizontal"
+
+            >
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/calculate_icon" />
+
+            <Button
+                android:id="@+id/navi_btn_calc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="계산 저장함"
+                android:textColor="#222222"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="52dp"
+            android:layout_marginTop="39dp"
+            android:orientation="horizontal"
+
+            >
+
+            <ImageView
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/setup" />
+
+            <Button
+                android:id="@+id/navi_btn_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left|center_vertical"
+                android:background="@android:color/transparent"
+                android:text="설정"
+                android:textColor="#222222"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

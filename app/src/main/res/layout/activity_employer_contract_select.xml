@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="employerContractSelect"
+            type="com.example.jinsu.work2.viewmodel.MainViewModel"/>
+    </data>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:background="@color/white">
+                <Button
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_gravity="left|center"
+                    android:background="@drawable/backicon"
+                    android:id="@+id/employer_contract_select_btn_back"
+                    android:onClick="@{employerContractSelect::onBtnClick}"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="계약서 작성방법 선택"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_gravity="end|center"
+                    android:background="@drawable/homeicon"
+                    android:id="@+id/employer_contract_select_btn_home"
+                    android:onClick="@{employerContractSelect::onBtnClick}"
+                    />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="35dp"
+                android:layout_marginRight="35dp"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp">
+
+                    <TextView
+                        android:layout_width="250dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center_horizontal"
+                        android:text="2. 작성 완료"
+                        android:textSize="11sp"
+                        android:gravity="center_vertical|right"
+                        android:paddingRight="32dp"
+                        android:background="@drawable/round_corner_green"/>
+
+                    <TextView
+                        android:layout_width="125dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginRight="62.5dp"
+                        android:text="1. 계약서 작성"
+                        android:textColor="@color/background"
+                        android:textSize="11sp"
+                        android:gravity="center"
+                        android:background="@drawable/round_corner_green_fill"/>
+
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="@string/employer_write_contract_1_select"
+                    android:textSize="15sp"
+                    android:textColor="@color/subtext"/>
+
+                <LinearLayout
+                    android:id="@+id/employer_contract_select_btn_load"
+                    android:onClick="@{employerContractSelect::onBtnClick}"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@drawable/border_green_fill_trans"
+                    android:orientation="horizontal"
+                    android:padding="28dp"
+                    android:layout_marginBottom="10dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:adjustViewBounds="true"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/img_save"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="28dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/employer_write_contract_1_save"
+                            android:textColor="@color/subtext"
+                            android:textSize="17sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/employer_write_contract_1_savesub"
+                            android:textColor="@color/subtext"
+                            android:textSize="9sp"/>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/employer_contract_select_btn_calc"
+                    android:onClick="@{employerContractSelect::onBtnClick}"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@drawable/border_gray"
+                    android:orientation="horizontal"
+                    android:padding="28dp"
+                    android:layout_marginBottom="10dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:adjustViewBounds="true"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/img_calculate"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="28dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/employer_write_contract_1_calc"
+                            android:textColor="@color/subtext"
+                            android:textSize="17sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/employer_write_contract_1_calcsub"
+                            android:textColor="@color/subtext"
+                            android:textSize="9sp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/employer_contract_select_btn_now"
+                    android:onClick="@{employerContractSelect::onBtnClick}"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@drawable/border_gray"
+                    android:orientation="horizontal"
+                    android:padding="28dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:adjustViewBounds="true"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/img_write"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="28dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/employer_write_contract_1_write"
+                            android:textColor="@color/subtext"
+                            android:textSize="17sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/employer_write_contract_1_writesub"
+                            android:textColor="@color/subtext"
+                            android:textSize="9sp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <Button
+                    android:layout_width="100dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginBottom="35dp"
+                    android:layout_gravity="right"
+                    android:drawableRight="@drawable/img_black_arrow"
+                    android:background="@drawable/popup_button"
+                    android:text="다음 단계"
+                    android:textSize="17sp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+</layout>

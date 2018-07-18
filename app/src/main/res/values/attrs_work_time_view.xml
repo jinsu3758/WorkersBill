@@ -1,0 +1,5 @@
+<resources>
+    <declare-styleable name="WorkTimeView">
+        <attr name="readonly" format="boolean" />
+    </declare-styleable>
+</resources>
