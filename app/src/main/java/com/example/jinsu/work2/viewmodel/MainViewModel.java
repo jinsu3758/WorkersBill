@@ -5,14 +5,20 @@ import android.arch.lifecycle.ViewModel;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.databinding.BindingAdapter;
 import android.databinding.Observable;
 import android.databinding.ObservableField;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.activity.CertActivity;
 import com.example.jinsu.work2.activity.SelectActivity;
@@ -22,7 +28,6 @@ import com.example.jinsu.work2.model.EmployerPlace;
 import com.example.jinsu.work2.model.User;
 import com.example.jinsu.work2.model.Worker;
 import com.example.jinsu.work2.network.contract.ContractSource;
-import com.example.jinsu.work2.network.user.UserSource;
 import com.example.jinsu.work2.network.worker.WorkerSource;
 import com.example.jinsu.work2.repositories.EmployerRepository;
 import com.example.jinsu.work2.repositories.MainRepository;
@@ -34,8 +39,6 @@ import com.example.jinsu.work2.util.ParsingIp;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.concurrent.ExecutionException;
-
-import javax.inject.Inject;
 
 import io.realm.Realm;
 
@@ -55,6 +58,9 @@ public class MainViewModel extends ViewModel {
     public final ObservableField<String> inputinfo_edit_registerNum = new ObservableField<>();
     public final ObservableField<String> inputinfo_edit_postcode = new ObservableField<>();
     public final ObservableField<String> inputinfo_address = new ObservableField<>();
+    public final ObservableField<String> inputinfo_edit_rest_address = new ObservableField<>();
+    public Uri uri;
+    public String url;
 
 //    EmployerPlaceActivity
 
@@ -1533,6 +1539,20 @@ public class MainViewModel extends ViewModel {
 
         }
     }
+
+    @BindingAdapter({"loadImg"})
+    public static void setImage(ImageView image, Uri uri)
+    {
+        Glide.with(image.getContext()).load(uri)
+                .apply(RequestOptions.bitmapTransform(new CircleCrop())).into(image);
+    }
+
+    @BindingAdapter( "loadImg")
+    public static void setImage(ImageView image, String url)
+    {
+        Glide.with(image.getContext()).load(url).into(image);
+    }
+
 /*
     public void getUsers(Context context)
     {
@@ -1738,6 +1758,12 @@ public class MainViewModel extends ViewModel {
     {
 
     }
+    public void setAddr(String addr)
+    {
+        inputinfo_edit_postcode.set(addr.substring(0,5));
+        inputinfo_address.set(addr.substring(7,addr.length()));
+    }
+
 
     /**
      * EmployerCreatePlaceActivity

@@ -9,23 +9,23 @@ import android.widget.Button;
 
 import com.example.jinsu.work2.R;
 
-public class DataSelectDialog extends Dialog {
+public class ImageSelectDialog extends Dialog {
 
-    private Button btn_calc;
-    private Button btn_contract;
+    private Button btn_photoAlbum;
+    private Button btn_camera;
 
     private onBtnCallback callback;
 
 
-    public DataSelectDialog(@NonNull Context context, onBtnCallback callback) {
+    public ImageSelectDialog(@NonNull Context context, onBtnCallback callback) {
         super(context);
         this.callback = callback;
     }
 
     public interface onBtnCallback
     {
-        void onCalc();
-        void onContract();
+        void takePicture();
+        void photoAlbum();
     }
 
     @Override
@@ -37,22 +37,21 @@ public class DataSelectDialog extends Dialog {
     private void init()
     {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.dialog_data_select);
-        btn_calc = (Button)findViewById(R.id.dialog_select_btn_calc);
-        btn_contract = (Button)findViewById(R.id.dialog_select_btn_contract);
-
-
-        btn_calc.setOnClickListener(v ->
+        setContentView(R.layout.dialog_select_image);
+        btn_camera = (Button)findViewById(R.id.dialog_select_image_btn_camera);
+        btn_photoAlbum = (Button)findViewById(R.id.dialog_select_image_btn_album);
+        btn_camera.setOnClickListener(v ->
         {
-            callback.onCalc();
+            callback.takePicture();
             dismiss();
         });
-        btn_contract.setOnClickListener(v ->
+        btn_photoAlbum.setOnClickListener(v ->
         {
-            callback.onContract();
+            callback.photoAlbum();
             dismiss();
         });
 
     }
+
 
 }

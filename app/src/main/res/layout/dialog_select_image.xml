@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="314dp"
+    android:layout_height="243dp"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="65dp"
+        android:text="@string/select_im"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:background="@color/gray"/>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="24dp">
+
+        <Button
+            android:id="@+id/dialog_select_image_btn_camera"
+            android:layout_width="89dp"
+            android:layout_height="38dp"
+            android:layout_marginRight="45dp"
+            android:background="@android:color/transparent"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:text="@string/camera"
+            />
+
+        <Button
+            android:id="@+id/dialog_select_image_btn_album"
+            android:layout_width="89dp"
+            android:layout_height="38dp"
+            android:background="@android:color/transparent"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:text="@string/album"
+            />
+    </LinearLayout>
+
+
+
+</LinearLayout>

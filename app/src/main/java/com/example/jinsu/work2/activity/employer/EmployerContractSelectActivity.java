@@ -10,7 +10,7 @@ import android.view.View;
 
 import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.databinding.ActivityEmployerContractSelectBinding;
-import com.example.jinsu.work2.dialog.DataSelectDialog;
+import com.example.jinsu.work2.dialog.SelectDataDialog;
 import com.example.jinsu.work2.util.CallonClick;
 import com.example.jinsu.work2.viewmodel.MainViewModel;
 import com.example.jinsu.work2.viewmodel.VIewModelFactory;
@@ -61,7 +61,7 @@ public class EmployerContractSelectActivity extends AppCompatActivity implements
             }
             case R.id.employer_contract_select_btn_load:
             {
-                DataSelectDialog dialog = new DataSelectDialog(this, new DataSelectDialog.onBtnCallback() {
+                SelectDataDialog dialog = new SelectDataDialog(this, new SelectDataDialog.onBtnCallback() {
                     @Override
                     public void onCalc() {
                         startActivity(new Intent(getApplicationContext(),EmployerCalcListActivity.class));

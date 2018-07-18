@@ -34,4 +34,7 @@ public interface RetroService {
     @GET("controller/findId/")
     Call<Test> onLogin(@Query("id") String id);
 
+    @POST("/v1/users")
+    Call<User> setUser(@Body User user);
+
 }
