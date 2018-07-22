@@ -131,7 +131,7 @@ public class EmployerManageActivity extends AppCompatActivity implements CallonC
     }
 
     @Override
-    public void textChanged(int index) {
+    public void textChanged(String text) {
 
     }
 

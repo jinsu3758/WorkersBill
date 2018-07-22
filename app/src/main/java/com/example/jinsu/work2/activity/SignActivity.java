@@ -51,7 +51,7 @@ public class SignActivity extends AppCompatActivity implements CallonClick {
         }
     }
     @Override
-    public void textChanged(int index) {
+    public void textChanged(String text) {
 
     }
 }

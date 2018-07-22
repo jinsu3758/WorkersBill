@@ -52,7 +52,7 @@ public class WorkerContractSendFinActivity extends AppCompatActivity implements 
     }
 
     @Override
-    public void textChanged(int index) {
+    public void textChanged(String text) {
 
     }
 }

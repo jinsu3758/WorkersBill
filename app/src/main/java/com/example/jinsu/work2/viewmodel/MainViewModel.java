@@ -31,7 +31,7 @@ import com.example.jinsu.work2.network.contract.ContractSource;
 import com.example.jinsu.work2.network.worker.WorkerSource;
 import com.example.jinsu.work2.repositories.EmployerRepository;
 import com.example.jinsu.work2.repositories.MainRepository;
-import com.example.jinsu.work2.thread.SignThread;
+import com.example.jinsu.work2.network.SignThread;
 import com.example.jinsu.work2.util.CallonClick;
 import com.example.jinsu.work2.util.Dlog;
 import com.example.jinsu.work2.util.ParsingIp;
@@ -62,7 +62,7 @@ public class MainViewModel extends ViewModel {
     public Uri uri;
     public String url;
 
-//    EmployerPlaceActivity
+    //    EmployerPlaceActivity
 
     //    EmployerCreatePlaceActivity
     public final ObservableField<String> place_name = new ObservableField<>();
@@ -126,8 +126,9 @@ public class MainViewModel extends ViewModel {
     public final ObservableField<String> goto_office_time = new ObservableField<>();
     public final ObservableField<String> leave_office_time = new ObservableField<>();
 
-    //     WorkerSelectWorkplaceActivity
+    //     WorkerFindPlaceActivity
     public final ObservableField<String> select_workplace_edittext = new ObservableField<>();
+    public int text_len = -1;
 
     //      WorkerContractSendFinActivity
     public final ObservableField<String> contract_send_fin_email = new ObservableField<>();
@@ -550,7 +551,7 @@ public class MainViewModel extends ViewModel {
                 break;
             }
 
-            case "WorkerSelectWorkplaceActivity":
+            case "WorkerFindPlaceActivity":
             {
                 select_workplace_edittext.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
                     @Override
@@ -1625,23 +1626,20 @@ public class MainViewModel extends ViewModel {
             }
             case R.id.employer_fix_place_btn_create:
             {
-                employerPlace = new EmployerPlace(fix_place_name.get(),fix_place_addr.get(),fix_place_phone.get(),fix_place_owner.get());
+                employerPlace = new EmployerPlace(fix_place_name.get(),fix_place_addr.get()
+                        ,fix_place_phone.get(),fix_place_owner.get());
 //                EmployerRepository.getInstance().addEmployerPlace(employerPlace);
                 callback.onBtnClick(view);
                 break;
             }
-
-            case R.id.employer_contract_write_btn_write:
+            case R.id.worker_home_btn_goto_office:
             {
-                Log.v("태그", "55555555555555555555555");
-                callback.onBtnClick(view);
+                long cur_time = System.currentTimeMillis();
+
                 break;
             }
-
-            case R.id.employer_contract_select_btn_load:
+            case R.id.worker_home_btn_leave_office:
             {
-                Log.v("태그2","22222222222222");
-                callback.onBtnClick(view);
                 break;
             }
 
@@ -1663,25 +1661,26 @@ public class MainViewModel extends ViewModel {
     public void oneChanged(CharSequence s, int start, int before, int count)
     {
         if(s.length() != 0)
-            callback.textChanged(1);
+            callback.textChanged("1");
     }
 
     public void twoChanged(CharSequence s, int start, int before, int count)
     {
         if(s.length() != 0)
-            callback.textChanged(2);
+            callback.textChanged("2");
     }
 
     public void threeChanged(CharSequence s, int start, int before, int count)
     {
-        callback.textChanged(3);
+        callback.textChanged("3");
     }
 
     public void fourChanged(CharSequence s, int start, int before, int count)
     {
         if(s.length() != 0)
-            callback.textChanged(4);
+            callback.textChanged("4");
     }
+
 
     /**
      * SignActivity
@@ -1721,12 +1720,17 @@ public class MainViewModel extends ViewModel {
      */
     public void onJoinUser(Context context)
     {
-        email = join_edit_email.get();
-        if(!email.matches("^[a-zA-Z0-9]+@[a-zA-Z0-9]+$"))
-        {
-            //
+        if(join_edit_email.get() != null) {
+            email = join_edit_email.get();
+            if (!email.matches("^[a-zA-Z0-9]+@[a-zA-Z0-9]+$")) {
+                //
+            }
         }
-//        employerRepository.postUser(email);
+        else
+        {
+            return;
+        }
+
         //다이얼로그 생성
         AlertDialog.Builder alert= new AlertDialog.Builder(context);
         alert.setTitle("인증코드 발송").setMessage("'" + email + "'로 인증코드가 전송되었습니다.\n이메일 확인 후에 작성해주세요" )
@@ -1962,6 +1966,37 @@ public class MainViewModel extends ViewModel {
                 callback.get(list);
             }
         });
+    }
+
+    /**
+     *
+     * WorkerFindPlaceActivtiy
+     * 근로자 사업주 찾기 화면
+     *
+     */
+
+    public void findTextChanged(CharSequence s, int start, int before, int count)
+    {
+        if(s.length() != 0)
+        {
+            if(s.length() != text_len)
+            {
+                callback.textChanged(s.toString());
+            }
+        }
+        text_len = s.length();
+    }
+
+
+    /**
+     *
+     * WorkerHomeActivity
+     * 근로자 홈 화면
+     *
+     */
+    public void setCompanyName(String text)
+    {
+        company_name.set(text);
     }
 
 }

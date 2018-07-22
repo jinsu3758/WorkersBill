@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.EditText;
 
 import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.viewmodel.MainViewModel;
@@ -18,18 +17,11 @@ public class BeforeJoinDialog extends Dialog {
     private VIewModelFactory vIewModelFactory;
     private Button btn_ok;
 
-    private onBtnCallback callback;
 
-    public BeforeJoinDialog(@NonNull Context context, onBtnCallback onBtnCallback) {
+    public BeforeJoinDialog(@NonNull Context context) {
         super(context);
-        this.callback = callback;
     }
 
-    public interface onBtnCallback
-    {
-        void onSave(String name);
-        void onWrite();
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

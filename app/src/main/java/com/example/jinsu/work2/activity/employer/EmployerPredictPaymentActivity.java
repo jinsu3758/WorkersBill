@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.example.jinsu.work2.R;
-import com.example.jinsu.work2.activity.worker.WorkerSelectWorkplaceActivity;
 import com.example.jinsu.work2.databinding.ActivityEmployerPredictPaymentBinding;
 import com.example.jinsu.work2.util.CallonClick;
 import com.example.jinsu.work2.viewmodel.MainViewModel;
@@ -54,7 +53,7 @@ public class EmployerPredictPaymentActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void textChanged(int index) {
+    public void textChanged(String text) {
 
     }
 }

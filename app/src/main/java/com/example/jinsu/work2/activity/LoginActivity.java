@@ -36,13 +36,13 @@ public class LoginActivity extends AppCompatActivity implements CallonClick {
 
     @Override
     public void onBtnClick(View view) {
-        startActivity(new Intent(this, EmployerPlaceActivity.class));
+        startActivity(new Intent(this, SelectActivity.class));
         finish();
 //        mainViewModel.onLogin();
     }
 
     @Override
-    public void textChanged(int index) {
+    public void textChanged(String text) {
 
     }
 }

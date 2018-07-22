@@ -67,7 +67,7 @@ public class EmployerCreatePlaceActivity extends AppCompatActivity implements Ca
     }
 
     @Override
-    public void textChanged(int index) {
+    public void textChanged(String text) {
 
     }
 }

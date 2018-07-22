@@ -1,4 +1,4 @@
-package com.example.jinsu.work2.activity.employer;
+package com.example.jinsu.work2.activity.worker;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
@@ -6,12 +6,11 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
-import android.util.Log;
 import android.view.View;
 
 import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.adapter.EmployerPlaceAdapter;
-import com.example.jinsu.work2.databinding.ActivityEmployerPlaceBinding;
+import com.example.jinsu.work2.databinding.ActivityWorkerJoinPlaceBinding;
 import com.example.jinsu.work2.model.Place;
 import com.example.jinsu.work2.util.CallonClick;
 import com.example.jinsu.work2.viewmodel.MainViewModel;
@@ -19,54 +18,44 @@ import com.example.jinsu.work2.viewmodel.VIewModelFactory;
 
 import java.util.ArrayList;
 
-public class EmployerPlaceActivity extends AppCompatActivity implements CallonClick {
+public class WorkerJoinPlaceActivity extends AppCompatActivity implements CallonClick {
 
-    private ActivityEmployerPlaceBinding binding;
+    private ActivityWorkerJoinPlaceBinding binding;
     private MainViewModel mainViewModel;
     private VIewModelFactory vIewModelFactory;
     private EmployerPlaceAdapter adapter;
     private ArrayList<Place> list;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initActivity();
         initRecyclerView();
-
-    }
-
-    @Override
-    protected void onResume()
-    {
-        setList();
-        super.onResume();
     }
 
     private void initActivity()
     {
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_employer_place);
+        binding = DataBindingUtil.setContentView(this,R.layout.activity_worker_join_place);
         vIewModelFactory = new VIewModelFactory(this);
         mainViewModel = ViewModelProviders.of(this,vIewModelFactory).get(MainViewModel.class);
-        binding.setEmployerplace(mainViewModel);
+        binding.setWorkerJoinPlace(mainViewModel);
     }
 
     private void initRecyclerView()
     {
-       list = new ArrayList<>();
-       adapter = new EmployerPlaceAdapter(this, list, new EmployerPlaceAdapter.onClickCallback() {
-           @Override
-           public void onClick(int position) {
-                Intent intent = new Intent(getBaseContext(),EmployerHomeActivity.class);
+        list = new ArrayList<>();
+        adapter = new EmployerPlaceAdapter(this, list, new EmployerPlaceAdapter.onClickCallback() {
+            @Override
+            public void onClick(int position) {
+                Intent intent = new Intent(getBaseContext(), WorkerHomeActivity.class);
                 intent.putExtra("name",list.get(position).getName());
-                Log.d("employer_place", "name : "+list.get(position).getName());
                 startActivity(intent);
-           }
-       });
-       binding.employerPlaceRecycler.setHasFixedSize(true);
-       binding.employerPlaceRecycler.setLayoutManager(new LinearLayoutManager(this));
-       binding.employerPlaceRecycler.setAdapter(adapter);
-//       setList();
+            }
+        });
+        binding.workerJoinPlaceRecycler.setHasFixedSize(true);
+        binding.workerJoinPlaceRecycler.setLayoutManager(new LinearLayoutManager(this));
+        binding.workerJoinPlaceRecycler.setAdapter(adapter);
+//        setList();
     }
 
     private void setList()
@@ -77,19 +66,27 @@ public class EmployerPlaceActivity extends AppCompatActivity implements CallonCl
 
     }
 
-
+    @Override
+    protected void onResume()
+    {
+        setList();
+        super.onResume();
+    }
 
     @Override
     public void onBtnClick(View view) {
-        if(view.getId() == R.id.employer_place_btn_back)
-        {
-            super.onBackPressed();
-            finish();
+        switch (view.getId()) {
+            case R.id.worker_join_place_btn_back: {
+                super.onBackPressed();
+                finish();
+                break;
+            }
+            case R.id.worker_join_place_btn_create:{
+                startActivity(new Intent(this,WorkerFindPlaceActivity.class));
+                break;
+            }
         }
-        else
-        {
-            startActivity(new Intent(this,EmployerCreatePlaceActivity.class));
-        }
+
     }
 
     @Override

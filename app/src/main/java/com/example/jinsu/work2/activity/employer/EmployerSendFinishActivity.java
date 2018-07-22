@@ -65,7 +65,7 @@ public class EmployerSendFinishActivity extends AppCompatActivity implements Cal
     }
 
     @Override
-    public void textChanged(int index) {
+    public void textChanged(String text) {
 
     }
 

@@ -93,7 +93,7 @@ public class EmployerHomeActivity extends AppCompatActivity implements CallonCli
     }
 
     @Override
-    public void textChanged(int index) {
+    public void textChanged(String text) {
 
     }
 

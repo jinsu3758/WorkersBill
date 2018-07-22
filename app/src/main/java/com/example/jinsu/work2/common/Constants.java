@@ -3,7 +3,7 @@ package com.example.jinsu.work2.common;
 import android.content.SharedPreferences;
 
 public class Constants {
-    public static final String BASE_URL = "http://api.workersbill.lof.kr/";
+    public static final String BASE_URL = "http://api.wbwb.kr";
 
     //enums에 추가 예정
     public static final String PREF_KEY = "PREF_KEY";

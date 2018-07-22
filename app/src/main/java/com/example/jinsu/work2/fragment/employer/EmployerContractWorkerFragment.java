@@ -56,7 +56,7 @@ public class EmployerContractWorkerFragment extends Fragment implements CallonCl
     }
 
     @Override
-    public void textChanged(int index) {
+    public void textChanged(String text) {
 
     }
 

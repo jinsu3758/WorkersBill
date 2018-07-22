@@ -54,7 +54,7 @@ public class EmployerContractSendActivity extends AppCompatActivity implements C
     }
 
     @Override
-    public void textChanged(int index) {
+    public void textChanged(String text) {
 
     }
 }

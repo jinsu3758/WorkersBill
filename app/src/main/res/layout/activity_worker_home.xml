@@ -50,6 +50,14 @@
                 android:text="@{workerHome.company_name}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:textSize="17sp"
+                android:textColor="@color/black"/>
+            <TextView
+                android:text="안녕하세요."
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="33dp"
                 android:layout_marginLeft="30dp"
                 android:textSize="17sp"
@@ -77,7 +85,7 @@
                     android:gravity="center"
                     android:textSize="17sp"
                     android:textColor="@color/black"
-                    tools:text="출퇴근 기록"/>
+                    android:text="출퇴근 기록"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -85,23 +93,25 @@
                     android:orientation="horizontal">
 
                     <LinearLayout
+                        android:id="@+id/worker_home_btn_goto_office"
+                        android:onClick="@{workerHome::onBtnClick}"
                         android:layout_width="99dp"
                         android:layout_height="66dp"
                         android:layout_marginLeft="39dp"
                         android:layout_marginTop="30dp"
                         android:background="@color/colorAccent"
                         android:orientation="vertical">
-                        <Button
-                            android:id="@+id/worker_home_btn_goto_office"
-                            android:onClick="@{workerHome::onBtnClick}"
+
+                        <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="16dp"
-                            android:layout_marginTop="16dp"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:layout_marginTop="16dp"
                             android:background="@android:color/transparent"
                             android:text="출근하기"
-                            android:textSize="14sp"
-                            android:textColor="@color/white"/>
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
                         <TextView
                             android:id="@+id/worker_home_goto_office_time"
                             android:text="@{workerHome.goto_office_time}"
@@ -113,6 +123,8 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/worker_home_btn_leave_office"
+                        android:onClick="@{workerHome::onBtnClick}"
                         android:layout_width="99dp"
                         android:layout_height="66dp"
                         android:layout_marginLeft="30dp"
@@ -120,17 +132,16 @@
                         android:orientation="vertical"
                         android:background="@drawable/border">
 
-                        <Button
-                            android:id="@+id/worker_home_btn_leave_office"
-                            android:onClick="@{workerHome::onBtnClick}"
+                        <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="16dp"
+                            android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
                             android:layout_gravity="center"
                             android:background="@android:color/transparent"
                             android:text="퇴근하기"
                             android:textSize="14sp"
                             android:textColor="@color/gray"/>
+
                         <TextView
                             android:id="@+id/worker_home_leave_office_time"
                             android:text="@{workerHome.leave_office_time}"

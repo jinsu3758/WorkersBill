@@ -51,7 +51,7 @@ public class WorkerContractFinActivity extends AppCompatActivity implements Call
     }
 
     @Override
-    public void textChanged(int index) {
+    public void textChanged(String text) {
 
     }
 }

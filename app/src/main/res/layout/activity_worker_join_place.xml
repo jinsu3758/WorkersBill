@@ -2,7 +2,7 @@
 <layout>
     <data>
         <variable
-            name="workerJoinWorkplace"
+            name="workerJoinPlace"
             type="com.example.jinsu.work2.viewmodel.MainViewModel"/>
     </data>
 
@@ -21,7 +21,7 @@
             android:orientation="vertical">
 
             <android.support.v7.widget.Toolbar
-                android:id="@+id/webview_toolbar"
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?android:attr/actionBarSize"
                 android:background="@color/maincolor"
@@ -34,8 +34,9 @@
                     android:layout_marginLeft="23dp"
                     android:layout_marginRight="16dp"
                     android:background="@drawable/whiteback"
-                    android:onClick="@{workerJoinWorkplace.onBtnClick}"
-                    android:id="@+id/worker_join_workplace_btn_back"/>
+                    android:onClick="@{workerJoinPlace.onBtnClick}"
+                    android:id="@+id/worker_join_place_btn_back"
+                    />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -53,18 +54,18 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/worker_join_workplace_btn_create"
+                    android:id="@+id/worker_join_place_btn_create"
                     android:layout_width="104dp"
                     android:layout_height="104dp"
                     android:text="\n+\n\n합류하기"
                     android:textSize="14sp"
                     android:background="@drawable/round_corner"
-                    android:onClick="@{workerJoinWorkplace.onBtnClick}"/>
+                    android:onClick="@{workerJoinPlace.onBtnClick}"/>
 
             </LinearLayout>
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/employer_place_recycler"
+                android:id="@+id/worker_join_place_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 >

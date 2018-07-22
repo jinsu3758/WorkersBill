@@ -55,26 +55,26 @@ public class CertActivity extends AppCompatActivity implements CallonClick{
     }
 
     @Override
-    public void textChanged(int index) {
-            switch (index)
+    public void textChanged(String text) {
+            switch (text)
             {
-                case 1:
+                case "1":
                 {
                     binding.editTwo.requestFocus();
                     break;
                 }
-                case 2:
+                case "2":
                 {
                     binding.editThree.requestFocus();
                     break;
                 }
-                case 3:
+                case "3":
                 {
                     binding.editFour.requestFocus();
                     break;
 
                 }
-                case 4:
+                case "4":
                 {
                     /*binding.editOne.setFocusable(false);
                     binding.editTwo.setFocusable(false);

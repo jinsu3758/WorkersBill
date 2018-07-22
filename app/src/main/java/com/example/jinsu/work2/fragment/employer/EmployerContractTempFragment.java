@@ -63,7 +63,7 @@ public class EmployerContractTempFragment extends Fragment implements CallonClic
     }
 
     @Override
-    public void textChanged(int index) {
+    public void textChanged(String text) {
 
     }
 

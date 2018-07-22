@@ -80,7 +80,7 @@ public class EmployerSetupActivity extends AppCompatActivity implements CallonCl
     }
 
     @Override
-    public void textChanged(int index) {
+    public void textChanged(String text) {
 
     }
 

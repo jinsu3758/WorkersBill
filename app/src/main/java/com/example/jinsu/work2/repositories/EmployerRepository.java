@@ -19,7 +19,7 @@ public class EmployerRepository implements ContractSource, WorkerSource, PlaceSo
     private ContractDataSource contractDataSource;
     private WorkerDataSource workerDataSource;
 
-    public static EmployerRepository getInstance()
+    public synchronized static EmployerRepository getInstance()
     {
         return employerRepository;
     }

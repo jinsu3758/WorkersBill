@@ -5,59 +5,54 @@
             name="select"
             type="com.example.jinsu.work2.viewmodel.MainViewModel"/>
     </data>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="139dp"
-        android:layout_marginLeft="31dp"
-        android:textSize="17sp"
-        android:textColor="#000000"
-        android:text="@string/who_are_you" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="139dp"
+            android:layout_marginLeft="31dp"
+            android:textSize="17sp"
+            android:textColor="#000000"
+            android:text="@string/who_are_you" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="225dp"
-        android:layout_gravity="center"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
-        android:layout_marginTop="27dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="225dp"
+            android:layout_gravity="center"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:layout_marginTop="27dp">
 
-    <Button
-        android:layout_width="147dp"
-        android:layout_height="220dp"
-        android:layout_marginRight="5dp"
-        android:paddingTop="35dp"
-        android:drawableTop="@drawable/boss"
-        android:background="@drawable/border"
-        android:textSize="14sp"
-        android:textColor="#666666"
-        android:text="사업주"/>
-    <Button
-        android:layout_width="147dp"
-        android:layout_height="220dp"
-        android:paddingTop="35dp"
-        android:drawableTop="@drawable/worker"
-        android:background="@drawable/border"
-        android:textSize="14sp"
-        android:textColor="#666666"
-        android:text="사업주"/>
+            <Button
+                android:id="@+id/select_btn_employer"
+                android:onClick="@{select::onBtnClick}"
+                android:layout_width="147dp"
+                android:layout_height="220dp"
+                android:layout_marginRight="5dp"
+                android:paddingTop="35dp"
+                android:drawableTop="@drawable/boss"
+                android:background="@drawable/border"
+                android:textSize="14sp"
+                android:textColor="#666666"
+                android:text="사업주"/>
+
+            <Button
+                android:id="@+id/select_btn_worker"
+                android:onClick="@{select::onBtnClick}"
+                android:layout_width="147dp"
+                android:layout_height="220dp"
+                android:paddingTop="35dp"
+                android:drawableTop="@drawable/worker"
+                android:background="@drawable/border"
+                android:textSize="14sp"
+                android:textColor="#666666"
+                android:text="근로자"/>
+        </LinearLayout>
+
+
     </LinearLayout>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginRight="30dp"
-        android:layout_gravity="right"
-        android:background="@android:color/white"
-        android:text="@string/next_button"
-        android:textSize="17sp"
-        android:onClick="onClick"/>
-
-</LinearLayout>
 </layout>

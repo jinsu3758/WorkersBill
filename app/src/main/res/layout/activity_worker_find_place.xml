@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="workerFindPlace"
+            type="com.example.jinsu.work2.viewmodel.MainViewModel" />
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true">
+
+            <Button
+                android:id="@+id/worker_find_place_btn_back"
+                android:onClick="@{workerFindPlace::onBtnClick}"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginLeft="23dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/whiteback"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="합류하기"
+                android:textColor="#ffffff"
+                android:textSize="18sp"/>
+        </android.support.v7.widget.Toolbar>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_gravity="center_horizontal">
+
+                <LinearLayout
+                    android:layout_width="297dp"
+                    android:layout_height="39dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="43dp"
+                    android:paddingLeft="10dp"
+                    android:background="@drawable/border">
+
+                    <Button
+                        android:id="@+id/worker_find_place_btn_find"
+                        android:onClick="@{workerFindPlace::onBtnClick}"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/searchicon"/>
+
+                    <EditText
+                        android:id="@+id/worker_find_place_edit"
+                        android:maxLines="1"
+                        android:text="@={workerFindPlace.select_workplace_edittext}"
+                        android:onTextChanged="@{workerFindPlace::findTextChanged}"
+
+                        android:imeOptions="actionDone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="12dp"
+                        android:background="@android:color/transparent"
+                        android:drawablePadding="12dp"
+                        android:hint="사업장명을 입력하세요"
+                        />
+                </LinearLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/worker_find_place_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginRight="35dp"
+                    android:layout_marginLeft="35dp"
+                    android:background="@android:color/transparent"/>
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+</layout>

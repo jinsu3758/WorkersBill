@@ -1,4 +1,4 @@
-package com.example.jinsu.work2.thread;
+package com.example.jinsu.work2.network;
 
 import android.content.Context;
 import android.graphics.Bitmap;

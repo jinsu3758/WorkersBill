@@ -94,7 +94,7 @@ public class EmployerContractListActivity extends AppCompatActivity implements C
     }
 
     @Override
-    public void textChanged(int index) {
+    public void textChanged(String text) {
 
     }
 

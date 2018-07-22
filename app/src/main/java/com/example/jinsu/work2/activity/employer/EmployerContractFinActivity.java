@@ -9,7 +9,6 @@ import android.view.View;
 
 import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.activity.worker.WorkerHomeActivity;
-import com.example.jinsu.work2.activity.worker.WorkerSelectWorkplaceActivity;
 import com.example.jinsu.work2.databinding.ActivityEmployerContractFinBinding;
 import com.example.jinsu.work2.util.CallonClick;
 import com.example.jinsu.work2.viewmodel.MainViewModel;
@@ -51,7 +50,7 @@ public class EmployerContractFinActivity extends AppCompatActivity implements Ca
     }
 
     @Override
-    public void textChanged(int index) {
+    public void textChanged(String text) {
 
     }
 }
