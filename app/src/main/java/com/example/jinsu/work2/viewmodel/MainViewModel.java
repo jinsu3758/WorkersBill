@@ -30,7 +30,6 @@ import com.example.jinsu.work2.model.Worker;
 import com.example.jinsu.work2.network.contract.ContractSource;
 import com.example.jinsu.work2.network.worker.WorkerSource;
 import com.example.jinsu.work2.repositories.EmployerRepository;
-import com.example.jinsu.work2.repositories.MainRepository;
 import com.example.jinsu.work2.network.SignThread;
 import com.example.jinsu.work2.util.CallonClick;
 import com.example.jinsu.work2.util.Dlog;
@@ -1597,8 +1596,8 @@ public class MainViewModel extends ViewModel {
      */
     public void onLogin()
     {
-        if(login_edit_email != null)
-        MainRepository.getInstance().saveUser(login_edit_email.get(), "1234");
+//        if(login_edit_email != null)
+//        MainRepository.getInstance().saveUser(login_edit_email.get(), "1234");
     }
 
 

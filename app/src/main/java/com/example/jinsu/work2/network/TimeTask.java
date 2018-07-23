@@ -10,6 +10,4 @@ public class TimeTask extends AsyncTask<Void, Void, String> {
         return null;
     }
 
-    @Override
-    protected void onPostExcute(Integer)
 }
