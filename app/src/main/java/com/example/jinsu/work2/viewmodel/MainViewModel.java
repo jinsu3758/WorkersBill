@@ -1,5 +1,6 @@
 package com.example.jinsu.work2.viewmodel;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.arch.lifecycle.ViewModel;
 import android.content.Context;
@@ -22,11 +23,14 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.activity.CertActivity;
 import com.example.jinsu.work2.activity.SelectActivity;
+import com.example.jinsu.work2.common.BaseApplication;
+import com.example.jinsu.work2.manager.TaskManager;
 import com.example.jinsu.work2.model.CalcContent;
 import com.example.jinsu.work2.model.Contract;
 import com.example.jinsu.work2.model.EmployerPlace;
 import com.example.jinsu.work2.model.User;
 import com.example.jinsu.work2.model.Worker;
+import com.example.jinsu.work2.network.CommonClass;
 import com.example.jinsu.work2.network.contract.ContractSource;
 import com.example.jinsu.work2.network.worker.WorkerSource;
 import com.example.jinsu.work2.repositories.EmployerRepository;
@@ -37,9 +41,13 @@ import com.example.jinsu.work2.util.ParsingIp;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
 
 import io.realm.Realm;
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 public class MainViewModel extends ViewModel {
     public final ObservableField<String> sign_txt = new ObservableField<>();
@@ -1724,32 +1732,47 @@ public class MainViewModel extends ViewModel {
             if (!email.matches("^[a-zA-Z0-9]+@[a-zA-Z0-9]+$")) {
                 //
             }
+            TaskManager.api_check_exist_email(email, new Callback<HashMap<String, Object>>() {
+                @Override
+                public void success(HashMap<String, Object> stringObjectHashMap, Response response) {
+                    if(stringObjectHashMap != null) {
+                        boolean result = (boolean) stringObjectHashMap.get("result");
+                        if(result) {
+                            //TODO 기존 가입자처리
+                        } else {
+                            //TODO 새로가입자
+                            //다이얼로그 생성
+                            AlertDialog.Builder alert= new AlertDialog.Builder(context);
+                            alert.setTitle("인증코드 발송").setMessage("'" + email + "'로 인증코드가 전송되었습니다.\n이메일 확인 후에 작성해주세요" )
+                                    .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            context.startActivity(new Intent(context,CertActivity.class));
+                                        }
+                                    }).setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    return ;
+                                }
+                            });
+                            alert.create();
+                            alert.show();
+
+                        }
+                    }
+                }
+
+                @Override
+                public void failure(RetrofitError error) {
+                    CommonClass.showError(error);
+                }
+            });
         }
         else
         {
             return;
         }
-
-        //다이얼로그 생성
-        AlertDialog.Builder alert= new AlertDialog.Builder(context);
-        alert.setTitle("인증코드 발송").setMessage("'" + email + "'로 인증코드가 전송되었습니다.\n이메일 확인 후에 작성해주세요" )
-                .setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        context.startActivity(new Intent(context,CertActivity.class));
-
-                    }
-                }).setNegativeButton("취소", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                return ;
-            }
-        });
-        alert.create();
-        alert.show();
-        //return true;
     }
-
 
 
     /**
