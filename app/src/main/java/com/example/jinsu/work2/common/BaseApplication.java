@@ -15,11 +15,13 @@ public class BaseApplication extends Application {
 
     public static boolean DEBUG = false;
     public static ApiService mApiService;
+    public static BaseApplication mContext;
 
     @Override
     public void onCreate()
     {
         super.onCreate();
+        mContext = this;
         Constants.preferences = getSharedPreferences(Constants.PREF_KEY,MODE_PRIVATE);
         Realm.init(this);
         RealmConfiguration realmConfig = new RealmConfiguration.Builder()
@@ -32,7 +34,9 @@ public class BaseApplication extends Application {
 //        this.DEBUG
     }
 
-
+    public static Context get() {
+        return mContext;
+    }
 
     /**
      * get Debug Mode

@@ -25,6 +25,10 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".activity.ParentActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
             android:name=".activity.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

@@ -106,4 +106,6 @@
     <string name="monthly_pay">1개월 단위로 산정하여 지급하는\n임금제도</string>
     <string name="getout">사업장에서\n내보내기</string>
     <string name="hourly_pay">임금이 시간단위로 결정되는 임금\n형태로 1시간 단위의 임금에\n실노동시간을 곱하여 임금을 계산\n,지급하는 형태이다.</string>
+    <string name="confirm_yes">확인</string>
+    <string name="confirm_no">취소</string>
 </resources>

@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.example.jinsu.work2.activity.employer.EmployerPlaceActivity;
 import com.example.jinsu.work2.common.BaseApplication;
+import com.example.jinsu.work2.network.CommonClass;
 import com.example.jinsu.work2.network.model.Login;
 import com.example.jinsu.work2.network.model.LoginResponse;
 import com.example.jinsu.work2.util.CallonClick;
@@ -21,7 +22,7 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
-public class LoginActivity extends AppCompatActivity implements CallonClick {
+public class LoginActivity extends ParentActivity implements CallonClick {
     private ActivityLoginBinding binding;
     private MainViewModel mainViewModel;
     private VIewModelFactory vIewModelFactory;
@@ -59,6 +60,8 @@ public class LoginActivity extends AppCompatActivity implements CallonClick {
             @Override
             public void success(LoginResponse loginResponse, Response response) {
                 //성공
+                showLog(LOG_LOGCAT_TOAST, CommonClass.toJson(loginResponse));
+
                 startActivity(new Intent(LoginActivity.this, SelectActivity.class));
                 finish();
             }
@@ -66,6 +69,7 @@ public class LoginActivity extends AppCompatActivity implements CallonClick {
             @Override
             public void failure(RetrofitError error) {
                 //실패
+                showLog(LOG_LOGCAT_TOAST, CommonClass.showError(error));
             }
         });
     }
