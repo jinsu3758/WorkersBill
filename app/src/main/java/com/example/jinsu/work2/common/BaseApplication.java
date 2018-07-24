@@ -5,12 +5,16 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 
+import com.example.jinsu.work2.network.ApiManager;
+import com.example.jinsu.work2.network.ApiService;
+
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
 public class BaseApplication extends Application {
-    public static boolean DEBUG = false;
 
+    public static boolean DEBUG = false;
+    public static ApiService mApiService;
 
     @Override
     public void onCreate()
@@ -24,6 +28,7 @@ public class BaseApplication extends Application {
                 .build();
         Realm.setDefaultConfiguration(realmConfig);
 
+        mApiService = ApiManager.rebuildAdapter(ApiManager.HOST);
 //        this.DEBUG
     }
 

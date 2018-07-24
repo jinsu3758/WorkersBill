@@ -48,7 +48,12 @@ public class WorkerSelectWorkplaceActivity extends AppCompatActivity implements 
     }
 
     @Override
-    public void textChanged(int index) {
+    public void textChanged(String text) {
 
     }
+
+//    @Override
+//    public void textChanged(int index) {
+//
+//    }
 }

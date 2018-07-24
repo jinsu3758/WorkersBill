@@ -68,8 +68,6 @@
         <activity android:name=".activity.worker.WorkerContractSendFinActivity"/>
         <activity android:name=".activity.worker.WorkerHomeActivity"/>
         <activity android:name=".activity.worker.WorkerFindPlaceActivity"/>
-        <activity android:name=".activity.worker.WorkerContractFinActivity"/>
-        <activity android:name=".activity.worker.WorkerContractRequestActivity"/>
         <activity android:name=".activity.worker.WorkerJoinPlaceActivity"/>
     </application>
 
