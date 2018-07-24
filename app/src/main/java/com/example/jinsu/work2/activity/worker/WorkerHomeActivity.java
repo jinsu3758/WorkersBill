@@ -31,7 +31,7 @@ public class WorkerHomeActivity extends AppCompatActivity implements CallonClick
         String place_name = intent.getStringExtra("name");
         binding = DataBindingUtil.setContentView(this,R.layout.activity_worker_home);
         vIewModelFactory = new VIewModelFactory(this);
-        mainViewModel = ViewModelProviders.of(this,vIewModelFactory).get(MainViewModel.class);
+        mainViewModel = ViewModelProviders.of(this, vIewModelFactory).get(MainViewModel.class);
         binding.setWorkerHome(mainViewModel);
         mainViewModel.setCompanyName(place_name);
     }
@@ -39,26 +39,19 @@ public class WorkerHomeActivity extends AppCompatActivity implements CallonClick
     @Override
     public void onBtnClick(View view) {
         switch (view.getId()){
-            case R.id.worker_home_btn_change:{
+            case R.id.worker_home_btn_change:
+            {
                 startActivity(new Intent(this,WorkerFindPlaceActivity.class));
                 break;
             }
-            case R.id.worker_home_btn_goto_office:{
-
-
-                break;
-            }
-            case R.id.worker_home_btn_leave_office:{
-
-                break;
-            }
-            case R.id.worker_home_btn_cont_request_alarm:{
+            case R.id.worker_home_btn_cont_request_alarm:
+            {
                 startActivity(new Intent(this,WorkerContractRequestActivity.class));
                 break;
             }
-            case R.id.worker_home_btn_cont_container:{
+            case R.id.worker_home_btn_cont_container:
+            {
                 startActivity(new Intent(this,WorkerContractContainerActivity.class));
-
                 break;
             }
 

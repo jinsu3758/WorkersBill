@@ -27,16 +27,18 @@ import com.example.jinsu.work2.model.Contract;
 import com.example.jinsu.work2.model.EmployerPlace;
 import com.example.jinsu.work2.model.User;
 import com.example.jinsu.work2.model.Worker;
+import com.example.jinsu.work2.network.SignThread;
 import com.example.jinsu.work2.network.contract.ContractSource;
 import com.example.jinsu.work2.network.worker.WorkerSource;
 import com.example.jinsu.work2.repositories.EmployerRepository;
-import com.example.jinsu.work2.network.SignThread;
 import com.example.jinsu.work2.util.CallonClick;
 import com.example.jinsu.work2.util.Dlog;
 import com.example.jinsu.work2.util.ParsingIp;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.concurrent.ExecutionException;
 
 import io.realm.Realm;
@@ -1996,6 +1998,21 @@ public class MainViewModel extends ViewModel {
     public void setCompanyName(String text)
     {
         company_name.set(text);
+    }
+
+    public void setWork()
+    {
+        long time = System.currentTimeMillis();
+        SimpleDateFormat dayTime = new SimpleDateFormat("HH:mm");
+        goto_office_time.set(dayTime.format(new Date(time)));
+        Log.d("worker_home","work");
+    }
+
+    public void setLeave()
+    {
+        long time = System.currentTimeMillis();
+        SimpleDateFormat dayTime = new SimpleDateFormat("HH:mm");
+        leave_office_time.set(dayTime.format(new Date(time)));
     }
 
 }

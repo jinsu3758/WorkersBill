@@ -31,9 +31,6 @@ public class EmployerRepository implements ContractSource, WorkerSource, PlaceSo
 
     }
 
-
-
-
     @Override
     public void getContractWorker(LoadContractWorkerCallback callback) {
         contractDataSource.getContractWorker(new LoadContractWorkerCallback() {
