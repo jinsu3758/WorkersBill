@@ -34,14 +34,14 @@ public class TaskManager {
     /**
      * 이메일 중복검사
      */
-    public static void api_create_user(Join join, @NonNull Callback callback) {
+    public static void api_create_user(Join join, @NonNull Callback<Join> callback) {
         BaseApplication.mApiService.create_user(join, callback);
     }
 
     /**
      * 우편번호 검사
      */
-    public static void api_find_address(String query) {
-        BaseApplication.mApiService.j
+    public static void api_find_address(String query, @NonNull Callback callback) {
+        BaseApplication.mApiService.api_find_address(query, callback);
     }
 }
