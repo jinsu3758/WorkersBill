@@ -1,36 +1,34 @@
 package com.example.jinsu.work2.network;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Environment;
 import android.os.Handler;
-import android.widget.Toast;
+import android.util.Base64;
 
-import com.example.jinsu.work2.util.Dlog;
+import com.example.jinsu.work2.common.BaseApplication;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+
 
 public class SignThread extends Thread {
     private Handler handler;
     private Bitmap sign_bitmap = null;
-    private Context context;
+    private String img;
+    private Callback callback;
 
-    public SignThread(Bitmap bitmap, Context context)
+    public SignThread(Bitmap bitmap, Callback call)
     {
+        this.callback = call;
         this.handler = new Handler();
         this.sign_bitmap = bitmap;
-        this.context = context;
     }
 
-    public SignThread(Context context, Handler handler)
+    public interface Callback
     {
-        this.context = context;
-        this.handler = handler;
+        void finish();
     }
-
     @Override
     public void run() {
         if (sign_bitmap != null) {
@@ -49,14 +47,18 @@ public class SignThread extends Thread {
             }
             Bitmap bitmap = Bitmap.createBitmap(pixel, 0, width, width, height,
                     Bitmap.Config.ARGB_8888);
+            ByteArrayOutputStream out = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.PNG , 100, out);
+            byte[] bytes = out.toByteArray();
+            img = Base64.encodeToString(bytes, 0);
+            BaseApplication.join.signature = img;
 
-            FileOutputStream out = null;
+           /* FileOutputStream out = null;
 
             try {
                 file.createNewFile();
                 out = new FileOutputStream(file);
                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
-
                 //bitmap = 갤러리또는 리소스에서 불러온 비트맵 파일에 포맷
                 Dlog.d("서명저장 성공");
                 out.close();
@@ -64,17 +66,16 @@ public class SignThread extends Thread {
             } catch (IOException e) {
                 Dlog.d("서명저장 실패" + e.getMessage());
                 e.printStackTrace();
-            }
+            }*/
             handler.post(new Runnable() {
                 @Override
                 public void run() {
-
+                    callback.finish();
                     //이미지 바로 갤러리에 올리는 작업
                    /* Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
                     Uri contentUri = Uri.fromFile(file);
                     mediaScanIntent.setData(contentUri);
                     context.sendBroadcast(mediaScanIntent);*/
-                    Toast.makeText(context, "download ok", Toast.LENGTH_SHORT).show();
 
                 }
             });

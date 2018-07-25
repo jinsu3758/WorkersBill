@@ -18,7 +18,7 @@ import retrofit.converter.GsonConverter;
 public class ApiManager
 {
 //	public static final String HOST = "http://api.wbwb.kr";
-	public static final String HOST = "http://web.wbwb.kr";
+	public static final String HOST = "http://api.wbwb.kr";
 	public static final String ENDPOINT = "";
 
 	public static String[][] mAvailableHostAddrList;

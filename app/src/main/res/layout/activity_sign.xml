@@ -109,6 +109,7 @@
         android:textColor="@android:color/black"
         android:text="* 전자 근로계약서를 작성할 때 사용됩니다."
         />
+
     <FrameLayout
         android:id="@+id/layout_drawView"
         android:layout_width="wrap_content"
@@ -116,13 +117,21 @@
         android:layout_gravity="center"
         android:layout_marginTop="28dp">
 
+
         <com.example.jinsu.work2.activity.DrawView
             android:id="@+id/drawView"
             android:layout_width="281dp"
             android:layout_height="172dp"
             android:background="@drawable/sign_border"
             />
+        <ProgressBar
+            android:id="@+id/sign_prg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="invisible"
 
+            />
         <Button
             android:id="@+id/sign_again_btn"
             android:layout_width="24dp"

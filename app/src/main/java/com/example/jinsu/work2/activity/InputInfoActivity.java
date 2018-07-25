@@ -21,7 +21,7 @@ public class InputInfoActivity extends AppCompatActivity implements CallonClick 
     private ActivityInputinfoBinding binding;
     private MainViewModel mainViewModel;
     private VIewModelFactory vIewModelFactory;
-
+    private String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +36,6 @@ public class InputInfoActivity extends AppCompatActivity implements CallonClick 
         vIewModelFactory = new VIewModelFactory(this);
         mainViewModel = ViewModelProviders.of(this,vIewModelFactory).get(MainViewModel.class);
         binding.setInputInfo(mainViewModel);
-
     }
 
 
@@ -46,7 +45,7 @@ public class InputInfoActivity extends AppCompatActivity implements CallonClick 
         {
             case R.id.inputInfo_next_btn:
             {
-                startActivity(new Intent(this,SignActivity.class));
+                mainViewModel.setUser();
                 break;
             }
             case R.id.inputInfo_select_image_btn:
@@ -120,7 +119,7 @@ public class InputInfoActivity extends AppCompatActivity implements CallonClick 
 
     @Override
     public void textChanged(String text) {
-
+        startActivity(new Intent(this,SignActivity.class));
     }
 
 }

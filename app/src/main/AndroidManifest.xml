@@ -63,8 +63,8 @@
         <activity android:name=".activity.employer.EmployerContractListActivity">
         </activity>
         <activity android:name=".activity.employer.EmployerManageActivity">
-
         </activity>
+        <activity android:name=".activity.AddressActivity"></activity>
         <activity android:name=".activity.employer.EmployerSendFinishActivity"/>
         <activity android:name=".activity.employer.EmployerSetupActivity"/>
         <activity android:name=".activity.worker.WorkerContractFinActivity"/>

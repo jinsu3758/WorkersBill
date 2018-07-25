@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 
 import com.example.jinsu.work2.network.ApiManager;
 import com.example.jinsu.work2.network.ApiService;
+import com.example.jinsu.work2.network.model.Join;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -16,6 +17,7 @@ public class BaseApplication extends Application {
     public static boolean DEBUG = false;
     public static ApiService mApiService;
     public static BaseApplication mContext;
+    public static Join join;
 
     @Override
     public void onCreate()
@@ -29,6 +31,7 @@ public class BaseApplication extends Application {
                 .deleteRealmIfMigrationNeeded()
                 .build();
         Realm.setDefaultConfiguration(realmConfig);
+        join = new Join();
 
         mApiService = ApiManager.rebuildAdapter(ApiManager.HOST);
 //        this.DEBUG

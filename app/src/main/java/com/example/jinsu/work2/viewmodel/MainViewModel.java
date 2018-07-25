@@ -1,10 +1,7 @@
 package com.example.jinsu.work2.viewmodel;
 
-import android.app.AlertDialog;
 import android.arch.lifecycle.ViewModel;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.databinding.BindingAdapter;
 import android.databinding.Observable;
 import android.databinding.ObservableField;
@@ -20,8 +17,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.jinsu.work2.R;
-import com.example.jinsu.work2.activity.CertActivity;
-import com.example.jinsu.work2.activity.SelectActivity;
+import com.example.jinsu.work2.common.BaseApplication;
 import com.example.jinsu.work2.manager.TaskManager;
 import com.example.jinsu.work2.model.CalcContent;
 import com.example.jinsu.work2.model.Contract;
@@ -37,6 +33,7 @@ import com.example.jinsu.work2.util.CallonClick;
 import com.example.jinsu.work2.util.Dlog;
 import com.example.jinsu.work2.util.ParsingIp;
 
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -1698,7 +1695,12 @@ public class MainViewModel extends ViewModel {
      */
     public void savdSign(Context context, Bitmap bitmap)
     {
-        SignThread signThread = new SignThread(bitmap,context);
+        SignThread signThread = new SignThread(bitmap, new SignThread.Callback() {
+            @Override
+            public void finish() {
+                callback.textChanged(null);
+            }
+        });
         signThread.start();
         try {
             Log.d("SignActivity!","스레드 종료");
@@ -1706,7 +1708,7 @@ public class MainViewModel extends ViewModel {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        context.startActivity(new Intent(context, SelectActivity.class));
+        callback.textChanged(null);
 
     }
 
@@ -1739,25 +1741,13 @@ public class MainViewModel extends ViewModel {
                         boolean result = (boolean) stringObjectHashMap.get("result");
                         if(result) {
                             //TODO 기존 가입자처리
+                            callback.textChanged(null);
+
                         } else {
                             //TODO 새로가입자
                             //다이얼로그 생성
-                            AlertDialog.Builder alert= new AlertDialog.Builder(context);
-                            alert.setTitle("인증코드 발송").setMessage("'" + email + "'로 인증코드가 전송되었습니다.\n이메일 확인 후에 작성해주세요" )
-                                    .setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            context.startActivity(new Intent(context,CertActivity.class));
-                                        }
-                                    }).setNegativeButton("취소", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    return ;
-                                }
-                            });
-                            alert.create();
-                            alert.show();
-
+                            callback.textChanged(email);
+                            BaseApplication.join.email = email;
                         }
                     }
                 }
@@ -1765,6 +1755,7 @@ public class MainViewModel extends ViewModel {
                 @Override
                 public void failure(RetrofitError error) {
                     CommonClass.showError(error);
+                    Log.d("join_at",error.getMessage());
                 }
             });
         }
@@ -1776,13 +1767,50 @@ public class MainViewModel extends ViewModel {
 
 
     /**
+     *
+     * CertActivity
+     * 이메일 인증 activity
+     *
+     */
+
+    public int getCertCode()
+    {
+        return Integer.parseInt(one.get() + two.get() + three.get() + four.get());
+    }
+
+    public void onCert(String email)
+    {
+        TaskManager.api_request_verify_email(URLEncoder.encode(email), new Callback<HashMap<String, Object>>() {
+
+            @Override
+            public void success(HashMap<String, Object> stringObjectHashMap, Response response) {
+                Log.d("cert_at",CommonClass.toJson(stringObjectHashMap));
+                boolean result = (boolean) stringObjectHashMap.get("result");
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Log.d("cert_at","Error : "+error.getMessage());
+            }
+        });
+
+    }
+
+
+
+
+    /**
      * InputInfoActivity
      * 기본정보 입력 activity
      */
 
-    public void onCancel(View v)
+    public void setUser()
     {
-
+        BaseApplication.join.address = inputinfo_address.get() + inputinfo_edit_rest_address.get();
+        BaseApplication.join.name = inputinfo_edit_name.get();
+        BaseApplication.join.phone = inputinfo_edit_registerNum.get();
+        BaseApplication.join.postcode = inputinfo_edit_postcode.get();
+        callback.textChanged(null);
     }
     public void setAddr(String addr)
     {

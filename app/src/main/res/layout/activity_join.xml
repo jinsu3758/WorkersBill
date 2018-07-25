@@ -43,6 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:paddingLeft="10dp"
+                android:lines="1"
                 android:hint="@string/email_hint"
                 android:textColorHint="#969696"
                 android:textSize="12sp"

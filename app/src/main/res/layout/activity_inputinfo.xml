@@ -193,7 +193,7 @@
                         android:layout_height="40dp"
                         android:background="@color/maincolor"
                         android:gravity="center"
-                        android:text="주민등록번호"
+                        android:text="휴대폰 번호"
                         android:textSize="12sp" />
 
                     <EditText
