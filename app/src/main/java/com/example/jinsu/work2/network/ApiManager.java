@@ -2,7 +2,6 @@ package com.example.jinsu.work2.network;
 
 
 import com.example.jinsu.work2.BuildConfig;
-import com.example.jinsu.work2.common.BaseApplication;
 import com.example.jinsu.work2.manager.InfoManager;
 import com.example.jinsu.work2.network.date.DateDeserializer;
 import com.example.jinsu.work2.network.date.DateSerializer;
@@ -18,7 +17,8 @@ import retrofit.converter.GsonConverter;
 
 public class ApiManager
 {
-	public static final String HOST = "http://api.wbwb.kr";
+//	public static final String HOST = "http://api.wbwb.kr";
+	public static final String HOST = "http://web.wbwb.kr";
 	public static final String ENDPOINT = "";
 
 	public static String[][] mAvailableHostAddrList;

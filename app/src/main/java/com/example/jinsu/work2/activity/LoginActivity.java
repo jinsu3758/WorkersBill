@@ -4,17 +4,15 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.example.jinsu.work2.activity.employer.EmployerPlaceActivity;
+import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.common.BaseApplication;
+import com.example.jinsu.work2.databinding.ActivityLoginBinding;
 import com.example.jinsu.work2.network.CommonClass;
 import com.example.jinsu.work2.network.model.Login;
 import com.example.jinsu.work2.network.model.LoginResponse;
 import com.example.jinsu.work2.util.CallonClick;
-import com.example.jinsu.work2.R;
-import com.example.jinsu.work2.databinding.ActivityLoginBinding;
 import com.example.jinsu.work2.viewmodel.MainViewModel;
 import com.example.jinsu.work2.viewmodel.VIewModelFactory;
 
@@ -45,8 +43,7 @@ public class LoginActivity extends ParentActivity implements CallonClick {
     @Override
     public void onBtnClick(View view) {
         //edit
-        api_login("rinjae+1@lof.kr", "1");
-//        mainViewModel.onLogin();
+        api_login(binding.loginEditEmail.getText().toString(), "1");
     }
 
     @Override
@@ -72,5 +69,8 @@ public class LoginActivity extends ParentActivity implements CallonClick {
                 showLog(LOG_LOGCAT_TOAST, CommonClass.showError(error));
             }
         });
+
     }
+
+
 }

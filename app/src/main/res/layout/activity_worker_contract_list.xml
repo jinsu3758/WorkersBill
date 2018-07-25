@@ -3,7 +3,7 @@
 
     <data>
         <variable
-            name="workerContractContainer"
+            name="workerContractList"
             type="com.example.jinsu.work2.viewmodel.MainViewModel"/>
     </data>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -32,7 +32,7 @@
 
             <Button
                 android:id="@+id/worker_contract_container_btn_home"
-                android:onClick="@{workerContractContainer::onBtnClick}"
+                android:onClick="@{workerContractList::onBtnClick}"
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:layout_marginRight="25dp"

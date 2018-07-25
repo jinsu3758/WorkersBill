@@ -21,14 +21,19 @@ import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.activity.CertActivity;
+import com.example.jinsu.work2.activity.LoginActivity;
 import com.example.jinsu.work2.activity.SelectActivity;
+import com.example.jinsu.work2.common.BaseApplication;
 import com.example.jinsu.work2.model.CalcContent;
 import com.example.jinsu.work2.model.Contract;
 import com.example.jinsu.work2.model.EmployerPlace;
 import com.example.jinsu.work2.model.User;
 import com.example.jinsu.work2.model.Worker;
+import com.example.jinsu.work2.network.CommonClass;
 import com.example.jinsu.work2.network.SignThread;
 import com.example.jinsu.work2.network.contract.ContractSource;
+import com.example.jinsu.work2.network.model.Login;
+import com.example.jinsu.work2.network.model.LoginResponse;
 import com.example.jinsu.work2.network.worker.WorkerSource;
 import com.example.jinsu.work2.repositories.EmployerRepository;
 import com.example.jinsu.work2.util.CallonClick;
@@ -42,6 +47,9 @@ import java.util.Date;
 import java.util.concurrent.ExecutionException;
 
 import io.realm.Realm;
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 public class MainViewModel extends ViewModel {
     public final ObservableField<String> sign_txt = new ObservableField<>();
@@ -1596,11 +1604,8 @@ public class MainViewModel extends ViewModel {
     /**
      * Login 시도 시 호출
      */
-    public void onLogin()
-    {
-//        if(login_edit_email != null)
-//        MainRepository.getInstance().saveUser(login_edit_email.get(), "1234");
-    }
+
+
 
 
     /**

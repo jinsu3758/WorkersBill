@@ -51,7 +51,7 @@ public class WorkerHomeActivity extends AppCompatActivity implements CallonClick
             }
             case R.id.worker_home_btn_cont_container:
             {
-                startActivity(new Intent(this,WorkerContractContainerActivity.class));
+                startActivity(new Intent(this,WorkerContractListActivity.class));
                 break;
             }
 
