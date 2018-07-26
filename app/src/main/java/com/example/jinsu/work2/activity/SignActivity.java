@@ -54,7 +54,8 @@ public class SignActivity extends AppCompatActivity implements CallonClick {
         }
     }
     @Override
-    public void textChanged(String text) {
+    public void textChanged(int flag) {
+        startActivity(new Intent(this, CertActivity.class) );
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setTitle("인증코드 발송").setMessage("'" + BaseApplication.join.email + "'로 인증코드가 전송되었습니다.\n이메일 확인 후에 작성해주세요")
                 .setPositiveButton("확인", new DialogInterface.OnClickListener() {

@@ -109,7 +109,7 @@ public class EmployerCalcActivity extends AppCompatActivity implements CallonCli
     }
 
     @Override
-    public void textChanged(String text) {
+    public void textChanged(int flag) {
 
     }
 }

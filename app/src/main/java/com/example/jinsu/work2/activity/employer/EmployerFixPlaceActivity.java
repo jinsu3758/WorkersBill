@@ -66,7 +66,7 @@ public class EmployerFixPlaceActivity extends AppCompatActivity implements Callo
     }
 
     @Override
-    public void textChanged(String text) {
+    public void textChanged(int flag) {
 
     }
 }

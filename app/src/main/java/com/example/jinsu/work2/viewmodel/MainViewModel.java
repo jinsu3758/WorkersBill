@@ -18,6 +18,7 @@ import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.common.BaseApplication;
+import com.example.jinsu.work2.common.Constants;
 import com.example.jinsu.work2.manager.TaskManager;
 import com.example.jinsu.work2.model.CalcContent;
 import com.example.jinsu.work2.model.Contract;
@@ -27,11 +28,13 @@ import com.example.jinsu.work2.model.Worker;
 import com.example.jinsu.work2.network.CommonClass;
 import com.example.jinsu.work2.network.SignThread;
 import com.example.jinsu.work2.network.contract.ContractSource;
+import com.example.jinsu.work2.network.model.Join;
 import com.example.jinsu.work2.network.worker.WorkerSource;
 import com.example.jinsu.work2.repositories.EmployerRepository;
 import com.example.jinsu.work2.util.CallonClick;
 import com.example.jinsu.work2.util.Dlog;
 import com.example.jinsu.work2.util.ParsingIp;
+import com.example.jinsu.work2.util.PreferenceUtil;
 
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
@@ -1665,24 +1668,24 @@ public class MainViewModel extends ViewModel {
     public void oneChanged(CharSequence s, int start, int before, int count)
     {
         if(s.length() != 0)
-            callback.textChanged("1");
+            callback.textChanged(1);
     }
 
     public void twoChanged(CharSequence s, int start, int before, int count)
     {
         if(s.length() != 0)
-            callback.textChanged("2");
+            callback.textChanged(2);
     }
 
     public void threeChanged(CharSequence s, int start, int before, int count)
     {
-        callback.textChanged("3");
+        callback.textChanged(3);
     }
 
     public void fourChanged(CharSequence s, int start, int before, int count)
     {
         if(s.length() != 0)
-            callback.textChanged("4");
+            callback.textChanged(4);
     }
 
 
@@ -1698,7 +1701,7 @@ public class MainViewModel extends ViewModel {
         SignThread signThread = new SignThread(bitmap, new SignThread.Callback() {
             @Override
             public void finish() {
-                callback.textChanged(null);
+                callback.textChanged(0);
             }
         });
         signThread.start();
@@ -1708,7 +1711,7 @@ public class MainViewModel extends ViewModel {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        callback.textChanged(null);
+
 
     }
 
@@ -1741,12 +1744,12 @@ public class MainViewModel extends ViewModel {
                         boolean result = (boolean) stringObjectHashMap.get("result");
                         if(result) {
                             //TODO 기존 가입자처리
-                            callback.textChanged(null);
+                            callback.textChanged(Constants.RESPONSE_DUPLICATE);
 
                         } else {
                             //TODO 새로가입자
                             //다이얼로그 생성
-                            callback.textChanged(email);
+                            callback.textChanged(Constants.RESPONSE_SUCCESS);
                             BaseApplication.join.email = email;
                         }
                     }
@@ -1797,6 +1800,52 @@ public class MainViewModel extends ViewModel {
     }
 
 
+    /**
+     *
+     * SelectActivity
+     * 역할 선택 activity
+     *
+     */
+    public void selectRole(int flag)
+    {
+        if(flag == Constants.REQUEST_EMPLOYER)
+        {
+            BaseApplication.join.role = "employer";
+            TaskManager.api_create_user(BaseApplication.join, new Callback<Join>() {
+                @Override
+                public void success(Join join, Response response) {
+                    if(join != null) {
+                        PreferenceUtil.saveUser(join);
+                        callback.textChanged(Constants.REQUEST_EMPLOYER);
+                    }
+                }
+
+                @Override
+                public void failure(RetrofitError error) {
+
+                }
+            });
+        }
+        else if(flag == Constants.REQUEST_EMPLOYEE)
+        {
+            BaseApplication.join.role = "employee";
+            TaskManager.api_create_user(BaseApplication.join, new Callback<Join>() {
+                @Override
+                public void success(Join join, Response response) {
+                    if(join != null) {
+                        PreferenceUtil.saveUser(join);
+                        callback.textChanged(Constants.REQUEST_EMPLOYEE);
+                    }
+                }
+
+                @Override
+                public void failure(RetrofitError error) {
+
+                }
+            });
+        }
+
+    }
 
 
     /**
@@ -1810,7 +1859,7 @@ public class MainViewModel extends ViewModel {
         BaseApplication.join.name = inputinfo_edit_name.get();
         BaseApplication.join.phone = inputinfo_edit_registerNum.get();
         BaseApplication.join.postcode = inputinfo_edit_postcode.get();
-        callback.textChanged(null);
+        callback.textChanged(0);
     }
     public void setAddr(String addr)
     {
@@ -2031,7 +2080,7 @@ public class MainViewModel extends ViewModel {
         {
             if(s.length() != text_len)
             {
-                callback.textChanged(s.toString());
+                callback.textChanged(0);
             }
         }
         text_len = s.length();

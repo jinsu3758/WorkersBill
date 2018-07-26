@@ -47,7 +47,7 @@ public class LoginActivity extends ParentActivity implements CallonClick {
     }
 
     @Override
-    public void textChanged(String text) {
+    public void textChanged(int flag) {
 
     }
 

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.jinsu.work2.R;
+import com.example.jinsu.work2.common.Constants;
 import com.example.jinsu.work2.databinding.ActivityJoinBinding;
 import com.example.jinsu.work2.util.CallonClick;
 import com.example.jinsu.work2.viewmodel.MainViewModel;
@@ -46,8 +47,8 @@ public class JoinActivity extends ParentActivity implements CallonClick{
     }
 
     @Override
-    public void textChanged(String text) {
-        if(text == null)
+    public void textChanged(int flag) {
+        if(flag == Constants.RESPONSE_DUPLICATE)
         {
             AlertDialog.Builder alert = new AlertDialog.Builder(this);
             alert.setMessage("이미 가입된 이메일입니다.")
@@ -60,11 +61,9 @@ public class JoinActivity extends ParentActivity implements CallonClick{
             alert.create();
             alert.show();
         }
-        else
+        else if(flag == Constants.RESPONSE_SUCCESS)
         {
-
             startActivity(new Intent(this, InputInfoActivity.class) );
-
         }
     }
 

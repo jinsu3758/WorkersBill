@@ -50,7 +50,7 @@ public class EmployerContractFinActivity extends AppCompatActivity implements Ca
     }
 
     @Override
-    public void textChanged(String text) {
+    public void textChanged(int flag) {
 
     }
 }

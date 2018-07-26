@@ -118,7 +118,7 @@ public class InputInfoActivity extends AppCompatActivity implements CallonClick 
 
 
     @Override
-    public void textChanged(String text) {
+    public void textChanged(int flag) {
         startActivity(new Intent(this,SignActivity.class));
     }
 

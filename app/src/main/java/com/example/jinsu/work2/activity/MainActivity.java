@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements CallonClick{
     }
 
     @Override
-    public void textChanged(String text) {
+    public void textChanged(int flag) {
 
     }
 }

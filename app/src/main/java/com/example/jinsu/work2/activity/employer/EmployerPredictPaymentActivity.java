@@ -53,7 +53,7 @@ public class EmployerPredictPaymentActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void textChanged(String text) {
+    public void textChanged(int flag) {
 
     }
 }

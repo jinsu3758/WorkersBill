@@ -110,7 +110,7 @@ public class WorkerFindPlaceActivity extends AppCompatActivity implements Callon
 
     //edittext의 텍스트가 바뀔 때마다
     @Override
-    public void textChanged(String text) {
-        Log.d("worker_find_place","edit : " + text);
+    public void textChanged(int flag) {
+
     }
 }

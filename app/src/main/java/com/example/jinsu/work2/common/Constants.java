@@ -10,6 +10,11 @@ public class Constants {
     public static final String PREF_USR = "PREF_USER";
     public static final int REQUEST_PICTURE = 1;
     public static final int REQUEST_PHOTO_ALBUM = 2;
+    public static final int REQUEST_EMPLOYER = 3;
+    public static final int REQUEST_EMPLOYEE = 4;
+    public static final int RESPONSE_DUPLICATE = 5;
+    public static final int RESPONSE_SUCCESS = 6;
+    public static final int RESPONSE_FAIL = 7;
     public static final int SEARCH_ADDRESS_ACTIVITY = 10000;
 
     //수정 예정

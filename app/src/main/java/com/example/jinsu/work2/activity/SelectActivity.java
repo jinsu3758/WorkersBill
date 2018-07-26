@@ -10,16 +10,11 @@ import android.view.View;
 import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.activity.employer.EmployerPlaceActivity;
 import com.example.jinsu.work2.activity.worker.WorkerJoinPlaceActivity;
+import com.example.jinsu.work2.common.Constants;
 import com.example.jinsu.work2.databinding.ActivitySelectBinding;
-import com.example.jinsu.work2.manager.TaskManager;
-import com.example.jinsu.work2.network.model.Join;
 import com.example.jinsu.work2.util.CallonClick;
 import com.example.jinsu.work2.viewmodel.MainViewModel;
 import com.example.jinsu.work2.viewmodel.VIewModelFactory;
-
-import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
 
 public class SelectActivity extends AppCompatActivity implements CallonClick {
 
@@ -47,36 +42,26 @@ public class SelectActivity extends AppCompatActivity implements CallonClick {
         {
             case R.id.select_btn_employer:
             {
-                startActivity(new Intent(this, EmployerPlaceActivity.class));
+                mainViewModel.selectRole(Constants.REQUEST_EMPLOYER);
                 break;
             }
             case R.id.select_btn_worker:
             {
-                startActivity(new Intent(this, WorkerJoinPlaceActivity.class));
+                mainViewModel.selectRole(Constants.REQUEST_EMPLOYEE);
                 break;
             }
-
         }
-        //TODO 회원가입 정보
-        Join j = new Join();
-        TaskManager.api_create_user(j, new Callback<Join>() {
-            @Override
-            public void success(Join join, Response response) {
-                if(join != null) {
-                    
-                }
-            }
-
-            @Override
-            public void failure(RetrofitError error) {
-
-            }
-        });
-
     }
 
     @Override
-    public void textChanged(String text) {
-
+    public void textChanged(int flag) {
+        if(flag == Constants.REQUEST_EMPLOYER)
+        {
+            startActivity(new Intent(this, EmployerPlaceActivity.class));
+        }
+        else if(flag == Constants.REQUEST_EMPLOYEE)
+        {
+            startActivity(new Intent(this, WorkerJoinPlaceActivity.class));
+        }
     }
 }
