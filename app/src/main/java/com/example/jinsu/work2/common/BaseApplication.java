@@ -67,7 +67,6 @@ public class BaseApplication extends Application {
      * Workersbill/1.0.0 (2) Android/7.0 (Nougat) SM-G9650 (Samsung Galaxy S9+)
      */
     public static String getUserAgent() {
-        return System.getProperty("http.agent") +
-                String.format("Workersbill/%s (%d)", BuildConfig.VERSION_NAME,BuildConfig.VERSION_CODE);
+        return String.format("Workersbill/%s (%d) ", BuildConfig.VERSION_NAME,BuildConfig.VERSION_CODE) + System.getProperty("http.agent");
     }
 }
