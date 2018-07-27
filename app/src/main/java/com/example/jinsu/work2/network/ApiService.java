@@ -2,6 +2,8 @@ package com.example.jinsu.work2.network;
 
 
 import com.example.jinsu.work2.network.model.Company;
+import com.example.jinsu.work2.network.model.NotificationModel;
+import com.example.jinsu.work2.network.model.PushToken;
 import com.example.jinsu.work2.network.model.DocumentList;
 import com.example.jinsu.work2.network.model.EmailVerify;
 import com.example.jinsu.work2.network.model.Join;
@@ -16,6 +18,7 @@ import retrofit.Callback;
 import retrofit.http.Body;
 import retrofit.http.GET;
 import retrofit.http.POST;
+import retrofit.http.PUT;
 import retrofit.http.Path;
 import retrofit.http.Query;
 
@@ -66,4 +69,10 @@ public interface ApiService {
     //추가 합류 요청
     @POST("/v1/companies/{companyId}/employees")
     void company_add_request(@Path("companyId") int companyid, Callback<Company> cb);
+
+    @PUT("/v1/me/notification/token")
+    void change_push_token(@Body PushToken token, Callback<HashMap<String,Object>> cb);
+
+    @GET("/v1/me/companies/{companyId}/notifications")
+    void get_notification_list(@Path("companyId") int companyId, Callback<ArrayList<NotificationModel>> cb);
 }

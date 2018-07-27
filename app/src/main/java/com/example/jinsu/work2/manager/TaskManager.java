@@ -7,9 +7,12 @@ import com.example.jinsu.work2.network.model.Company;
 import com.example.jinsu.work2.network.model.EmailVerify;
 import com.example.jinsu.work2.network.model.Join;
 import com.example.jinsu.work2.network.model.Login;
+import com.example.jinsu.work2.network.model.NotificationModel;
+import com.example.jinsu.work2.network.model.PushToken;
 import com.example.jinsu.work2.network.model.User;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import retrofit.Callback;
 
@@ -98,6 +101,18 @@ public class TaskManager {
      */
     public static void api_company_add_request(int companyId, Callback<Company> callback) {
         BaseApplication.mApiService.company_add_request(companyId, callback);
+    }
+
+
+    /**
+     * 알림 목록
+     */
+    public static void api_get_notification_list(int companyId, Callback<ArrayList<NotificationModel>> callback) {
+        BaseApplication.mApiService.get_notification_list(companyId, callback);
+    }
+
+    public static void api_change_push_token(PushToken token, Callback<HashMap<String,Object>> callback) {
+        BaseApplication.mApiService.change_push_token(token, callback);
     }
 
 }

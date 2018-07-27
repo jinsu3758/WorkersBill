@@ -79,6 +79,10 @@ public class ApiTestListActivity extends ParentActivity implements AdapterView.O
         else if(i == 2) return;
         else if(i == 3) startActivity(new Intent(this, ApiTestMeWorker.class));
         else if(i == 4) startActivity(new Intent(this, ApiTestMeCompany.class));
+        else if(i == 5) return;
+        else if(i == 6) startActivity(new Intent(this, ApiTestCompany.class));
+
+
     }
 
     @OnClick({R.id.btnCompany, R.id.btnWorker})
@@ -86,7 +90,7 @@ public class ApiTestListActivity extends ParentActivity implements AdapterView.O
     public void onClick(View view) {
         if(view == btnCompany) {
             InfoManager.setOAuthToken("65Sk67qJ66qN5ryZ8KmCvOWHheWhivCipZfrqqHwqL2X5pyJ45qC5oW/65ON4Yqr4qCj8KuXi+W3juyenvCqpLzOpfCThrXphZbwpJ635amR8KKJhuCmr+SviuiZiPCTgJ7wp6qC8KO+p/CpoLzsjKDwlqOJ8JKFmvCgubvwpISb6ZKkzIjo");
-            showLog("success Login Employer");
+            showLog(LOG_LOGCAT_TOAST,"success Login Employer");
         } else if(view == btnWorker) {
             //m3xIg084fUST6HYFNiXLnUn7Mpoy8JujNwatojBkfSJGkXCkFzeEu4Q0vRTpvMfLNTMJ0uF7XLYlYJgkrx0kBqcJ8VEmA4NjkRLeGCWSrWzdeuv1Bj46HyGgQVvAhZlcjmO2vdPjmhApbtLVsorpPeSsqC46b71UWQXND4oXmQJKHCqJLTNz
             Login login = new Login("rinjae+1@lof.kr","1");
