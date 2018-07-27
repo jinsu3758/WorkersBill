@@ -65,25 +65,39 @@ public class TaskManager {
     }
 
     /**
-     * 사업장 생성
+     * 내 사업장 생성
      */
-    public static void api_company_create(@NonNull Company company,
+    public static void api_company_me_create(@NonNull Company company,
                                           @NonNull Callback<Company> callback) {
-        BaseApplication.mApiService.company_create(company, callback);
+        BaseApplication.mApiService.company_me_create(company, callback);
     }
 
     /**
-     * 사업장 상세보기
+     * 내 사업장 상세보기
+     */
+    public static void api_company_me_list(Callback<ArrayList<Company>> callback) {
+        BaseApplication.mApiService.company_me_list(callback);
+    }
+
+    /**
+     * 내 사업장 리스트
+     */
+    public static void api_company_me_read(int companyId, @NonNull Callback<Company> callback) {
+        BaseApplication.mApiService.company_me_read(companyId, callback);
+    }
+
+    /**
+     * 전체 사업장 상세보기
      */
     public static void api_company_list(Callback<ArrayList<Company>> callback) {
         BaseApplication.mApiService.company_list(callback);
     }
 
     /**
-     * 사업장 리스트
+     * 추가 근로자 합류요청
      */
-    public static void api_company_read(int companyId, @NonNull Callback<Company> callback) {
-        BaseApplication.mApiService.company_read(companyId, callback);
+    public static void api_company_add_request(int companyId, Callback<Company> callback) {
+        BaseApplication.mApiService.company_add_request(companyId, callback);
     }
 
 }

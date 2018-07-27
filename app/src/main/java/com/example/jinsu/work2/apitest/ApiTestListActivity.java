@@ -77,7 +77,7 @@ public class ApiTestListActivity extends ParentActivity implements AdapterView.O
         }
         else if(i == 1) return;
         else if(i == 2) return;
-        else if(i == 3) return;
+        else if(i == 3) startActivity(new Intent(this, ApiTestMeWorker.class));
         else if(i == 4) startActivity(new Intent(this, ApiTestMeCompany.class));
     }
 

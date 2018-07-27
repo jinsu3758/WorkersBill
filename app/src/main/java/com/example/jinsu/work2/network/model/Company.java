@@ -28,7 +28,7 @@ import com.google.gson.annotations.Expose;
 public class Company {
     @Expose public Integer id;
     @Expose public String name;
-    @Expose public Integer registration_number;
+    @Expose public String registration_number;
     @Expose public String employer_name;
     @Expose public Integer employer_user_id;
     @Expose public String phone;

@@ -23,7 +23,7 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
-public class ApiTestMeCompany extends ParentActivity implements View.OnClickListener {
+public class ApiTestMeWorker extends ParentActivity implements View.OnClickListener {
 
     @BindView(R.id.lblTitle) public TextView lblTitle;
     @BindView(R.id.toolbar) public Toolbar toolbar;
@@ -38,44 +38,20 @@ public class ApiTestMeCompany extends ParentActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_api_test_main);
         ButterKnife.bind(this);
-        lblTitle.setText("사업장목록(사업주)");
+        lblTitle.setText("사업장목록(근로자)");
         btn1.setText("생성");
+        btn1.setVisibility(View.GONE);
         btn2.setText("리스트");
-        btn3.setText("조회");
+        btn3.setText("근로자 합류요청");
     }
 
     @OnClick({R.id.btn1,R.id.btn2,R.id.btn3,R.id.btn4})
     @Override
     public void onClick(View view) {
-        if(view == btn1) { //사업자 생성
-            Company company = new Company();
-            company.name = "테스트 주식회사";
-            company.registration_number = "1231231232"; //TODO 새로생성시 이부분을 변경해야합니다.
-            company.head_postcode = 12345;
-            company.head_address = "경북 경주시";
-            company.postcode = 12345;
-            company.address = "경기도 고양시";
-            company.usage_wifi = true;
-            company.phone = "123123123";
-            company.wifi_ip_address = "127.0.0.1";
-            company.is_less_then_5_employee = true;
-            TaskManager.api_company_me_create(company, new Callback<Company>() {
-                @Override
-                public void success(Company company, Response response) {
-                    showLog(LOG_LOGCAT_TOAST, CommonClass.toJson(company));
-                    edt1.setText(CommonClass.toJson(company));
-                }
-
-                @Override
-                public void failure(RetrofitError error) {
-                    //실패
-                    showLog(LOG_LOGCAT_TOAST, CommonClass.showError(error));
-                    edt1.setText(CommonClass.showError(error));
-                }
-            });
+        if(view == btn1) {
 
         } else if(view == btn2) { //사업자 목록
-            TaskManager.api_company_me_list(new Callback<ArrayList<Company>>() {
+            TaskManager.api_company_list(new Callback<ArrayList<Company>>() {
                 @Override
                 public void success(ArrayList<Company> companies, Response response) {
                     showLog(LOG_LOGCAT_TOAST, CommonClass.toJson(companies));
@@ -91,7 +67,7 @@ public class ApiTestMeCompany extends ParentActivity implements View.OnClickList
 
         } else if(view == btn3) { //사업자 조회
             int companyId = 3;
-            TaskManager.api_company_me_read(companyId, new Callback<Company>() {
+            TaskManager.api_company_add_request(companyId, new Callback<Company>() {
                 @Override
                 public void success(Company company, Response response) {
                     showLog(LOG_LOGCAT_TOAST, CommonClass.toJson(company));
@@ -100,12 +76,10 @@ public class ApiTestMeCompany extends ParentActivity implements View.OnClickList
 
                 @Override
                 public void failure(RetrofitError error) {
-                    //실패
                     showLog(LOG_LOGCAT_TOAST, CommonClass.showError(error));
                     edt1.setText(CommonClass.showError(error));
                 }
             });
-
         } else if(view == btn4) {
 
         }

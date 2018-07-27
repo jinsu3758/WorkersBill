@@ -49,12 +49,21 @@ public interface ApiService {
     /// 내 정 보 - 사업장
     ///------------------------------
     @POST("/v1/me/companies")
-    void company_create(@Body Company company, Callback<Company> cb);
+    void company_me_create(@Body Company company, Callback<Company> cb);
 
     @GET("/v1/me/companies")
-    void company_list(Callback<ArrayList<Company>> cb);
+    void company_me_list(Callback<ArrayList<Company>> cb);
 
     @GET("/v1/me/companies/{companyId}")
-    void company_read(@Path("companyId") int companyid, Callback<Company> cb);
+    void company_me_read(@Path("companyId") int companyid, Callback<Company> cb);
 
+    ///------------------------------
+    /// 사업장 검색
+    ///------------------------------
+    @GET("/v1/companies")
+    void company_list(Callback<ArrayList<Company>> cb);
+
+    //추가 합류 요청
+    @POST("/v1/companies/{companyId}/employees")
+    void company_add_request(@Path("companyId") int companyid, Callback<Company> cb);
 }

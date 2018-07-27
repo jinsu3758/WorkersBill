@@ -76,6 +76,7 @@
         <!-- API TEST ACTIVITY -->
         <activity android:name=".apitest.ApiTestListActivity" />
         <activity android:name=".apitest.ApiTestMeCompany"/>
+        <activity android:name=".apitest.ApiTestMeWorker"/>
     </application>
 
 </manifest>
