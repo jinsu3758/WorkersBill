@@ -4,10 +4,10 @@ import com.google.gson.annotations.Expose;
 
 public class LoginResponse {
 
-    @Expose int user_id;
-    @Expose String access_token;
-    @Expose String refresh_token;
-    @Expose int validity_period;
-    @Expose boolean expired;
+    @Expose public int user_id;
+    @Expose public String access_token;
+    @Expose public String refresh_token;
+    @Expose public int validity_period;
+    @Expose public boolean expired;
 
 }

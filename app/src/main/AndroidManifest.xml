@@ -48,9 +48,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.employer.EmployerPlaceActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"/>
 
-        </activity>
         <activity android:name=".activity.employer.EmployerCreatePlaceActivity" />
         <activity android:name=".activity.employer.EmployerFixPlaceActivity">
 
@@ -73,6 +72,10 @@
         <activity android:name=".activity.worker.WorkerHomeActivity"/>
         <activity android:name=".activity.worker.WorkerFindPlaceActivity"/>
         <activity android:name=".activity.worker.WorkerJoinPlaceActivity"/>
+
+        <!-- API TEST ACTIVITY -->
+        <activity android:name=".apitest.ApiTestListActivity" />
+        <activity android:name=".apitest.ApiTestMeCompany"/>
     </application>
 
 </manifest>

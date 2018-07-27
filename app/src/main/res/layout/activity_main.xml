@@ -55,5 +55,6 @@
             android:onClick="@{main::onBtnClick}"
             android:id="@+id/main_btn_login"/>
 
+
     </LinearLayout>
 </layout>
