@@ -2,6 +2,8 @@ package com.example.jinsu.work2.network;
 
 
 import com.example.jinsu.work2.network.model.Company;
+import com.example.jinsu.work2.network.model.CompanyDashBoard;
+import com.example.jinsu.work2.network.model.DoWork;
 import com.example.jinsu.work2.network.model.NotificationModel;
 import com.example.jinsu.work2.network.model.PushToken;
 import com.example.jinsu.work2.network.model.DocumentList;
@@ -70,9 +72,21 @@ public interface ApiService {
     @POST("/v1/companies/{companyId}/employees")
     void company_add_request(@Path("companyId") int companyid, Callback<Company> cb);
 
+    //푸시정보 변경
     @PUT("/v1/me/notification/token")
     void change_push_token(@Body PushToken token, Callback<HashMap<String,Object>> cb);
 
+    //내 일람 정보
     @GET("/v1/me/companies/{companyId}/notifications")
     void get_notification_list(@Path("companyId") int companyId, Callback<ArrayList<NotificationModel>> cb);
+
+    //근로자용 종합정보
+    @GET("/v1/me/companies/{companyId}/dashboard")
+    void get_worker_dashboard(@Path("companyId") int companyId, Callback<CompanyDashBoard> cb);
+
+    @PUT("/v1/me/companies/{companyId}/do-work")
+    void do_work(@Path("companyId") int companyId, Callback<DoWork> cb);
+
+    @PUT("/v1/me/companies/{companyId}/do-work-off")
+    void do_work_off(@Path("companyId") int companyId, Callback<DoWork> cb);
 }

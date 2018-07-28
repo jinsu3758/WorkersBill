@@ -4,6 +4,8 @@ import android.support.annotation.NonNull;
 
 import com.example.jinsu.work2.common.BaseApplication;
 import com.example.jinsu.work2.network.model.Company;
+import com.example.jinsu.work2.network.model.CompanyDashBoard;
+import com.example.jinsu.work2.network.model.DoWork;
 import com.example.jinsu.work2.network.model.EmailVerify;
 import com.example.jinsu.work2.network.model.Join;
 import com.example.jinsu.work2.network.model.Login;
@@ -111,8 +113,32 @@ public class TaskManager {
         BaseApplication.mApiService.get_notification_list(companyId, callback);
     }
 
+    /**
+     * 푸시토큰 갱신
+     */
     public static void api_change_push_token(PushToken token, Callback<HashMap<String,Object>> callback) {
         BaseApplication.mApiService.change_push_token(token, callback);
+    }
+
+    /**
+     * 출근하기
+     */
+    public static void api_do_work_on(int companyId, Callback<DoWork> callback) {
+        BaseApplication.mApiService.do_work(companyId, callback);
+    }
+
+    /**
+     * 퇴근하기
+     */
+    public static void api_do_work_off(int companyId, Callback<DoWork> callback) {
+        BaseApplication.mApiService.do_work_off(companyId, callback);
+    }
+
+    /**
+     * 근로자용 종합정보
+     */
+    public static void api_get_worker_dashboard(int companyId, Callback<CompanyDashBoard> callback) {
+        BaseApplication.mApiService.get_worker_dashboard(companyId, callback);
     }
 
 }
