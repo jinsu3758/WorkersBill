@@ -13,6 +13,18 @@ public class InfoManager {
         return mOAuthToken;
     }
 
+    public static Boolean isToken()
+    {
+        if(mOAuthToken ==  null || mOAuthToken == "")
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
     public static void setOAuthToken(String token) {
         mOAuthToken = token;
     }

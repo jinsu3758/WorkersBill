@@ -40,8 +40,11 @@ public interface ApiService {
     @GET("/v1/users/find-by-email")
     void find_by_email(@Query("email") String email, Callback<HashMap<String,Object>> cb);
 
-    @GET("/v1/users/{email}/do-verify-email")
-    void request_verify_email(@Path("email") String email, Callback<HashMap<String,Object>> cb);
+    /*@GET("/v1/users/{email}/do-verify-email")
+    void request_verify_email(@Path("email") String email, Callback<HashMap<String,Object>> cb);*/
+
+    @GET("/v1/users/do-verify-email")
+    void request_verify_email(@Query("email") String email, Callback<HashMap<String,Object>> cb);
 
     @POST("/v1/users/do-verify-email")
     void do_verify_email(@Body EmailVerify emailVerify, Callback<HashMap<String,Object>> cb);

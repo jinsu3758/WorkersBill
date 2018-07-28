@@ -19,6 +19,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.common.BaseApplication;
 import com.example.jinsu.work2.common.Constants;
+import com.example.jinsu.work2.manager.InfoManager;
 import com.example.jinsu.work2.manager.TaskManager;
 import com.example.jinsu.work2.model.CalcContent;
 import com.example.jinsu.work2.model.Contract;
@@ -28,7 +29,10 @@ import com.example.jinsu.work2.model.Worker;
 import com.example.jinsu.work2.network.CommonClass;
 import com.example.jinsu.work2.network.SignThread;
 import com.example.jinsu.work2.network.contract.ContractSource;
+import com.example.jinsu.work2.network.model.Company;
 import com.example.jinsu.work2.network.model.Join;
+import com.example.jinsu.work2.network.model.Login;
+import com.example.jinsu.work2.network.model.LoginResponse;
 import com.example.jinsu.work2.network.worker.WorkerSource;
 import com.example.jinsu.work2.repositories.EmployerRepository;
 import com.example.jinsu.work2.util.CallonClick;
@@ -283,6 +287,12 @@ public class MainViewModel extends ViewModel {
     private CallonClick callback ;
     private android.os.Handler handler;
     private Realm realm;
+
+    private Boolean check1 = true;
+    private Boolean check2 = true;
+    private Boolean check3 = true;
+    private Boolean check4 = true;
+    private Boolean check5 = true;
 
 
     // private UserDao userDao;
@@ -621,10 +631,12 @@ public class MainViewModel extends ViewModel {
             {
                 if(ischeckd)
                 {
+                    check2 = true;
                     Log.d("gogo","sw체크됨");
                 }
                 else
                 {
+                    check2 = false;
                     Log.d("gogo","sw체크x");
                 }
                 break;
@@ -946,7 +958,7 @@ public class MainViewModel extends ViewModel {
             }
             ////////////////////////////////////////////으아아ㅏ///////////////////////////////////////////
 
-                //worker fin
+            //worker fin
             case R.id.contract_fin_ch_paytype_time:
             {
                 if(ischeckd)
@@ -1604,8 +1616,21 @@ public class MainViewModel extends ViewModel {
      */
     public void onLogin()
     {
-//        if(login_edit_email != null)
-//        MainRepository.getInstance().saveUser(login_edit_email.get(), "1234");
+        Login login = new Login(login_edit_email.get().toString(),"1");
+        BaseApplication.mApiService.login(login, new Callback<LoginResponse>() {
+            @Override
+            public void success(LoginResponse loginResponse, Response response) {
+                //성공
+                InfoManager.setOAuthToken(loginResponse.access_token);
+                callback.textChanged(0);
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                //실패
+            }
+        });
+
     }
 
 
@@ -1618,10 +1643,30 @@ public class MainViewModel extends ViewModel {
     {
         switch (view.getId())
         {
+
             case R.id.employer_create_place_btn_create:
             {
-                employerPlace = new EmployerPlace(place_name.get(),place_addr.get(),place_phone.get(),place_owner.get());
-//                EmployerRepository.getInstance().addEmployerPlace(employerPlace);
+                Company company = new Company();
+                company.name = place_name.get();
+                company.registration_number = place_num.get();
+                company.employer_name = place_owner.get();
+                company.phone = place_phone.get();
+                company.postcode = Integer.valueOf(place_addr_num.get());
+                company.head_postcode = Integer.valueOf(place_realaddr_num.get());
+                company.head_address = place_realaddr.get();
+                company.address = place_addr.get();
+                company.wifi_ip_address = place_wifi.get();
+                company.is_less_then_5_employee = check1;
+                company.usage_wifi = check2;
+                TaskManager.api_company_me_create(company, new Callback<Company>() {
+                    @Override
+                    public void success(Company company, Response response) {
+                    }
+
+                    @Override
+                    public void failure(RetrofitError error) {
+                    }
+                });
                 callback.onBtnClick(view);
                 break;
             }
@@ -1641,14 +1686,24 @@ public class MainViewModel extends ViewModel {
             }
             case R.id.worker_home_btn_goto_office:
             {
-                long cur_time = System.currentTimeMillis();
-
                 break;
             }
             case R.id.worker_home_btn_leave_office:
             {
                 break;
             }
+
+            case R.id.cert_btn_again:
+            {
+                requestCert(BaseApplication.join.email);
+                break;
+            }
+            case R.id.cert_btn_next:
+            {
+                onCert(BaseApplication.join.email);
+                break;
+            }
+
 
             default:
             {
@@ -1716,12 +1771,6 @@ public class MainViewModel extends ViewModel {
     }
 
 
-    /**
-     *
-     * JoinActivity
-     * 회원가입 activity
-     *
-     */
 
 
     /**
@@ -1744,11 +1793,13 @@ public class MainViewModel extends ViewModel {
                         boolean result = (boolean) stringObjectHashMap.get("result");
                         if(result) {
                             //TODO 기존 가입자처리
+                            Log.d("join_at","기존 가입됨");
                             callback.textChanged(Constants.RESPONSE_DUPLICATE);
 
                         } else {
                             //TODO 새로가입자
                             //다이얼로그 생성
+                            Log.d("join_at","이메일 가입 시작");
                             callback.textChanged(Constants.RESPONSE_SUCCESS);
                             BaseApplication.join.email = email;
                         }
@@ -1776,12 +1827,9 @@ public class MainViewModel extends ViewModel {
      *
      */
 
-    public int getCertCode()
-    {
-        return Integer.parseInt(one.get() + two.get() + three.get() + four.get());
-    }
 
-    public void onCert(String email)
+
+    public void requestCert(String email)
     {
         TaskManager.api_request_verify_email(URLEncoder.encode(email), new Callback<HashMap<String, Object>>() {
 
@@ -1797,6 +1845,25 @@ public class MainViewModel extends ViewModel {
             }
         });
 
+    }
+
+    public void onCert(String email)
+    {
+        TaskManager.api_verify_email(URLEncoder.encode(email), Integer.parseInt(one.get() + two.get() + three.get() + four.get()), new Callback<HashMap<String, Object>>() {
+
+            @Override
+            public void success(HashMap<String, Object> stringObjectHashMap, Response response) {
+                boolean result = (boolean) stringObjectHashMap.get("result");
+                if(result) {
+                    callback.textChanged(0);
+                }
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+
+            }
+        });
     }
 
 
@@ -1867,6 +1934,33 @@ public class MainViewModel extends ViewModel {
         inputinfo_address.set(addr.substring(7,addr.length()));
     }
 
+    /**
+     *
+     * JoinActivity
+     * 회원가입 activity
+     *
+     */
+
+    public interface ListCallback
+    {
+        void getList(ArrayList<? extends Object> mlist);
+    }
+
+    public void getCompanyList(ListCallback listCallback)
+    {
+        TaskManager.api_company_me_list(new Callback<ArrayList<Company>>() {
+            @Override
+            public void success(ArrayList<Company> companies, Response response) {
+                Log.d("employer_place_at",CommonClass.toJson(companies));
+                listCallback.getList(companies);
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Log.d("employer_place_at",CommonClass.toJson(error));
+            }
+        });
+    }
 
     /**
      * EmployerCreatePlaceActivity
@@ -1880,14 +1974,17 @@ public class MainViewModel extends ViewModel {
         if(id == R.id.employer_create_place_radio_one)
         {
             //5인 미만
+            check1 = true;
         }
 
         else if(id == R.id.employer_fix_place_radio_one)
         {
+            check1 = true;
             //5인 미만
         }
         else
         {
+            check1 = false;
             //5인 이상
         }
     }

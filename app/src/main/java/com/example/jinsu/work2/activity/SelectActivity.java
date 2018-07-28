@@ -42,12 +42,27 @@ public class SelectActivity extends AppCompatActivity implements CallonClick {
         {
             case R.id.select_btn_employer:
             {
-                mainViewModel.selectRole(Constants.REQUEST_EMPLOYER);
+                startActivity(new Intent(this, EmployerPlaceActivity.class));
+                /*if(InfoManager.isToken())
+                {
+                    startActivity(new Intent(this, EmployerPlaceActivity.class));
+                }
+                else {
+                    mainViewModel.selectRole(Constants.REQUEST_EMPLOYER);
+                }*/
                 break;
             }
             case R.id.select_btn_worker:
             {
-                mainViewModel.selectRole(Constants.REQUEST_EMPLOYEE);
+                startActivity(new Intent(this, WorkerJoinPlaceActivity.class));
+                /*if(InfoManager.isToken())
+                {
+                    startActivity(new Intent(this, WorkerJoinPlaceActivity.class));
+                }
+                else {
+                    mainViewModel.selectRole(Constants.REQUEST_EMPLOYEE);
+                }*/
+
                 break;
             }
         }

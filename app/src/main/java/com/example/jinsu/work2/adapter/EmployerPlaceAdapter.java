@@ -10,16 +10,16 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.jinsu.work2.R;
-import com.example.jinsu.work2.model.Place;
+import com.example.jinsu.work2.network.model.Company;
 
 import java.util.ArrayList;
 
 public class EmployerPlaceAdapter extends RecyclerView.Adapter<EmployerPlaceAdapter.ViewHolder> {
-    private ArrayList<Place> list;
+    private ArrayList<Company> list;
     private Context context;
     private onClickCallback callback;
 
-    public EmployerPlaceAdapter(Context context, ArrayList<Place> list, onClickCallback callback) {
+    public EmployerPlaceAdapter(Context context, ArrayList<Company> list, onClickCallback callback) {
         this.context = context;
         this.list = list;
         this.callback = callback;
@@ -40,10 +40,10 @@ public class EmployerPlaceAdapter extends RecyclerView.Adapter<EmployerPlaceAdap
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.name.setText(list.get(position).getName());
-        holder.address.setText(list.get(position).getAddress());
-        holder.phone.setText(list.get(position).getPhone());
-        holder.owner.setText(list.get(position).getOwner());
+        holder.name.setText(list.get(position).name);
+        holder.address.setText(list.get(position).address);
+        holder.phone.setText(list.get(position).phone);
+        holder.owner.setText(list.get(position).employer_name);
         holder.layout.setOnClickListener(v ->
         {
             callback.onClick(position);

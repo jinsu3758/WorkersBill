@@ -47,11 +47,14 @@ public class SignThread extends Thread {
             }
             Bitmap bitmap = Bitmap.createBitmap(pixel, 0, width, width, height,
                     Bitmap.Config.ARGB_8888);
+
             ByteArrayOutputStream out = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.PNG , 100, out);
+            sign_bitmap.compress(Bitmap.CompressFormat.PNG , 100, out);
             byte[] bytes = out.toByteArray();
-            img = Base64.encodeToString(bytes, 0);
+
+            img = Base64.encodeToString(bytes, Base64.DEFAULT);
             BaseApplication.join.signature = img;
+            BaseApplication.join.signature_type = "PNG_BASE64";
 
            /* FileOutputStream out = null;
 

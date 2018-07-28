@@ -6,13 +6,12 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
-import android.util.Log;
 import android.view.View;
 
 import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.adapter.EmployerPlaceAdapter;
 import com.example.jinsu.work2.databinding.ActivityEmployerPlaceBinding;
-import com.example.jinsu.work2.model.Place;
+import com.example.jinsu.work2.network.model.Company;
 import com.example.jinsu.work2.util.CallonClick;
 import com.example.jinsu.work2.viewmodel.MainViewModel;
 import com.example.jinsu.work2.viewmodel.VIewModelFactory;
@@ -25,7 +24,7 @@ public class EmployerPlaceActivity extends AppCompatActivity implements CallonCl
     private MainViewModel mainViewModel;
     private VIewModelFactory vIewModelFactory;
     private EmployerPlaceAdapter adapter;
-    private ArrayList<Place> list;
+    private ArrayList<Company> list;
 
 
     @Override
@@ -58,8 +57,7 @@ public class EmployerPlaceActivity extends AppCompatActivity implements CallonCl
            @Override
            public void onClick(int position) {
                 Intent intent = new Intent(getBaseContext(),EmployerHomeActivity.class);
-                intent.putExtra("name",list.get(position).getName());
-                Log.d("employer_place", "name : "+list.get(position).getName());
+                intent.putExtra("name",list.get(position).name);
                 startActivity(intent);
            }
        });
@@ -72,7 +70,12 @@ public class EmployerPlaceActivity extends AppCompatActivity implements CallonCl
     private void setList()
     {
         list.clear();
-        list.add(new Place("e","e","e","e"));
+        mainViewModel.getCompanyList(new MainViewModel.ListCallback() {
+            @Override
+            public void getList(ArrayList<?> mlist) {
+                list.addAll((ArrayList<Company>)mlist);
+            }
+        });
         adapter.notifyDataSetChanged();
 
     }
