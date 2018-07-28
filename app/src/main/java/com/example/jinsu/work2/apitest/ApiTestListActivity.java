@@ -83,8 +83,8 @@ public class ApiTestListActivity extends ParentActivity implements AdapterView.O
         else if(i == 6) startActivity(new Intent(this, ApiTestCompany.class));
         else if(i == 7) startActivity(new Intent(this, ApiTestWorkerContract.class));
         else if(i == 8) startActivity(new Intent(this, ApiTestCompanyContract.class));
-        else if(i == 9) startActivity(new Intent(this, ApiTestCompany.class));
-
+        else if(i == 9) startActivity(new Intent(this, ApiTestCoastCompany.class));
+        else if(i == 10) startActivity(new Intent(this, ApiTestEtc.class));
 
     }
 
@@ -130,6 +130,7 @@ public class ApiTestListActivity extends ParentActivity implements AdapterView.O
             apiItems.add("회사 - 근로계약서 (근로자)");
             apiItems.add("회사 - 근로계약서 (사업주)");
             apiItems.add("회사 - 인건비 계산 (사업주)");
+            apiItems.add("기타");
         }
 
         @Override

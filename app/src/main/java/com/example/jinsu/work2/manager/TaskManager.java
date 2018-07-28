@@ -2,6 +2,7 @@ package com.example.jinsu.work2.manager;
 
 import android.support.annotation.NonNull;
 
+import com.example.jinsu.work2.apitest.FindAddress;
 import com.example.jinsu.work2.common.BaseApplication;
 import com.example.jinsu.work2.network.model.Company;
 import com.example.jinsu.work2.network.model.CompanyContract;
@@ -74,7 +75,7 @@ public class TaskManager {
      * 내 사업장 생성
      */
     public static void api_company_me_create(@NonNull Company company,
-                                          @NonNull Callback<Company> callback) {
+                                            @NonNull Callback<Company> callback) {
         BaseApplication.mApiService.company_me_create(company, callback);
     }
 
@@ -170,5 +171,17 @@ public class TaskManager {
         BaseApplication.mApiService.contract_me_company_approval(companyId, callback);
     }
 
+    /**
+     * 클라이언트 ip 확인
+     */
+    public static void api_get_client_ip(Callback<HashMap<String,String>> callback) {
+        BaseApplication.mApiService.get_client_ip_address(callback);
+    }
 
+    /**
+     * 주소찾기
+     */
+    public static void api_find_brief_address(String query, Callback<ArrayList<FindAddress>> callback) {
+        BaseApplication.mApiService.api_find_brief_address(query, callback);
+    }
 }

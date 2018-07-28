@@ -1,6 +1,7 @@
 package com.example.jinsu.work2.network;
 
 
+import com.example.jinsu.work2.apitest.FindAddress;
 import com.example.jinsu.work2.network.model.Company;
 import com.example.jinsu.work2.network.model.CompanyContract;
 import com.example.jinsu.work2.network.model.CompanyDashBoard;
@@ -108,4 +109,17 @@ public interface ApiService {
     //승인 요청 계약서 승인처리
     @POST("/v2/me/companies/{companyId}/contracts/do-approval")
     void contract_me_company_approval(@Path("companyId") int companyId, Callback<HashMap<String,String>> cb);
+
+    //도구 - 클라이언트 IP 확인
+    @GET("/v1/tools/client-ip-address")
+    void get_client_ip_address(Callback<HashMap<String,String>> cb);
+
+    //주소찾기
+    @GET("/v2/tools/address")
+    void api_find_brief_address(@Query("query") String query, Callback<ArrayList<FindAddress>> cb);
+
+    //기존 계산 불러오기
+    @GET("/v1/me/companies/{CompanyId}/schedules")
+    void api_get_schedules(@Query("query") String query, Callback<FindAddress> cb);
+
 }
