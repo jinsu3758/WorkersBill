@@ -67,6 +67,9 @@ public class ApiTestWorker extends ParentActivity implements View.OnClickListene
                 }
             });
         } else if(view == btn2) {
+            /**
+             * 근로계약서 작성이 완료되어아 출근하기 가능
+             */
             TaskManager.api_do_work_on(3, new Callback<DoWork>() {
                 @Override
                 public void success(DoWork doWork, Response response) {
