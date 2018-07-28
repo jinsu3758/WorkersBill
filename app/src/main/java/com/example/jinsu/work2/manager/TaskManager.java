@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 
 import com.example.jinsu.work2.common.BaseApplication;
 import com.example.jinsu.work2.network.model.Company;
+import com.example.jinsu.work2.network.model.CompanyContract;
 import com.example.jinsu.work2.network.model.CompanyDashBoard;
 import com.example.jinsu.work2.network.model.DoWork;
 import com.example.jinsu.work2.network.model.EmailVerify;
@@ -140,5 +141,34 @@ public class TaskManager {
     public static void api_get_worker_dashboard(int companyId, Callback<CompanyDashBoard> callback) {
         BaseApplication.mApiService.get_worker_dashboard(companyId, callback);
     }
+
+    /**
+     * 나의 계약서 목록
+     */
+    public static void api_get_contract_me_company_list(int companyId, Callback<ArrayList<CompanyContract>> callback) {
+        BaseApplication.mApiService.contract_me_company_list(companyId, callback);
+    }
+
+    /**
+     * 나의 계약서 조회
+     */
+    public static void api_get_contract_me_company_read(int companyId, int contractId, Callback<CompanyContract> callback) {
+        BaseApplication.mApiService.contract_me_company_read(companyId, contractId, callback);
+    }
+
+    /**
+     * 승인요청계약서
+     */
+    public static void api_get_contract_me_company_request(int companyId, int contractId, Callback<CompanyContract> callback) {
+        BaseApplication.mApiService.contract_me_company_request_approval_read(companyId, callback);
+    }
+
+    /**
+     * 승인하기
+     */
+    public static void api_contract_me_company_approval(int companyId, Callback<HashMap<String,String>> callback) {
+        BaseApplication.mApiService.contract_me_company_approval(companyId, callback);
+    }
+
 
 }

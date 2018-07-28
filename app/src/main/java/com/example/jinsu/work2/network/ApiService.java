@@ -2,6 +2,7 @@ package com.example.jinsu.work2.network;
 
 
 import com.example.jinsu.work2.network.model.Company;
+import com.example.jinsu.work2.network.model.CompanyContract;
 import com.example.jinsu.work2.network.model.CompanyDashBoard;
 import com.example.jinsu.work2.network.model.DoWork;
 import com.example.jinsu.work2.network.model.NotificationModel;
@@ -84,9 +85,27 @@ public interface ApiService {
     @GET("/v1/me/companies/{companyId}/dashboard")
     void get_worker_dashboard(@Path("companyId") int companyId, Callback<CompanyDashBoard> cb);
 
+    //출근하기
     @PUT("/v1/me/companies/{companyId}/do-work")
     void do_work(@Path("companyId") int companyId, Callback<DoWork> cb);
 
+    //퇴근하기
     @PUT("/v1/me/companies/{companyId}/do-work-off")
     void do_work_off(@Path("companyId") int companyId, Callback<DoWork> cb);
+
+
+    @GET("/v1/me/companies/{companyId}/contracts")
+    void contract_me_company_list(@Path("companyId") int companyId, Callback<ArrayList<CompanyContract>> cb);
+
+    //조회 내정보 - 사업장 - 근로계약서
+    @GET("/v2/me/companies/{companyId}/contracts/{contractId}")
+    void contract_me_company_read(@Path("companyId") int companyId, @Path("contractId") int contractId, Callback<CompanyContract> cb);
+
+    //조회 내정보 - 사업장 - (승인요청계약서)
+    @GET("/v2/me/companies/{companyId}/contracts/request-approval")
+    void contract_me_company_request_approval_read(@Path("companyId") int companyId, Callback<CompanyContract> cb);
+
+    //승인 요청 계약서 승인처리
+    @POST("/v2/me/companies/{companyId}/contracts/do-approval")
+    void contract_me_company_approval(@Path("companyId") int companyId, Callback<HashMap<String,String>> cb);
 }
