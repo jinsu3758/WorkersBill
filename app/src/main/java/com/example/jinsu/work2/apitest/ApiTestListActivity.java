@@ -13,9 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.jinsu.work2.R;
-import com.example.jinsu.work2.activity.LoginActivity;
 import com.example.jinsu.work2.activity.ParentActivity;
-import com.example.jinsu.work2.activity.SelectActivity;
 import com.example.jinsu.work2.manager.InfoManager;
 import com.example.jinsu.work2.manager.TaskManager;
 import com.example.jinsu.work2.network.CommonClass;

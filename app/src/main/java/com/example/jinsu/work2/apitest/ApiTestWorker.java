@@ -12,14 +12,8 @@ import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.activity.ParentActivity;
 import com.example.jinsu.work2.manager.TaskManager;
 import com.example.jinsu.work2.network.CommonClass;
-import com.example.jinsu.work2.network.model.Company;
 import com.example.jinsu.work2.network.model.CompanyDashBoard;
 import com.example.jinsu.work2.network.model.DoWork;
-import com.example.jinsu.work2.network.model.NotificationModel;
-import com.example.jinsu.work2.network.model.PushToken;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
