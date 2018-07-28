@@ -11,7 +11,7 @@ import android.view.View;
 import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.adapter.EmployerPlaceAdapter;
 import com.example.jinsu.work2.databinding.ActivityWorkerJoinPlaceBinding;
-import com.example.jinsu.work2.model.Place;
+import com.example.jinsu.work2.network.model.Company;
 import com.example.jinsu.work2.util.CallonClick;
 import com.example.jinsu.work2.viewmodel.MainViewModel;
 import com.example.jinsu.work2.viewmodel.VIewModelFactory;
@@ -24,7 +24,7 @@ public class WorkerJoinPlaceActivity extends AppCompatActivity implements Callon
     private MainViewModel mainViewModel;
     private VIewModelFactory vIewModelFactory;
     private EmployerPlaceAdapter adapter;
-    private ArrayList<Place> list;
+    private ArrayList<Company> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +48,7 @@ public class WorkerJoinPlaceActivity extends AppCompatActivity implements Callon
             @Override
             public void onClick(int position) {
                 Intent intent = new Intent(getBaseContext(), WorkerHomeActivity.class);
-                intent.putExtra("name",list.get(position).getName());
+                intent.putExtra("name",list.get(position).name);
                 startActivity(intent);
             }
         });
@@ -61,7 +61,6 @@ public class WorkerJoinPlaceActivity extends AppCompatActivity implements Callon
     private void setList()
     {
         list.clear();
-        list.add(new Place("e","e","e","e"));
         adapter.notifyDataSetChanged();
 
     }

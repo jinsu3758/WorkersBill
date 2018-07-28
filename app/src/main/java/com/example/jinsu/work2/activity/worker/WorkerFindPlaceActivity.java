@@ -14,7 +14,7 @@ import android.widget.TextView;
 import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.adapter.EmployerPlaceAdapter;
 import com.example.jinsu.work2.databinding.ActivityWorkerFindPlaceBinding;
-import com.example.jinsu.work2.model.Place;
+import com.example.jinsu.work2.network.model.Company;
 import com.example.jinsu.work2.util.CallonClick;
 import com.example.jinsu.work2.viewmodel.MainViewModel;
 import com.example.jinsu.work2.viewmodel.VIewModelFactory;
@@ -27,7 +27,7 @@ public class WorkerFindPlaceActivity extends AppCompatActivity implements Callon
     private MainViewModel mainViewModel;
     private VIewModelFactory vIewModelFactory;
     private EmployerPlaceAdapter adapter;
-    private ArrayList<Place> list;
+    private ArrayList<Company> list;
 
 
     @Override
