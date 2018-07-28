@@ -7,8 +7,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.jinsu.work2.R;
+import com.example.jinsu.work2.apitest.ApiTestListActivity;
 import com.example.jinsu.work2.databinding.ActivityMainBinding;
 import com.example.jinsu.work2.util.CallonClick;
 import com.example.jinsu.work2.viewmodel.MainViewModel;
@@ -19,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements CallonClick{
     private ActivityMainBinding binding;
     private MainViewModel mainViewModel;
     private VIewModelFactory vIewModelFactory;
+    private TextView name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,13 @@ public class MainActivity extends AppCompatActivity implements CallonClick{
         vIewModelFactory = new VIewModelFactory(this);
         mainViewModel = ViewModelProviders.of(this,vIewModelFactory).get(MainViewModel.class);
         binding.setMain(mainViewModel);
+        name = findViewById(R.id.name);
+        name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, ApiTestListActivity.class));
+            }
+        });
 
     }
 

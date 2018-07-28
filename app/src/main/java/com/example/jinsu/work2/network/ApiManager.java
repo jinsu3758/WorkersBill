@@ -2,6 +2,7 @@ package com.example.jinsu.work2.network;
 
 
 import com.example.jinsu.work2.BuildConfig;
+import com.example.jinsu.work2.common.BaseApplication;
 import com.example.jinsu.work2.manager.InfoManager;
 import com.example.jinsu.work2.network.date.DateDeserializer;
 import com.example.jinsu.work2.network.date.DateSerializer;
@@ -39,6 +40,7 @@ public class ApiManager
 				request.addHeader("Authorization", "Bearer " + InfoManager.getOAuthToken());
 			}
 			request.addHeader("Content-Type", "application/json");
+			request.addHeader("User-Agent", BaseApplication.getUserAgent());
 			request.addHeader("Accept-Language", Locale.getDefault().getLanguage());
 		}
 	};

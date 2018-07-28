@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 
+import com.example.jinsu.work2.BuildConfig;
 import com.example.jinsu.work2.network.ApiManager;
 import com.example.jinsu.work2.network.ApiService;
 import com.example.jinsu.work2.network.model.Join;
@@ -60,5 +61,12 @@ public class BaseApplication extends Application {
         }
 
         return debuggable;
+    }
+
+    /**
+     * Workersbill/1.0.0 (2) Android/7.0 (Nougat) SM-G9650 (Samsung Galaxy S9+)
+     */
+    public static String getUserAgent() {
+        return String.format("Workersbill/%s (%d) ", BuildConfig.VERSION_NAME,BuildConfig.VERSION_CODE) + System.getProperty("http.agent");
     }
 }
