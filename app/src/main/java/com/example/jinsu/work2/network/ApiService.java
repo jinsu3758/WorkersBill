@@ -1,12 +1,14 @@
 package com.example.jinsu.work2.network;
 
 
-import com.example.jinsu.work2.apitest.FindAddress;
+import com.example.jinsu.work2.network.model.FindAddress;
 import com.example.jinsu.work2.network.model.Company;
 import com.example.jinsu.work2.network.model.CompanyContract;
 import com.example.jinsu.work2.network.model.CompanyDashBoard;
 import com.example.jinsu.work2.network.model.DoWork;
 import com.example.jinsu.work2.network.model.NotificationModel;
+import com.example.jinsu.work2.network.model.PersonnalCost;
+import com.example.jinsu.work2.network.model.PersonnalCostRequest;
 import com.example.jinsu.work2.network.model.PushToken;
 import com.example.jinsu.work2.network.model.DocumentList;
 import com.example.jinsu.work2.network.model.EmailVerify;
@@ -14,6 +16,8 @@ import com.example.jinsu.work2.network.model.Join;
 import com.example.jinsu.work2.network.model.Login;
 import com.example.jinsu.work2.network.model.LoginResponse;
 import com.example.jinsu.work2.network.model.User;
+import com.example.jinsu.work2.network.model.WorkSchedule;
+import com.example.jinsu.work2.network.model.WorkScheduleItem;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -119,10 +123,29 @@ public interface ApiService {
 
     //주소찾기
     @GET("/v2/tools/address")
-    void api_find_brief_address(@Query("query") String query, Callback<ArrayList<FindAddress>> cb);
+    void find_brief_address(@Query("query") String query, Callback<ArrayList<FindAddress>> cb);
 
-    //기존 계산 불러오기
+    //인건비 계산
+    @POST("/v1/me/companies/{CompanyId}/schedules")
+    void get_personnal_cost(@Path("CompanyId") int CompanyId, Callback<PersonnalCost> cb);
+
+    //기존 인건비 계산
     @GET("/v1/me/companies/{CompanyId}/schedules")
-    void api_get_schedules(@Query("query") String query, Callback<FindAddress> cb);
+    void get_personnal_cost_list(@Path("CompanyId") int CompanyId, Callback<ArrayList<PersonnalCost>> cb);
+
+    //인건비 저장
+    @PUT("/v1/me/companies/{CompanyId}/schedules/{ScheduleId}")
+    void personnal_cost_save(@Path("CompanyId") int companyId,
+                             @Path("ScheduleId") int ScheduleId,
+                             @Body PersonnalCostRequest request,
+                             Callback<PersonnalCost> cb);
+
+    //근무일정 항목 저장
+    @PUT("/v1/me/companies/{CompanyId}/schedules/{ScheduleId}/weekly-items")
+    void personnal_work_schedule(@Path("CompanyId") int companyId,
+                             @Path("ScheduleId") int ScheduleId,
+                             @Body ArrayList<WorkSchedule> request,
+                             Callback<WorkScheduleItem> cb);
+
 
 }

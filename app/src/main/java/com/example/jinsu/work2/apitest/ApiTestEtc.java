@@ -12,6 +12,7 @@ import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.activity.ParentActivity;
 import com.example.jinsu.work2.manager.TaskManager;
 import com.example.jinsu.work2.network.CommonClass;
+import com.example.jinsu.work2.network.model.FindAddress;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -61,7 +62,7 @@ public class ApiTestEtc extends ParentActivity implements View.OnClickListener {
                 }
             });
         } else if(view == btn2) { //주소검색
-            TaskManager.api_find_brief_address("개봉동 493", new Callback<ArrayList<FindAddress>>() {
+            TaskManager.find_brief_address("개봉동 493", new Callback<ArrayList<FindAddress>>() {
                 @Override
                 public void success(ArrayList<FindAddress> findAddresses, Response response) {
                     showLog(LOG_LOGCAT_TOAST, CommonClass.toJson(findAddresses));

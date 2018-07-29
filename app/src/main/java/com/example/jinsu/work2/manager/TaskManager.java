@@ -2,7 +2,7 @@ package com.example.jinsu.work2.manager;
 
 import android.support.annotation.NonNull;
 
-import com.example.jinsu.work2.apitest.FindAddress;
+import com.example.jinsu.work2.network.model.FindAddress;
 import com.example.jinsu.work2.common.BaseApplication;
 import com.example.jinsu.work2.network.model.Company;
 import com.example.jinsu.work2.network.model.CompanyContract;
@@ -12,8 +12,12 @@ import com.example.jinsu.work2.network.model.EmailVerify;
 import com.example.jinsu.work2.network.model.Join;
 import com.example.jinsu.work2.network.model.Login;
 import com.example.jinsu.work2.network.model.NotificationModel;
+import com.example.jinsu.work2.network.model.PersonnalCost;
+import com.example.jinsu.work2.network.model.PersonnalCostRequest;
 import com.example.jinsu.work2.network.model.PushToken;
 import com.example.jinsu.work2.network.model.User;
+import com.example.jinsu.work2.network.model.WorkSchedule;
+import com.example.jinsu.work2.network.model.WorkScheduleItem;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -181,7 +185,42 @@ public class TaskManager {
     /**
      * 주소찾기
      */
-    public static void api_find_brief_address(String query, Callback<ArrayList<FindAddress>> callback) {
-        BaseApplication.mApiService.api_find_brief_address(query, callback);
+    public static void find_brief_address(String query, Callback<ArrayList<FindAddress>> callback) {
+        BaseApplication.mApiService.find_brief_address(query, callback);
     }
+
+    /**
+     * 인건비계산
+     */
+    public static void get_personnal_cost(int CompanyId, Callback<PersonnalCost> cb) {
+        BaseApplication.mApiService.get_personnal_cost(CompanyId, cb);
+    }
+
+    /**
+     * 인건비 이전 목록
+     */
+    public static void get_personnal_cost_list(int CompanyId, Callback<ArrayList<PersonnalCost>> cb) {
+        BaseApplication.mApiService.get_personnal_cost_list(CompanyId, cb);
+    }
+
+    /**
+     * 인건비계산
+     */
+    public static void personnal_cost_save(int companyId,
+                                          int scheduleId,
+                                          PersonnalCostRequest request,
+                                          Callback<PersonnalCost> cb) {
+        BaseApplication.mApiService.personnal_cost_save(companyId, scheduleId, request, cb);
+    }
+
+    /**
+     * 인건비계산
+     */
+    public static void personnal_work_schedule(int companyId,
+                                          int scheduleId,
+                                          ArrayList<WorkSchedule> list,
+                                          Callback<WorkScheduleItem> cb) {
+        BaseApplication.mApiService.personnal_work_schedule(companyId, scheduleId, list, cb);
+    }
+
 }

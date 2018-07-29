@@ -12,7 +12,10 @@ import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.activity.ParentActivity;
 import com.example.jinsu.work2.manager.TaskManager;
 import com.example.jinsu.work2.network.CommonClass;
-import com.example.jinsu.work2.network.model.Company;
+import com.example.jinsu.work2.network.model.PersonnalCost;
+import com.example.jinsu.work2.network.model.PersonnalCostRequest;
+import com.example.jinsu.work2.network.model.WorkSchedule;
+import com.example.jinsu.work2.network.model.WorkScheduleItem;
 
 import java.util.ArrayList;
 
@@ -39,27 +42,38 @@ public class ApiTestCoastCompany extends ParentActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_api_test_main);
         ButterKnife.bind(this);
-        lblTitle.setText("회사-근로계약서(사업자)");
-        btn1.setText("생성");
-        btn2.setText("리스트");
-        btn3.setText("조회");
-        btn4.setText("조회(계약서)");
-        btn5.setText("계약 승인처리");
+        lblTitle.setText("회사 - 인건비 계산 (사업주)");
+        toolbar.setTitle("회사 - 인건비 계산 (사업주)");
+        btn1.setText("인건비 계산");
+        btn2.setText("기존계산 불러오기");
+        btn3.setText("인건비 저장");
+        btn4.setText("근무일정 저장");
         btn4.setVisibility(View.VISIBLE);
-        btn5.setVisibility(View.VISIBLE);
     }
 
     @OnClick({R.id.btn1,R.id.btn2,R.id.btn3,R.id.btn4,R.id.btn5})
     @Override
     public void onClick(View view) {
         if(view == btn1) {
-
-        } else if(view == btn2) { //사업자 목록
-            TaskManager.api_company_list(new Callback<ArrayList<Company>>() {
+            TaskManager.get_personnal_cost(3, new Callback<PersonnalCost>() {
                 @Override
-                public void success(ArrayList<Company> companies, Response response) {
-                    showLog(LOG_LOGCAT_TOAST, CommonClass.toJson(companies));
-                    edt1.setText(CommonClass.toJson(companies));
+                public void success(PersonnalCost personnalCost, Response response) {
+                    showLog(LOG_LOGCAT_TOAST, CommonClass.toJson(personnalCost));
+                    edt1.setText(CommonClass.toJson(personnalCost));
+                }
+
+                @Override
+                public void failure(RetrofitError error) {
+                    showLog(LOG_LOGCAT_TOAST, CommonClass.showError(error));
+                    edt1.setText(CommonClass.showError(error));
+                }
+            });
+        } else if(view == btn2) {
+            TaskManager.get_personnal_cost_list(3, new Callback<ArrayList<PersonnalCost>>() {
+                @Override
+                public void success(ArrayList<PersonnalCost> perlist, Response response) {
+                    showLog(LOG_LOGCAT_TOAST, CommonClass.toJson(perlist));
+                    edt1.setText(CommonClass.toJson(perlist));
                 }
 
                 @Override
@@ -69,13 +83,20 @@ public class ApiTestCoastCompany extends ParentActivity implements View.OnClickL
                 }
             });
 
-        } else if(view == btn3) { //사업자 조회
-            int companyId = 3;
-            TaskManager.api_company_add_request(companyId, new Callback<Company>() {
+        } else if(view == btn3) {
+            PersonnalCostRequest personnalCostRequest = new PersonnalCostRequest();
+            personnalCostRequest.employee_id = 0;
+            personnalCostRequest.salary_method = "TIME";
+            personnalCostRequest.company_id = 3;
+            personnalCostRequest.title = "";
+            TaskManager.personnal_cost_save(
+                    3,
+                    51,
+                    personnalCostRequest, new Callback<PersonnalCost>() {
                 @Override
-                public void success(Company company, Response response) {
-                    showLog(LOG_LOGCAT_TOAST, CommonClass.toJson(company));
-                    edt1.setText(CommonClass.toJson(company));
+                public void success(PersonnalCost personnalCost, Response response) {
+                    showLog(LOG_LOGCAT_TOAST, CommonClass.toJson(personnalCost));
+                    edt1.setText(CommonClass.toJson(personnalCost));
                 }
 
                 @Override
@@ -85,7 +106,25 @@ public class ApiTestCoastCompany extends ParentActivity implements View.OnClickL
                 }
             });
         } else if(view == btn4) {
+            ArrayList<WorkSchedule> list = new ArrayList<>();
+            list.add(new WorkSchedule(String.valueOf(1)));
 
+            TaskManager.personnal_work_schedule(
+                    3,
+                    51,
+                    list, new Callback<WorkScheduleItem>() {
+                        @Override
+                        public void success(WorkScheduleItem workScheduleItem, Response response) {
+                            showLog(LOG_LOGCAT_TOAST, CommonClass.toJson(workScheduleItem));
+                            edt1.setText(CommonClass.toJson(workScheduleItem));
+                        }
+
+                        @Override
+                        public void failure(RetrofitError error) {
+                            showLog(LOG_LOGCAT_TOAST, CommonClass.showError(error));
+                            edt1.setText(CommonClass.showError(error));
+                        }
+                    });
         }
     }
 
