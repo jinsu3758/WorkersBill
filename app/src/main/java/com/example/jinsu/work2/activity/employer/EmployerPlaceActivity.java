@@ -70,12 +70,24 @@ public class EmployerPlaceActivity extends AppCompatActivity implements CallonCl
     private void setList()
     {
         list.clear();
-        mainViewModel.getCompanyList(new MainViewModel.ListCallback() {
+        /*mainViewModel.getCompanyList(new MainViewModel.ListCallback() {
             @Override
             public void getList(ArrayList<?> mlist) {
                 list.addAll((ArrayList<Company>)mlist);
             }
-        });
+        });*/
+        Company company = new Company();
+        company.name = "테스트 주식회사";
+        company.registration_number = "1231231232"; //TODO 새로생성시 이부분을 변경해야합니다.
+        company.head_postcode = 12345;
+        company.head_address = "경북 경주시";
+        company.postcode = 12345;
+        company.address = "경기도 고양시";
+        company.usage_wifi = true;
+        company.phone = "123123123";
+        company.wifi_ip_address = "127.0.0.1";
+        company.is_less_then_5_employee = true;
+        list.add(company);
         adapter.notifyDataSetChanged();
 
     }

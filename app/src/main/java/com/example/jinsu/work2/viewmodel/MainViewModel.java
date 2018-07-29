@@ -21,8 +21,8 @@ import com.example.jinsu.work2.common.BaseApplication;
 import com.example.jinsu.work2.common.Constants;
 import com.example.jinsu.work2.manager.InfoManager;
 import com.example.jinsu.work2.manager.TaskManager;
-import com.example.jinsu.work2.model.CalcContent;
 import com.example.jinsu.work2.model.Contract;
+import com.example.jinsu.work2.model.ContractWork;
 import com.example.jinsu.work2.model.EmployerPlace;
 import com.example.jinsu.work2.model.User;
 import com.example.jinsu.work2.model.Worker;
@@ -33,6 +33,9 @@ import com.example.jinsu.work2.network.model.Company;
 import com.example.jinsu.work2.network.model.Join;
 import com.example.jinsu.work2.network.model.Login;
 import com.example.jinsu.work2.network.model.LoginResponse;
+import com.example.jinsu.work2.network.model.PersonnalCost;
+import com.example.jinsu.work2.network.model.PersonnalCostRequest;
+import com.example.jinsu.work2.network.model.WorkSchedule;
 import com.example.jinsu.work2.network.worker.WorkerSource;
 import com.example.jinsu.work2.repositories.EmployerRepository;
 import com.example.jinsu.work2.util.CallonClick;
@@ -111,6 +114,7 @@ public class MainViewModel extends ViewModel {
     public final ObservableField<String> calc_week_wage= new ObservableField<>();
     public final ObservableField<String> calc_plus_wage = new ObservableField<>();
     public final ObservableField<String> calc_night_wage = new ObservableField<>();
+    private String method_time;
 
     //    EmployerCalcListActivity
     public final ObservableField<String> calc_num = new ObservableField<>();
@@ -671,7 +675,7 @@ public class MainViewModel extends ViewModel {
             {
                 if(ischeckd)
                 {
-                    Log.d("gogo","hour체크됨");
+                    method_time = "TIME";
                 }
                 else
                 {
@@ -683,7 +687,7 @@ public class MainViewModel extends ViewModel {
             {
                 if(ischeckd)
                 {
-                    Log.d("gogo","mon체크됨");
+                    method_time="MONTH";
                 }
                 else
                 {
@@ -1658,9 +1662,12 @@ public class MainViewModel extends ViewModel {
                 company.wifi_ip_address = place_wifi.get();
                 company.is_less_then_5_employee = check1;
                 company.usage_wifi = check2;
+
                 TaskManager.api_company_me_create(company, new Callback<Company>() {
                     @Override
                     public void success(Company company, Response response) {
+                        int id = company.id;
+                        PreferenceUtil.savePlaceId(id);
                     }
 
                     @Override
@@ -2014,7 +2021,7 @@ public class MainViewModel extends ViewModel {
      *
      */
     //인건비 계산한 데이터 저장
-    public void onSaveCalc(String name)
+    public void onSaveCalc(String name, ContractWork contractWork)
     {
         Calendar cal = Calendar.getInstance();
 
@@ -2029,16 +2036,52 @@ public class MainViewModel extends ViewModel {
         userList.deleteAllFromRealm();
         realm.commitTransaction();*/
 
+        PersonnalCostRequest personnalCostRequest = new PersonnalCostRequest();
+        personnalCostRequest.company_id = PreferenceUtil.loadPlaceId();
+        personnalCostRequest.employee_id = PreferenceUtil.loadUser().id;
+        personnalCostRequest.title = name;
+        personnalCostRequest.salary_method = method_time;
+        TaskManager.personnal_cost_save(
+                PreferenceUtil.loadPlaceId(),
+                51,
+                personnalCostRequest, new Callback<PersonnalCost>() {
+                    @Override
+                    public void success(PersonnalCost personnalCost, Response response) {
+                        Log.d("calc_at",CommonClass.toJson(personnalCost));
+                    }
 
+                    @Override
+                    public void failure(RetrofitError error) {
+                        Log.d("calc_at",CommonClass.showError(error));
+                    }
+                });
 
-        realm.beginTransaction();
+        ArrayList<WorkSchedule> workSchedules = new ArrayList<>();
+
+        /*TaskManager.personnal_work_schedule(
+                PreferenceUtil.loadPlaceId(),
+                51,
+                list, new Callback<WorkScheduleItem>() {
+                    @Override
+                    public void success(WorkScheduleItem workScheduleItem, Response response) {
+                        Log.d("calc_at",CommonClass.toJson(workScheduleItem));
+                    }
+
+                    @Override
+                    public void failure(RetrofitError error) {
+                        Log.d("calc_at",CommonClass.showError(error));
+                    }
+                });*/
+
+        /*realm.beginTransaction();
         CalcContent calc = realm.createObject(CalcContent.class);
         calc.setName(name);
         calc.setTotal_wage("1000");
         calc.setDate(month + "월 " + date + "일 " + hour + ":" + min);
-        realm.commitTransaction();
+        realm.commitTransaction();*/
 
     }
+
 
 
     /**
@@ -2052,6 +2095,23 @@ public class MainViewModel extends ViewModel {
         calc_num.set(num+ "");
     }
 
+
+    public void getCalcList(ListCallback callback)
+    {
+        TaskManager.get_personnal_cost_list(PreferenceUtil.loadPlaceId(), new Callback<ArrayList<PersonnalCost>>() {
+            @Override
+            public void success(ArrayList<PersonnalCost> perlist, Response response) {
+                ArrayList<PersonnalCost> list = perlist;
+                callback.getList(list);
+                Log.d("calc_list",CommonClass.toJson(perlist));
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Log.d("calc_list",CommonClass.showError(error));
+            }
+        });
+    }
     /**
      *
      * EmployerContractWorkerFragment

@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 
 import com.example.jinsu.work2.R;
@@ -72,7 +71,6 @@ public class EmployerHomeActivity extends AppCompatActivity implements CallonCli
 
     @Override
     public void onBtnClick(View view) {
-        Log.d("employer_home",view.getId() + "");
         if(view.getId() == R.id.employer_home_btn_admin)
         {
             startActivity(new Intent(this,EmployerManageActivity.class));
@@ -88,7 +86,6 @@ public class EmployerHomeActivity extends AppCompatActivity implements CallonCli
         else if(view.getId() == R.id.employer_home_btn_drawer)
         {
             binding.employerHomeLayout.openDrawer(GravityCompat.START);
-//            startActivity(new Intent(this,EmployerCreatePlaceActivity.class));
         }
     }
 

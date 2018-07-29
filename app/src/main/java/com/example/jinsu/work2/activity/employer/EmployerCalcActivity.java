@@ -6,11 +6,14 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ArrayAdapter;
 
 import com.example.jinsu.work2.R;
+import com.example.jinsu.work2.common.Constants;
 import com.example.jinsu.work2.databinding.ActivityEmployerCalcBinding;
 import com.example.jinsu.work2.dialog.CalcSaveDialog;
 import com.example.jinsu.work2.dialog.CalcWriteDialog;
+import com.example.jinsu.work2.network.model.PersonnalCost;
 import com.example.jinsu.work2.util.CallonClick;
 import com.example.jinsu.work2.viewmodel.MainViewModel;
 import com.example.jinsu.work2.viewmodel.VIewModelFactory;
@@ -33,6 +36,9 @@ public class EmployerCalcActivity extends AppCompatActivity implements CallonCli
         vIewModelFactory = new VIewModelFactory(this);
         mainViewModel = ViewModelProviders.of(this,vIewModelFactory).get(MainViewModel.class);
         binding.setEmployerCalc(mainViewModel);
+
+        ArrayAdapter rest_adapter = ArrayAdapter.createFromResource(this, R.array.resttime, android.R.layout.simple_spinner_item);
+        binding.spinnerCalcResttime.setAdapter(rest_adapter);
     }
 
     @Override
@@ -47,7 +53,9 @@ public class EmployerCalcActivity extends AppCompatActivity implements CallonCli
             }
             case R.id.employer_calc_btn_load:
             {
-                startActivity(new Intent(this,EmployerCalcListActivity.class));
+                Intent intent = new Intent(this,EmployerCalcListActivity.class);
+                intent.setFlags(0);
+                startActivityForResult(intent, 4);
                 break;
             }
             case R.id.employer_calc_btn_calc:
@@ -60,7 +68,8 @@ public class EmployerCalcActivity extends AppCompatActivity implements CallonCli
                 CalcSaveDialog dialog = new CalcSaveDialog(this, new CalcSaveDialog.onBtnCallback() {
                     @Override
                     public void onSave(String name) {
-                        mainViewModel.onSaveCalc(name);
+                        mainViewModel.onSaveCalc(name, binding.workTimeView.GetData());
+
                         startActivity(new Intent(getBaseContext(),EmployerCalcListActivity.class));
                     }
 
@@ -96,7 +105,7 @@ public class EmployerCalcActivity extends AppCompatActivity implements CallonCli
         CalcSaveDialog dialog = new CalcSaveDialog(this, new CalcSaveDialog.onBtnCallback() {
             @Override
             public void onSave(String name) {
-                mainViewModel.onSaveCalc(name);
+                mainViewModel.onSaveCalc(name, binding.workTimeView.GetData());
                 startActivity(new Intent(getBaseContext(),EmployerCalcListActivity.class));
             }
 
@@ -111,5 +120,15 @@ public class EmployerCalcActivity extends AppCompatActivity implements CallonCli
     @Override
     public void textChanged(int flag) {
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+
+        if(resultCode == RESULT_OK)
+        {
+            PersonnalCost personnalCost = (PersonnalCost)data.getSerializableExtra(Constants.CALC_KEY);
+        }
     }
 }

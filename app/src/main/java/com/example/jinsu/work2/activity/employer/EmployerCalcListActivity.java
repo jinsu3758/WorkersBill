@@ -13,15 +13,15 @@ import android.view.View;
 
 import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.adapter.EmployerCalcListAdapter;
+import com.example.jinsu.work2.common.Constants;
 import com.example.jinsu.work2.databinding.ActivityEmployerCalcListBinding;
-import com.example.jinsu.work2.model.CalcContent;
+import com.example.jinsu.work2.network.model.PersonnalCost;
 import com.example.jinsu.work2.util.CallonClick;
 import com.example.jinsu.work2.viewmodel.MainViewModel;
 import com.example.jinsu.work2.viewmodel.VIewModelFactory;
 
+import java.util.ArrayList;
 import java.util.List;
-
-import io.realm.Realm;
 
 
 public class EmployerCalcListActivity extends AppCompatActivity implements CallonClick {
@@ -31,11 +31,12 @@ public class EmployerCalcListActivity extends AppCompatActivity implements Callo
     private MainViewModel mainViewModel;
     private VIewModelFactory vIewModelFactory;
     private EmployerCalcListAdapter adapter;
-    private List<CalcContent> list;
+    private List<PersonnalCost> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("calc_list",getCallingActivity().getShortClassName());
         initActivity();
         initRecyclerview();
     }
@@ -43,6 +44,7 @@ public class EmployerCalcListActivity extends AppCompatActivity implements Callo
 
     private void initActivity()
     {
+        list = new ArrayList<>();
         binding = DataBindingUtil.setContentView(this, R.layout.activity_employer_calc_list);
         vIewModelFactory = new VIewModelFactory(this);
         mainViewModel = ViewModelProviders.of(this,vIewModelFactory).get(MainViewModel.class);
@@ -55,17 +57,20 @@ public class EmployerCalcListActivity extends AppCompatActivity implements Callo
 
     private void initRecyclerview()
     {
-        list = Realm.getDefaultInstance().where(CalcContent.class).findAll();
-        mainViewModel.setNum(list.size());
         adapter = new EmployerCalcListAdapter(this, list, new EmployerCalcListAdapter.onClickCallback() {
             @Override
             public void onClick(int position) {
-
+                Intent intent = new Intent();
+                intent.putExtra(Constants.CALC_KEY,list.get(position));
+                setResult(RESULT_OK, intent);
+                finish();
             }
         });
         binding.employerCalcRecycle.setHasFixedSize(true);
         binding.employerCalcRecycle.setLayoutManager(new LinearLayoutManager(this));
         binding.employerCalcRecycle.setAdapter(adapter);
+        setList();
+
     }
 
     @Override
@@ -76,10 +81,26 @@ public class EmployerCalcListActivity extends AppCompatActivity implements Callo
         }
         else if(view.getId() == R.id.employer_calc_list_btn_home)
         {
-            Log.v("태그9","999999999");
             startActivity(new Intent(this,EmployerHomeActivity.class));
             finish();
         }
+    }
+
+    public void setList()
+    {
+        list.clear();
+        PersonnalCost p = new PersonnalCost();
+        p.title = "rr";
+        p.reg_date= "re";
+        list.add(p);
+        mainViewModel.getCalcList(new MainViewModel.ListCallback() {
+            @Override
+            public void getList(ArrayList<?> mlist) {
+                list.addAll((ArrayList<PersonnalCost>)mlist);
+                mainViewModel.setNum(list.size());
+            }
+        });
+        adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -95,4 +116,5 @@ public class EmployerCalcListActivity extends AppCompatActivity implements Callo
             super.onBackPressed();
         }
     }
+
 }

@@ -22,4 +22,16 @@ public class PreferenceUtil {
         String json = Constants.preferences.getString(Constants.PREF_USR,null);
         return gson.fromJson(json,Join.class);
     }
+
+    public static void savePlaceId(int id)
+    {
+        SharedPreferences.Editor prefEditor = Constants.preferences.edit();
+
+        prefEditor.putInt(Constants.PREF_PLACE,id).apply();
+    }
+
+    public static int loadPlaceId()
+    {
+        return Constants.preferences.getInt(Constants.PREF_PLACE, 0);
+    }
 }

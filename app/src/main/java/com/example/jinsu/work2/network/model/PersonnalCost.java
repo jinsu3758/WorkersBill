@@ -2,6 +2,7 @@ package com.example.jinsu.work2.network.model;
 
 import com.google.gson.annotations.Expose;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 `
  }
  */
-public class PersonnalCost {
+public class PersonnalCost implements Serializable {
     @Expose public Integer id;
     @Expose public Integer contract_id;
     @Expose public Integer company_id;

@@ -10,16 +10,16 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.jinsu.work2.R;
-import com.example.jinsu.work2.model.CalcContent;
+import com.example.jinsu.work2.network.model.PersonnalCost;
 
 import java.util.List;
 
 public class EmployerCalcListAdapter extends RecyclerView.Adapter<EmployerCalcListAdapter.ViewHolder> {
-    private List<CalcContent> list;
+    private List<PersonnalCost> list;
     private Context context;
     private EmployerCalcListAdapter.onClickCallback callback;
 
-    public EmployerCalcListAdapter(Context context, List<CalcContent> list, EmployerCalcListAdapter.onClickCallback callback) {
+    public EmployerCalcListAdapter(Context context, List<PersonnalCost> list, EmployerCalcListAdapter.onClickCallback callback) {
         this.context = context;
         this.list = list;
         this.callback = callback;
@@ -41,8 +41,8 @@ public class EmployerCalcListAdapter extends RecyclerView.Adapter<EmployerCalcLi
     @Override
     public void onBindViewHolder(EmployerCalcListAdapter.ViewHolder holder, int position) {
         if(!list.isEmpty()) {
-            holder.name.setText(list.get(position).getName());
-            holder.date.setText(list.get(position).getDate());
+            holder.name.setText(list.get(position).title);
+            holder.date.setText(list.get(position).reg_date);
             holder.layout.setOnClickListener(v ->
             {
                 callback.onClick(position);
