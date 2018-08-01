@@ -1,9 +1,10 @@
 package com.example.jinsu.work2.activity.employer;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 
 import com.example.jinsu.work2.R;
@@ -27,7 +28,10 @@ public class EmployerContractWriteActivity extends AppCompatActivity implements 
 
     private void initActivity()
     {
-
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_employer_contract_write);
+        vIewModelFactory = new VIewModelFactory(this);
+        mainViewModel = ViewModelProviders.of(this,vIewModelFactory).get(MainViewModel.class);
+        binding.setEmployerContractWrite(mainViewModel);
     }
 
 
@@ -52,10 +56,9 @@ public class EmployerContractWriteActivity extends AppCompatActivity implements 
             }
             case R.id.employer_contract_write_btn_write:
             {
-                Log.v("태그4", "4444444");
+                Intent intent = new Intent(this, EmployerContractFinActivity.class);
                 startActivity(new Intent(this,EmployerHomeActivity.class));
                 finish();
-                //break;
             }
         }
     }

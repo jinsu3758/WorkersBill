@@ -30,6 +30,7 @@ import com.example.jinsu.work2.network.CommonClass;
 import com.example.jinsu.work2.network.SignThread;
 import com.example.jinsu.work2.network.contract.ContractSource;
 import com.example.jinsu.work2.network.model.Company;
+import com.example.jinsu.work2.network.model.CompanyContract;
 import com.example.jinsu.work2.network.model.Join;
 import com.example.jinsu.work2.network.model.Login;
 import com.example.jinsu.work2.network.model.LoginResponse;
@@ -119,7 +120,7 @@ public class MainViewModel extends ViewModel {
     //    EmployerCalcListActivity
     public final ObservableField<String> calc_num = new ObservableField<>();
 
-    //    EmployerContractWiteActivity
+    //    EmployerContractWriteActivity
     public final ObservableField<String> contract_write_owner = new ObservableField<>();
     public final ObservableField<String> contract_write_worker = new ObservableField<>();
     public final ObservableField<String> contract_write_place = new ObservableField<>();
@@ -297,6 +298,15 @@ public class MainViewModel extends ViewModel {
     private Boolean check3 = true;
     private Boolean check4 = true;
     private Boolean check5 = true;
+
+    //계약서 작성 checkbox
+    private Boolean ch_hour_wage =true;
+    private Boolean ch_month_day_wage = true;
+    private Boolean ch_way_wage = true;
+    private Boolean ch_insur_hire = true;
+    private Boolean ch_insur_accident = true;
+    private Boolean ch_insur_pension = true;
+    private Boolean ch_insur_health = true;
 
 
     // private UserDao userDao;
@@ -490,12 +500,7 @@ public class MainViewModel extends ViewModel {
 
                     }
                 });
-                contract_write_worker.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
-                    @Override
-                    public void onPropertyChanged(Observable sender, int propertyId) {
 
-                    }
-                });
                 contract_write_place.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
                     @Override
                     public void onPropertyChanged(Observable sender, int propertyId) {
@@ -699,11 +704,7 @@ public class MainViewModel extends ViewModel {
             {
                 if(ischeckd)
                 {
-                    Log.d("gogo","hour체크됨");
-                }
-                else
-                {
-                    Log.d("gogo","hour체크x");
+                   ch_hour_wage = true;
                 }
                 break;
             }
@@ -711,11 +712,7 @@ public class MainViewModel extends ViewModel {
             {
                 if(ischeckd)
                 {
-                    Log.d("gogo","month체크됨");
-                }
-                else
-                {
-                    Log.d("gogo","month체크x");
+                    ch_hour_wage = false;
                 }
                 break;
             }
@@ -723,11 +720,7 @@ public class MainViewModel extends ViewModel {
             {
                 if(ischeckd)
                 {
-                    Log.d("gogo","pay_day체크됨");
-                }
-                else
-                {
-                    Log.d("gogo","pay_day체크x");
+                    ch_month_day_wage = false;
                 }
                 break;
             }
@@ -735,11 +728,7 @@ public class MainViewModel extends ViewModel {
             {
                 if(ischeckd)
                 {
-                    Log.d("gogo","pay_month체크됨");
-                }
-                else
-                {
-                    Log.d("gogo","pay_month체크x");
+                    ch_month_day_wage = true;
                 }
                 break;
             }
@@ -747,11 +736,7 @@ public class MainViewModel extends ViewModel {
             {
                 if(ischeckd)
                 {
-                    Log.d("gogo","pay_how1체크됨");
-                }
-                else
-                {
-                    Log.d("gogo","pay_how1체크x");
+                    ch_way_wage = true;
                 }
                 break;
             }
@@ -759,11 +744,7 @@ public class MainViewModel extends ViewModel {
             {
                 if(ischeckd)
                 {
-                    Log.d("gogo","pay_how2체크됨");
-                }
-                else
-                {
-                    Log.d("gogo","pay_how2체크x");
+                    ch_way_wage = false;
                 }
                 break;
             }
@@ -771,11 +752,11 @@ public class MainViewModel extends ViewModel {
             {
                 if(ischeckd)
                 {
-                    Log.d("gogo","insure1체크됨");
+                    ch_insur_hire = true;
                 }
                 else
                 {
-                    Log.d("gogo","insure1체크x");
+                    ch_insur_hire = false;
                 }
                 break;
             }
@@ -783,11 +764,11 @@ public class MainViewModel extends ViewModel {
             {
                 if(ischeckd)
                 {
-                    Log.d("gogo","insure2체크됨");
+                    ch_insur_accident = true;
                 }
                 else
                 {
-                    Log.d("gogo","insure2체크x");
+                    ch_insur_accident = false;
                 }
                 break;
             }
@@ -795,11 +776,11 @@ public class MainViewModel extends ViewModel {
             {
                 if(ischeckd)
                 {
-                    Log.d("gogo","insure3체크됨");
+                    ch_insur_pension = true;
                 }
                 else
                 {
-                    Log.d("gogo","insure3체크x");
+                    ch_insur_pension = false;
                 }
                 break;
             }
@@ -807,11 +788,11 @@ public class MainViewModel extends ViewModel {
             {
                 if(ischeckd)
                 {
-                    Log.d("gogo","insure4체크됨");
+                    ch_insur_health = true;
                 }
                 else
                 {
-                    Log.d("gogo","insure4체크x");
+                    ch_insur_health = false;
                 }
                 break;
             }
@@ -2112,6 +2093,61 @@ public class MainViewModel extends ViewModel {
             }
         });
     }
+
+    /**
+     * EmployerContractWriteActivity
+     * 로그인 Activity
+     */
+
+    public CompanyContract getContract()
+    {
+        /*public final ObservableField<String> contract_write_owner = new ObservableField<>();
+        public final ObservableField<String> contract_write_worker = new ObservableField<>();
+        public final ObservableField<String> contract_write_place = new ObservableField<>();
+        public final ObservableField<String> contract_write_content = new ObservableField<>();
+        public final ObservableField<String> contract_write_term1 = new ObservableField<>();
+        public final ObservableField<String> contract_write_term2 = new ObservableField<>();
+        public final ObservableField<String> contract_write_day = new ObservableField<>();
+        public final ObservableField<String> contract_write_holiday = new ObservableField<>();
+        public final ObservableField<String> contract_write_wage = new ObservableField<>();
+        public final ObservableField<String> contract_write_bonus = new ObservableField<>();
+        public final ObservableField<String> contract_write_excess = new ObservableField<>();
+        public final ObservableField<String> contract_write_edit_month = new ObservableField<>();*/
+        CompanyContract contract = new CompanyContract();
+        contract.employer_name = contract_write_owner.get();
+        contract.employee_name = contract_write_worker.get();
+        contract.working_place = contract_write_place.get();
+        contract.working_description = contract_write_content.get();
+        contract.begin = contract_write_term1.get();
+        contract.end = contract_write_term2.get();
+        contract.approve_date = contract_write_day.get();
+        contract.work_day = contract_write_day.get();
+        contract.holiday = contract_write_holiday.get();
+        contract.wage = contract_write_wage.get();
+        contract.bonus_pay = Integer.valueOf(contract_write_bonus.get());
+        contract.bonus_rate_of_over_time = Integer.valueOf(contract_write_excess.get()) / 100;
+        if(ch_month_day_wage)
+        {
+            contract.payment_cycle = "MONTHLY";
+        }
+        if(ch_way_wage)
+        {
+            contract.payment_method = "BANK_TRANSFER";
+        }
+        else
+        {
+
+        }
+        contract.insu_employment = ch_insur_hire;
+        contract.insu_health = ch_insur_health;
+        contract.insu_industrial_accident = ch_insur_accident;
+        contract.insu_national = ch_insur_pension;
+
+        return contract;
+
+    }
+
+
     /**
      *
      * EmployerContractWorkerFragment

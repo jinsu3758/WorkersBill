@@ -3,6 +3,8 @@ package com.example.jinsu.work2.network.model;
 
 import com.google.gson.annotations.Expose;
 
+import java.io.Serializable;
+
 /*
 {
   "id": 227,
@@ -37,7 +39,7 @@ import com.google.gson.annotations.Expose;
   "insu_health": false
 }
  */
-public class CompanyContract {
+public class CompanyContract implements Serializable {
 
     @Expose public String id;
     @Expose public Integer company_id;
@@ -69,4 +71,8 @@ public class CompanyContract {
     @Expose public Boolean insu_industrial_accident;
     @Expose public Boolean insu_national;
     @Expose public Boolean insu_health;
+    @Expose public WorkScheduleItem schedule;
+    public String holiday;
+    public String wage;
+    public String work_day;
 }
