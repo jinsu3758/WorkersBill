@@ -19,12 +19,15 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.common.BaseApplication;
 import com.example.jinsu.work2.common.Constants;
+import com.example.jinsu.work2.enums.WorkTimeType;
 import com.example.jinsu.work2.manager.InfoManager;
 import com.example.jinsu.work2.manager.TaskManager;
 import com.example.jinsu.work2.model.Contract;
 import com.example.jinsu.work2.model.ContractWork;
 import com.example.jinsu.work2.model.EmployerPlace;
+import com.example.jinsu.work2.model.RestTime;
 import com.example.jinsu.work2.model.User;
+import com.example.jinsu.work2.model.WorkTime;
 import com.example.jinsu.work2.model.Worker;
 import com.example.jinsu.work2.network.CommonClass;
 import com.example.jinsu.work2.network.SignThread;
@@ -37,6 +40,7 @@ import com.example.jinsu.work2.network.model.LoginResponse;
 import com.example.jinsu.work2.network.model.PersonnalCost;
 import com.example.jinsu.work2.network.model.PersonnalCostRequest;
 import com.example.jinsu.work2.network.model.WorkSchedule;
+import com.example.jinsu.work2.network.model.WorkScheduleItem;
 import com.example.jinsu.work2.network.worker.WorkerSource;
 import com.example.jinsu.work2.repositories.EmployerRepository;
 import com.example.jinsu.work2.util.CallonClick;
@@ -50,6 +54,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import io.realm.Realm;
@@ -2099,20 +2104,8 @@ public class MainViewModel extends ViewModel {
      * 로그인 Activity
      */
 
-    public CompanyContract getContract()
+    public CompanyContract getContract(ContractWork work)
     {
-        /*public final ObservableField<String> contract_write_owner = new ObservableField<>();
-        public final ObservableField<String> contract_write_worker = new ObservableField<>();
-        public final ObservableField<String> contract_write_place = new ObservableField<>();
-        public final ObservableField<String> contract_write_content = new ObservableField<>();
-        public final ObservableField<String> contract_write_term1 = new ObservableField<>();
-        public final ObservableField<String> contract_write_term2 = new ObservableField<>();
-        public final ObservableField<String> contract_write_day = new ObservableField<>();
-        public final ObservableField<String> contract_write_holiday = new ObservableField<>();
-        public final ObservableField<String> contract_write_wage = new ObservableField<>();
-        public final ObservableField<String> contract_write_bonus = new ObservableField<>();
-        public final ObservableField<String> contract_write_excess = new ObservableField<>();
-        public final ObservableField<String> contract_write_edit_month = new ObservableField<>();*/
         CompanyContract contract = new CompanyContract();
         contract.employer_name = contract_write_owner.get();
         contract.employee_name = contract_write_worker.get();
@@ -2142,7 +2135,38 @@ public class MainViewModel extends ViewModel {
         contract.insu_health = ch_insur_health;
         contract.insu_industrial_accident = ch_insur_accident;
         contract.insu_national = ch_insur_pension;
+        contract.schedule.hour_pay = Integer.parseInt(contract_write_wage.get());
 
+        List<RestTime> rest_times = work.getRestTime();
+        List<WorkTime> work_times = work.getWorkTime();
+
+
+        int cnt = 0;
+        WorkScheduleItem item = new WorkScheduleItem();
+        for(WorkTime time : work_times)
+        {
+            if(time.getType() == WorkTimeType.Work)
+            {
+                if(cnt !=0)
+                {
+                    contract.schedule.weekly_items.add(item);
+                }
+                item.begin = String.valueOf(time.getStart());
+                item.end = String.valueOf(time.getEnd());
+                item.day_of_week = time.getWeek().getValue();
+                item.item_type = "work";
+                cnt++;
+            }
+            else
+            {
+                WorkScheduleItem meal = new WorkScheduleItem();
+                meal.item_type = "meal";
+                meal.day_of_week = time.getWeek().getValue();
+                meal.begin = String.valueOf(time.getStart());
+                meal.end = String.valueOf(time.getEnd());
+                item.meals.add(meal);
+            }
+        }
         return contract;
 
     }

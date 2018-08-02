@@ -71,7 +71,7 @@ public class CompanyContract implements Serializable {
     @Expose public Boolean insu_industrial_accident;
     @Expose public Boolean insu_national;
     @Expose public Boolean insu_health;
-    @Expose public WorkScheduleItem schedule;
+    @Expose public Schedule schedule;
     public String holiday;
     public String wage;
     public String work_day;

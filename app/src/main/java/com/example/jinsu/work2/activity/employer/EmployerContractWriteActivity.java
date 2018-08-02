@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.example.jinsu.work2.R;
 import com.example.jinsu.work2.databinding.ActivityEmployerContractWriteBinding;
+import com.example.jinsu.work2.network.model.CompanyContract;
 import com.example.jinsu.work2.util.CallonClick;
 import com.example.jinsu.work2.viewmodel.MainViewModel;
 import com.example.jinsu.work2.viewmodel.VIewModelFactory;
@@ -52,6 +53,7 @@ public class EmployerContractWriteActivity extends AppCompatActivity implements 
             }
             case R.id.employer_contract_write_btn_save:
             {
+                CompanyContract contract = mainViewModel.getContract(binding.contractWorkTimeView.GetData());
                 break;
             }
             case R.id.employer_contract_write_btn_write:
